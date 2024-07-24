@@ -1,0 +1,173 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/scopedcss/projectbundle/WebApps.bundle.scp.css",
+      "PackagePath": "staticwebassets/WebApps.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/CSS/site.css",
+      "PackagePath": "staticwebassets/CSS/site.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/JS/site.js",
+      "PackagePath": "staticwebassets/JS/site.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.min.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/CSS/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/JS/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/JS/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/JS/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/JS/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.js",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/JS/bootstrap.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.min.js",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP/DIST/JS/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/LICENSE",
+      "PackagePath": "staticwebassets/LIB/BOOTSTRAP"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/LICENSE.txt",
+      "PackagePath": "staticwebassets/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION/DIST/additional-methods.js",
+      "PackagePath": "staticwebassets/LIB/JQUERY-VALIDATION/DIST/additional-methods.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION/DIST/additional-methods.min.js",
+      "PackagePath": "staticwebassets/LIB/JQUERY-VALIDATION/DIST/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION/DIST/jquery.validate.js",
+      "PackagePath": "staticwebassets/LIB/JQUERY-VALIDATION/DIST/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION/DIST/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/LIB/JQUERY-VALIDATION/DIST/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION/LICENSE.md",
+      "PackagePath": "staticwebassets/LIB/JQUERY-VALIDATION/LICENSE.md"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY/DIST/jquery.js",
+      "PackagePath": "staticwebassets/LIB/JQUERY/DIST/jquery.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY/DIST/jquery.min.js",
+      "PackagePath": "staticwebassets/LIB/JQUERY/DIST/jquery.min.js"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY/LICENSE.txt",
+      "PackagePath": "staticwebassets/LIB/JQUERY/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.WebApps.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.WebApps.props",
+      "PackagePath": "build\\WebApps.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.WebApps.props",
+      "PackagePath": "buildMultiTargeting\\WebApps.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.WebApps.props",
+      "PackagePath": "buildTransitive\\WebApps.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

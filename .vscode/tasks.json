@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Debug-Restore",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "restore",
+                "${workspaceFolder}/WebApps.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+		{
+            "label": "Release-Restore",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "restore",
+                "${workspaceFolder}/WebApps.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            
+            "label": "Debug-Build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/WebApps.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "dependsOn":["Debug-Restore"]
+        },
+        {
+            
+            "label": "Release-Build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/WebApps.csproj", 
+				"-c",
+				"Release"
+            ],
+            "problemMatcher": "$msCompile",
+            "dependsOn":["Release-Restore"]
+        }
+    ]
+}
