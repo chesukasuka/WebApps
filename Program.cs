@@ -4,6 +4,8 @@ using System.IO;
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NCaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXhcc3RSQ2BeWEd3XUQ=");
 var builder = WebApplication.CreateBuilder(args);
 
+services.AddDbContext<MasterDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 if (Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), @"node_modules", @"@syncfusion")))

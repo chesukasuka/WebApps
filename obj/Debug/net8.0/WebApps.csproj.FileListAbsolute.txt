@@ -34,3 +34,4 @@
 /Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/WebApps.pdb
 /Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/WebApps.genruntimeconfig.cache
 /Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/ref/WebApps.dll
+/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/WebApps.sourcelink.json

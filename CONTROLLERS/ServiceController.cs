@@ -18,5 +18,33 @@ namespace WebApps.Controllers
             return View();
         }
 
+
+        public IActionResult test(){
+            try
+            {
+                using (var context = new MasterDbContext())
+                {
+                    // // Create
+                    // var product = new Product { Name = "Product A", Price = 10.99m };
+                    // context.Products.Add(product);
+                    // context.SaveChanges();
+
+                    // // Read
+                    // var products = context.Products.ToList();
+
+                    // // Update
+                    // product.Price = 12.99m;
+                    // context.SaveChanges();
+
+                    // // Delete
+                    // context.Products.Remove(product);
+                    // context.SaveChanges();
+                }                
+            }
+            catch (System.Exception)
+            {                
+                throw;
+            }
+        }
     }
 }
