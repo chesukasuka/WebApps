@@ -1,10 +1,15 @@
 using System.IO;
+using Microsoft.EntityFrameworkCore;
+using WebApps.Controllers;
 
 //Register Syncfusion license
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NCaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXhcc3RSQ2BeWEd3XUQ=");
 var builder = WebApplication.CreateBuilder(args);
 
-services.AddDbContext<MasterDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+//add Connection default
+builder.Services.AddControllers();
+builder.Services.AddDbContext<MasterDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -51,3 +56,26 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+// // Configure the HTTP request pipeline.
+// if (app.Environment.IsDevelopment())
+// {
+//     app.UseDeveloperExceptionPage();
+// }
+// else
+// {
+//     app.UseExceptionHandler("/Home/Error");
+//     app.UseHsts();
+// }
+
+// app.UseHttpsRedirection();
+// app.UseStaticFiles();
+
+// app.UseRouting();
+
+// app.UseAuthorization();
+
+// app.MapControllers();
+
+// app.Run();

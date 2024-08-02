@@ -1,9 +1,192 @@
+@using Syncfusion.EJ2
+@using Syncfusion.EJ2.DropDowns
+@using Syncfusion.EJ2.Inputs
+@using WebApps.Models.ServiceModel;
+@using WebApps.Controllers;
+
+
 @{
-    ViewData["Title"] = "Benchmarking";
+    ViewData["Title"] = "test page";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan Benchmarking Data Pembanding. 
-    Data Pembanding Eksternal yang tersedia diperoleh dari BvD TPCatalyst yang kemudian diolah menjadi Benchmarking Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha.</p>
-<p>Berdasarkan PMK No. 172 Tahun 2023 tentang Penerapan Prinsip Kewajaran dan Kelaziman Usaha Dalam Transaksi Yang Dipengaruhi Hubungan Istimewa, 
-    penentuan harga transfer yang memenuhi Prinsip Kewajaran dan Kelaziman Usaha menggunakan titik paling tepat di dalam Benchmarking atau titik tengah (median) di dalam rentang kewajaran.</p>
+<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+    <p>Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding 
+        yang sering disebut dengan Benchmarking Data Pembanding. Data Pembanding Eksternal yang tersedia diperoleh dari BvD TPCatalyst 
+        yang kemudian diolah menjadi Benchmarking Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha.
+    </p>
+    <p>Berdasarkan PMK No. 172 Tahun 2023 tentang Penerapan Prinsip Kewajaran dan Kelaziman Usaha Dalam Transaksi Yang Dipengaruhi 
+        Hubungan Istimewa, penentuan harga transfer yang memenuhi Prinsip Kewajaran dan Kelaziman Usaha menggunakan titik paling 
+        tepat di dalam Benchmarking atau titik tengah (median) di dalam rentang kewajaran.
+    </p>
+</div>
+
+<div class="col-lg-12 control-section card-control-section basic_card_layout">
+        <div class="e-card-resize-container">
+            <div class='row'>
+                <div class="row card-layout">
+                    <div class="col-xs-8 col-sm-8 col-lg-8 col-md-8">
+                        <div class="row">
+                            <div tabindex="0" class="e-card" id="basic_card">
+                                <div class="e-card-header">
+                                    <div class="e-card-header-caption">
+                                        <div class="e-card-header-title">Benchmarking Ratio</div>
+                                        @* <div class="e-card-sub-title">Masukan parameter yang dibutuhkan, lalu klik hitung </div> *@
+                                    </div>
+                                </div>
+                                <div class="e-card-content">
+                                    <div class="control-section">
+
+                                        <div class="control-section">
+                                            @Html.EJS().Grid("Grid").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.dataSource).Columns(col => {
+                                                col.Field("nama_perusahaan").HeaderText("Nama Perusahaan").Width("30%").Add();
+                                                col.Field("negara").HeaderText("Negara").Width("15%").Add();
+                                                col.Field("tahun2019").HeaderText("2019").Add();
+                                                col.Field("tahun2020").HeaderText("2020").Add();
+                                                col.Field("tahun2021").HeaderText("2021").Add();
+                                                col.Field("tahun2023").HeaderText("2023").Add();
+                                                col.Field("tahun2024").HeaderText("2024").Add();
+                                            }).AllowPaging(false).Render()
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div tabindex="0" class="e-card" id="basic_card" style="padding-top: 20px;">
+                                <div class="e-card-header">
+                                    <div class="e-card-header-caption">
+                                        <div class="e-card-header-title">Rangkuman</div>
+                                        @* <div class="e-card-sub-title">Masukan parameter yang dibutuhkan, lalu klik hitung </div> *@
+                                    </div>
+                                </div>
+                                <div class="e-card-content">
+                                    <div class="control-section">
+                                        <div class="control-section">
+                                            @Html.EJS().Grid("Grid2").DataSource((IEnumerable<object>)ViewBag.dataSource2).Columns(col => {
+                                                col.Field("keterangan").HeaderText("Keterangan").Width("45%").Add();
+                                                col.Field("tahun2019").HeaderText("2019").Add();
+                                                col.Field("tahun2020").HeaderText("2020").Add();
+                                                col.Field("tahun2021").HeaderText("2021").Add();
+                                                col.Field("tahun2023").HeaderText("2023").Add();
+                                                col.Field("tahun2024").HeaderText("2024").Add();
+                                            }).AllowPaging().PageSettings(page=>page.PageCount(10)).Render()
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
+                        <div tabindex="0" class="e-card" id="basic_card">
+                            <div class="e-card-header">
+                                <div class="e-card-header-caption">
+                                    <div class="e-card-header-title">LAPORAN KEUANGAN PERUSAHAAN</div>
+                                    <div class="e-card-sub-title">Masukan parameter yang dibutuhkan, lalu klik hitung </div>
+                                </div>
+                            </div>
+                            <div class="e-card-content">
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().NumericTextBox("penjualan").Format("N0").Placeholder("Penjualan").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().NumericTextBox("hargapokokpenjualan").Format("N0").Placeholder("Harga Pokok Penjualan").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().NumericTextBox("labakotor").Format("N0").Placeholder("Laba Kotor").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().NumericTextBox("bebanoperasional").Format("N0").Placeholder("Beban Operasional").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().NumericTextBox("labaoperasional").Format("N0").Placeholder("Laba Operasional").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().ComboBox("klasifikasiusaha").Index(0).Placeholder("Klasifikasi Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.klasifikasi).Change("klasifikasiChange").Fields(new ComboBoxFieldSettings { Text = "klasifikasi_usaha", Value = "klasifikasi_usaha" }).Render()                                                                
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().ComboBox("jeniskegiatanusaha").Index(0).Placeholder("Jenis Kegiatan Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.jenis).Change("jenisChange").Fields(new ComboBoxFieldSettings { Text = "jenis_kegiatan_usaha", Value = "jenis_kegiatan_usaha" }).Render()                                
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().ComboBox("ratio").Index(0).Placeholder("Ratio").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "rasio", Value = "rasio" }).Render()                                
+                                </div>
+
+                                @* <div class="e-card-header-caption" style="padding-top: 20px;">Tahun</div>
+                                <div style="padding-top: 20px; padding-left: 20px; padding-right: 20px;">
+                                    @Html.EJS().Slider("tahun").Min(UtilityController.dtYear-5).Max(UtilityController.dtYear).Value(ViewBag.sliderValue).Step(1).Enabled(true).Ticks(new SliderTicksData { Placement = Placement.Before, LargeStep = 1, ShowSmallTicks = true }).Type(SliderType.Range).Render()
+                                </div> *@
+                                
+                            </div>
+                            <div class="e-card-actions e-card-vertical" style="margin-left: 10px; margin-bottom: 10px; margin-right: 10px;">
+                                @Html.EJS().Button("btnHitung").Content("Hitung").IsPrimary(true).CssClass("e-card-btn").Render()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="row card-layout">
+                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">                                                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<script>
+    @* document.getElementById("btnHitung").addEventListener('click', function () {
+        fetch('@Url.Action("Hitung","Service")');
+        GridBenchmark.refresh(); 
+    }); *@
+
+    document.getElementById('btnHitung').onclick = () => {        
+        
+        loadCustomers()
+    };
+    
+    function loadCustomers() {
+        var grid = document.getElementById("Grid").ej2_instances[0];
+        var klasifikasi = document.getElementById("klasifikasiusaha").ej2_instances[0];
+        var jenis = document.getElementById("jeniskegiatanusaha").ej2_instances[0];
+        var rasio = document.getElementById("ratio").ej2_instances[0];
+        var payload = {};
+        payload.klasifikasi = klasifikasi;
+        payload.jenis = jenis;
+        payload.rasio = rasio;
+
+        fetch('@Url.Action("Hitung", "Service")' + '?rasio=' + rasio.value + '?jenis=' + jenis.value + '?klasifikasi=' + klasifikasi.value)
+        .then(response => response.json())
+        .then(data => {
+            grid.dataSource = data;
+            grid.refresh();
+        });
+    };
+
+    function klasifikasiChange() {
+        var games = document.getElementById('klasifikasi_usaha').ej2_instances[0];
+        var value = document.getElementById('value');
+        var text = document.getElementById('text');
+        value.innerHTML = games.value === null ? 'null' : games.value.toString();
+        text.innerHTML = games.text === null ? 'null' : games.text.toString();
+    };
+
+    function jenisChange() {
+        var games = document.getElementById('jenis_kegiatan_usaha').ej2_instances[0];
+        var value = document.getElementById('value');
+        var text = document.getElementById('text');
+        value.innerHTML = games.value === null ? 'null' : games.value.toString();
+        text.innerHTML = games.text === null ? 'null' : games.text.toString();
+    };
+
+    function ratioChange() {
+        var games = document.getElementById('ratio').ej2_instances[0];
+        var value = document.getElementById('value');
+        var text = document.getElementById('text');
+        value.innerHTML = games.value === null ? 'null' : games.value.toString();
+        text.innerHTML = games.text === null ? 'null' : games.text.toString();
+    };
+
+</script>

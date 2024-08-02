@@ -20,3 +20,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.ct-card-content-body{
+  padding-bottom: 10px;
+}
