@@ -24,3 +24,16 @@ body {
 .ct-card-content-body{
   padding-bottom: 10px;
 }
+
+.head-img-benchmarking{
+  background-image: url('../IMAGE/Benchmarking_bg1.jpeg');
+  width: 100vw; /* Full viewport width */
+  margin-left: calc(-50vw + 50%); /* Center align */
+  background-size: cover; /* Stretch the background image */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+  padding: 20px; /* Optional padding */
+  text-align: left; /* Center text */
+  color: white; /* Optional text color for contrast */
+  height: 350px;
+}

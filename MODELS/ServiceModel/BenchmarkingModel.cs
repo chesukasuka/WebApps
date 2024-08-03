@@ -35,11 +35,21 @@ namespace WebApps.Models.ServiceModel
     //     public double? rasio { get; set; }
     // }
 
-    public class BenchmarkingHitungModel
+    public class BenchmarkingResult
     {
-        public int tahun_awal { get; set; }
-        public int tahun_akhir { get; set; }
-        public string rasio { get; set; }
+        public string keterangan { get; set; }
+        public double? tahun2019 { get; set; } = 0;
+        public double? tahun2020 { get; set; } = 0;
+        public double? tahun2021 { get; set; } = 0;
+        public double? tahun2022 { get; set; } = 0;
+        public double? tahun2023 { get; set; } = 0;
+        public double? tahun2024 { get; set; } = 0;
+        public double? rasio2025 { get; set; } = 0;
+        public double? rasio2026 { get; set; } = 0;
+        public double? rasio2027 { get; set; } = 0;
+        public double? rasio2028 { get; set; } = 0;
+        public double? rasio2029 { get; set; } = 0;
+        public double? rasio2030 { get; set; } = 0;
     }
 
 }
