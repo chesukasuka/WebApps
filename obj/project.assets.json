@@ -4236,11 +4236,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\WebApps.csproj",
+      "projectUniqueName": "F:\\Central Data Acces\\Project web\\WebApps Progress\\WebApps.csproj",
       "projectName": "WebApps",
-      "projectPath": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\WebApps.csproj",
+      "projectPath": "F:\\Central Data Acces\\Project web\\WebApps Progress\\WebApps.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\obj\\",
+      "outputPath": "F:\\Central Data Acces\\Project web\\WebApps Progress\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
