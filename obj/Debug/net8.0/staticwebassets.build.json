@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SCo94mP8KrUGJd765tnnyWgA+C0ARbIBmPYa+ySzN3Q=",
+  "Hash": "MVjsgIcxKj9RDtmBI5IdOWPoCEOC54BHsbS5F+QSWfU=",
   "Source": "WebApps",
   "BasePath": "_content/WebApps",
   "Mode": "Default",
@@ -8,19 +8,19 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "WebApps/wwwroot",
+      "Name": "WebApps\\wwwroot",
       "Source": "WebApps",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/scopedcss/bundle/WebApps.styles.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\obj\\Debug\\net8.0\\scopedcss\\bundle\\WebApps.styles.css",
       "SourceId": "WebApps",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/scopedcss/bundle/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "WebApps.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/scopedcss/bundle/WebApps.styles.css"
+      "OriginalItemSpec": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\obj\\Debug\\net8.0\\scopedcss\\bundle\\WebApps.styles.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/scopedcss/projectbundle/WebApps.bundle.scp.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\WebApps.bundle.scp.css",
       "SourceId": "WebApps",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/scopedcss/projectbundle/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "WebApps.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/Debug/net8.0/scopedcss/projectbundle/WebApps.bundle.scp.css"
+      "OriginalItemSpec": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\WebApps.bundle.scp.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/CSS/site.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\CSS\\site.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "CSS/site.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/CSS/site.css"
+      "OriginalItemSpec": "wwwroot\\CSS\\site.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/favicon.ico",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\favicon.ico",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/favicon.ico"
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/JS/site.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\JS\\site.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "JS/site.js",
       "AssetKind": "All",
@@ -109,13 +109,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/JS/site.js"
+      "OriginalItemSpec": "wwwroot\\JS\\site.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-grid.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.css",
       "AssetKind": "All",
@@ -128,13 +128,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-grid.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.min.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-grid.min.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -147,13 +147,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.min.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.rtl.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-grid.rtl.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -166,13 +166,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.rtl.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.rtl.min.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-grid.rtl.min.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -185,13 +185,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-grid.rtl.min.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-reboot.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -204,13 +204,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-reboot.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.min.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-reboot.min.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -223,13 +223,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.min.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.rtl.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-reboot.rtl.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -242,13 +242,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.rtl.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.rtl.min.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-reboot.rtl.min.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -261,13 +261,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-reboot.rtl.min.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-utilities.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -280,13 +280,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-utilities.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.min.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-utilities.min.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -299,13 +299,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.min.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.rtl.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-utilities.rtl.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -318,13 +318,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.rtl.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.rtl.min.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-utilities.rtl.min.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -337,13 +337,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap-utilities.rtl.min.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap.css",
       "AssetKind": "All",
@@ -356,13 +356,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.min.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap.min.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap.min.css",
       "AssetKind": "All",
@@ -375,13 +375,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.min.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap.min.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.rtl.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap.rtl.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -394,13 +394,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.rtl.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap.rtl.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.rtl.min.css",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap.rtl.min.css",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/CSS/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -413,13 +413,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/CSS/bootstrap.rtl.min.css"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\CSS\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.bundle.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.bundle.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/JS/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -432,13 +432,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.bundle.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.bundle.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.bundle.min.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.bundle.min.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/JS/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -451,13 +451,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.bundle.min.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.esm.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.esm.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/JS/bootstrap.esm.js",
       "AssetKind": "All",
@@ -470,13 +470,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.esm.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.esm.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.esm.min.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.esm.min.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/JS/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -489,13 +489,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.esm.min.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/JS/bootstrap.js",
       "AssetKind": "All",
@@ -508,13 +508,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.min.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.min.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/DIST/JS/bootstrap.min.js",
       "AssetKind": "All",
@@ -527,13 +527,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/DIST/JS/bootstrap.min.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\DIST\\JS\\bootstrap.min.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/BOOTSTRAP/LICENSE",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\BOOTSTRAP\\LICENSE",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/BOOTSTRAP/LICENSE",
       "AssetKind": "All",
@@ -546,13 +546,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/BOOTSTRAP/LICENSE"
+      "OriginalItemSpec": "wwwroot\\LIB\\BOOTSTRAP\\LICENSE"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/jquery.validate.unobtrusive.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY-VALIDATION-UNOBTRUSIVE\\jquery.validate.unobtrusive.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY-VALIDATION-UNOBTRUSIVE/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -565,13 +565,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/jquery.validate.unobtrusive.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY-VALIDATION-UNOBTRUSIVE\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/jquery.validate.unobtrusive.min.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY-VALIDATION-UNOBTRUSIVE\\jquery.validate.unobtrusive.min.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY-VALIDATION-UNOBTRUSIVE/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -584,13 +584,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/jquery.validate.unobtrusive.min.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY-VALIDATION-UNOBTRUSIVE\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/LICENSE.txt",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY-VALIDATION-UNOBTRUSIVE\\LICENSE.txt",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY-VALIDATION-UNOBTRUSIVE/LICENSE.txt",
       "AssetKind": "All",
@@ -603,13 +603,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY-VALIDATION-UNOBTRUSIVE/LICENSE.txt"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY-VALIDATION-UNOBTRUSIVE\\LICENSE.txt"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION/DIST/additional-methods.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY-VALIDATION\\DIST\\additional-methods.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY-VALIDATION/DIST/additional-methods.js",
       "AssetKind": "All",
@@ -622,13 +622,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY-VALIDATION/DIST/additional-methods.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY-VALIDATION\\DIST\\additional-methods.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION/DIST/additional-methods.min.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY-VALIDATION\\DIST\\additional-methods.min.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY-VALIDATION/DIST/additional-methods.min.js",
       "AssetKind": "All",
@@ -641,13 +641,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY-VALIDATION/DIST/additional-methods.min.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY-VALIDATION\\DIST\\additional-methods.min.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION/DIST/jquery.validate.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY-VALIDATION\\DIST\\jquery.validate.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY-VALIDATION/DIST/jquery.validate.js",
       "AssetKind": "All",
@@ -660,13 +660,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY-VALIDATION/DIST/jquery.validate.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY-VALIDATION\\DIST\\jquery.validate.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION/DIST/jquery.validate.min.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY-VALIDATION\\DIST\\jquery.validate.min.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY-VALIDATION/DIST/jquery.validate.min.js",
       "AssetKind": "All",
@@ -679,13 +679,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY-VALIDATION/DIST/jquery.validate.min.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY-VALIDATION\\DIST\\jquery.validate.min.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY-VALIDATION/LICENSE.md",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY-VALIDATION\\LICENSE.md",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY-VALIDATION/LICENSE.md",
       "AssetKind": "All",
@@ -698,13 +698,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY-VALIDATION/LICENSE.md"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY-VALIDATION\\LICENSE.md"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY/DIST/jquery.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY\\DIST\\jquery.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY/DIST/jquery.js",
       "AssetKind": "All",
@@ -717,13 +717,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY/DIST/jquery.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY\\DIST\\jquery.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY/DIST/jquery.min.js",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY\\DIST\\jquery.min.js",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY/DIST/jquery.min.js",
       "AssetKind": "All",
@@ -736,13 +736,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY/DIST/jquery.min.js"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY\\DIST\\jquery.min.js"
     },
     {
-      "Identity": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/LIB/JQUERY/LICENSE.txt",
+      "Identity": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\LIB\\JQUERY\\LICENSE.txt",
       "SourceId": "WebApps",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/wwwroot/",
+      "ContentRoot": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\wwwroot\\",
       "BasePath": "_content/WebApps",
       "RelativePath": "LIB/JQUERY/LICENSE.txt",
       "AssetKind": "All",
@@ -755,7 +755,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/LIB/JQUERY/LICENSE.txt"
+      "OriginalItemSpec": "wwwroot\\LIB\\JQUERY\\LICENSE.txt"
     }
   ]
 }
