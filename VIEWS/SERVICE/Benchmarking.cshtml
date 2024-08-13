@@ -64,20 +64,10 @@
                                     </div>
                                 </div>
                                 <div class="e-card-content">
-                                    <div class="control-section">
-
+                                    <div class="control-section">                                        
                                         <div class="control-section">
-                                            @Html.EJS().Grid("Grid").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.dataSource).Columns(col => {
-                                                col.Field("nama_perusahaan").HeaderText("Nama Perusahaan").Width("30%").Add();
-                                                col.Field("negara").HeaderText("Negara").Width("15%").Add();
-                                                col.Field("tahun2019").HeaderText("2019").Add();
-                                                col.Field("tahun2020").HeaderText("2020").Add();
-                                                col.Field("tahun2021").HeaderText("2021").Add();
-                                                col.Field("tahun2023").HeaderText("2023").Add();
-                                                col.Field("tahun2024").HeaderText("2024").Add();
-                                            }).AllowPaging().PageSettings(page=>page.PageCount(15)).Render()
+                                            @Html.EJS().Grid("Grid").DataSource((IEnumerable<object>)ViewBag.dataSource).AllowPaging(false).DataBound("dataBound").Render()
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -93,14 +83,7 @@
                                 <div class="e-card-content">
                                     <div class="control-section">
                                         <div class="control-section">
-                                            @Html.EJS().Grid("Grid2").DataSource((IEnumerable<object>)ViewBag.dataSource2).Columns(col => {
-                                                col.Field("keterangan").HeaderText("Keterangan").Width("45%").Add();
-                                                col.Field("tahun2019").HeaderText("2019").Add();
-                                                col.Field("tahun2020").HeaderText("2020").Add();
-                                                col.Field("tahun2021").HeaderText("2021").Add();
-                                                col.Field("tahun2023").HeaderText("2023").Add();
-                                                col.Field("tahun2024").HeaderText("2024").Add();
-                                            }).AllowPaging(false).Render()
+                                            @Html.EJS().Grid("Grid2").DataSource((IEnumerable<object>)ViewBag.dataSource2).AllowPaging(false).Render()
                                         </div>
                                     </div>
                                 </div>
@@ -117,33 +100,37 @@
                             </div>
                             <div class="e-card-content">
                                 <div class="ct-card-content-body">
+                                    @Html.EJS().ComboBox("klasifikasiusaha").Index(0).Placeholder("Klasifikasi Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.klasifikasi).Change("klasifikasiChange").Fields(new ComboBoxFieldSettings { Text = "KlasifikasiUsaha", Value = "KlasifikasiUsaha" }).Render()                                                                
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().ComboBox("jeniskegiatanusaha").Index(0).Placeholder("Jenis Kegiatan Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.jenis).Change("jenisChange").Fields(new ComboBoxFieldSettings { Text = "JenisKegiatanUsaha", Value = "JenisKegiatanUsaha" }).Render()                                
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().ComboBox("ratio").Index(0).Placeholder("Ratio").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()                                
+                                </div>
+                                <div class="e-card-header-caption" style="padding-top: 20px;">Tahun</div>
+                                <div style="padding-top: 20px; padding-left: 20px; padding-right: 20px;">
+                                    @Html.EJS().Slider("tahun").Min(UtilityController.dtYear-5).Max(UtilityController.dtYear).Value(ViewBag.sliderValue).Step(1).Enabled(true).Ticks(new SliderTicksData { Placement = Placement.Before, LargeStep = 1, ShowSmallTicks = true }).Type(SliderType.Range).Render()
+                                </div>
+                                <div class="ct-card-content-body">
                                     @Html.EJS().NumericTextBox("penjualan").Format("N0").Placeholder("Penjualan").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
                                 </div>
                                 <div class="ct-card-content-body">
                                     @Html.EJS().NumericTextBox("hargapokokpenjualan").Format("N0").Placeholder("Harga Pokok Penjualan").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
                                 </div>
                                 <div class="ct-card-content-body">
-                                    @Html.EJS().NumericTextBox("labakotor").Format("N0").Placeholder("Laba Kotor").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().NumericTextBox("bebanoperasional").Format("N0").Placeholder("Beban Operasional").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().NumericTextBox("labaoperasional").Format("N0").Placeholder("Laba Operasional").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().ComboBox("klasifikasiusaha").Index(0).Placeholder("Klasifikasi Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.klasifikasi).Change("klasifikasiChange").Fields(new ComboBoxFieldSettings { Text = "klasifikasi_usaha", Value = "klasifikasi_usaha" }).Render()                                                                
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().ComboBox("jeniskegiatanusaha").Index(0).Placeholder("Jenis Kegiatan Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.jenis).Change("jenisChange").Fields(new ComboBoxFieldSettings { Text = "jenis_kegiatan_usaha", Value = "jenis_kegiatan_usaha" }).Render()                                
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().ComboBox("ratio").Index(0).Placeholder("Ratio").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "rasio", Value = "rasio" }).Render()                                
+                                    @Html.EJS().NumericTextBox("bebanoperasional").Format("N0").Placeholder("Beban Operasional").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()                                
                                 </div>
 
-                                @* <div class="e-card-header-caption" style="padding-top: 20px;">Tahun</div>
-                                <div style="padding-top: 20px; padding-left: 20px; padding-right: 20px;">
-                                    @Html.EJS().Slider("tahun").Min(UtilityController.dtYear-5).Max(UtilityController.dtYear).Value(ViewBag.sliderValue).Step(1).Enabled(true).Ticks(new SliderTicksData { Placement = Placement.Before, LargeStep = 1, ShowSmallTicks = true }).Type(SliderType.Range).Render()
-                                </div> *@
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().TextBox("labakotor").Placeholder("Laba Kotor").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().TextBox("labaoperasional").Placeholder("Laba Operasional").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().TextBox("testedparty").Placeholder("Tested Party(%)").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                </div>
                                 
                             </div>
                             <div class="e-card-actions e-card-vertical" style="margin-left: 10px; margin-bottom: 10px; margin-right: 10px;">
@@ -171,8 +158,7 @@
         GridBenchmark.refresh(); 
     }); *@
 
-    document.getElementById('btnHitung').onclick = () => {        
-        
+    document.getElementById('btnHitung').onclick = () => {                
         loadCustomers()
     };
     
@@ -181,25 +167,52 @@
         var rasio = document.getElementById("ratio").ej2_instances[0];
         var klasifikasi = document.getElementById("klasifikasiusaha").ej2_instances[0];
         var jenis = document.getElementById("jeniskegiatanusaha").ej2_instances[0];
-        fetch('@Url.Action("Hitung", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value)
+        var tahunslider = document.getElementById("tahun").ej2_instances[0];
+
+        fetch('@Url.Action("Hitung", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahunslider.value[0] + '&tahun2=' + tahunslider.value[1])
         .then(response => response.json())
         .then(data => {
-            grid.dataSource = data;
+            grid.changeDataSource(data);
             grid.refresh();
         });
 
         var grid2 = document.getElementById("Grid2").ej2_instances[0];
-        fetch('@Url.Action("Hitung2", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value)
+        fetch('@Url.Action("Hitung2", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahunslider.value[0] + '&tahun2=' + tahunslider.value[1])
         .then(response => response.json())
         .then(data => {
-            grid2.dataSource = data;
+            grid2.changeDataSource(data);
             grid2.refresh();
         });
+
+        var penjualan = document.getElementById("penjualan").ej2_instances[0];
+        var hargapokokpenjualan = document.getElementById("hargapokokpenjualan").ej2_instances[0];
+        var bebanoperasional = document.getElementById("bebanoperasional").ej2_instances[0];
+
+        var labakotor = document.getElementById("labakotor").ej2_instances[0];
+        var labaoperasional = document.getElementById("labaoperasional").ej2_instances[0];
+
+        labakotor.value = penjualan.value - hargapokokpenjualan.value;
+        labaoperasional.value = penjualan.value - hargapokokpenjualan.value - bebanoperasional.value;
+
+        var testedparty = document.getElementById("testedparty").ej2_instances[0];
+        if(rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method"){
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value) / penjualan.value;
+        }
+        else if(rasio.value == "Cost Plus Methode" || rasio.value == "Cost Plus Method"){
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value) / hargapokokpenjualan.value;
+        }
+        else if(rasio.value == "Net Cost Plus Methode" || rasio.value == "Net Cost Plus Method"){
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / (hargapokokpenjualan.value + bebanoperasional.value);
+        }
+        else if(rasio.value == "Return On Sales"){
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / penjualan.value;
+        }
+
 
     };
 
     function klasifikasiChange() {
-        var games = document.getElementById('klasifikasi_usaha').ej2_instances[0];
+        var games = document.getElementById('KlasifikasiUsaha').ej2_instances[0];
         var value = document.getElementById('value');
         var text = document.getElementById('text');
         value.innerHTML = games.value === null ? 'null' : games.value.toString();
@@ -207,7 +220,7 @@
     };
 
     function jenisChange() {
-        var games = document.getElementById('jenis_kegiatan_usaha').ej2_instances[0];
+        var games = document.getElementById('JenisKegiatanUsaha').ej2_instances[0];
         var value = document.getElementById('value');
         var text = document.getElementById('text');
         value.innerHTML = games.value === null ? 'null' : games.value.toString();
@@ -215,11 +228,15 @@
     };
 
     function ratioChange() {
-        var games = document.getElementById('ratio').ej2_instances[0];
+        var games = document.getElementById('Rasio').ej2_instances[0];
         var value = document.getElementById('value');
         var text = document.getElementById('text');
         value.innerHTML = games.value === null ? 'null' : games.value.toString();
         text.innerHTML = games.text === null ? 'null' : games.text.toString();
     };
 
+    function dataBound(args) {
+        this.autoFitColumns(['Nama Perusahaan', 'Negara']);
+    }
+    
 </script>

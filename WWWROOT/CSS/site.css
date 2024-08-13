@@ -37,3 +37,17 @@ body {
   color: white; /* Optional text color for contrast */
   height: 350px;
 }
+
+
+.e-grid .e-headercell {
+  color: darkblue;
+}
+.e-grid .e-headercelldiv {
+  font-size: 30px;
+}
+.e-grid .e-gridheader {
+  border:2px solid darkblue;
+}
+.e-grid td.e-active {
+  background-color: gray;
+}

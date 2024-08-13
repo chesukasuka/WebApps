@@ -11,5 +11,6 @@ namespace WebApps.Controllers
         public MasterDbContext(DbContextOptions<MasterDbContext> options) : base(options) { }
 
         public DbSet<BenchmarkingModel> Benchmarking { get; set; }
+        public DbSet<BenchmarkingTahunModel> BenchmarkingTahun { get; set; }
     }
 }
