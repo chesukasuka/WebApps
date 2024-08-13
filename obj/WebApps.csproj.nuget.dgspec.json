@@ -1,26 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/WebApps.csproj": {}
+    "F:\\Central Data Acces\\Project web\\progress\\WebApps\\WebApps.csproj": {}
   },
   "projects": {
-    "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/WebApps.csproj": {
+    "F:\\Central Data Acces\\Project web\\progress\\WebApps\\WebApps.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/WebApps.csproj",
+        "projectUniqueName": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\WebApps.csproj",
         "projectName": "WebApps",
-        "projectPath": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/WebApps.csproj",
-        "packagesPath": "/Users/macbook/.nuget/packages/",
-        "outputPath": "/Users/macbook/Documents/NET/WebApps/WebApps/WebApps/obj/",
+        "projectPath": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\WebApps.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/macbook/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -108,7 +109,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
