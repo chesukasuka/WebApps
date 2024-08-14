@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Central Data Acces\\Project web\\progress\\WebApps\\WebApps.csproj": {}
+    "/root/apps/WebApps/WebApps.csproj": {}
   },
   "projects": {
-    "F:\\Central Data Acces\\Project web\\progress\\WebApps\\WebApps.csproj": {
+    "/root/apps/WebApps/WebApps.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\WebApps.csproj",
+        "projectUniqueName": "/root/apps/WebApps/WebApps.csproj",
         "projectName": "WebApps",
-        "projectPath": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\WebApps.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "F:\\Central Data Acces\\Project web\\progress\\WebApps\\obj\\",
+        "projectPath": "/root/apps/WebApps/WebApps.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/root/apps/WebApps/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -101,6 +94,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.linux-x64",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -109,7 +116,12 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
         }
       }
     }

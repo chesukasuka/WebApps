@@ -5,7 +5,7 @@
 namespace WebApps.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class init1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,17 +20,11 @@ namespace WebApps.Migrations
                     JenisKegiatanUsaha = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     NamaPerusahaan = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Negara = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Rasio = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    BenchmarkingModelBenchmarkingId = table.Column<int>(type: "int", nullable: true)
+                    Rasio = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Benchmarking", x => x.BenchmarkingId);
-                    table.ForeignKey(
-                        name: "FK_Benchmarking_Benchmarking_BenchmarkingModelBenchmarkingId",
-                        column: x => x.BenchmarkingModelBenchmarkingId,
-                        principalTable: "Benchmarking",
-                        principalColumn: "BenchmarkingId");
                 });
 
             migrationBuilder.CreateTable(
@@ -46,33 +40,17 @@ namespace WebApps.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BenchmarkingTahun", x => x.BenchmarkingTahunId);
-                    table.ForeignKey(
-                        name: "FK_BenchmarkingTahun_Benchmarking_BenchmarkingId",
-                        column: x => x.BenchmarkingId,
-                        principalTable: "Benchmarking",
-                        principalColumn: "BenchmarkingId",
-                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Benchmarking_BenchmarkingModelBenchmarkingId",
-                table: "Benchmarking",
-                column: "BenchmarkingModelBenchmarkingId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BenchmarkingTahun_BenchmarkingId",
-                table: "BenchmarkingTahun",
-                column: "BenchmarkingId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BenchmarkingTahun");
+                name: "Benchmarking");
 
             migrationBuilder.DropTable(
-                name: "Benchmarking");
+                name: "BenchmarkingTahun");
         }
     }
 }

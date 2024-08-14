@@ -10,6 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<MasterDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//add port
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5001);
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
