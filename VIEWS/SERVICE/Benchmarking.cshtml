@@ -6,7 +6,7 @@
 
 
 @{
-    ViewData["Title"] = "Benchmarking Industry";
+    ViewData["Title"] = "Data Pembanding Laporan Keuangan";
 }
 
 
@@ -16,7 +16,7 @@
         <div class="col-lg-12 control-section card-control-section basic_card_layout" style="padding-top: 40px;">
             <div class="e-card-resize-container">
                 <div class="row card-layout">
-                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
+                    <div class="col-xs-5 col-sm-5 col-lg-5 col-md-5">
                         <div tabindex="0" class="e-card" id="basic_card">
                             <div class="e-card-content">
                                 <h1>@ViewData["Title"]</h1>
@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div class="col-lg-12 control-section card-control-section basic_card_layout" style="padding-top: 40px;">
+        <div class="col-lg-12 control-section card-control-section basic_card_layout" style="padding-top: 20px;">
             <div class="e-card-resize-container">
                 <div class="row card-layout">
                     <div class="col-xs-8 col-sm-8 col-lg-8 col-md-8">
@@ -54,6 +54,64 @@
         <div class="e-card-resize-container">
             <div class='row'>
                 <div class="row card-layout">
+                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
+                        <div tabindex="0" class="e-card" id="basic_card">
+
+                            <div class="e-card-header">
+                                <div class="e-card-header-caption">
+                                    <div class="e-card-header-title">INDUSTRY PEMBANDING</div>
+                                    <div class="e-card-sub-title">Pilih industri terlebih dahulu sebagai acuran pembanding / benchmarking untuk perusahaan yang akan dihitung</div>
+                                </div>
+                            </div>
+                            <div class="e-card-content">
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().ComboBox("jeniskegiatanusaha").Index(0).Placeholder("Jenis Kegiatan Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.jenis).Change("jenisChange").Fields(new ComboBoxFieldSettings { Text = "JenisKegiatanUsaha", Value = "JenisKegiatanUsaha" }).Render()                                
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().ComboBox("klasifikasiusaha").Index(0).Placeholder("Klasifikasi Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.klasifikasi).Change("klasifikasiChange").Fields(new ComboBoxFieldSettings { Text = "KlasifikasiUsaha", Value = "KlasifikasiUsaha" }).Render()                                                                
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().ComboBox("ratio").Index(0).Placeholder("Ratio").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()                                
+                                </div>
+                                <div class="e-card-header-caption" style="padding-top: 20px;">Tahun</div>
+                                <div style="padding-top: 20px; padding-left: 20px; padding-right: 20px;">
+                                    @Html.EJS().Slider("tahun").Min(UtilityController.dtYear-7).Max(UtilityController.dtYear).Value(ViewBag.sliderValue).Step(1).Enabled(true).Ticks(new SliderTicksData { Placement = Placement.Before, LargeStep = 1, ShowSmallTicks = true }).Type(SliderType.Range).Render()
+                                </div>
+                            </div>
+
+                            <div class="e-card-header">
+                                <div class="e-card-header-caption">
+                                    <div class="e-card-header-title">LAPORAN KEUANGAN PERUSAHAAN</div>
+                                    <div class="e-card-sub-title">Masukan laporan keungan yang akan dihitung, ketika sudah klik tombol hitung</div>
+                                </div>
+                            </div>
+                            <div class="e-card-content">
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().NumericTextBox("penjualan").Format("N0").Placeholder("Penjualan").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().NumericTextBox("hargapokokpenjualan").Format("N0").Placeholder("Harga Pokok Penjualan").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().NumericTextBox("bebanoperasional").Format("N0").Placeholder("Beban Operasional").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()                                
+                                </div>
+
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().TextBox("labakotor").Placeholder("Laba Kotor").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().TextBox("labaoperasional").Placeholder("Laba Operasional").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                </div>
+                                <div class="ct-card-content-body">
+                                    @Html.EJS().TextBox("testedparty").Placeholder("Tested Party(%)").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                </div>                                
+                            </div>
+
+                            <div class="e-card-actions e-card-vertical" style="margin-left: 10px; margin-bottom: 10px; margin-right: 10px;">
+                                @Html.EJS().Button("btnHitung").Content("Hitung").IsPrimary(true).CssClass("e-card-btn").Render()
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-xs-8 col-sm-8 col-lg-8 col-md-8">
                         <div class="row">
                             <div tabindex="0" class="e-card" id="basic_card">
@@ -66,7 +124,7 @@
                                 <div class="e-card-content">
                                     <div class="control-section">                                        
                                         <div class="control-section">
-                                            @Html.EJS().Grid("Grid").DataSource((IEnumerable<object>)ViewBag.dataSource).AllowPaging(false).DataBound("dataBound").Render()
+                                            @Html.EJS().Grid("Grid").DataSource((IEnumerable<object>)ViewBag.dataSource).AllowPaging(false).DataBound("dataBound").AllowExcelExport().ToolbarClick("toolbarClick").ExcelExportComplete("excelExportComplete").Toolbar(new List<string>() { "ExcelExport" }).Render()
                                         </div>
                                     </div>
                                 </div>
@@ -90,54 +148,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
-                        <div tabindex="0" class="e-card" id="basic_card">
-                            <div class="e-card-header">
-                                <div class="e-card-header-caption">
-                                    <div class="e-card-header-title">LAPORAN KEUANGAN PERUSAHAAN</div>
-                                    <div class="e-card-sub-title">Masukan parameter yang dibutuhkan, lalu klik hitung </div>
-                                </div>
-                            </div>
-                            <div class="e-card-content">
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().ComboBox("klasifikasiusaha").Index(0).Placeholder("Klasifikasi Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.klasifikasi).Change("klasifikasiChange").Fields(new ComboBoxFieldSettings { Text = "KlasifikasiUsaha", Value = "KlasifikasiUsaha" }).Render()                                                                
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().ComboBox("jeniskegiatanusaha").Index(0).Placeholder("Jenis Kegiatan Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.jenis).Change("jenisChange").Fields(new ComboBoxFieldSettings { Text = "JenisKegiatanUsaha", Value = "JenisKegiatanUsaha" }).Render()                                
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().ComboBox("ratio").Index(0).Placeholder("Ratio").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()                                
-                                </div>
-                                <div class="e-card-header-caption" style="padding-top: 20px;">Tahun</div>
-                                <div style="padding-top: 20px; padding-left: 20px; padding-right: 20px;">
-                                    @Html.EJS().Slider("tahun").Min(UtilityController.dtYear-5).Max(UtilityController.dtYear).Value(ViewBag.sliderValue).Step(1).Enabled(true).Ticks(new SliderTicksData { Placement = Placement.Before, LargeStep = 1, ShowSmallTicks = true }).Type(SliderType.Range).Render()
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().NumericTextBox("penjualan").Format("N0").Placeholder("Penjualan").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().NumericTextBox("hargapokokpenjualan").Format("N0").Placeholder("Harga Pokok Penjualan").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().NumericTextBox("bebanoperasional").Format("N0").Placeholder("Beban Operasional").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()                                
-                                </div>
 
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().TextBox("labakotor").Placeholder("Laba Kotor").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().TextBox("labaoperasional").Placeholder("Laba Operasional").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
-                                </div>
-                                <div class="ct-card-content-body">
-                                    @Html.EJS().TextBox("testedparty").Placeholder("Tested Party(%)").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
-                                </div>
-                                
-                            </div>
-                            <div class="e-card-actions e-card-vertical" style="margin-left: 10px; margin-bottom: 10px; margin-right: 10px;">
-                                @Html.EJS().Button("btnHitung").Content("Hitung").IsPrimary(true).CssClass("e-card-btn").Render()
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class='row'>
@@ -153,10 +164,24 @@
 <br>
 
 <script>
-    @* document.getElementById("btnHitung").addEventListener('click', function () {
-        fetch('@Url.Action("Hitung","Service")');
-        GridBenchmark.refresh(); 
-    }); *@
+    
+    function toolbarClick(args) {
+        var gridObj = document.getElementById("Grid").ej2_instances[0];
+        if (args.item.id === 'Grid_pdfexport') {
+            gridObj.showSpinner();
+            gridObj.pdfExport();
+        }
+        else if (args.item.id === 'Grid_excelexport') {
+            gridObj.showSpinner();
+            gridObj.excelExport();
+        }
+    }
+    function pdfExportComplete(args) {
+        this.hideSpinner();
+    }
+    function excelExportComplete(args) {
+        this.hideSpinner();
+    }
 
     document.getElementById('btnHitung').onclick = () => {                
         loadCustomers()

@@ -176,21 +176,21 @@ namespace WebApps.Controllers
                         oListData.Add("Keterangan","Kuartil 1");
                         for (int i = 0; i < oLoop; i++){
                             var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()] ).ToList();                            
-                            oListData.Add(" " + (tahun1 + i).ToString(), CalQ1(oResData).ToString("F2").Replace(".00","") );
+                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.25).ToString("F2").Replace(".00","") );
                         }
                     }
                     if(j == 2){
                         oListData.Add("Keterangan","Kuartil 2");
                         for (int i = 0; i < oLoop; i++){
                             var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()] ).ToList();                            
-                            oListData.Add(" " + (tahun1 + i).ToString(), CalQ2(oResData).ToString("F2").Replace(".00","") );
+                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.50).ToString("F2").Replace(".00","") );
                         }                        
                     }
                     if(j == 3){
                         oListData.Add("Keterangan","Kuartil 3");
                         for (int i = 0; i < oLoop; i++){
                             var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()] ).ToList();                            
-                            oListData.Add(" " + (tahun1 + i).ToString(), CalQ3(oResData).ToString("F2").Replace(".00","") );
+                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.75).ToString("F2").Replace(".00","") );
                         }
                     }
                     if(j == 4){
@@ -264,92 +264,28 @@ namespace WebApps.Controllers
             return Json(oResult);
         }
 
-        public static double CalQ1(List<object> dataNew)
+        static double GetPercentile(List<object> dataNew, double percentile)
         {
             double result = 0;
-            if (dataNew.Count > 2){
-                var data = new List<double>();
-                foreach (object oData in dataNew){
-                    data.Add(Convert.ToDouble(oData));
-                }
-
-                if (data == null || data.Count == 0)
-                {
-                    throw new InvalidOperationException("Cannot calculate quartile for an empty data set.");
-                }
-                data.Sort();
-
-                int n = data.Count;
-                if (n % 2 == 0)
-                {
-                    result = (data[(n / 4) - 1] + data[n / 4]) / 2;
-                }
-                else
-                {
-                    result = data[n / 4];
-                }
+            var data = new List<double>();
+            foreach (object oData in dataNew){
+                data.Add(Convert.ToDouble(oData));
             }
+            int n = data.Count;
+            double rank = (percentile * (n - 1)) + 1;
+            int intPart = (int)rank;
+            double fracPart = rank - intPart;
+
+            if (intPart >= n)
+                return data[n - 1];
+            if (intPart == 0)
+                return data[0];
+
+            result = data[intPart - 1] + fracPart * (data[intPart] - data[intPart - 1]);
+                
             return result;
         }
-        public static double CalQ2(List<object> dataNew)
-        {
-            double result = 0;
-            if (dataNew.Count > 2){
-                
-                var data = new List<double>();
-                foreach (object oData in dataNew){
-                    data.Add(Convert.ToDouble(oData));
-                }
-                
-                if (data == null || data.Count == 0)
-                {
-                    throw new InvalidOperationException("Cannot calculate median for an empty data set.");
-                }
-                data.Sort();
 
-                int n = data.Count;
-                if (n % 2 == 0)
-                {
-                    // Even number of elements
-                    result = (data[n / 2 - 1] + data[n / 2]) / 2;
-                }
-                else
-                {
-                    // Odd number of elements
-                    result = data[n / 2];
-                }
-            }
 
-            return result;
-        }
-        public static double CalQ3(List<object> dataNew)
-        {
-            double result = 0;
-            if (dataNew.Count > 2){
-                
-                var data = new List<double>();
-                foreach (object oData in dataNew){
-                    data.Add(Convert.ToDouble(oData));
-                }
-
-                if (data == null || data.Count == 0)
-                {
-                    throw new InvalidOperationException("Cannot calculate quartile for an empty data set.");
-                }
-                data.Sort();
-
-                int n = data.Count;
-                if (n % 2 == 0)
-                {
-                    result = (data[(3 * n / 4) - 1] + data[3 * n / 4]) / 2;
-                }
-                else
-                {
-                    result = data[(3 * n / 4)];
-                }
-            }
-
-            return result;
-        }
     }
 }

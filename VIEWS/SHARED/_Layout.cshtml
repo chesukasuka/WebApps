@@ -19,7 +19,8 @@
             ButtonAttribute.Add("aria-label", "menu");   
             
             List<object> menuDPServices = new List<object>();
-            menuDPServices.Add(new { text = "Benchmarking", url = @Url.Action("Benchmarking","Service"), });
+            @* menuDPServices.Add(new { text = "Transfer Pricing", url = @Url.Action("Benchmarking","Service"), }); *@
+            menuDPServices.Add(new { text = "Transfer Pricing", });
             menuDPServices.Add(new { text = "Other", });
 
             List<object> menuDPTentang = new List<object>();
@@ -33,26 +34,59 @@
             menuDPInfo.Add(new { text = "Karir", });
         }
         
-        <div class="col-lg-12 control-section default-appbar-section">
-            @(Html.EJS().AppBar("lightAppBar").ColorMode(AppBarColor.Light).ContentTemplate(
-                @<div>
-                @Html.EJS().Button("lightButtonMenu").HtmlAttributes(ButtonAttribute).CssClass("e-inherit menu").IconCss("e-icons e-menu").Render()
-                @Html.EJS().Button("lightButtonHome").CssClass("e-inherit home e-appbar-menu").Content("HOME").Render()
-                @Html.EJS().DropDownButton("lightProductDropDownTentang").CssClass("e-inherit e-light e-appbar-menu").Content("TENTANG KAMI").Items(menuDPTentang).Render()
-                @Html.EJS().DropDownButton("lightProductDropDownServices").CssClass("e-inherit e-light e-appbar-menu").Content("JASA KAMI").Items(menuDPServices).Render()
-                @Html.EJS().Button("lightButtonPembanding").CssClass("e-inherit about e-appbar-menu").Content("BENCHMARKINNG").Render()
-                @Html.EJS().DropDownButton("lightProductDropDownInfo").CssClass("e-inherit e-light e-appbar-menu").Content("INFO PERPAJAKAN").Items(menuDPInfo).Render()
-                @Html.EJS().Button("lightButtonKontak").CssClass("e-inherit about e-appbar-menu").Content("KONTAK KAMI").Render()
-                @* <div class="e-appbar-spacer"></div>
-                @Html.EJS().Button("lightButtonLogin").IsPrimary(true).CssClass("login").Content("Login").Render() *@
-            </div>).Render())
+        <div class="row" style="height: 70px;">
+            <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6" style="padding-left: 30px; padding-top: 10px;">
+                <img src="~/image/Logo.svg"/>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6" style="text-align: right;">
+            </div>
+        </div>
+
+        <div class="col-lg-12 control-section color-appbar-section">
+            <div class="color-appbar-container">
+                <div class="row">
+                    <div class="col-md-12">
+                    @(Html.EJS().AppBar("defaultAppBar").ColorMode(AppBarColor.Primary).Position(AppBarPosition.Top).IsSticky(true).ContentTemplate(
+                        @<div>
+                            @Html.EJS().Button("lightButtonMenu").HtmlAttributes(ButtonAttribute).CssClass("e-inherit menu").IconCss("e-icons e-menu").Render()
+                            @Html.EJS().Button("lightButtonHome").CssClass("e-inherit home e-appbar-menu").Content("HOME").Render()
+                            @Html.EJS().DropDownButton("lightProductDropDownTentang").CssClass("e-inherit e-light e-appbar-menu").Content("TENTANG KAMI").Items(menuDPTentang).Render()
+                            @Html.EJS().DropDownButton("lightProductDropDownServices").CssClass("e-inherit e-light e-appbar-menu").Content("JASA KAMI").Items(menuDPServices).Render()
+                            @Html.EJS().Button("lightButtonPembanding").CssClass("e-inherit about e-appbar-menu").Content("DATA PEMBANDING").Render()
+                            @Html.EJS().DropDownButton("lightProductDropDownInfo").CssClass("e-inherit e-light e-appbar-menu").Content("INFO PERPAJAKAN").Items(menuDPInfo).Render()
+                            @Html.EJS().Button("lightButtonKontak").CssClass("e-inherit about e-appbar-menu").Content("KONTAK KAMI").Render()
+                            
+                            <div class="e-appbar-spacer"></div>
+                            <div style="width: 200px; margin-right:10px">
+                                 <span class="e-input-group e-control-wrapper e-inherit">
+                                      <input type="text" class="e-searchinput e-input" placeholder="Search">
+                                      <span class="e-icons e-search e-input-group-icon"></span>
+                                  </span>
+                            </div>
+                            <div class="e-appbar-separator"></div>
+                            @Html.EJS().Button("primaryButtonLogin").CssClass("e-inherit login").Content("Login").Render()
+
+                        </div>).Render())
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script>
+
             document.getElementById("lightButtonHome").addEventListener('click', function () {
                 location.href = '@Url.Action("Index","Home")';
             });
+            document.getElementById("lightButtonPembanding").addEventListener('click', function () {
+                location.href = '@Url.Action("Benchmarking","Service")';
+            });
+            
         </script>
+        <style>
+            #defaultAppBar .e-btn.e-inherit {
+                margin:0 3px;
+            }
+        </style>
             
     </header>
         <div class="container">

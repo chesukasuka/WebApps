@@ -51,3 +51,19 @@ body {
 .e-grid td.e-active {
   background-color: gray;
 }
+
+.e-youtube:before {
+  content: "\a709";
+}
+
+.e-tiktok:before {
+  content: "\a700";
+}
+
+.e-instagram:before {
+  content: "\a703";
+}
+
+.e-linkedin:before {
+  content: "\a704";
+}
