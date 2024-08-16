@@ -11,10 +11,10 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<MasterDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //add port
-// builder.WebHost.ConfigureKestrel(options =>
-// {
-//     options.ListenAnyIP(5001);
-// });
+ builder.WebHost.ConfigureKestrel(options =>
+ {
+     options.ListenAnyIP(5000);
+ });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
