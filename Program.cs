@@ -13,7 +13,7 @@ builder.Services.AddDbContext<MasterDbContext>(options => options.UseSqlServer(b
 //add port
  builder.WebHost.ConfigureKestrel(options =>
  {
-     options.ListenAnyIP(80);
+     options.ListenAnyIP(5000);
  });
 
 // Add services to the container.
