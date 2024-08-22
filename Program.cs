@@ -10,12 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<MasterDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//add port
- builder.WebHost.ConfigureKestrel(options =>
- {
-     options.ListenAnyIP(5000);
- });
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 if (Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), @"node_modules", @"@syncfusion")))
@@ -39,6 +33,17 @@ if (Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), @"node_module
 		File.Copy(Path.Combine(Directory.GetCurrentDirectory(), @"node_modules", @"@syncfusion", @"ej2-js-es5", @"styles", @"bootstrap5.css"), Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot", @"css", @"ej2", @"bootstrap5.css"));
 	}
 }
+
+// Configure Kestrel and HTTPS
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5000); // HTTP
+    options.ListenAnyIP(5001, listenOptions =>
+    {
+        listenOptions.UseHttps(); // Use the development certificate
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
