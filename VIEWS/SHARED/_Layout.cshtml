@@ -16,22 +16,7 @@
     <header>
         @{
             Dictionary<string, object> ButtonAttribute = new Dictionary<string, object>();
-            ButtonAttribute.Add("aria-label", "menu");   
-            
-            List<object> menuDPServices = new List<object>();
-            @* menuDPServices.Add(new { text = "Transfer Pricing", url = @Url.Action("Benchmarking","Service"), }); *@
-            menuDPServices.Add(new { text = "Transfer Pricing", });
-            menuDPServices.Add(new { text = "Other", });
-
-            List<object> menuDPTentang = new List<object>();
-            menuDPTentang.Add(new { text = "Profil Perusahaan", });
-            menuDPTentang.Add(new { text = "Team Kami", });
-            menuDPTentang.Add(new { text = "Karir", });
-
-            List<object> menuDPInfo = new List<object>();
-            menuDPInfo.Add(new { text = "Profil Perusahaan", });
-            menuDPInfo.Add(new { text = "Team Kami", });
-            menuDPInfo.Add(new { text = "Karir", });
+            ButtonAttribute.Add("aria-label", "menu");            
         }
         
         <div class="row" style="height: 70px;">
@@ -50,22 +35,7 @@
                         @<div>
                             @Html.EJS().Button("lightButtonMenu").HtmlAttributes(ButtonAttribute).CssClass("e-inherit menu").IconCss("e-icons e-menu").Render()
                             @Html.EJS().Button("lightButtonHome").CssClass("e-inherit home e-appbar-menu").Content("HOME").Render()
-                            @Html.EJS().DropDownButton("lightProductDropDownTentang").CssClass("e-inherit e-light e-appbar-menu").Content("TENTANG KAMI").Items(menuDPTentang).Render()
-                            @Html.EJS().DropDownButton("lightProductDropDownServices").CssClass("e-inherit e-light e-appbar-menu").Content("JASA KAMI").Items(menuDPServices).Render()
                             @Html.EJS().Button("lightButtonPembanding").CssClass("e-inherit about e-appbar-menu").Content("DATA PEMBANDING").Render()
-                            @Html.EJS().DropDownButton("lightProductDropDownInfo").CssClass("e-inherit e-light e-appbar-menu").Content("INFO PERPAJAKAN").Items(menuDPInfo).Render()
-                            @Html.EJS().Button("lightButtonKontak").CssClass("e-inherit about e-appbar-menu").Content("KONTAK KAMI").Render()
-                            
-                            <div class="e-appbar-spacer"></div>
-                            <div style="width: 200px; margin-right:10px">
-                                 <span class="e-input-group e-control-wrapper e-inherit">
-                                      <input type="text" class="e-searchinput e-input" placeholder="Search">
-                                      <span class="e-icons e-search e-input-group-icon"></span>
-                                  </span>
-                            </div>
-                            <div class="e-appbar-separator"></div>
-                            @Html.EJS().Button("primaryButtonLogin").CssClass("e-inherit login").Content("Login").Render()
-
                         </div>).Render())
                     </div>
                 </div>
@@ -75,7 +45,7 @@
         <script>
 
             document.getElementById("lightButtonHome").addEventListener('click', function () {
-                location.href = '@Url.Action("Index","Home")';
+                location.href = 'https://centraldataaccess.co.id';
             });
             document.getElementById("lightButtonPembanding").addEventListener('click', function () {
                 location.href = '@Url.Action("Benchmarking","Service")';

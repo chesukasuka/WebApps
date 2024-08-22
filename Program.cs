@@ -13,7 +13,7 @@ builder.Services.AddDbContext<MasterDbContext>(options => options.UseSqlServer(b
 //add port
  builder.WebHost.ConfigureKestrel(options =>
  {
-     options.ListenAnyIP(5000);
+     options.ListenAnyIP(80);
  });
 
 // Add services to the container.
@@ -58,7 +58,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Service}/{action=Benchmarking}/{id?}");
 
 app.Run();
 
