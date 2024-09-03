@@ -26,7 +26,7 @@ namespace WebApps.Controllers
             {
                 //ViewBag.sliderValue = new int[] { UtilityController.dtYear-1, UtilityController.dtYear-1 };
 
-                ViewBag.sliderValue = new int[] { 1, 3 };
+                ViewBag.tahun = new string[] { "1 Tahun", "2 Tahun", "3 Tahun"};
                 ViewBag.jenis = _context.Benchmarking
                 .Select(z => new BenchmarkingModel { JenisKegiatanUsaha = z.JenisKegiatanUsaha })
                 .Where(z => z.JenisKegiatanUsaha != null)
@@ -34,13 +34,13 @@ namespace WebApps.Controllers
                 .ToList();
 
                 ViewBag.klasifikasi = _context.Benchmarking
-                .Select(z => new BenchmarkingModel { KlasifikasiUsaha = z.KlasifikasiUsaha })
+                .Select(z => new BenchmarkingModel { KlasifikasiUsaha = z.KlasifikasiUsaha, JenisKegiatanUsaha = z.JenisKegiatanUsaha })
                 .Where(z => z.KlasifikasiUsaha != null)
                 .Distinct()
                 .ToList();
 
                 ViewBag.ratio = _context.Benchmarking
-                .Select(z => new BenchmarkingModel{ Rasio = z.Rasio })
+                .Select(z => new BenchmarkingModel{ Rasio = z.Rasio , KlasifikasiUsaha = z.KlasifikasiUsaha})
                 .Where(z => z.Rasio != null)
                 .Distinct()
                 .ToList();                
