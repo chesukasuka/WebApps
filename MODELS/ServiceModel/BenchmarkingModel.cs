@@ -11,7 +11,7 @@ namespace WebApps.Models.ServiceModel
         public string? KlasifikasiUsaha { get; set; }
         [MaxLength(100)]
         public string? JenisKegiatanUsaha { get; set; }
-        [MaxLength(100)]
+        [MaxLength(150)]
         public string? NamaPerusahaan { get; set; }
         [MaxLength(50)]
         public string? Negara { get; set; }

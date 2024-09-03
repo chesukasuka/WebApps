@@ -24,19 +24,20 @@ namespace WebApps.Controllers
             var msg = "";
             try
             {
-                ViewBag.sliderValue = new int[] { UtilityController.dtYear-1, UtilityController.dtYear-1 };
+                //ViewBag.sliderValue = new int[] { UtilityController.dtYear-1, UtilityController.dtYear-1 };
 
+                ViewBag.sliderValue = new int[] { 1, 3 };
                 ViewBag.jenis = _context.Benchmarking
-                .Select(z => new BenchmarkingModel{ JenisKegiatanUsaha = z.JenisKegiatanUsaha })
+                .Select(z => new BenchmarkingModel { JenisKegiatanUsaha = z.JenisKegiatanUsaha })
                 .Where(z => z.JenisKegiatanUsaha != null)
                 .Distinct()
-                .ToList();                
+                .ToList();
 
                 ViewBag.klasifikasi = _context.Benchmarking
-                .Select(z => new BenchmarkingModel{ KlasifikasiUsaha = z.KlasifikasiUsaha })
+                .Select(z => new BenchmarkingModel { KlasifikasiUsaha = z.KlasifikasiUsaha })
                 .Where(z => z.KlasifikasiUsaha != null)
                 .Distinct()
-                .ToList();                
+                .ToList();
 
                 ViewBag.ratio = _context.Benchmarking
                 .Select(z => new BenchmarkingModel{ Rasio = z.Rasio })
@@ -56,6 +57,19 @@ namespace WebApps.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Klasifikasi(string param)
+        {
+            var oResult = _context.Benchmarking
+            .Select(z => new BenchmarkingModel { KlasifikasiUsaha = z.KlasifikasiUsaha })
+            .Where(z => z.KlasifikasiUsaha != null)
+            //.Distinct()
+            .ToList();
+
+            return Json(oResult);
+        }
+
 
         private List<Dictionary<string, object>> Searchbenchmark(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2){
             var oResult = new List<Dictionary<string, object>>();
@@ -166,7 +180,7 @@ namespace WebApps.Controllers
                     var oLoop = tahun2 - tahun1 + 1;
                     oListData = new Dictionary<string, object>();
                     if(j == 0){
-                        oListData.Add("Keterangan","Minimal");
+                        oListData.Add("Keterangan","Minimum");
                         for (int i = 0; i < oLoop; i++){
                             var oResData = oData.OrderBy(dict => dict[" " + (tahun1 + i).ToString()]).First();
                             oListData.Add(" " + (tahun1 + i).ToString(), oResData[" " + (tahun1 + i).ToString()]);
@@ -204,57 +218,6 @@ namespace WebApps.Controllers
                 }
 
                 oResult = oListHeader;
-
-
-                // var oModel = new BenchmarkingResult();
-                // oModel.keterangan = "Minimal";
-                // oModel.tahun2019 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Min(z => z.tahun2019);
-                // oModel.tahun2020 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Min(z => z.tahun2020);
-                // oModel.tahun2021 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Min(z => z.tahun2021);
-                // oModel.tahun2022 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Min(z => z.tahun2022);
-                // oModel.tahun2023 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Min(z => z.tahun2023);
-                // oModel.tahun2024 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Min(z => z.tahun2024);
-                // oResult.Add(oModel);
-
-                // oModel = new BenchmarkingResult();
-                // oModel.keterangan = "Kuartil 1";
-                // oModel.tahun2019 = CalQ1(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2019).ToList());
-                // oModel.tahun2020 = CalQ1(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2020).ToList());
-                // oModel.tahun2021 = CalQ1(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2021).ToList());
-                // oModel.tahun2022 = CalQ1(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2022).ToList());
-                // oModel.tahun2023 = CalQ1(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2023).ToList());
-                // oModel.tahun2024 = CalQ1(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2024).ToList());
-                // oResult.Add(oModel);
-
-                // oModel = new BenchmarkingResult();
-                // oModel.keterangan = "Kuartil 2";
-                // oModel.tahun2019 = CalQ2(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2019).ToList());
-                // oModel.tahun2020 = CalQ2(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2020).ToList());
-                // oModel.tahun2021 = CalQ2(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2021).ToList());
-                // oModel.tahun2022 = CalQ2(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2022).ToList());
-                // oModel.tahun2023 = CalQ2(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2023).ToList());
-                // oModel.tahun2024 = CalQ2(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2024).ToList());
-                // oResult.Add(oModel);
-
-                // oModel = new BenchmarkingResult();
-                // oModel.keterangan = "Kuartil 3";
-                // oModel.tahun2019 = CalQ3(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2019).ToList());
-                // oModel.tahun2020 = CalQ3(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2020).ToList());
-                // oModel.tahun2021 = CalQ3(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2021).ToList());
-                // oModel.tahun2022 = CalQ3(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2022).ToList());
-                // oModel.tahun2023 = CalQ3(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2023).ToList());
-                // oModel.tahun2024 = CalQ3(_context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Select(z => z.tahun2024).ToList());
-                // oResult.Add(oModel);
-
-                // oModel = new BenchmarkingResult();
-                // oModel.keterangan = "Maksimum";
-                // oModel.tahun2019 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Max(z => z.tahun2019);
-                // oModel.tahun2020 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Max(z => z.tahun2020);
-                // oModel.tahun2021 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Max(z => z.tahun2021);
-                // oModel.tahun2022 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Max(z => z.tahun2022);
-                // oModel.tahun2023 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Max(z => z.tahun2023);
-                // oModel.tahun2024 = _context.Benchmarking.Where(z => z.rasio == rasio && z.klasifikasi_usaha == klasifikasi && z.jenis_kegiatan_usaha == jenis).Max(z => z.tahun2024);
-                // oResult.Add(oModel);
 
             }
             catch (System.Exception)
