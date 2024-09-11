@@ -25,18 +25,139 @@ body {
   padding-bottom: 10px;
 }
 
-.head-img-benchmarking{
+/*.head-img-benchmarking{
   background-image: url('../image/Benchmarking_bg1.jpeg');
-  width: 100vw; /* Full viewport width */
-  margin-left: calc(-50vw + 50%); /* Center align */
-  background-size: cover; /* Stretch the background image */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Do not repeat the background image */
-  padding: 20px; /* Optional padding */
-  text-align: left; /* Center text */
-  color: white; /* Optional text color for contrast */
-  height: 350px;
+  width: 100vw;*/ /* Full viewport width */
+  /*margin-left: calc(-50vw + 50%);*/ /* Center align */
+  /*background-size: cover;*/ /* Stretch the background image */
+  /*background-position: center;*/ /* Center the background image */
+  /*background-repeat: no-repeat;*/ /* Do not repeat the background image */
+  /*padding: 20px;*/ /* Optional padding */
+  /*text-align: left;*/ /* Center text */
+  /*color: white;*/ /* Optional text color for contrast */
+  /*height: 350px;
+}*/
+
+/*.main-left-frame {*/
+    /* Frame 40 */
+    /* Auto layout */
+    /*display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 12px 12px;
+    gap: 12px;
+    position: absolute;
+    width: 410px;
+    height: 646px;
+    left: 81px;
+    top: 600px;
+    background: rgba(0, 133, 141, 0.08);
+    border-radius: 4px;
+
 }
+.main-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+    width: 386px;
+    height: 618px;
+    background: #FFFBFB;
+    border-radius: 4px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.main-left-image {
+    width: 362px;
+    height: 260px;
+    background: linear-gradient(219.21deg, #F2F2F7 11.61%, #00858D 99.64%), url('../image/service/main-left.svg');
+    background-blend-mode: color-burn, normal;
+    border-radius: 4px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.main-left-accordian {*/
+    /* accordion */
+
+    /*box-sizing: border-box;*/
+    /* Auto layout */
+    /*display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px 12px;
+    gap: 10px;
+    width: 362px;
+    height: 68px;
+    border-bottom: 1px solid #C4DFE4;*/
+    /* Inside auto layout */
+    /*flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.main-left-accordian-text {*/
+    /* Tentang Data Pembanding Laporan Keuangan */
+
+    /*width: 312px;
+    height: 56px;*/
+    /* Heading/Med/H6 - M */
+    /*font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 28px;*/
+    /* or 127% */
+
+    /*color: #075860;*/
+    /* Inside auto layout */
+    /*flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+.main-left-content {*/
+    /* Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan Benchmarking Data Pembanding. Data Pembanding Eksternal yang tersedia diperoleh dari BvD TPCatalyst yang kemudian diolah menjadi Benchmarking Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha. */
+
+    /*width: 362px;
+    height: 242px;*/
+    /* Body - R/Body - M */
+    /*font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;*/
+    /* or 138% */
+
+    /*color: #08444B;*/
+    /* Inside auto layout */
+    /*flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.main-right-frame {*/
+    /* container_content */
+    /* Auto layout */
+    /*display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+    gap: 12px;
+    position: absolute;
+    width: 845px;
+    height: 1153px;
+    left: 515px;
+    top: 602px;
+    background: rgba(0, 133, 141, 0.08);
+    border-radius: 8px;
+}*/
+
 
 
 .e-grid .e-headercell {
@@ -67,3 +188,69 @@ body {
 .e-linkedin:before {
   content: "\a704";
 }
+
+/* nav-bar-top */
+.nav-bar-top {
+    /* Auto layout */
+    /*display: flex;*/
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 40px;
+    gap: 32px;
+    position: absolute;
+    width: 1440px;
+    /*height: 40px;*/
+    left: 0px;
+    top: 0px;
+    background: #00858D;
+    border-bottom: 1px solid #FFFFFF;
+    backdrop-filter: blur(16px);
+    /* Note: backdrop-filter has minimal browser support */
+}
+
+.nav-bar-text{
+    color:white;
+}
+
+.nav-app-main {
+    /* nav-bar-top */
+    /* Auto layout */
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 40px;
+    gap: 32px;
+    position: absolute;
+    width: 1440px;
+    height: 88px;
+    left: 0px;
+    top: 40px;
+    background: #F5F9FA;
+    border-bottom: 1px solid #C4DFE4;
+    backdrop-filter: blur(16px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 4px;
+}
+
+.nav-app-main {
+    /* nav-bar-top */
+    /* Auto layout */
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 40px;
+    gap: 32px;
+    position: absolute;
+    width: 1440px;
+    height: 88px;
+    left: 0px;
+    top: 40px;
+    background: #F5F9FA;
+    border-bottom: 1px solid #C4DFE4;
+    backdrop-filter: blur(16px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 4px;
+}
+
+
+
+/*---------------Benchmarking---------------*/

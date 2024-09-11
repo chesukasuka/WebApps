@@ -103,7 +103,10 @@ function loadCustomers() {
         testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / penjualan.value;
     }
 
-
+    const elements = document.querySelectorAll('.to-hide'); // Only target elements with the 'to-hide' class
+    elements.forEach(element => {
+        element.classList.toggle('hidden');
+    });
 };
 
 function dataBound(args) {

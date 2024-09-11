@@ -26,7 +26,7 @@ namespace WebApps.Controllers
             {
                 //ViewBag.sliderValue = new int[] { UtilityController.dtYear-1, UtilityController.dtYear-1 };
 
-                ViewBag.tahun = new string[] { "1 Tahun", "2 Tahun", "3 Tahun"};
+                ViewBag.tahun = new string[] { "1 Tahun", "3 Tahun", "5 Tahun"};
                 ViewBag.jenis = _context.Benchmarking
                 .Select(z => new BenchmarkingModel { JenisKegiatanUsaha = z.JenisKegiatanUsaha })
                 .Where(z => z.JenisKegiatanUsaha != null)
