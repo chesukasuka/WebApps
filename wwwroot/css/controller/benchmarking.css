@@ -147,7 +147,7 @@ Laporan Keuangan */
     align-items: flex-start;
     padding: 0px;
     gap: 14px;
-    width: 587px;
+    /*width: 587px;*/
     height: 26px;
     /* Inside auto layout */
     flex: none;
@@ -167,7 +167,7 @@ Laporan Keuangan */
 .main-top-frame-content-1-helper-text {
     /* Gulir kebawah dan gunakan demo fitur kami. */
 
-    width: 549px;
+    /*width: 549px;*/
     height: 26px;
     /* Body/Regular/Body-L-Regular */
     font-style: normal;
@@ -329,7 +329,7 @@ Laporan Keuangan */
 .main-right-frame-input {
     /* input_container */
     /* Auto layout */
-    display: flex;
+    /*display: flex;*/
     flex-direction: row;
     align-items: flex-start;
     padding: 12px;
@@ -363,7 +363,7 @@ Laporan Keuangan */
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    width: 386.5px;
+    /*width: 386.5px;*/
     height: 18px;
     /* Inside auto layout */
     flex: none;
@@ -379,7 +379,7 @@ Laporan Keuangan */
     align-items: center;
     padding: 0px;
     gap: 8px;
-    width: 386.5px;
+    /*width: 386.5px;*/
     height: 18px;
     /* Inside auto layout */
     flex: none;

@@ -25,6 +25,12 @@ body {
   padding-bottom: 10px;
 }
 
+@media (max-width: 767px) {
+    .hide-on-mobile {
+        display: none; /* Hide the div */
+    }
+}
+
 /*.head-img-benchmarking{
   background-image: url('../image/Benchmarking_bg1.jpeg');
   width: 100vw;*/ /* Full viewport width */
@@ -1136,7 +1142,7 @@ body {
     align-items: center;
     padding: 20px 40px;
     gap: 32px;
-    position: absolute;
+    position: sticky;
     /*width: 1440px;*/
     height: 88px;
     left: 0px;
@@ -1163,6 +1169,7 @@ body {
     order: 0;
     flex-grow: 0;
     background-image: url('/image/layout/logo.svg');
+    cursor: pointer;
 }
 
 .nav-main-2 {
@@ -1191,6 +1198,7 @@ body {
     order: 0;
     flex-grow: 0;
     background-image: url('/image/layout/home.svg');
+    cursor: pointer;
 }
 .nav-main-2-2 {
     /* nav-menu */
