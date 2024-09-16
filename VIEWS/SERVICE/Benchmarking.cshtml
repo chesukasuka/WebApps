@@ -96,13 +96,9 @@
                                             <div class="main-right-frame-input-1-1-1-1">
                                                 Tentang Rasio
                                             </div>
-                                            <div id="targetDiv" class="main-right-frame-input-1-1-1-2">
-                                            </div>
+                                            @Html.EJS().Tooltip("Tooltip").Content("Resale Price Methode (RPM) : Gross Profit / Operating Revenue • Cost Plus Methode (CPM) : Gross Profit / Cost Plus Methode • Return On Sales (ROS) : Operating Profit / Operating Revenue • Net Cost Plus Methode (NCPM) : Operating Profit / (Cost Plus Methode + Operating Expense)").ContentTemplate(@<div id="target" class="main-right-frame-input-1-1-1-2"></div>).Position(Syncfusion.EJ2.Popups.Position.TopRight).Render()
                                         </div>
                                     </div>
-@*                                     <div id="targetDiv" style="width: 200px; height: 100px; background-color: lightblue;">
-                                        Hover over me to see the tooltip.
-                                    </div> *@
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
@@ -117,6 +113,14 @@
                                     @Html.EJS().TextBox("labaoperasional").Placeholder("Laba Operasional").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
                                     @Html.EJS().TextBox("testedparty").Placeholder("Tested Party (%)").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
                                     @Html.EJS().Button("btnHitung").Content("Hitung").CssClass("main-right-frame-input-button").Render()
+                                    <div class="main-right-frame-input-1-1">
+                                        <div class="main-right-frame-input-1-1-1">
+                                            <div class="main-right-frame-input-1-1-1-1">
+                                                Tentang Tested Party
+                                            </div>
+                                            @Html.EJS().Tooltip("Tooltip2").Content("Tested Party adalah Rasio Pihak yang Diuji.").ContentTemplate(@<div id="target" class="main-right-frame-input-1-1-1-2"></div>).Position(Syncfusion.EJ2.Popups.Position.TopRight).Render()
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>

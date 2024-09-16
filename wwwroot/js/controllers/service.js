@@ -18,16 +18,6 @@ function toastbefore(e) {
     }
 }
 
-var tooltipObj = new ej.popups.Tooltip({
-    content: 'Resale Price Methode (RPM) : Gross Profit / Operating Revenue • Cost Plus Methode (CPM) : Gross Profit / Cost Plus Methode • Return On Sales (ROS) : Operating Profit / Operating Revenue • Net Cost Plus Methode (NCPM) : Operating Profit / (Cost Plus Methode + Operating Expense)',
-    position: 'TopCenter',  // Position the tooltip above the div
-    target: '#targetDiv'    // Attach the tooltip to the div
-});
-
-// Append the tooltip to the body
-//tooltipObj.appendTo('body');
-
-
 function jenisChange() {
 
     var jeniskegiatanusaha = document.getElementById('jeniskegiatanusaha').ej2_instances[0];
@@ -189,10 +179,10 @@ function loadCustomers() {
 function dataBound(args) {
     this.getColumns()[0].width = 200;
     this.getColumns()[1].width = 150;
-    //this.refreshColumns();
+    this.refreshColumns();
 }
 function dataBound2(args) {
     this.getColumns()[0].width = 350;
-    //this.refreshColumns();
+    this.refreshColumns();
 }
 
