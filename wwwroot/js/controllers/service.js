@@ -1,4 +1,33 @@
-﻿
+﻿var btoastbefore = false;
+var toastObj;
+function created() {
+    toastObj = this;
+}
+setTimeout(function () {
+    toastObj.show({
+        target: document.body
+    });
+}, 500);
+function toastbefore(e) {
+    cek = btoastbefore;
+    if (cek == true) {
+        e.cancel = false;
+    }
+    else {
+        e.cancel = true;
+    }
+}
+
+var tooltipObj = new ej.popups.Tooltip({
+    content: 'Resale Price Methode (RPM) : Gross Profit / Operating Revenue • Cost Plus Methode (CPM) : Gross Profit / Cost Plus Methode • Return On Sales (ROS) : Operating Profit / Operating Revenue • Net Cost Plus Methode (NCPM) : Operating Profit / (Cost Plus Methode + Operating Expense)',
+    position: 'TopCenter',  // Position the tooltip above the div
+    target: '#targetDiv'    // Attach the tooltip to the div
+});
+
+// Append the tooltip to the body
+//tooltipObj.appendTo('body');
+
+
 function jenisChange() {
 
     var jeniskegiatanusaha = document.getElementById('jeniskegiatanusaha').ej2_instances[0];
@@ -53,68 +82,117 @@ document.getElementById('btnHitung').onclick = () => {
 };
 
 function loadCustomers() {
+    btoastbefore = true;
+    const elements = document.querySelectorAll('.to-hide'); // Only target elements with the 'to-hide' class
+    elements.forEach(element => {
+        element.classList.add('hidden');
+    });
+
+    const elements2 = document.querySelectorAll('.to-show'); // Only target elements with the 'to-hide' class
+    elements2.forEach(elements2 => {
+        elements2.classList.remove('hidden');
+    });
+
     var grid = document.getElementById("Grid").ej2_instances[0];
     var rasio = document.getElementById("ratio").ej2_instances[0];
     var klasifikasi = document.getElementById("klasifikasiusaha").ej2_instances[0];
     var jenis = document.getElementById("jeniskegiatanusaha").ej2_instances[0];
     // var tahunslider = document.getElementById("tahun").ej2_instances[0];
-    var tahunpajak = document.getElementById("tahunpajak").ej2_instances[0].value.getFullYear();
-    var tahun1 = tahunpajak - 3;
-    var tahun2 = tahunpajak - 0;
+    var tahunpajak = document.getElementById("tahunpajak").ej2_instances[0].value;
+    var tahun = document.getElementById("tahun").ej2_instances[0].value;
 
-    // fetch('@Url.Action("Hitung", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahunslider.value[0] + '&tahun2=' + tahunslider.value[1])
-    fetch('/Service/Hitung' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2)
-        .then(response => response.json())
-        .then(data => {
-            grid.changeDataSource(data);
-            grid.refresh();
-        });
+    var tahun1 = 0;
+    var tahun2 = 0;
 
-    var grid2 = document.getElementById("Grid2").ej2_instances[0];
-    //fetch('@Url.Action("Hitung2", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahunslider.value[0] + '&tahun2=' + tahunslider.value[1])
-    fetch('/Service/Hitung2' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2)
-        .then(response => response.json())
-        .then(data => {
-            grid2.changeDataSource(data);
-            grid2.refresh();
-        });
-
-    var penjualan = document.getElementById("penjualan").ej2_instances[0];
-    var hargapokokpenjualan = document.getElementById("hargapokokpenjualan").ej2_instances[0];
-    var bebanoperasional = document.getElementById("bebanoperasional").ej2_instances[0];
-
-    var labakotor = document.getElementById("labakotor").ej2_instances[0];
-    var labaoperasional = document.getElementById("labaoperasional").ej2_instances[0];
-
-    labakotor.value = penjualan.value - hargapokokpenjualan.value;
-    labaoperasional.value = penjualan.value - hargapokokpenjualan.value - bebanoperasional.value;
-
-    var testedparty = document.getElementById("testedparty").ej2_instances[0];
-    if (rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method") {
-        testedparty.value = (penjualan.value - hargapokokpenjualan.value) / penjualan.value;
+    if (tahun == "1 Tahun") {
+        var tahun1 = tahunpajak - 1;
+        var tahun2 = tahunpajak - 1;
     }
-    else if (rasio.value == "Cost Plus Methode" || rasio.value == "Cost Plus Method") {
-        testedparty.value = (penjualan.value - hargapokokpenjualan.value) / hargapokokpenjualan.value;
+    else if (tahun == "3 Tahun") {
+        var tahun1 = tahunpajak - 3;
+        var tahun2 = tahunpajak - 1;
     }
-    else if (rasio.value == "Net Cost Plus Methode" || rasio.value == "Net Cost Plus Method") {
-        testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / (hargapokokpenjualan.value + bebanoperasional.value);
+    else if (tahun == "5 Tahun") {
+        var tahun1 = tahunpajak - 5;
+        var tahun2 = tahunpajak - 1;
     }
-    else if (rasio.value == "Return On Sales") {
-        testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / penjualan.value;
+    else {
+        var tahun1 = tahunpajak - 1;
+        var tahun2 = tahunpajak - 1;
     }
 
-    const elements = document.querySelectorAll('.to-hide'); // Only target elements with the 'to-hide' class
-    elements.forEach(element => {
-        element.classList.toggle('hidden');
-    });
+    if (tahun1 >= 2017) {
+        // fetch('@Url.Action("Hitung", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahunslider.value[0] + '&tahun2=' + tahunslider.value[1])
+        fetch('/Service/Hitung' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2)
+            .then(response => response.json())
+            .then(data => {
+                grid.changeDataSource(data);
+                grid.refresh
+
+                if (data.length != 0) {
+                    const elements = document.querySelectorAll('.to-hide'); // Only target elements with the 'to-hide' class
+                    elements.forEach(element => {
+                        element.classList.remove('hidden');
+                    });
+                    const elements2 = document.querySelectorAll('.to-show'); // Only target elements with the 'to-hide' class
+                    elements2.forEach(elements2 => {
+                        elements2.classList.add('hidden');
+                    });
+
+                }
+                else {
+                    toastObj.show();
+                }
+            });
+
+        var grid2 = document.getElementById("Grid2").ej2_instances[0];
+        //fetch('@Url.Action("Hitung2", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahunslider.value[0] + '&tahun2=' + tahunslider.value[1])
+        fetch('/Service/Hitung2' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2)
+            .then(response => response.json())
+            .then(data => {
+                grid2.changeDataSource(data);
+                grid2.refresh();
+            });
+
+        var penjualan = document.getElementById("penjualan").ej2_instances[0];
+        var hargapokokpenjualan = document.getElementById("hargapokokpenjualan").ej2_instances[0];
+        var bebanoperasional = document.getElementById("bebanoperasional").ej2_instances[0];
+
+        var labakotor = document.getElementById("labakotor").ej2_instances[0];
+        var labaoperasional = document.getElementById("labaoperasional").ej2_instances[0];
+
+        labakotor.value = penjualan.value - hargapokokpenjualan.value;
+        labaoperasional.value = penjualan.value - hargapokokpenjualan.value - bebanoperasional.value;
+
+        var testedparty = document.getElementById("testedparty").ej2_instances[0];
+        if (rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method") {
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value) / penjualan.value;
+        }
+        else if (rasio.value == "Cost Plus Methode" || rasio.value == "Cost Plus Method") {
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value) / hargapokokpenjualan.value;
+        }
+        else if (rasio.value == "Net Cost Plus Methode" || rasio.value == "Net Cost Plus Method") {
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / (hargapokokpenjualan.value + bebanoperasional.value);
+        }
+        else if (rasio.value == "Return On Sales") {
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / penjualan.value;
+        }
+    }
+    else {
+        toastObj.show();
+    }
+
+
+
 };
 
 function dataBound(args) {
     this.getColumns()[0].width = 200;
     this.getColumns()[1].width = 150;
-    this.refreshColumns();
+    //this.refreshColumns();
 }
 function dataBound2(args) {
     this.getColumns()[0].width = 350;
-    this.refreshColumns();
+    //this.refreshColumns();
 }
+

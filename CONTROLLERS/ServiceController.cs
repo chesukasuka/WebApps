@@ -27,6 +27,8 @@ namespace WebApps.Controllers
                 //ViewBag.sliderValue = new int[] { UtilityController.dtYear-1, UtilityController.dtYear-1 };
 
                 ViewBag.tahun = new string[] { "1 Tahun", "3 Tahun", "5 Tahun"};
+                ViewBag.tahunpajak = new string[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024" };
+
                 ViewBag.jenis = _context.Benchmarking
                 .Select(z => new BenchmarkingModel { JenisKegiatanUsaha = z.JenisKegiatanUsaha })
                 .Where(z => z.JenisKegiatanUsaha != null)
@@ -172,52 +174,69 @@ namespace WebApps.Controllers
             try
             {
                 var oData = Searchbenchmark(rasio,jenis,klasifikasi,tahun1,tahun2);
-                
-                var oListHeader = new List<Dictionary<string, object>>();
-                var oListData = new Dictionary<string, object>();
-                
-                for (int j = 0; j < 5; j++){
-                    var oLoop = tahun2 - tahun1 + 1;
-                    oListData = new Dictionary<string, object>();
-                    if(j == 0){
-                        oListData.Add("Keterangan","Minimum");
-                        for (int i = 0; i < oLoop; i++){
-                            var oResData = oData.OrderBy(dict => dict[" " + (tahun1 + i).ToString()]).First();
-                            oListData.Add(" " + (tahun1 + i).ToString(), oResData[" " + (tahun1 + i).ToString()]);
-                        }
-                    }
-                    if(j == 1){
-                        oListData.Add("Keterangan","Kuartil 1");
-                        for (int i = 0; i < oLoop; i++){
-                            var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()] ).ToList();                            
-                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.25).ToString("F2").Replace(".00","") );
-                        }
-                    }
-                    if(j == 2){
-                        oListData.Add("Keterangan","Kuartil 2");
-                        for (int i = 0; i < oLoop; i++){
-                            var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()] ).ToList();                            
-                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.50).ToString("F2").Replace(".00","") );
-                        }                        
-                    }
-                    if(j == 3){
-                        oListData.Add("Keterangan","Kuartil 3");
-                        for (int i = 0; i < oLoop; i++){
-                            var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()] ).ToList();                            
-                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.75).ToString("F2").Replace(".00","") );
-                        }
-                    }
-                    if(j == 4){
-                        oListData.Add("Keterangan","Maksimum");                        
-                        for (int i = 0; i < oLoop; i++){
-                            var oResData = oData.OrderBy(dict => dict[" " + (tahun1 + i).ToString()]).Last();
-                            oListData.Add(" " + (tahun1 + i).ToString(), oResData[" " + (tahun1 + i).ToString()]);
-                        }
-                    }
-                    oListHeader.Add(oListData);
-                }
 
-                oResult = oListHeader;
+                if (oData.Count != 0)
+                {
+                    var oListHeader = new List<Dictionary<string, object>>();
+                    var oListData = new Dictionary<string, object>();
+
+                    for (int j = 0; j < 5; j++)
+                    {
+                        var oLoop = tahun2 - tahun1 + 1;
+                        oListData = new Dictionary<string, object>();
+                        if (j == 0)
+                        {
+                            oListData.Add("Keterangan", "Minimum");
+                            for (int i = 0; i < oLoop; i++)
+                            {
+                                var oResData = oData.OrderBy(dict => dict[" " + (tahun1 + i).ToString()]).First();
+                                oListData.Add(" " + (tahun1 + i).ToString(), oResData[" " + (tahun1 + i).ToString()]);
+                            }
+                        }
+                        if (j == 1)
+                        {
+                            oListData.Add("Keterangan", "Kuartil 1");
+                            for (int i = 0; i < oLoop; i++)
+                            {
+                                var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
+                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.25).ToString("F2").Replace(".00", ""));
+                            }
+                        }
+                        if (j == 2)
+                        {
+                            oListData.Add("Keterangan", "Kuartil 2");
+                            for (int i = 0; i < oLoop; i++)
+                            {
+                                var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
+                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.50).ToString("F2").Replace(".00", ""));
+                            }
+                        }
+                        if (j == 3)
+                        {
+                            oListData.Add("Keterangan", "Kuartil 3");
+                            for (int i = 0; i < oLoop; i++)
+                            {
+                                var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
+                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.75).ToString("F2").Replace(".00", ""));
+                            }
+                        }
+                        if (j == 4)
+                        {
+                            oListData.Add("Keterangan", "Maksimum");
+                            for (int i = 0; i < oLoop; i++)
+                            {
+                                var oResData = oData.OrderBy(dict => dict[" " + (tahun1 + i).ToString()]).Last();
+                                oListData.Add(" " + (tahun1 + i).ToString(), oResData[" " + (tahun1 + i).ToString()]);
+                            }
+                        }
+                        oListHeader.Add(oListData);
+                    }
+                    oResult = oListHeader;
+                }
+                else
+                {
+                    oResult = null;
+                }
 
             }
             catch (System.Exception)

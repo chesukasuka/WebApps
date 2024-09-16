@@ -17,12 +17,12 @@
 .main-top-frame {
     /* hero-content */
     /* Auto layout */
-    width: 100vw; /* Full viewport width */
-    margin-left: calc(-50vw + 50%); /* Center align */
     background-image: url('/image/service/main-top.svg');
+    margin-left: calc(-50vw + 50%); /* Center align */
     background-size: cover; /* Stretch the background image */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Do not repeat the background image */
+    width: 100vw; /* Full viewport width */
     padding: 40px 80px;
     height: 432px;
 }
@@ -355,6 +355,74 @@ Laporan Keuangan */
     order: 0;
     flex-grow: 1;
 }
+
+.main-right-frame-input-1-1 {
+    /* Helper-text */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    width: 386.5px;
+    height: 18px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.main-right-frame-input-1-1-1 {
+    /* .helper-text-base */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 386.5px;
+    height: 18px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+.main-right-frame-input-1-1-1-1 {
+    /* Tentang Rasio */
+
+    width: 81px;
+    height: 18px;
+    /* Body/Regular/Body-R-XS */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    /* identical to box height, or 150% */
+
+    color: #4A4D4A;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.main-right-frame-input-1-1-1-2 {
+    /* Icon */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 16px;
+    height: 18px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    background-image: url('/image/service/info.svg');
+    cursor: pointer;
+}
+
 .main-right-frame-input-2 {
     /* Frame 1000002829 */
     /* Auto layout */
@@ -488,12 +556,11 @@ Laporan Keuangan */
 .main-right-frame-output-result-frame {
     /* Frame 1000002832 */
     /* Auto layout */
-    display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 8px;
-    position: absolute;
+    gap: 4px;
+    /*position: absolute;*/
     height: 82px;
     left: 0px;
     top: 9px;
@@ -577,3 +644,255 @@ Laporan Keuangan */
     align-self: stretch;
     flex-grow: 0;
 }
+
+.main-right-frame-output-picture {
+    height: 554px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.main-right-frame-output-picture-background {
+    background-image: url('/image/service/empty.svg');
+    width: 100%; /* Full width */
+    height: 500px; /* Set a height for the container */
+    background-position: center center; /* Center horizontally and vertically */
+    background-size: cover; /* Scale image to cover the container */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 379px 229px;
+}
+
+.main-bottom {
+    width: 100vw; /* Full viewport width */
+    background: #08444B;
+    width: 100vw; /* Full viewport width */
+    margin-left: calc(-50vw + 50%); /* Center align */
+    padding: 40px 80px;
+    align-items: flex-start;
+    gap: 24px;
+    isolation: isolate;
+    /*height: 440px;*/
+
+    /* section_CTA */
+    /* Auto layout */
+    /*    display: flex;
+    flex-direction: row;
+    padding: 0px 80px;
+    position: absolute;
+    width: 1441px;
+    left: 0px;
+    top: 2038px;
+    background: #08444B;*/
+}
+
+.main-bottom-content {
+    /* content_a */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    /*height: 440px;*/
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 1;
+    z-index: 1;
+}
+
+.main-bottom-content-text {
+    /* text */
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    /*height: 256px;*/
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+
+.main-bottom-content-text-1 {
+    /* Konsultasi */
+
+    /*height: 32px;*/
+    /* Heading/Bold/H6 - SB */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 32px;
+    /* identical to box height, or 145% */
+
+    color: #3199A3;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.main-bottom-content-text-2 {
+    /* Konsultasi Gratis bersama Tim Central Data Access */
+
+    /*height: 116px;*/
+    /* Display/Display - 5 */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+    /* or 121% */
+
+    color: #F5F9FA;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+    padding-bottom: 20px;
+}
+.main-bottom-content-text-3 {
+    /* Dapatkan analisis komprehensif untuk solusi terbaik bisnis Anda. */
+
+    /*height: 84px;*/
+    /* Heading/Med/H3 - M */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;
+    /* or 131% */
+
+    color: #C4DFE4;
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.main-bottom-content-contact {
+    /* Frame 1000002820 */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
+    width: 628.5px;
+    height: 80px;
+    background: #F5F9FA;
+    border-radius: 8px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+}
+.main-bottom-content-contact-1 {
+    /* Hubungi Kami di */
+
+    width: 125px;
+    height: 22px;
+    /* Body - M/Body - M Medium */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height, or 138% */
+
+    color: #072125;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.main-bottom-content-contact-2 {
+    /* 0822-1001-9797 */
+
+    height: 42px;
+    /* Heading/Med/H3 - M */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;
+    /* identical to box height, or 131% */
+
+    color: #075860;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+}
+.main-bottom-content-contact-3 {
+    /* atau */
+
+    height: 22px;
+    /* Body - R/Body - M */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height, or 138% */
+
+    color: #3199A3;
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+.main-bottom-content-contact-4 {
+    /* Secondary */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    height: 56px;
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+.main-bottom-content-contact-4-base {
+    /* .secondary-base */
+
+    box-sizing: border-box;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 12px;
+    gap: 8px;
+    height: 56px;
+    border: 1px solid #046D76;
+    border-radius: 4px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.main-bottom-content-contact-4-base-text {
+    /* Secondary */
+
+    height: 24px;
+    /* Body/Medium/Body-M-M */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    text-align: center;
+    color: #046D76;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+
