@@ -27,7 +27,7 @@ body {
 
 @media (max-width: 767px) {
     .hide-on-mobile {
-        display: none; /* Hide the div */
+        /*display: none;*/ /* Hide the div */
     }
 }
 
@@ -301,7 +301,7 @@ body {
     padding: 32px 40px;
     gap: 16px;
     position: absolute;
-    width: 100vw;
+    width: 100%;
     left: 0px;
     background: #072125;
 }
@@ -339,7 +339,7 @@ body {
     order: 1;
     align-self: stretch;
     flex-grow: 1;
-    width: 90vw;
+    width: 100%;
 }
 
 .footer-frame-3 {
@@ -356,7 +356,7 @@ body {
     order: 2;
     align-self: stretch;
     flex-grow: 0;
-    width: 90vw;
+    width: 100%;
 }
 
 
@@ -1061,7 +1061,7 @@ body {
     background: #00858D;
     backdrop-filter: blur(16px);
     /* Note: backdrop-filter has minimal browser support */
-    width: 100vw;
+    width: 100%;
 }
 
 .nav-top-1 {
