@@ -205,7 +205,7 @@ function loadCustomers() {
     document.getElementById("jeniskegiatanusaharesult").innerHTML = jenis.value;
     document.getElementById("klasifikasiusaharesult").innerHTML = klasifikasi.value;
     document.getElementById("ratioresult").innerHTML = rasio.value;
-    document.getElementById("testedpartyresult").innerHTML = testedparty.value;
+    document.getElementById("testedpartyresult").innerHTML = testedparty.value + ' %';
     document.getElementById("tahunpajakresult").innerHTML = tahunpajak;
 
 
