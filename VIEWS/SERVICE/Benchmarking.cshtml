@@ -198,7 +198,7 @@
                                             <div class="row mt-3">
                                                     <div class="col-md-3">
                                                         <div class="custom-card">
-                                                            <div class="card-title">Manufaktur</div>
+                                                            <div class="card-title" id="jeniskegiatanusaharesult"></div>
                                                             <div class="card-text">Jenis Kegiatan Usaha</div>
                                                         </div>
                                                     </div>
@@ -206,7 +206,7 @@
                                                     <!-- Second Card -->
                                                     <div class="col-md-3">
                                                         <div class="custom-card">
-                                                            <div class="card-title">Industri Garmen</div>
+                                                            <div class="card-title" id="klasifikasiusaharesult"></div>
                                                             <div class="card-text">Klasifikasi Usaha</div>
                                                         </div>
                                                     </div>
@@ -214,7 +214,7 @@
                                                     <!-- Third Card -->
                                                     <div class="col-md-3">
                                                         <div class="custom-card">
-                                                            <div class="card-title" style="font-size: 0.6rem">Resale Price Methode (RPM)</div>
+                                                            <div class="card-title" style="font-size: 0.6rem" id="ratioresult"></div>
                                                             <div class="card-text">Ratio Method</div>
                                                         </div>
                                                     </div>
@@ -222,8 +222,16 @@
                                                     <!-- Fourth Card -->
                                                     <div class="col-3">
                                                         <div class="custom-card">
-                                                            <div class="card-title">0.2%</div>
-                                                            <div class="card-text">Tested Party</div>
+                                                            <div class="row">
+                                                                <div class="col-md-6 px-0">
+                                                                    <div class="card-title" id="testedpartyresult" style="font-size:0.6rem"></div>
+                                                                    <div class="card-text">Tested Party</div>
+                                                                </div>
+                                                                <div class="col-md-6 px-0">
+                                                                    <div class="card-title" id="tahunpajakresult" style="font-size:0.6rem"></div>
+                                                                    <div class="card-text">Tahun Pajak</div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                             </div>
@@ -353,6 +361,7 @@
     .card-title {
         font-weight: bold;
         font-size: 0.9rem;
+        color: #046D76
     }
 
     .card-text {
