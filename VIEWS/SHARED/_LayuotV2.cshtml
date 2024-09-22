@@ -1,0 +1,256 @@
+﻿@using Syncfusion.EJ2
+@using Syncfusion.EJ2.Navigations
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApps</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/$safeprojectname$.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/26.1.42/material.css" />
+    <script src="https://cdn.syncfusion.com/ej2/26.1.42/dist/ej2.min.js"></script>
+</head>
+<body>
+    <header>
+        @{
+            Dictionary<string, object> ButtonAttribute = new Dictionary<string, object>();
+            ButtonAttribute.Add("aria-label", "menu");
+        }
+
+        <div class="hide-on-mobile">
+            <div class="nav-top">
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                    <div class="nav-top-1">
+                        <div class="nav-top-1-1">
+                            cs@centraldataservice.co.id | 0251 8574 375
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6" style="text-align: right;">
+                    <div class="nav-top-2">
+                        <div class="footer-frame-2-1-2-1">
+                        </div>
+                        <div class="footer-frame-2-1-2-2">
+                        </div>
+                        <div class="footer-frame-2-1-2-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-main">
+                <div class="nav-main-1" onclick="window.location.href='https://centraldataaccess.co.id/'">
+                </div>
+                <div class="nav-main-2">
+                    <div class="nav-main-2-1" onclick="window.location.href='https://centraldataaccess.co.id/'">
+                    </div>
+                    <div class="nav-main-2-2">
+                        <div class="nav-main-2-2-1" onclick="window.location.href='https://app.centraldataaccess.co.id/'">
+                            | <span style="font-style:italic">Benchmarking </span> Laporan Keuangan
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-main-3">
+                    <div class="nav-main-3-1">
+                        ID
+                    </div>
+                    <div class="nav-main-3-2">
+                        EN
+                    </div>
+                    <div class="nav-main-3-3">
+                        <div class="nav-main-3-3-1">
+                            <div class="nav-main-3-3-1-1">
+                                Masuk
+                            </div>
+                            <div class="nav-main-3-3-1-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*         <div class="col-lg-12 control-section color-appbar-section">
+        <div class="color-appbar-container">
+        <div class="row">
+        <div class="col-md-12">
+        @(Html.EJS().AppBar("defaultAppBar").ColorMode(AppBarColor.Primary).Position(AppBarPosition.Top).IsSticky(true).ContentTemplate(
+        @<div>
+        @Html.EJS().Button("lightButtonMenu").HtmlAttributes(ButtonAttribute).CssClass("e-inherit menu").IconCss("e-icons e-menu").Render()
+        @Html.EJS().Button("lightButtonHome").CssClass("e-inherit home e-appbar-menu").Content("HOME").Render()
+        @Html.EJS().Button("lightButtonPembanding").CssClass("e-inherit about e-appbar-menu").Content("DATA PEMBANDING").Render()
+        </div>).Render())
+        </div>
+        </div>
+        </div>
+        </div> *@
+
+        @*         <script>
+
+        document.getElementById("lightButtonHome").addEventListener('click', function () {
+        location.href = 'https://centraldataaccess.co.id';
+        });
+        document.getElementById("lightButtonPembanding").addEventListener('click', function () {
+        location.href = '@Url.Action("Benchmarking", "Service")';
+        });
+
+        </script>
+        <style>
+        #defaultAppBar .e-btn.e-inherit {
+        margin: 0 3px;
+        }
+        </style> *@
+
+    </header>
+    <main role="main" class="pb-0">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                <div class="footer-frame">
+                    <div class="row">
+                        <div class="footer-frame-1">
+                            PT Central Data Access
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="footer-frame-2">
+                            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                                <div class="row">
+                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                        <div class="footer-frame-2-1">
+                                            <div class="footer-frame-2-1-1">
+                                                <div class="footer-frame-2-1-1-1">
+                                                    <div class="footer-frame-2-1-1-1-1">
+                                                        Alamat Kantor Pusat
+                                                    </div>
+                                                    <div class="footer-frame-2-1-1-1-2">
+                                                        Gedung Pembina Graha No. 10, Rawamangun, Jakarta Timur
+                                                    </div>
+                                                </div>
+                                                <div class="footer-frame-2-1-1-2">
+                                                    <div class="footer-frame-2-1-1-2-1">
+                                                        Workshop
+                                                    </div>
+                                                    <div class="footer-frame-2-1-1-2-2">
+                                                        Jalan Baugenville Z7 No. 10,Kedung Waringin, Tanah Sareal, Kota Bogor, Jawa Barat
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="footer-frame-2-1-2">
+                                                <div class="footer-frame-2-1-2-1">
+                                                </div>
+                                                <div class="footer-frame-2-1-2-2">
+                                                </div>
+                                                <div class="footer-frame-2-1-2-3">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                        <div class="footer-frame-2-2">
+                                            <div class="footer-frame-2-2-1">
+                                                <div class="footer-frame-2-2-1-1">
+                                                    Telepon
+                                                </div>
+                                                <div class="footer-frame-2-2-1-2">
+                                                    0251 8574 375
+                                                </div>
+                                            </div>
+                                            <div class="footer-frame-2-2-2">
+                                                <div class="footer-frame-2-2-2-1">
+                                                    Whatsapp
+                                                </div>
+                                                <div class="footer-frame-2-2-2-2">
+                                                    0822 1001 9797
+                                                </div>
+                                                <div class="footer-frame-2-2-2-3">
+                                                    0822 1001 9696
+                                                </div>
+                                            </div>
+                                            <div class="footer-frame-2-2-3">
+                                                <div class="footer-frame-2-2-3-1">
+                                                    Email
+                                                </div>
+                                                <div class="footer-frame-2-2-3-2">
+                                                    cs@centraldataaccess.co.id
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                        <div class="footer-frame-2-3">
+                                            <div class="footer-frame-2-3-1">
+                                                Perusahaan
+                                            </div>
+                                            <div class="footer-frame-2-3-2">
+                                                <div class="footer-frame-2-3-2-1">
+                                                    Tentang Kami
+                                                </div>
+                                                <div class="footer-frame-2-3-2-2">
+                                                    Data Pembanding
+                                                </div>
+                                                <div class="footer-frame-2-3-2-3">
+                                                    Info Perpajakan
+                                                </div>
+                                                <div class="footer-frame-2-3-2-4">
+                                                    Kontak Kami
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                        <div class="footer-frame-2-4">
+                                            <div class="footer-frame-2-4-1">
+                                                Jasa Kami
+                                            </div>
+                                            <div class="footer-frame-2-4-2">
+                                                <div class="footer-frame-2-4-2-1">
+                                                    Transfer Pricing
+                                                </div>
+                                                <div class="footer-frame-2-4-2-2">
+                                                    Software Perpajakan
+                                                </div>
+                                                <div class="footer-frame-2-4-2-3">
+                                                    Jasa Perpajakan Umum
+                                                </div>
+                                                <div class="footer-frame-2-4-2-4">
+                                                    Jasa Audit Laporan Keuangan
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="footer-frame-3">
+                            <div class="footer-frame-3-1">
+                                <div class="footer-frame-3-1-1">
+                                    © Copyright. All Rights Reserved 2024
+                                </div>
+                                <div class="footer-frame-3-1-2">
+                                    Syarat dan Ketentuan
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <ejs-scripts></ejs-scripts>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- Syncfusion ASP.NET MVC Script Manager -->
+    @Html.EJS().ScriptManager()
+</body>
+</html>

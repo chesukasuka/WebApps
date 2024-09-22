@@ -13,237 +13,180 @@
     <script src="https://cdn.syncfusion.com/ej2/26.1.42/dist/ej2.min.js"></script>
 </head>
 <body>
-    <header>
-        @{
-            Dictionary<string, object> ButtonAttribute = new Dictionary<string, object>();
-            ButtonAttribute.Add("aria-label", "menu");
-        }
-
-        <div class="hide-on-mobile">
-            <div class="nav-top">
-                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
-                    <div class="nav-top-1">
-                        <div class="nav-top-1-1">
-                            cs@centraldataservice.co.id | 0251 8574 375
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6" style="text-align: right;">
-                    <div class="nav-top-2">
-                        <div class="footer-frame-2-1-2-1">
-                        </div>
-                        <div class="footer-frame-2-1-2-2">
-                        </div>
-                        <div class="footer-frame-2-1-2-3">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="nav-main">
-                <div class="nav-main-1" onclick="window.location.href='https://centraldataaccess.co.id/'">
-                </div>
-                <div class="nav-main-2">
-                    <div class="nav-main-2-1" onclick="window.location.href='https://centraldataaccess.co.id/'">
-                    </div>
-                    <div class="nav-main-2-2">
-                        <div class="nav-main-2-2-1" onclick="window.location.href='https://app.centraldataaccess.co.id/'">
-                            | <span style="font-style:italic">Benchmarking </span> Laporan Keuangan
-                        </div>
-                    </div>
-                </div>
-                <div class="nav-main-3">
-                    <div class="nav-main-3-1">
-                        ID
-                    </div>
-                    <div class="nav-main-3-2">
-                        EN
-                    </div>
-                    <div class="nav-main-3-3">
-                        <div class="nav-main-3-3-1">
-                            <div class="nav-main-3-3-1-1">
-                                Masuk
-                            </div>
-                            <div class="nav-main-3-3-1-2">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-@*         <div class="col-lg-12 control-section color-appbar-section">
-            <div class="color-appbar-container">
-                <div class="row">
-                    <div class="col-md-12">
-                        @(Html.EJS().AppBar("defaultAppBar").ColorMode(AppBarColor.Primary).Position(AppBarPosition.Top).IsSticky(true).ContentTemplate(
-                        @<div>
-                            @Html.EJS().Button("lightButtonMenu").HtmlAttributes(ButtonAttribute).CssClass("e-inherit menu").IconCss("e-icons e-menu").Render()
-                            @Html.EJS().Button("lightButtonHome").CssClass("e-inherit home e-appbar-menu").Content("HOME").Render()
-                            @Html.EJS().Button("lightButtonPembanding").CssClass("e-inherit about e-appbar-menu").Content("DATA PEMBANDING").Render()
-                        </div>).Render())
-                    </div>
-                </div>
-            </div>
-        </div> *@
-
-@*         <script>
-
-            document.getElementById("lightButtonHome").addEventListener('click', function () {
-                location.href = 'https://centraldataaccess.co.id';
-            });
-            document.getElementById("lightButtonPembanding").addEventListener('click', function () {
-                location.href = '@Url.Action("Benchmarking", "Service")';
-            });
-
-        </script>
-        <style>
-            #defaultAppBar .e-btn.e-inherit {
-                margin: 0 3px;
+    <div class="container-fluid">
+        <header>
+            @{
+                Dictionary<string, object> ButtonAttribute = new Dictionary<string, object>();
+                ButtonAttribute.Add("aria-label", "menu");
             }
-        </style> *@
 
-    </header>
-    <main role="main" class="pb-0">
-        @RenderBody()
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <div class="footer-frame">
-                    <div class="row">
-                        <div class="footer-frame-1">
-                            PT Central Data Access
-                        </div>
+            <div class="row py-1 align-items-center justify-content-between" style="background-color:#00858D">
+                <div class="ms-3 col-5 d-flex justify-content-start">
+                    <p class="fs-6 my-auto" style="color:white">cs@centraldataservice.co.id | 0251 8574 375</p>
+                </div>
+                <div class="col-5 d-flex justify-content-end">
+                    <div class="btn-group" role="group" aria-label="Youtube">
+                        <button type="button" class="btn"><img src="~/image/layout/youtube.svg"></button>
                     </div>
-                    <div class="row">
-                        <div class="footer-frame-2">
-                            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                                <div class="row">
-                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
-                                        <div class="footer-frame-2-1">
-                                            <div class="footer-frame-2-1-1">
-                                                <div class="footer-frame-2-1-1-1">
-                                                    <div class="footer-frame-2-1-1-1-1">
-                                                        Alamat Kantor Pusat
-                                                    </div>
-                                                    <div class="footer-frame-2-1-1-1-2">
-                                                        Gedung Pembina Graha No. 10, Rawamangun, Jakarta Timur
-                                                    </div>
-                                                </div>
-                                                <div class="footer-frame-2-1-1-2">
-                                                    <div class="footer-frame-2-1-1-2-1">
-                                                        Workshop
-                                                    </div>
-                                                    <div class="footer-frame-2-1-1-2-2">
-                                                        Jalan Baugenville Z7 No. 10,Kedung Waringin, Tanah Sareal, Kota Bogor, Jawa Barat
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="footer-frame-2-1-2">
-                                                <div class="footer-frame-2-1-2-1">
-                                                </div>
-                                                <div class="footer-frame-2-1-2-2">
-                                                </div>
-                                                <div class="footer-frame-2-1-2-3">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
-                                        <div class="footer-frame-2-2">
-                                            <div class="footer-frame-2-2-1">
-                                                <div class="footer-frame-2-2-1-1">
-                                                    Telepon
-                                                </div>
-                                                <div class="footer-frame-2-2-1-2">
-                                                    0251 8574 375
-                                                </div>
-                                            </div>
-                                            <div class="footer-frame-2-2-2">
-                                                <div class="footer-frame-2-2-2-1">
-                                                    Whatsapp
-                                                </div>
-                                                <div class="footer-frame-2-2-2-2">
-                                                    0822 1001 9797
-                                                </div>
-                                                <div class="footer-frame-2-2-2-3">
-                                                    0822 1001 9696
-                                                </div>
-                                            </div>
-                                            <div class="footer-frame-2-2-3">
-                                                <div class="footer-frame-2-2-3-1">
-                                                    Email
-                                                </div>
-                                                <div class="footer-frame-2-2-3-2">
-                                                    cs@centraldataaccess.co.id
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
-                                        <div class="footer-frame-2-3">
-                                            <div class="footer-frame-2-3-1">
-                                                Perusahaan
-                                            </div>
-                                            <div class="footer-frame-2-3-2">
-                                                <div class="footer-frame-2-3-2-1">
-                                                    Tentang Kami
-                                                </div>
-                                                <div class="footer-frame-2-3-2-2">
-                                                    Data Pembanding
-                                                </div>
-                                                <div class="footer-frame-2-3-2-3">
-                                                    Info Perpajakan
-                                                </div>
-                                                <div class="footer-frame-2-3-2-4">
-                                                    Kontak Kami
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
-                                        <div class="footer-frame-2-4">
-                                            <div class="footer-frame-2-4-1">
-                                                Jasa Kami
-                                            </div>
-                                            <div class="footer-frame-2-4-2">
-                                                <div class="footer-frame-2-4-2-1">
-                                                    Transfer Pricing
-                                                </div>
-                                                <div class="footer-frame-2-4-2-2">
-                                                    Software Perpajakan
-                                                </div>
-                                                <div class="footer-frame-2-4-2-3">
-                                                    Jasa Perpajakan Umum
-                                                </div>
-                                                <div class="footer-frame-2-4-2-4">
-                                                    Jasa Audit Laporan Keuangan
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="btn-group" role="group" aria-label="TikTok">
+                        <button type="button" class="btn"><img src="~/image/layout/tik-tok.svg"></button>
                     </div>
-                    <div class="row">
-                        <div class="footer-frame-3">
-                            <div class="footer-frame-3-1">
-                                <div class="footer-frame-3-1-1">
-                                    © Copyright. All Rights Reserved 2024
-                                </div>
-                                <div class="footer-frame-3-1-2">
-                                    Syarat dan Ketentuan
-                                </div>
-                            </div>
-                        </div>
+                    <div class="btn-group" role="group" aria-label="Instagram">
+                        <button type="button" class="btn"><img src="~/image/layout/instagram.svg"></button>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+            <div class="row">
+                <div class="col-12 bg-light">
+                    <nav class="navbar navbar-expand-lg bg-light">
+                        <a class="navbar-brand" href="#">
+                            <img src="~/image/Logo.svg" alt="Alternate Text" />
+                        </a>
+                        <button class="btn ms-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00858D"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" /></svg>
+                        </button>
+                        <p class="fst-italic my-auto d-none d-md-block" style="color:#08444B"> | Benchmarking Laporan Keuangan</p>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#046D76"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" /></svg></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="btn-group ms-auto me-3 d-none d-lg-block">
+                                <a href="#" class="btn active" aria-current="page">ID</a>
+                                <a href="#" class="btn">EN</a>
+                            </div>
+                            <button type="button" class="btn btn-primary d-none d-lg-block">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" /></svg></span>
+                                Masuk
+                            </button>
+                            <ul class="navbar-nav me-auto my-3 mb-lg-0 d-lg-none d-flex align-items-end">
+                                <li class="nav-item ms-auto">
+                                    <div class="btn-group ms-auto mb-3">
+                                        <a href="#" class="btn active" aria-current="page">ID</a>
+                                        <a href="#" class="btn">EN</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item ms-auto">
+                                    <button type="button" class="btn btn-primary">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" /></svg></span>
+                                        Masuk
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </header>
+        <main role="main">
+            @RenderBody()
+        </main>
+
+        <footer>
+            <div class="row px-4 pt-5 pb-3" style="background-color:#072125">
+                <div class="col-12">
+                    <p class="fs-6" style="color:white">PT Central Data Access</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="fs-6 mb-1 footer-sub-title">
+                        Alamat Kantor Pusat
+                    </p>
+                    <p class="footer-description mb-3">
+                        Gedung Pembina Graha No. 10, Rawamangun, Jakarta Timur
+                    </p>
+                    <p class="fs-6 mb-1 footer-sub-title">
+                        Workshop
+                    </p>
+                    <p class="footer-description mb-3">
+                        Jalan Baugenville Z7 No. 10,Kedung Waringin, Tanah Sareal, Kota Bogor, Jawa Barat
+                    </p>
+                    <div class="btn-group" role="group" aria-label="Youtube">
+                        <button type="button" class="btn"><img src="~/image/layout/youtube.svg"></button>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="TikTok">
+                        <button type="button" class="btn"><img src="~/image/layout/tik-tok.svg"></button>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Instagram">
+                        <button type="button" class="btn"><img src="~/image/layout/instagram.svg"></button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <p class="fs-6 mb-1 footer-sub-title">
+                        Telepon
+                    </p>
+                    <a class="footer-description ">
+                        0251 8574 375
+                    </a>
+                    <br />
+                    <p class="fs-6 mb-1 footer-sub-title">
+                        WhatsApp
+                    </p>
+                    <a class="footer-description ">
+                        0822 1001 9696
+                    </a>
+                    <br />
+                    <a class="footer-description ">
+                        0822 1001 9696
+                    </a>
+                    <br />
+                    <p class="fs-6 mb-1 footer-sub-title">
+                        Email
+                    </p>
+                    <a class="footer-description ">
+                        cs@centraldataaccess.co.id
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="fs-6 mb-1 footer-sub-title">
+                                Perusahaan
+                            </p>
+                            <a class="footer-description ">
+                                Tentang Kami
+                            </a>
+                            <br />
+                            <a class="footer-description ">
+                                Data Pembanding
+                            </a>
+                            <br />
+                            <a class="footer-description ">
+                                Info Perpajakan
+                            </a>
+                            <br />
+                            <a class="footer-description ">
+                                Kontak Kami
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <p class="fs-6 mb-1 footer-sub-title">
+                                Jasa Kami
+                            </p>
+                            <a class="footer-description ">
+                                Tentang Kami
+                            </a>
+                            <br />
+                            <a class="footer-description">
+                                Data Pembanding
+                            </a>
+                            <br />
+                            <a class="footer-description">
+                                Info Perpajakan
+                            </a>
+                            <br />
+                            <a class="footer-description">
+                                Kontak Kami
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-5 pt-3 d-flex justify-content-between border-top" style="opacity: 50%">
+                    <p class="footer-description">© Copyright. All Rights Reserved 2024</p>
+                    <a class="footer-description">Syarat dan Ketentuan</a>
+                </div>
+            </div>
+        </footer>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

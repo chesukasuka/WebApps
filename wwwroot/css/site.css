@@ -1353,3 +1353,15 @@ body {
     flex-grow: 0;
     background-image: url('/image/layout/login.svg');
 }
+
+
+/*New CSS*/
+.footer-sub-title {
+    color: #93C6CE;
+    margin-top: 1rem;
+}
+
+.footer-description {
+    color: #F5F9FA;
+    font-size: 0.8rem;
+}
