@@ -896,3 +896,22 @@ Laporan Keuangan */
 }
 
 
+
+/*NEW CSS*/
+.custome-jumbotron {
+    background-image: url('/image/service/main-top.svg');
+    background-size: cover; /* Stretch the background image */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+
+    padding: 5rem 3rem;
+}
+
+.e-outline .e-filled{
+    margin-bottom: 1rem;
+}
+
+.btn-hitung {
+    background-color: #075860;
+    color: white;
+}
