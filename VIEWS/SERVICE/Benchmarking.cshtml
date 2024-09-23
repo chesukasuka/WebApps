@@ -10,6 +10,20 @@
 }
 
 <link rel="stylesheet" href="~/css/controller/benchmarking.css" asp-append-version="true" />
+<style>
+    .custom-card {
+        min-height: 5rem;
+    }
+
+    .bg-disabled{
+        background-color: #0000000f !important
+    }
+    .btn-unduh{
+        background-color: #075860;
+        border-color: #075860;
+        color: white;
+    }
+</style>
 
 <div class="toast-hide hidden">
     @Html.EJS().Toast("toast_default").Title("Information").Position(p => p.X("Right")).TimeOut(5000).ContentTemplate(@<div>Penghitungan Benchmarking Laporan Keuangan tidak tersedia</div>).Created("created").Icon("e-circle-info").BeforeOpen("toastbefore").Render()
@@ -49,10 +63,18 @@
             <div class="card p-2 rounded">
                 <img src="~/image/service/main-left.svg" class="card-img-top" alt="...">
                 <div class="card-body d-flex justify-content-between align-items-center" style="color:#046D76">
-                    <h5 class="card-title">Card title</h5>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <h5 class="card-title">Tentang Data Pembanding Laporan Keuangan</h5>
+                    <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#news" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle">
                         <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#046D76"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" /></svg></span>
                     </button>
+                </div>
+                <div class="card-footer collapse" id="news" style="background-color: transparent">
+                    <p style="color: #08444B">
+                        Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan Benchmarking Data Pembanding.
+                        <br />
+                        <br />
+                        Data Pembanding Eksternal yang tersedia diperoleh dari BvD TPCatalyst yang kemudian diolah menjadi Benchmarking Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha.
+                    </p>
                 </div>
             </div>
         </div>
@@ -81,10 +103,10 @@
                             <div class="card-body" style="padding: unset">
                                 @Html.EJS().NumericTextBox("penjualan").Format("N0").Placeholder("Penjualan").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).Render()
                                 @Html.EJS().NumericTextBox("hargapokokpenjualan").Format("N0").Placeholder("Harga Pokok Penjualan").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).Render()
-                                @Html.EJS().NumericTextBox("labakotor").Format("N0").Placeholder("Laba Kotor").CssClass("form-control ").Readonly(true).FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                @Html.EJS().NumericTextBox("labakotor").Format("N0").Placeholder("Laba Kotor").CssClass("form-control bg-disabled").Readonly(true).FloatLabelType(FloatLabelType.Auto).Render()
                                 @Html.EJS().NumericTextBox("bebanoperasional").Format("N0").Placeholder("Beban Operasional").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).Render()
-                                @Html.EJS().NumericTextBox("labaoperasional").Format("N0").Placeholder("Laba Operasional").CssClass("form-control ").Readonly(true).FloatLabelType(FloatLabelType.Auto).Readonly().Render()
-                                @Html.EJS().TextBox("testedparty").Placeholder("Tested Party (%)").CssClass("form-control").Readonly(true).FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                @Html.EJS().NumericTextBox("labaoperasional").Format("N0").Placeholder("Laba Operasional").CssClass("form-control bg-disabled").Readonly(true).FloatLabelType(FloatLabelType.Auto).Render()
+                                @Html.EJS().TextBox("testedparty").Placeholder("Tested Party (%)").CssClass("form-control bg-disabled").Readonly(true).FloatLabelType(FloatLabelType.Auto).Render()
                                 <p class="muted">
                                     Tentang Rasio <a href="#" data-bs-toggle="tooltip" data-bs-title="Tested Party adalah Rasio Pihak yang Diuji.">
                                         <span><img src="~/image/service/info.svg" /></span>
@@ -99,55 +121,108 @@
             <div class="card p-2 rounded">
                 <div class="card-body" style="color:#046D76">
                     <div class="row mb-3 to-hide hidden">
-                        @* <div class="col-md-3 mb-3">
-                            <div class="custom-card">
-                                <div class="card-title" id="jeniskegiatanusaharesult"></div>
-                                <div class="card-text">Jenis Kegiatan Usaha</div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card custom-card text-center mb-3">
+                                <div class="card-body d-flex justify-content-center align-items-center" style="padding: 0.5rem 0.5rem !important;">
+                                    <div class="row w-100">
+                                        <div class="col-12 px-0">
+                                            <h5 class="card-title" id="jeniskegiatanusaharesult" style="font-weight: bold;font-size: 0.9rem;color: #046D76;"></h5>
+                                            <p class="card-text" style="font-size: 0.6rem;">Jenis Kegiatan Usaha</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Second Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="custom-card">
-                                <div class="card-title" id="klasifikasiusaharesult"></div>
-                                <div class="card-text">Klasifikasi Usaha</div>
+                            <div class="card custom-card text-center mb-3">
+                                <div class="card-body d-flex justify-content-center align-items-center" style="padding: 0.5rem 0.5rem !important;">
+                                    <div class="row w-100">
+                                        <div class="col-12 px-0">
+                                            <h5 class="card-title" id="klasifikasiusaharesult" style="font-weight: bold;font-size: 0.9rem;color: #046D76;"></h5>
+                                            <div class="card-text" style="font-size: 0.6rem;">Klasifikasi Usaha</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Third Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="custom-card">
-                                <div class="card-title" id="ratioresult"></div>
-                                <div class="card-text">Ratio Method</div>
+                            <div class="card custom-card text-center mb-3">
+                                <div class="card-body d-flex justify-content-center align-items-center" style="padding: 0.5rem 0.5rem !important;">
+                                    <div class="row w-100">
+                                        <div class="col-12 px-0">
+                                            <h5 class="card-title" id="ratioresult" style="font-weight: bold;font-size: 0.9rem;color: #046D76;"></h5>
+                                            <div class="card-text" style="font-size: 0.6rem;">Ratio Method</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Fourth Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="custom-card">
-                                <div class="row">
-                                    <div class="col-md-6 px-0">
-                                        <div class="card-title" id="testedpartyresult"></div>
-                                        <div class="card-text">Tested Party</div>
-                                    </div>
-                                    <div class="col-md-6 px-0">
-                                        <div class="card-title" id="tahunpajakresult"></div>
-                                        <div class="card-text">Tahun Pajak</div>
+                            <div class="card custom-card text-center mb-3">
+                                <div class="card-body d-flex justify-content-center align-items-center" style="padding: 0.5rem 0.5rem !important;">
+                                    <div class="row w-100">
+                                        <div class="col-6 px-0">
+                                            <div class="card-title" id="testedpartyresult" style="font-weight: bold;font-size: 0.9rem;color: #046D76;"></div>
+                                            <div class="card-text" style="font-size: 0.6rem;">Tested Party</div>
+                                        </div>
+                                        <div class="col-6 px-0">
+                                            <div class="card-title" id="tahunpajakresult" style="font-weight: bold;font-size: 0.9rem;color: #046D76;"></div>
+                                            <div class="card-text" style="font-size: 0.6rem;">Tahun Pajak</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> *@
+                        </div>
                         <div class="col-12 mb-3">
                             @Html.EJS().Grid("Grid").DataSource((IEnumerable<object>)ViewBag.dataSource).AllowPaging(false).DataBound("dataBound").CssClass("table table-responsive").Render()
                         </div>
                         <div class="col-12 mb-3">
                             @Html.EJS().Grid("Grid2").DataSource((IEnumerable<object>)ViewBag.dataSource2).AllowPaging(false).DataBound("dataBound2").CssClass("table table-responsive").Render()
                         </div>
+                        <div class="col-12 mb-3 d-flex justify-content-end">
+                            <button type="button" class="btn btn-unduh">Unduh Laporan</button>
+                        </div>
                     </div>
                     <div class="row to-show mb-3">
                         <div class="col-12">
-                            <img class="mx-auto d-block" src="~/image/service/empty.svg" />
+                            <img class="mx-auto d-block w-100" src="~/image/service/empty.svg" />
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row p-3 contact-section">
+    <div class="col-md-6">
+        <p class="fs-5" style="color: #3199A3">Konsultasi</p>
+        <p class="fs-1" style="color: white">Konsultasi Gratis bersama Tim Central Data Access</p>
+        <p class="fs-3" style="color: #C4DFE4">Dapatkan analisis komprehensif untuk solusi terbaik bisnis Anda.</p>
+
+    </div>
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <div class="card w-100">
+            <div class="card-body" style="padding: 0.5rem">
+                <div class="row d-flex mx-auto">
+                    <div class="col-4 col-lg-3 px-1 d-flex">
+                        <p class="fw-bold my-auto">Hubungi kami di</p>
+                    </div>
+                    <div class="col-8 col-lg-5 px-1 d-flex">
+                        <p class="fw-bold my-auto fs-3" style="color: #075860">0822-1001-9797</p>
+                    </div>
+                    <div class="col-md-1 px-1 d-none d-lg-flex">
+                        <p class="my-auto" style="color:#3199A3">atau</p>
+                    </div>
+                    <div class="col-md-3 px-1 d-none d-lg-flex">
+                        <button class="btn btn-sm btn-outline-primary">
+                            Kontak Lainnya
+                        </button>
                     </div>
                 </div>
             </div>

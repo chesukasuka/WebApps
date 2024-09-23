@@ -915,3 +915,13 @@ Laporan Keuangan */
     background-color: #075860;
     color: white;
 }
+
+.contact-section {
+    /*background-image: url('/image/service/main-left.svg');
+    background-size: cover;*/ /* Stretch the background image */
+    /*background-position: center;*/ /* Center the background image */
+    /*background-repeat: no-repeat;*/ /* Do not repeat the background image */
+    /*padding: 5rem 3rem;*/
+    background-color: #08444B;
+}
+
