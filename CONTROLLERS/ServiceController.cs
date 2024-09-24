@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Syncfusion.EJ2.Linq;
+using Syncfusion.XlsIO;
 using System.Collections;
 using System.Diagnostics;
 using WebApps.Models;
@@ -151,6 +152,7 @@ namespace WebApps.Controllers
                 throw;
             }
 
+            oResDetail = oResult;
             return oResult;
         }
         public IActionResult Hitung(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2)
@@ -232,6 +234,7 @@ namespace WebApps.Controllers
                         oListHeader.Add(oListData);
                     }
                     oResult = oListHeader;
+                    oResSum = oListHeader;
                 }
                 else
                 {
@@ -243,6 +246,7 @@ namespace WebApps.Controllers
             {
                 throw;
             }
+            
             return Json(oResult);
         }
 
@@ -268,6 +272,38 @@ namespace WebApps.Controllers
             return result;
         }
 
+        private static List<Dictionary<string, object>> oResDetail;
+        private static new List<Dictionary<string, object>> oResSum;
+        public IActionResult ExportExcel()
+        {
+            // Create a new Excel workbook
+            using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                IApplication application = excelEngine.Excel;
+                application.DefaultVersion = ExcelVersion.Excel2016;
 
+                // Create a workbook with one worksheet
+                IWorkbook workbook = application.Workbooks.Create(1);
+                IWorksheet worksheet = workbook.Worksheets[0];
+
+                //Merge cells
+                worksheet.Range["D1:E1"].Merge();
+
+                worksheet.Range["A3"].Text = "46036 Michigan Ave";
+                worksheet.Range["A4"].Text = "Canton, USA";
+                worksheet.Range["A5"].Text = "Phone: +1 231-231-2310";
+
+
+                // Save the workbook to a memory stream
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    stream.Position = 0;
+
+                    // Return the Excel file as a download
+                    return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ExportedData.xlsx");
+                }
+            }
+        }
     }
 }
