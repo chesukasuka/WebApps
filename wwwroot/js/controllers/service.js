@@ -18,6 +18,31 @@ function toastbefore(e) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    // Ambil semua elemen dengan kelas 'numeric-textbox'
+    var numericTextBoxes = document.getElementsByClassName('numeric-textbox');
+
+    Array.from(numericTextBoxes).forEach(function (textBox) {
+        // Ambil instance NumericTextBox
+        var numericTextBoxInstance = textBox.ej2_instances[0];
+
+        // Tambahkan event listener untuk menangani perubahan input
+        numericTextBoxInstance.addEventListener('input', function () {
+            // Ambil nilai dari NumericTextBox
+            let value = numericTextBoxInstance.value;
+
+            // Hapus semua karakter non-digit
+            let numericValue = value.replace(/[^0-9]/g, '');
+
+            // Format angka dengan separator ribuan
+            let formattedValue = Number(numericValue).toLocaleString();
+
+            // Atur nilai kembali ke NumericTextBox
+            numericTextBoxInstance.value = formattedValue;
+        });
+    });
+});
+
 function jenisChange() {
 
     var jeniskegiatanusaha = document.getElementById('jeniskegiatanusaha').ej2_instances[0];
@@ -157,21 +182,29 @@ function loadCustomers() {
         var testedparty = document.getElementById("testedparty").ej2_instances[0];
         if (rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method") {
             testedparty.value = (penjualan.value - hargapokokpenjualan.value) / penjualan.value;
+            testedparty.value = Math.round(testedparty.value * 100) /100
         }
         else if (rasio.value == "Cost Plus Methode" || rasio.value == "Cost Plus Method") {
             testedparty.value = (penjualan.value - hargapokokpenjualan.value) / hargapokokpenjualan.value;
+            testedparty.value = Math.round(testedparty.value * 100) / 100
         }
         else if (rasio.value == "Net Cost Plus Methode" || rasio.value == "Net Cost Plus Method") {
             testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / (hargapokokpenjualan.value + bebanoperasional.value);
+            testedparty.value = Math.round(testedparty.value * 100) / 100
         }
         else if (rasio.value == "Return On Sales") {
             testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / penjualan.value;
+            testedparty.value = Math.round(testedparty.value * 100) / 100
         }
+        document.getElementById("jeniskegiatanusaharesult").innerHTML = jenis.value;
+        document.getElementById("klasifikasiusaharesult").innerHTML = klasifikasi.value;
+        document.getElementById("ratioresult").innerHTML = rasio.value;
+        document.getElementById("testedpartyresult").innerHTML = testedparty.value + ' %';
+        document.getElementById("tahunpajakresult").innerHTML = tahunpajak;
     }
     else {
         toastObj.show();
     }
-
 
 
 };

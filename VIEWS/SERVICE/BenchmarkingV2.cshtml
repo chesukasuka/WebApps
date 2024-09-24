@@ -1,0 +1,372 @@
+﻿@using Syncfusion.EJ2
+@using Syncfusion.EJ2.DropDowns
+@using Syncfusion.EJ2.Inputs
+@using WebApps.Models.ServiceModel;
+@using WebApps.Controllers;
+
+
+@{
+    ViewData["Title"] = "Simulasi Benchmarking Laporan Keuangan";
+}
+
+<link rel="stylesheet" href="~/css/controller/benchmarking.css" asp-append-version="true" />
+
+<div class="toast-hide hidden">
+    @Html.EJS().Toast("toast_default").Title("Information").Position(p => p.X("Right")).TimeOut(5000).ContentTemplate(@<div>Penghitungan Benchmarking Laporan Keuangan tidak tersedia</div>).Created("created").Icon("e-circle-info").BeforeOpen("toastbefore").Render()
+</div>
+
+<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+    <div class="main-top-frame">
+        <div class="main-top-frame-breadcrumb">
+            <div class="main-top-frame-breadcrumb-home"></div>
+            <div class="main-top-frame-breadcrumb-text">
+                |
+                <span style="font-style: italic;"> Benchmarking </span>
+                Laporan Keuangan
+            </div>
+        </div>
+        <div class="main-top-frame-content">
+            <div class="col-sm-12 col-lg-6 col-md-6">
+                <div class="main-top-frame-content-1">
+                    <div class="main-top-frame-content-1-text">
+                        Simulasi
+                        <span style="font-style: italic;"> Benchmarking </span>
+                        Laporan Keuangan
+                    </div>
+                    <div class="main-top-frame-content-1-helper">
+                        <div class="main-top-frame-content-1-helper-mouse">
+                        </div>
+                        <div class="main-top-frame-content-1-helper-text">
+                            Gulir kebawah dan gunakan demo fitur kami.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6 col-md-6">
+                <div class="hide-on-mobile">
+                    <div class="main-top-frame-content-2">
+                        <div class="main-top-frame-content-2-text">
+                            Kami menyediakan Benchmarking Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya untuk menentukan harga transfer.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="col-lg-12 control-section card-control-section basic_card_layout" style="padding-top: 40px;">
+        <div class="e-card-resize-container">
+            <div class='row'>
+                <div class="row card-layout">
+                    <div class="col-sm-12 col-lg-4 col-md-4">
+                        <div class="main-left-frame">
+                            <div class="main-left">
+                                <div class="main-left-image">
+                                </div>
+                                <div class="main-left-accordian">
+                                    <div class="main-left-accordian-text">
+                                        Tentang Data Pembanding Laporan Keuangan
+                                    </div>
+                                </div>
+                                <div class="main-left-content">
+                                    Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan Benchmarking Data Pembanding.
+                                    <br />
+                                    <br />
+                                    Data Pembanding Eksternal yang tersedia diperoleh dari BvD TPCatalyst yang kemudian diolah menjadi Benchmarking Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-8 col-md-8">
+                        <div class="main-right-frame">
+                            <div class="main-right-frame-input">
+                                <div class="row">
+                                    <div class="col-sm-12 col-lg-6 col-md-6">
+                                        <div class="main-right-frame-input-1">
+                                            <div class="main-right-frame-input-header">
+                                                Industri Pembanding
+                                            </div>
+                                            @Html.EJS().ComboBox("jeniskegiatanusaha").Placeholder("Jenis Kegiatan Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.jenis).Change("jenisChange").Fields(new ComboBoxFieldSettings { Text = "JenisKegiatanUsaha", Value = "JenisKegiatanUsaha" }).Render()
+                                            @Html.EJS().ComboBox("klasifikasiusaha").Placeholder("Klasifikasi Usaha").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").Change("klasifikasiChange").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.klasifikasi).Fields(new ComboBoxFieldSettings { Text = "KlasifikasiUsaha", Value = "KlasifikasiUsaha" }).Render()
+                                            @Html.EJS().ComboBox("tahunpajak").CssClass("e-outline").CssClass("e-outline").Placeholder("Tahun Pajak").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahunpajak).Render()
+                                            @Html.EJS().ComboBox("tahun").Placeholder("Rentang Tahun").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahun).Render()
+                                            @Html.EJS().ComboBox("ratio").Placeholder("Ratio").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()
+                                            <div class="main-right-frame-input-1-1">
+                                                <div class="main-right-frame-input-1-1-1">
+                                                    <div class="main-right-frame-input-1-1-1-1">
+                                                        Tentang Rasio
+                                                    </div>
+                                                    @Html.EJS().Tooltip("Tooltip").Content("Resale Price Methode (RPM) : Gross Profit / Operating Revenue • Cost Plus Methode (CPM) : Gross Profit / Cost Plus Methode • Return On Sales (ROS) : Operating Profit / Operating Revenue • Net Cost Plus Methode (NCPM) : Operating Profit / (Cost Plus Methode + Operating Expense)").ContentTemplate(@<div id="target" class="main-right-frame-input-1-1-1-2"></div>).Position(Syncfusion.EJ2.Popups.Position.TopRight).Render()
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-6 col-md-6">
+                                        <div class="main-right-frame-input-2">
+                                            <div class="main-right-frame-input-header">
+                                                Laporan Keuangan Perusahaan
+                                            </div>
+                                            @Html.EJS().NumericTextBox("penjualan").Format("N0").Placeholder("Penjualan").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
+                                            @Html.EJS().NumericTextBox("hargapokokpenjualan").Format("N0").Placeholder("Harga Pokok Penjualan").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
+                                            @Html.EJS().NumericTextBox("labakotor").Format("N0").Placeholder("Laba Kotor").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                            @Html.EJS().NumericTextBox("bebanoperasional").Format("N0").Placeholder("Beban Operasional").CssClass("e-outline").FloatLabelType(FloatLabelType.Auto).Render()
+                                            @Html.EJS().NumericTextBox("labaoperasional").Format("N0").Placeholder("Laba Operasional").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                            @Html.EJS().TextBox("testedparty").Placeholder("Tested Party (%)").CssClass("e-filled").FloatLabelType(FloatLabelType.Auto).Readonly().Render()
+                                            @Html.EJS().Button("btnHitung").Content("Hitung").CssClass("main-right-frame-input-button").Render()
+                                            <div class="main-right-frame-input-1-1">
+                                                <div class="main-right-frame-input-1-1-1">
+                                                    <div class="main-right-frame-input-1-1-1-1">
+                                                        Tentang Tested Party
+                                                    </div>
+                                                    @Html.EJS().Tooltip("Tooltip2").Content("Tested Party adalah Rasio Pihak yang Diuji.").ContentTemplate(@<div id="target" class="main-right-frame-input-1-1-1-2"></div>).Position(Syncfusion.EJ2.Popups.Position.TopRight).Render()
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main-right-frame-output">
+                                <div class="main-right-frame-output-section">
+                                    <div class="main-right-frame-output-section-text">
+                                        Hasil Benchmarking
+                                    </div>
+                                </div>
+                                @* <div class="main-right-frame-output-result">
+                                <div class="row">
+
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                <div class="main-right-frame-output-result-frame">
+                                <div class="main-right-frame-output-result-frame-box">
+                                <div class="main-right-frame-output-result-frame-box-detailtext">
+                                Manufaktur
+                                </div>
+                                <div class="main-right-frame-output-result-frame-box-headertext">
+                                Jenis Kegiatan Usaha
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                <div class="main-right-frame-output-result-frame">
+                                <div class="main-right-frame-output-result-frame-box">
+                                <div class="main-right-frame-output-result-frame-box-detailtext">
+                                Manufaktur
+                                </div>
+                                <div class="main-right-frame-output-result-frame-box-headertext">
+                                Jenis Kegiatan Usaha
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                <div class="main-right-frame-output-result-frame">
+                                <div class="main-right-frame-output-result-frame-box">
+                                <div class="main-right-frame-output-result-frame-box-detailtext">
+                                Manufaktur
+                                </div>
+                                <div class="main-right-frame-output-result-frame-box-headertext">
+                                Jenis Kegiatan Usaha
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                <div class="main-right-frame-output-result-frame">
+                                <div class="main-right-frame-output-result-frame-box">
+                                <div class="main-right-frame-output-result-frame-box-detailtext">
+                                Manufaktur
+                                </div>
+                                <div class="main-right-frame-output-result-frame-box-headertext">
+                                Jenis Kegiatan Usaha
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+
+                                </div>
+                                </div> *@
+
+                                <div class="row to-hide hidden" style="padding-top: 5px;">
+                                    <div tabindex="0" class="e-card" id="basic_card">
+                                        <div class="e-card-header">
+                                            <div class="e-card-header-caption">
+                                                <div class="e-card-header-title">Benchmarking Ratio</div>
+                                                @* <div class="e-card-sub-title">Masukan parameter yang dibutuhkan, lalu klik hitung </div> *@
+                                                <div class="row mt-3">
+                                                    <div class="col-md-3">
+                                                        <div class="custom-card">
+                                                            <div class="card-title" id="jeniskegiatanusaharesult"></div>
+                                                            <div class="card-text">Jenis Kegiatan Usaha</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Second Card -->
+                                                    <div class="col-md-3">
+                                                        <div class="custom-card">
+                                                            <div class="card-title" id="klasifikasiusaharesult"></div>
+                                                            <div class="card-text">Klasifikasi Usaha</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Third Card -->
+                                                    <div class="col-md-3">
+                                                        <div class="custom-card">
+                                                            <div class="card-title" id="ratioresult"></div>
+                                                            <div class="card-text">Ratio Method</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Fourth Card -->
+                                                    <div class="col-3">
+                                                        <div class="custom-card">
+                                                            <div class="row">
+                                                                <div class="col-md-6 px-0">
+                                                                    <div class="card-title" id="testedpartyresult"></div>
+                                                                    <div class="card-text">Tested Party</div>
+                                                                </div>
+                                                                <div class="col-md-6 px-0">
+                                                                    <div class="card-title" id="tahunpajakresult"></div>
+                                                                    <div class="card-text">Tahun Pajak</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="e-card-content">
+                                            <div class="control-section">
+                                                <div class="control-section">
+                                                    @* @Html.EJS().Grid("Grid").DataSource((IEnumerable<object>)ViewBag.dataSource).AllowPaging(false).DataBound("dataBound").AllowExcelExport().ToolbarClick("toolbarClick").ExcelExportComplete("excelExportComplete").Toolbar(new List<string>() { "ExcelExport" }).Render() *@
+                                                    @Html.EJS().Grid("Grid").DataSource((IEnumerable<object>)ViewBag.dataSource).AllowPaging(false).DataBound("dataBound").Render()
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row to-hide hidden" style="padding-top: 5px;">
+                                    <div tabindex="0" class="e-card" id="basic_card">
+                                        <div class="e-card-header">
+                                            <div class="e-card-header-caption">
+                                                <div class="e-card-header-title">Penghitungan</div>
+                                                @* <div class="e-card-sub-title">Masukan parameter yang dibutuhkan, lalu klik hitung </div> *@
+                                            </div>
+                                        </div>
+                                        <div class="e-card-content">
+                                            <div class="control-section">
+                                                <div class="control-section">
+                                                    @Html.EJS().Grid("Grid2").DataSource((IEnumerable<object>)ViewBag.dataSource2).AllowPaging(false).DataBound("dataBound2").Render()
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="main-right-frame-output-picture to-show">
+                                    <div class="main-right-frame-output-picture-background">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12" style="padding-top:40px;">
+    <div class="main-bottom">
+        <div class="main-bottom-content">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                    <div class="main-bottom-content-text">
+                        <div class="main-bottom-content-text-1">
+                            Konsultasi
+                        </div>
+                        <div class="main-bottom-content-text-2">
+                            Konsultasi Gratis bersama Tim Central Data Access
+                        </div>
+                        <div class="main-bottom-content-text-3">
+                            Dapatkan analisis komprehensif untuk solusi terbaik bisnis Anda.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3 d-flex align-items-center">
+                    <div class="hide-on-mobile">
+                        <div class="main-bottom-content-contact">
+                            <div class="main-bottom-content-contact-1">
+                                Hubungi Kami di
+                            </div>
+                            <div class="main-bottom-content-contact-2">
+                                0822-1001-9797
+                            </div>
+                            <div class="main-bottom-content-contact-3">
+                                atau
+                            </div>
+                            <div class="main-bottom-content-contact-4">
+                                <div class="main-bottom-content-contact-4-base">
+                                    <div class="main-bottom-content-contact-4-base-text">
+                                        Kontak Lainnya
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #toast_default .e-meeting::before {
+        content: "\e705";
+        font-size: 17px;
+    }
+
+    #toastBtnHide {
+        margin-left: 10px;
+    }
+
+    .bootstrap4 #toast_default .e-meeting::before {
+        content: "\e763";
+        font-size: 20px;
+    }
+
+    .tailwind #toast_default .e-meeting::before,
+    .tailwind-dark #toast_default .e-meeting::before,
+    .fluent #toast_default .e-meeting::before,
+    .fluent-dark #toast_default .e-meeting::before,
+    .bootstrap5 #toast_default .e-meeting::before,
+    .bootstrap5-dark #toast_default .e-meeting::before {
+        content: "\e7e9";
+        font-size: 18px;
+    }
+
+    .custom-card {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 15px;
+        min-height:5rem;
+    }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 0.9rem;
+        color: #046D76
+    }
+
+    .card-text {
+        font-size: 0.6rem;
+    }
+</style>
+
+<script src="~/js/controllers/service.js"></script>

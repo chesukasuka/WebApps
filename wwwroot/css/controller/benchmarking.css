@@ -18,13 +18,13 @@
     /* hero-content */
     /* Auto layout */
     background-image: url('/image/service/main-top.svg');
-    margin-left: calc(-50vw + 50%); /* Center align */
+    /*margin-left: calc(-50vw + 50%);*/ /* Center align */
     background-size: cover; /* Stretch the background image */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Do not repeat the background image */
-    width: 100vw; /* Full viewport width */
+    /*width: 100vw;*/ /* Full viewport width */
     padding: 40px 80px;
-    height: 432px;
+/*    height: 432px;*/
 }
 
 .main-top-frame-breadcrumb {
@@ -665,10 +665,10 @@ Laporan Keuangan */
 }
 
 .main-bottom {
-    width: 100vw; /* Full viewport width */
+    /*width: 100vw;*/ /* Full viewport width */
     background: #08444B;
-    width: 100vw; /* Full viewport width */
-    margin-left: calc(-50vw + 50%); /* Center align */
+    /*width: 100vw;*/ /* Full viewport width */
+    /*margin-left: calc(-50vw + 50%);*/ /* Center align */
     padding: 40px 80px;
     align-items: flex-start;
     gap: 24px;
@@ -895,4 +895,33 @@ Laporan Keuangan */
     flex-grow: 0;
 }
 
+
+
+/*NEW CSS*/
+.custome-jumbotron {
+    background-image: url('/image/service/main-top.svg');
+    background-size: cover; /* Stretch the background image */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+
+    padding: 5rem 3rem;
+}
+
+.e-outline .e-filled{
+    margin-bottom: 1rem;
+}
+
+.btn-hitung {
+    background-color: #075860;
+    color: white;
+}
+
+.contact-section {
+    /*background-image: url('/image/service/main-left.svg');
+    background-size: cover;*/ /* Stretch the background image */
+    /*background-position: center;*/ /* Center the background image */
+    /*background-repeat: no-repeat;*/ /* Do not repeat the background image */
+    /*padding: 5rem 3rem;*/
+    background-color: #08444B;
+}
 
