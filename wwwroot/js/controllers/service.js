@@ -41,6 +41,16 @@ document.addEventListener('DOMContentLoaded', function () {
             numericTextBoxInstance.value = formattedValue;
         });
     });
+
+    //// Get the button element by its ID
+    //var downloadButton = document.getElementById('btnUnduh');
+
+    //// Add a click event listener to the button
+    //downloadButton.addEventListener('click', function () {
+    //    // Redirect to the controller action to download the Excel file
+    //    window.location.href = '/Excel/DownloadExcel';
+    //});
+
 });
 
 function jenisChange() {
@@ -136,7 +146,40 @@ function loadCustomers() {
         var tahun2 = tahunpajak - 1;
     }
 
-    if (tahun1 >= 2017) {
+    if (tahun1 >= 2017) { 
+        var penjualan = document.getElementById("penjualan").ej2_instances[0];
+        var hargapokokpenjualan = document.getElementById("hargapokokpenjualan").ej2_instances[0];
+        var bebanoperasional = document.getElementById("bebanoperasional").ej2_instances[0];
+
+        var labakotor = document.getElementById("labakotor").ej2_instances[0];
+        var labaoperasional = document.getElementById("labaoperasional").ej2_instances[0];
+
+        labakotor.value = penjualan.value - hargapokokpenjualan.value;
+        labaoperasional.value = penjualan.value - hargapokokpenjualan.value - bebanoperasional.value;
+
+        var testedparty = document.getElementById("testedparty").ej2_instances[0];
+        if (rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method") {
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value) / penjualan.value;
+            testedparty.value = Math.round(testedparty.value * 100) / 100
+        }
+        else if (rasio.value == "Cost Plus Methode" || rasio.value == "Cost Plus Method") {
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value) / hargapokokpenjualan.value;
+            testedparty.value = Math.round(testedparty.value * 100) / 100
+        }
+        else if (rasio.value == "Net Cost Plus Methode" || rasio.value == "Net Cost Plus Method") {
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / (hargapokokpenjualan.value + bebanoperasional.value);
+            testedparty.value = Math.round(testedparty.value * 100) / 100
+        }
+        else if (rasio.value == "Return On Sales") {
+            testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / penjualan.value;
+            testedparty.value = Math.round(testedparty.value * 100) / 100
+        }
+        document.getElementById("jeniskegiatanusaharesult").innerHTML = jenis.value;
+        document.getElementById("klasifikasiusaharesult").innerHTML = klasifikasi.value;
+        document.getElementById("ratioresult").innerHTML = rasio.value;
+        document.getElementById("testedpartyresult").innerHTML = testedparty.value + ' %';
+        document.getElementById("tahunpajakresult").innerHTML = tahunpajak;
+
         // fetch('@Url.Action("Hitung", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahunslider.value[0] + '&tahun2=' + tahunslider.value[1])
         fetch('/Service/Hitung' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2)
             .then(response => response.json())
@@ -162,45 +205,21 @@ function loadCustomers() {
 
         var grid2 = document.getElementById("Grid2").ej2_instances[0];
         //fetch('@Url.Action("Hitung2", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahunslider.value[0] + '&tahun2=' + tahunslider.value[1])
-        fetch('/Service/Hitung2' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2)
+        
+        fetch('/Service/Hitung2' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2
+        + '&penjualan=' + penjualan.value
+        + '&hargapokokpenjualan=' + hargapokokpenjualan.value
+        + '&labakotor=' + labakotor.value
+        + '&bebanoperasional=' + bebanoperasional.value
+        + '&labaoperasional=' + labaoperasional.value
+        + '&testedparty=' + testedparty.value 
+        + '&tahun=' + tahun )
             .then(response => response.json())
             .then(data => {
                 grid2.changeDataSource(data);
                 grid2.refresh();
             });
 
-        var penjualan = document.getElementById("penjualan").ej2_instances[0];
-        var hargapokokpenjualan = document.getElementById("hargapokokpenjualan").ej2_instances[0];
-        var bebanoperasional = document.getElementById("bebanoperasional").ej2_instances[0];
-
-        var labakotor = document.getElementById("labakotor").ej2_instances[0];
-        var labaoperasional = document.getElementById("labaoperasional").ej2_instances[0];
-
-        labakotor.value = penjualan.value - hargapokokpenjualan.value;
-        labaoperasional.value = penjualan.value - hargapokokpenjualan.value - bebanoperasional.value;
-
-        var testedparty = document.getElementById("testedparty").ej2_instances[0];
-        if (rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method") {
-            testedparty.value = (penjualan.value - hargapokokpenjualan.value) / penjualan.value;
-            testedparty.value = Math.round(testedparty.value * 100) /100
-        }
-        else if (rasio.value == "Cost Plus Methode" || rasio.value == "Cost Plus Method") {
-            testedparty.value = (penjualan.value - hargapokokpenjualan.value) / hargapokokpenjualan.value;
-            testedparty.value = Math.round(testedparty.value * 100) / 100
-        }
-        else if (rasio.value == "Net Cost Plus Methode" || rasio.value == "Net Cost Plus Method") {
-            testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / (hargapokokpenjualan.value + bebanoperasional.value);
-            testedparty.value = Math.round(testedparty.value * 100) / 100
-        }
-        else if (rasio.value == "Return On Sales") {
-            testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / penjualan.value;
-            testedparty.value = Math.round(testedparty.value * 100) / 100
-        }
-        document.getElementById("jeniskegiatanusaharesult").innerHTML = jenis.value;
-        document.getElementById("klasifikasiusaharesult").innerHTML = klasifikasi.value;
-        document.getElementById("ratioresult").innerHTML = rasio.value;
-        document.getElementById("testedpartyresult").innerHTML = testedparty.value + ' %';
-        document.getElementById("tahunpajakresult").innerHTML = tahunpajak;
     }
     else {
         toastObj.show();
@@ -210,12 +229,16 @@ function loadCustomers() {
 };
 
 function dataBound(args) {
-    this.getColumns()[0].width = 200;
-    this.getColumns()[1].width = 150;
-    this.refreshColumns();
+//    this.getColumns()[0].width = 200;
+//    this.getColumns()[1].width = 150;
+//    this.refreshColumns();
 }
 function dataBound2(args) {
-    this.getColumns()[0].width = 350;
-    this.refreshColumns();
+    //this.getColumns()[0].width = 350;
+    //this.refreshColumns();
 }
+
+document.getElementById('btnUnduh').onclick = () => {
+    window.location.href = '/Service/ExportExcel';
+};
 

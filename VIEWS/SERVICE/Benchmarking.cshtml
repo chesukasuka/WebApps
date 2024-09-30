@@ -42,13 +42,16 @@
     </div>
     <div class="col-md-6">
         <div class="fs-1 fw-100" style="color:white">
-            Simulasi <div class="fst-italic">Benchmarking</div>
-            Laporan Keuangan
+            <div class="main-top-frame-content-1-text">
+                Simulasi <span style="font-style:italic">Benchmarking</span> Laporan Keuangan
+            </div>
         </div>
     </div>
     <div class="col-md-6 px-3">
-        <p class="fs-6" style="color:#93C6CE; text-align: justify">
-            Kami menyediakan Benchmarking Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya untuk menentukan harga transfer.
+        <p class="fs-6" >
+            <div class="main-top-frame-content-2-text">
+                Kami menyediakan Benchmarking Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya untuk menentukan harga transfer.
+            </div>
         </p>
     </div>
     <div class="col-12 d-none d-lg-block mt-3">
@@ -96,6 +99,18 @@
                                     <span><img src="~/image/service/info.svg" /></span>
                                     </a>
                                 </p>
+                                @* <div class="muted">
+                                    Resale Price Methode (RPM) : Gross Profit / Operating Revenue
+                                </div>
+                                <div class="muted">
+                                    Cost Plus Methode (CPM) : Gross Profit / Cost Plus Methode
+                                </div>
+                                <div class="muted">
+                                    Return On Sales (ROS) : Operating Profit / Operating Revenue
+                                </div>
+                                <div class="muted">
+                                    Net Cost Plus Methode (NCPM) : Operating Profit / (Cost Plus Methode + Operating Expense
+                                </div> *@
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
@@ -186,7 +201,7 @@
                             @Html.EJS().Grid("Grid2").DataSource((IEnumerable<object>)ViewBag.dataSource2).AllowPaging(false).DataBound("dataBound2").CssClass("table table-responsive").Render()
                         </div>
                         <div class="col-12 mb-3 d-flex justify-content-end">
-                            <button type="button" class="btn btn-unduh">Unduh Laporan</button>
+                            <button id="btnUnduh" type="button" class="btn btn-unduh">Unduh Laporan</button>
                         </div>
                     </div>
                     <div class="row to-show mb-3">

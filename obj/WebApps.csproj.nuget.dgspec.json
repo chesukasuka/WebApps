@@ -87,6 +87,10 @@
               "target": "Package",
               "version": "[26.1.42, )"
             },
+            "Syncfusion.XlsIO.Net.Core": {
+              "target": "Package",
+              "version": "[26.1.42, )"
+            },
             "System.Text.Json": {
               "target": "Package",
               "version": "[8.0.4, )"

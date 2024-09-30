@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Sp/nT6qQl5E=",
+  "dgSpecHash": "av6C2RrlVSQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\chesu\\Documents\\GitHub\\WebApps\\WebApps.csproj",
   "expectedPackageFiles": [
@@ -47,8 +47,10 @@
     "C:\\Users\\chesu\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\chesu\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\chesu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\chesu\\.nuget\\packages\\syncfusion.compression.net.core\\26.1.42\\syncfusion.compression.net.core.26.1.42.nupkg.sha512",
     "C:\\Users\\chesu\\.nuget\\packages\\syncfusion.ej2.aspnet.core\\26.1.42\\syncfusion.ej2.aspnet.core.26.1.42.nupkg.sha512",
     "C:\\Users\\chesu\\.nuget\\packages\\syncfusion.licensing\\26.1.42\\syncfusion.licensing.26.1.42.nupkg.sha512",
+    "C:\\Users\\chesu\\.nuget\\packages\\syncfusion.xlsio.net.core\\26.1.42\\syncfusion.xlsio.net.core.26.1.42.nupkg.sha512",
     "C:\\Users\\chesu\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\chesu\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\chesu\\.nuget\\packages\\system.composition\\6.0.0\\system.composition.6.0.0.nupkg.sha512",

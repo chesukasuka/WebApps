@@ -22,6 +22,7 @@
             </PackageReference>
             <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
             <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="26.1.42" />
+            <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="26.1.42" />
             <PackageReference Include="System.Text.Json" Version="8.0.4" />
   </ItemGroup>
 

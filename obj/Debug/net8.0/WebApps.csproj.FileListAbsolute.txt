@@ -566,3 +566,5 @@ C:\Users\chesu\Documents\GitHub\WebApps\obj\Debug\net8.0\refint\WebApps.dll
 C:\Users\chesu\Documents\GitHub\WebApps\obj\Debug\net8.0\WebApps.pdb
 C:\Users\chesu\Documents\GitHub\WebApps\obj\Debug\net8.0\WebApps.genruntimeconfig.cache
 C:\Users\chesu\Documents\GitHub\WebApps\obj\Debug\net8.0\ref\WebApps.dll
+C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\Syncfusion.Compression.Portable.dll
+C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\Syncfusion.XlsIO.Portable.dll

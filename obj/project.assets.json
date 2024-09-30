@@ -903,6 +903,19 @@
           }
         }
       },
+      "Syncfusion.Compression.Net.Core/26.1.42": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Syncfusion.Compression.Portable.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Syncfusion.Compression.Portable.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Syncfusion.EJ2.AspNet.Core/26.1.42": {
         "type": "package",
         "dependencies": {
@@ -927,6 +940,23 @@
         },
         "runtime": {
           "lib/net8.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.XlsIO.Net.Core/26.1.42": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Compression.Net.Core": "26.1.42",
+          "Syncfusion.Licensing": "26.1.42"
+        },
+        "compile": {
+          "lib/net8.0/Syncfusion.XlsIO.Portable.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Syncfusion.XlsIO.Portable.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.CodeDom/4.4.0": {
@@ -2993,6 +3023,27 @@
         "packageIcon.png"
       ]
     },
+    "Syncfusion.Compression.Net.Core/26.1.42": {
+      "sha512": "Yb3UMYndP6RBFeH28sedi5IAThoA4ppGlMs5xn82EV1JmKP0AiG9Ygbhz2Za0YxEScBe7cIRMvYuf3KjtHZwAQ==",
+      "type": "package",
+      "path": "syncfusion.compression.net.core/26.1.42",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/net6.0/Syncfusion.Compression.Portable.dll",
+        "lib/net6.0/Syncfusion.Compression.Portable.xml",
+        "lib/net7.0/Syncfusion.Compression.Portable.dll",
+        "lib/net7.0/Syncfusion.Compression.Portable.xml",
+        "lib/net8.0/Syncfusion.Compression.Portable.dll",
+        "lib/net8.0/Syncfusion.Compression.Portable.xml",
+        "lib/netstandard2.0/Syncfusion.Compression.Portable.dll",
+        "lib/netstandard2.0/Syncfusion.Compression.Portable.xml",
+        "syncfusion.compression.net.core.26.1.42.nupkg.sha512",
+        "syncfusion.compression.net.core.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
     "Syncfusion.EJ2.AspNet.Core/26.1.42": {
       "sha512": "xQlTwRTHwvQfJzUv0vtV2OMQIrO1kXAmzwRLLUsHdwUKxNs9vIpe1Ivgbdo8RTbmysFxuC9MQVPzd9gboVLCYg==",
       "type": "package",
@@ -3039,6 +3090,28 @@
         "lib/uap10.0/Syncfusion.Licensing.dll",
         "syncfusion.licensing.26.1.42.nupkg.sha512",
         "syncfusion.licensing.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
+    "Syncfusion.XlsIO.Net.Core/26.1.42": {
+      "sha512": "AgX0WQkk2eg9ccctNsvz4nQHQWxQxtsobNiVD7AlzbYrrhr2SZcsE1C6O7GI/3Y8bnZ+XFmAtwVmu8mp+APDyA==",
+      "type": "package",
+      "path": "syncfusion.xlsio.net.core/26.1.42",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/net6.0/Syncfusion.XlsIO.Portable.dll",
+        "lib/net6.0/Syncfusion.XlsIO.Portable.xml",
+        "lib/net7.0/Syncfusion.XlsIO.Portable.dll",
+        "lib/net7.0/Syncfusion.XlsIO.Portable.xml",
+        "lib/net8.0/Syncfusion.XlsIO.Portable.dll",
+        "lib/net8.0/Syncfusion.XlsIO.Portable.xml",
+        "lib/netstandard2.0/Syncfusion.XlsIO.Portable.dll",
+        "lib/netstandard2.0/Syncfusion.XlsIO.Portable.xml",
+        "syncfusion.xlsio.net.core.26.1.42.nupkg.sha512",
+        "syncfusion.xlsio.net.core.nuspec",
         "syncfusion_logo.png"
       ]
     },
@@ -4227,6 +4300,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.7",
       "Newtonsoft.Json >= 13.0.3",
       "Syncfusion.EJ2.AspNet.Core >= 26.1.42",
+      "Syncfusion.XlsIO.Net.Core >= 26.1.42",
       "System.Text.Json >= 8.0.4"
     ]
   },
@@ -4313,6 +4387,10 @@
             "version": "[13.0.3, )"
           },
           "Syncfusion.EJ2.AspNet.Core": {
+            "target": "Package",
+            "version": "[26.1.42, )"
+          },
+          "Syncfusion.XlsIO.Net.Core": {
             "target": "Package",
             "version": "[26.1.42, )"
           },

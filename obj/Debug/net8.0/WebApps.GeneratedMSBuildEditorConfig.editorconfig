@@ -31,8 +31,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcU0VSVklDRVxCZW5jaG1hcmtpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/chesu/Documents/GitHub/WebApps/VIEWS/SERVICE/BenchmarkingV2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VklFV1NcU0VSVklDRVxCZW5jaG1hcmtpbmdWMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/chesu/Documents/GitHub/WebApps/VIEWS/SHARED/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcU0hBUkVEXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/chesu/Documents/GitHub/WebApps/VIEWS/SHARED/_LayuotV2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VklFV1NcU0hBUkVEXF9MYXl1b3RWMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/chesu/Documents/GitHub/WebApps/VIEWS/SHARED/_ValidationScriptsPartial.cshtml]
