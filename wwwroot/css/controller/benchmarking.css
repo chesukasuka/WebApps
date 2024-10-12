@@ -915,6 +915,10 @@ Laporan Keuangan */
     background-color: #075860;
     color: white;
 }
+.btn-reset {
+    background-color: #ffc107;
+    color: black;
+}
 
 .contact-section {
     /*background-image: url('/image/service/main-left.svg');

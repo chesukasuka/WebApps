@@ -1,5 +1,9 @@
 @using Syncfusion.EJ2
 @using Syncfusion.EJ2.Navigations
+@{
+    var youtbueLink = "https://www.youtube.com/@centraldataaccessofc";
+    var tiktokLink = "https://www.tiktok.com/@centraldataaccessofc?_t=8qKsy8jyT2r&_r=1";
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,70 +18,68 @@
 </head>
 <body>
     <div class="container-fluid">
-        <header>
-            @{
-                Dictionary<string, object> ButtonAttribute = new Dictionary<string, object>();
-                ButtonAttribute.Add("aria-label", "menu");
-            }
+        @{
+            Dictionary<string, object> ButtonAttribute = new Dictionary<string, object>();
+            ButtonAttribute.Add("aria-label", "menu");
+        }
 
-            <div class="row py-1 align-items-center justify-content-between" style="background-color:#00858D">
-                <div class="ms-3 col-5 d-flex justify-content-start">
-                    <p class="fs-6 my-auto" style="color:white">cs@centraldataservice.co.id | 0251 8574 375</p>
+        <div class="row align-items-center justify-content-between" style="background-color:#00858D">
+            <div class="ms-3 col-5 d-flex justify-content-start">
+                <p class="fs-6 my-auto" style="color:white">cs@centraldataaccess.co.id | 0251 8574 375</p>
+            </div>
+            <div class="col-5 d-flex justify-content-end">
+                <div class="btn-group" role="group" aria-label="Youtube">
+                    <a href="@youtbueLink" class="btn"><img src="~/image/layout/youtube.svg"></a>
                 </div>
-                <div class="col-5 d-flex justify-content-end">
-                    <div class="btn-group" role="group" aria-label="Youtube">
-                        <button type="button" class="btn"><img src="~/image/layout/youtube.svg"></button>
-                    </div>
-                    <div class="btn-group" role="group" aria-label="TikTok">
-                        <button type="button" class="btn"><img src="~/image/layout/tik-tok.svg"></button>
-                    </div>
-                    <div class="btn-group" role="group" aria-label="Instagram">
-                        <button type="button" class="btn"><img src="~/image/layout/instagram.svg"></button>
-                    </div>
+                <div class="btn-group" role="group" aria-label="TikTok">
+                    <a href="@tiktokLink" class="btn"><img src="~/image/layout/tik-tok.svg"></a>
+                </div>
+                <div class="btn-group" role="group" aria-label="Instagram">
+                    <a href="https://id.linkedin.com/company/central-data-access" class="btn"><img src="~/image/layout/instagram.svg"></a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 bg-light">
-                    <nav class="navbar navbar-expand-lg bg-light">
-                        <a class="navbar-brand" href="#">
-                            <img src="~/image/Logo.svg" alt="Alternate Text" />
-                        </a>
-                        <button class="btn ms-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00858D"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" /></svg>
-                        </button>
-                        <p class="fst-italic my-auto d-none d-md-block" style="color:#08444B"> | Benchmarking Laporan Keuangan</p>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#046D76"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" /></svg></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <div class="btn-group ms-auto me-3 d-none d-lg-block">
-                                <a href="#" class="btn active" aria-current="page">ID</a>
-                                <a href="#" class="btn">EN</a>
-                            </div>
-                            <button type="button" class="btn btn-primary d-none d-lg-block">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" /></svg></span>
-                                Masuk
-                            </button>
-                            <ul class="navbar-nav me-auto my-3 mb-lg-0 d-lg-none d-flex align-items-end">
-                                <li class="nav-item ms-auto">
-                                    <div class="btn-group ms-auto mb-3">
-                                        <a href="#" class="btn active" aria-current="page">ID</a>
-                                        <a href="#" class="btn">EN</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item ms-auto">
-                                    <button type="button" class="btn btn-primary">
-                                        <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" /></svg></span>
-                                        Masuk
-                                    </button>
-                                </li>
-                            </ul>
+        </div>
+        <div class="row sticky-top">
+            <div class="col-12 bg-light">
+                <nav class="navbar navbar-expand-lg bg-light">
+                    <a class="navbar-brand" href="~/">
+                        <img src="~/image/Logo.svg" alt="Alternate Text" />
+                    </a>
+                    <button class="btn ms-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00858D"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" /></svg>
+                    </button>
+                    <p class="fst-italic my-auto d-none d-md-block" style="color:#08444B"> | Benchmarking Laporan Keuangan</p>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#046D76"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" /></svg></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="btn-group ms-auto me-3 d-none d-lg-block">
+                            <a href="#" class="btn active" aria-current="page">ID</a>
+                            <a href="#" class="btn">EN</a>
                         </div>
-                    </nav>
-                </div>
+                        <button type="button" class="btn btn-primary d-none d-lg-block">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" /></svg></span>
+                            Masuk
+                        </button>
+                        <ul class="navbar-nav me-auto my-3 mb-lg-0 d-lg-none d-flex align-items-end">
+                            <li class="nav-item ms-auto">
+                                <div class="btn-group ms-auto mb-3">
+                                    <a href="#" class="btn active" aria-current="page">ID</a>
+                                    <a href="#" class="btn">EN</a>
+                                </div>
+                            </li>
+                            
+                            <li class="nav-item ms-auto">
+                                <button type="button" onclick="document.location='https://centraldataaccess.co.id/register-login/'" class="btn btn-primary">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" /></svg></span>
+                                    Masuk
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-
-        </header>
+        </div>
         <main role="main">
             @RenderBody()
         </main>
@@ -91,15 +93,15 @@
                     <p class="fs-6 mb-1 footer-sub-title">
                         Alamat Kantor Pusat
                     </p>
-                    <p class="footer-description mb-3">
+                    <a href="https://maps.app.goo.gl/HNoEPCVkuad6PPLo9" target="_blank" class="footer-description mb-3">
                         Gedung Pembina Graha No. 10, Rawamangun, Jakarta Timur
-                    </p>
+                    </a>
                     <p class="fs-6 mb-1 footer-sub-title">
                         Workshop
                     </p>
-                    <p class="footer-description mb-3">
+                    <a href="https://maps.app.goo.gl/Rx1dqQvG7x4WXYMp8" target="_blank" class="footer-description mb-3">
                         Jalan Baugenville Z7 No. 10,Kedung Waringin, Tanah Sareal, Kota Bogor, Jawa Barat
-                    </p>
+                    </a>
                     <div class="btn-group" role="group" aria-label="Youtube">
                         <button type="button" class="btn"><img src="~/image/layout/youtube.svg"></button>
                     </div>
@@ -121,18 +123,18 @@
                     <p class="fs-6 mb-1 footer-sub-title">
                         WhatsApp
                     </p>
-                    <a class="footer-description ">
-                        0822 1001 9696
+                    <a href="https://api.whatsapp.com/send/?phone=6282210019797&text&type=phone_number&app_absent=0" target="_blank" class="footer-description ">
+                        0822 1001 9797
                     </a>
                     <br />
-                    <a class="footer-description ">
+                    <a href="https://api.whatsapp.com/send/?phone=6282210019696&text&type=phone_number&app_absent=0" target="_blank" class="footer-description ">
                         0822 1001 9696
                     </a>
                     <br />
                     <p class="fs-6 mb-1 footer-sub-title">
                         Email
                     </p>
-                    <a class="footer-description ">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cs@centraldataaccess.co.id" target="_blank" class="footer-description ">
                         cs@centraldataaccess.co.id
                     </a>
                 </div>
@@ -142,19 +144,19 @@
                             <p class="fs-6 mb-1 footer-sub-title">
                                 Perusahaan
                             </p>
-                            <a class="footer-description ">
+                            <a href="https://centraldataaccess.co.id/tentang-kami/" class="footer-description ">
                                 Tentang Kami
                             </a>
                             <br />
-                            <a class="footer-description ">
+                            <a href="https://benchmarking.centraldataaccess.co.id/" class="footer-description ">
                                 Data Pembanding
                             </a>
                             <br />
-                            <a class="footer-description ">
+                            <a href="https://centraldataaccess.co.id/category/pajak/" class="footer-description ">
                                 Info Perpajakan
                             </a>
                             <br />
-                            <a class="footer-description ">
+                            <a href="https://centraldataaccess.co.id/kontak-kami/" class="footer-description ">
                                 Kontak Kami
                             </a>
                         </div>
@@ -162,21 +164,18 @@
                             <p class="fs-6 mb-1 footer-sub-title">
                                 Jasa Kami
                             </p>
-                            <a class="footer-description ">
-                                Tentang Kami
-                            </a>
-                            <br />
-                            <a class="footer-description">
-                                Data Pembanding
-                            </a>
-                            <br />
-                            <a class="footer-description">
-                                Info Perpajakan
-                            </a>
-                            <br />
-                            <a class="footer-description">
-                                Kontak Kami
-                            </a>
+                            <p class="footer-description mb-1">
+                                Transfer Pricing
+                            </p>
+                            <p class="footer-description mb-1">
+                                Software Perpajakan
+                            </p>
+                            <p class="footer-description mb-1">
+                                Jasa Perpajakan Umum
+                            </p>
+                            <p class="footer-description mb-1">
+                                Jasa Audit Laporan Keuangan
+                            </p>
                         </div>
                     </div>
                 </div>

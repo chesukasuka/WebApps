@@ -67,11 +67,35 @@ function klasifikasiChange() {
 
 
 function ratioChange() {
-    //var games = document.getElementById('Rasio').ej2_instances[0];
+    var games = document.getElementById('ratio').ej2_instances[0];
     //var value = document.getElementById('value');
     //var text = document.getElementById('text');
     //value.innerHTML = games.value === null ? 'null' : games.value.toString();
     //text.innerHTML = games.text === null ? 'null' : games.text.toString();
+
+    let text = document.getElementById('tentang_rasio');
+    console.log(games.value)
+    if (games.value == 'Cost Plus Methode') {
+        text.innerHTML = "Cost Plus Methode (CPM) : Gross Profit / Cost Plus Methode"
+        document.getElementById('penjelasan').classList.remove('hidden');
+    }
+    else if (games.value == 'Net Cost Plus Methode') {
+        text.innerHTML = "Net Cost Plus Methode (NCPM) : Operating Profit / (Cost Plus Methode + Operating Expense)"
+        document.getElementById('penjelasan').classList.remove('hidden');
+    }
+    else if (games.value == 'Resale Price Methode') {
+        text.innerHTML = "Resale Price Methode (RPM) : Gross Profit / Operating Revenue"
+        document.getElementById('penjelasan').classList.remove('hidden');
+    }
+    else if (games.value == 'Return On Sales') {
+        text.innerHTML = "Return On Sales (ROS) : Operating Profit / Operating Revenue"
+        document.getElementById('penjelasan').classList.remove('hidden');
+    }
+    else {
+        document.getElementById('penjelasan').classList.add('hidden');
+    }
+
+
 };
 
 function toolbarClick(args) {
@@ -96,6 +120,59 @@ document.getElementById('btnHitung').onclick = () => {
     loadCustomers()
 };
 
+document.getElementById('btnReset').onclick = () => {
+    resetAll()
+};
+
+function resetAll() {
+    
+    // Reset elements with class 'to-hide' and 'to-show'
+    const elementsToHide = document.querySelectorAll('.to-hide');
+    elementsToHide.forEach(element => {
+        element.classList.add('hidden');
+    });
+
+    const elementsToShow = document.querySelectorAll('.to-show');
+    elementsToShow.forEach(element => {
+        element.classList.remove('hidden');
+    });
+
+    // Reset Grid data source
+    //var grid = document.getElementById("Grid").ej2_instances[0];
+    //var grid2 = document.getElementById("Grid2").ej2_instances[0];
+    //grid.changeDataSource([]);
+    //grid2.changeDataSource([]);
+    //grid.refresh();
+    //grid2.refresh();
+
+    // Reset dropdowns and inputs
+    var rasio = document.getElementById("ratio").ej2_instances[0];
+    var klasifikasi = document.getElementById("klasifikasiusaha").ej2_instances[0];
+    var jenis = document.getElementById("jeniskegiatanusaha").ej2_instances[0];
+    var tahun = document.getElementById("tahun").ej2_instances[0];
+    var tahunpajak = document.getElementById("tahunpajak").ej2_instances[0];
+
+    rasio.value = null;
+    klasifikasi.value = null;
+    jenis.value = null;
+    tahun.value = null;
+    tahunpajak.value = null;
+
+    // Reset financial inputs
+    var penjualan = document.getElementById("penjualan").ej2_instances[0];
+    var hargapokokpenjualan = document.getElementById("hargapokokpenjualan").ej2_instances[0];
+    var bebanoperasional = document.getElementById("bebanoperasional").ej2_instances[0];
+    var labakotor = document.getElementById("labakotor").ej2_instances[0];
+    var labaoperasional = document.getElementById("labaoperasional").ej2_instances[0];
+    var testedparty = document.getElementById("testedparty").ej2_instances[0];
+
+    penjualan.value = null;
+    hargapokokpenjualan.value = null;
+    bebanoperasional.value = null;
+    labakotor.value = null;
+    labaoperasional.value = null;
+    testedparty.value = null; 
+}
 function loadCustomers() {
     btoastbefore = true;
     const elements = document.querySelectorAll('.to-hide'); // Only target elements with the 'to-hide' class
@@ -108,7 +185,7 @@ function loadCustomers() {
         elements2.classList.remove('hidden');
     });
 
-    var grid = document.getElementById("Grid").ej2_instances[0];
+    //var grid = document.getElementById("Grid").ej2_instances[0];
     var rasio = document.getElementById("ratio").ej2_instances[0];
     var klasifikasi = document.getElementById("klasifikasiusaha").ej2_instances[0];
     var jenis = document.getElementById("jeniskegiatanusaha").ej2_instances[0];
@@ -141,10 +218,31 @@ function loadCustomers() {
         fetch('/Service/Hitung' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2)
             .then(response => response.json())
             .then(data => {
-                grid.changeDataSource(data);
-                grid.refresh
+                //grid.changeDataSource(data);
+                //grid.refresh
+                $("#grid-header").empty();
 
                 if (data.length != 0) {
+                    let header = data[0];
+                    $.each(header, function (key, value){
+                        $("#grid-header").append(`<td ${key == 'Nama Perusahaan' || key == 'Negara' ? 'width="40%"' : ''}>${key}</td>`);
+                    })
+                    data.forEach((items) => {
+                        // Buat variabel untuk menyimpan baris tabel
+                        let row = "<tr>";
+
+                        // Iterasi melalui item
+                        $.each(items, function (key, value) {
+                            // Tambahkan setiap nilai sebagai kolom tabel (td) ke dalam baris
+                            row += `<td>${value}</td>`;
+                        });
+
+                        // Tutup tag <tr>
+                        row += "</tr>";
+
+                        // Tambahkan seluruh baris ke dalam tbody tabel
+                        $("#grid-body").append(row);
+                    })
                     const elements = document.querySelectorAll('.to-hide'); // Only target elements with the 'to-hide' class
                     elements.forEach(element => {
                         element.classList.remove('hidden');
@@ -160,13 +258,33 @@ function loadCustomers() {
                 }
             });
 
-        var grid2 = document.getElementById("Grid2").ej2_instances[0];
+        //var grid2 = document.getElementById("Grid2").ej2_instances[0];
         //fetch('@Url.Action("Hitung2", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahunslider.value[0] + '&tahun2=' + tahunslider.value[1])
         fetch('/Service/Hitung2' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2)
             .then(response => response.json())
             .then(data => {
-                grid2.changeDataSource(data);
-                grid2.refresh();
+                //grid2.changeDataSource(data);
+                //grid2.refresh();
+                let header = data[0];
+                $.each(header, function (key, value) {
+                    $("#grid2-header").append(`<td ${key == 'Keterangan' ? 'width="80%"' : ''}>${key}</td>`);
+                })
+                data.forEach((items) => {
+                    // Buat variabel untuk menyimpan baris tabel
+                    let row = "<tr>";
+
+                    // Iterasi melalui item
+                    $.each(items, function (key, value) {
+                        // Tambahkan setiap nilai sebagai kolom tabel (td) ke dalam baris
+                        row += `<td>${value}</td>`;
+                    });
+
+                    // Tutup tag <tr>
+                    row += "</tr>";
+
+                    // Tambahkan seluruh baris ke dalam tbody tabel
+                    $("#grid2-body").append(row);
+                })
             });
 
         var penjualan = document.getElementById("penjualan").ej2_instances[0];

@@ -23,6 +23,14 @@
         border-color: #075860;
         color: white;
     }
+
+    .e-spin-down {
+        display: none !important;
+    }
+
+    .e-spin-up{
+        display: none !important;
+    }
 </style>
 
 <div class="toast-hide hidden">
@@ -48,7 +56,7 @@
     </div>
     <div class="col-md-6 px-3">
         <p class="fs-6" style="color:#93C6CE; text-align: justify">
-            Kami menyediakan Benchmarking Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya untuk menentukan harga transfer.
+            Kami menyediakan <span class="fst-italic">Benchmarking</span> Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya untuk menentukan harga transfer.
         </p>
     </div>
     <div class="col-12 d-none d-lg-block mt-3">
@@ -70,10 +78,10 @@
                 </div>
                 <div class="card-footer collapse" id="news" style="background-color: transparent">
                     <p style="color: #08444B">
-                        Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan Benchmarking Data Pembanding.
+                        Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan <span class="fst-italic">Benchmarking</span> Data Pembanding.
                         <br />
                         <br />
-                        Data Pembanding Eksternal yang tersedia diperoleh dari BvD TPCatalyst yang kemudian diolah menjadi Benchmarking Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha.
+                        Data Pembanding Eksternal yang tersedia diperoleh dari <span class="fst-italic">BvD TPCatalyst</span> yang kemudian diolah menjadi <span class="fst-italic">Benchmarking</span> Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha.
                     </p>
                 </div>
             </div>
@@ -91,11 +99,11 @@
                                 @Html.EJS().ComboBox("klasifikasiusaha").Placeholder("Klasifikasi Usaha").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").Change("klasifikasiChange").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.klasifikasi).Fields(new ComboBoxFieldSettings { Text = "KlasifikasiUsaha", Value = "KlasifikasiUsaha" }).Render()
                                 @Html.EJS().ComboBox("tahunpajak").CssClass("form-control").CssClass("form-control").Placeholder("Tahun Pajak").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahunpajak).Render()
                                 @Html.EJS().ComboBox("tahun").Placeholder("Rentang Tahun").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahun).Render()
-                                @Html.EJS().ComboBox("ratio").Placeholder("Ratio").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()
-                                <p class="muted">Tentang Rasio <a href="#" data-bs-toggle="tooltip" data-bs-title="Resale Price Methode (RPM) : Gross Profit / Operating Revenue • Cost Plus Methode (CPM) : Gross Profit / Cost Plus Methode • Return On Sales (ROS) : Operating Profit / Operating Revenue • Net Cost Plus Methode (NCPM) : Operating Profit / (Cost Plus Methode + Operating Expense)">
-                                    <span><img src="~/image/service/info.svg" /></span>
-                                    </a>
-                                </p>
+                                @Html.EJS().ComboBox("ratio").Placeholder("Ratio").CssClass("form-control tentang_rasio").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()
+                                <div id="penjelasan" class="to-hide hidden">
+                                    <p class="muted" style="margin-bottom: 0px">Tentang Rasio</p>
+                                    <small id="tentang_rasio" style="font-size: 0.6rem"></small>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
@@ -108,11 +116,12 @@
                                 @Html.EJS().NumericTextBox("labaoperasional").Format("N0").Placeholder("Laba Operasional").CssClass("form-control bg-disabled").Readonly(true).FloatLabelType(FloatLabelType.Auto).Render()
                                 @Html.EJS().TextBox("testedparty").Placeholder("Tested Party (%)").CssClass("form-control bg-disabled").Readonly(true).FloatLabelType(FloatLabelType.Auto).Render()
                                 <p class="muted">
-                                    Tentang Rasio <a href="#" data-bs-toggle="tooltip" data-bs-title="Tested Party adalah Rasio Pihak yang Diuji.">
+                                    Tested Party <a href="#" data-bs-toggle="tooltip" data-bs-title="Tested Party adalah Rasio Pihak yang Diuji.">
                                         <span><img src="~/image/service/info.svg" /></span>
                                     </a>
                                 </p>
                                 @Html.EJS().Button("btnHitung").Content("Hitung").CssClass("btn btn-hitung rounded mt-3 w-100").Render()
+                                @Html.EJS().Button("btnReset").Content("Reset").CssClass("btn btn-reset rounded mt-3 w-100").Render()
                             </div>
                         </div>
                     </div>
@@ -180,10 +189,28 @@
                             </div>
                         </div>
                         <div class="col-12 mb-3">
-                            @Html.EJS().Grid("Grid").DataSource((IEnumerable<object>)ViewBag.dataSource).AllowPaging(false).DataBound("dataBound").CssClass("table table-responsive").Render()
+                            <div class="table-responsive">
+                                <table class="table" style=" font-size: 0.9rem">
+                                    <thead class="fw-medium" style="border-left: solid 2px darkblue; color: darkblue">
+                                        <tr id="grid-header">
+                                        </tr>
+                                    </thead>
+                                    <tbody id="grid-body">
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="col-12 mb-3">
-                            @Html.EJS().Grid("Grid2").DataSource((IEnumerable<object>)ViewBag.dataSource2).AllowPaging(false).DataBound("dataBound2").CssClass("table table-responsive").Render()
+                            <div class="table-responsive">
+                                <table class="table" style=" font-size: 0.9rem">
+                                    <thead class="fw-medium" style="border-left: solid 2px darkblue; color: darkblue">
+                                        <tr id="grid2-header">
+                                        </tr>
+                                    </thead>
+                                    <tbody id="grid2-body">
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="col-12 mb-3 d-flex justify-content-end">
                             <button type="button" class="btn btn-unduh">Unduh Laporan</button>
@@ -191,7 +218,7 @@
                     </div>
                     <div class="row to-show mb-3">
                         <div class="col-12">
-                            <img class="mx-auto d-block w-100" src="~/image/service/empty.svg" />
+                            <img class="mx-auto d-block w-50" src="~/image/service/empty.svg" />
                         </div>
                     </div>
                 </div>
@@ -214,13 +241,13 @@
                         <p class="fw-bold my-auto">Hubungi kami di</p>
                     </div>
                     <div class="col-8 col-lg-5 px-1 d-flex">
-                        <p class="fw-bold my-auto fs-3" style="color: #075860">0822-1001-9797</p>
+                        <a href="https://api.whatsapp.com/send/?phone=6282210019696&text&type=phone_number&app_absent=0" target="_blank" class="fw-bold my-auto fs-3" style="color: #075860">0822-1001-9797</a>
                     </div>
                     <div class="col-md-1 px-1 d-none d-lg-flex">
                         <p class="my-auto" style="color:#3199A3">atau</p>
                     </div>
                     <div class="col-md-3 px-1 d-none d-lg-flex">
-                        <button class="btn btn-sm btn-outline-primary">
+                        <button onclick="document.location='https://centraldataaccess.co.id/kontak-kami/'" class="btn btn-sm btn-outline-primary">
                             Kontak Lainnya
                         </button>
                     </div>
