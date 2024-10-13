@@ -221,11 +221,12 @@ function loadCustomers() {
                 //grid.changeDataSource(data);
                 //grid.refresh
                 $("#grid-header").empty();
+                $("#grid-body").empty();
 
                 if (data.length != 0) {
                     let header = data[0];
                     $.each(header, function (key, value){
-                        $("#grid-header").append(`<td ${key == 'Nama Perusahaan' || key == 'Negara' ? 'width="40%"' : ''}>${key}</td>`);
+                        $("#grid-header").append(`<th ${key == 'Nama Perusahaan' || key == 'Negara' ? 'width="40%"' : ''}>${key}</th>`);
                     })
                     data.forEach((items) => {
                         // Buat variabel untuk menyimpan baris tabel
@@ -265,9 +266,13 @@ function loadCustomers() {
             .then(data => {
                 //grid2.changeDataSource(data);
                 //grid2.refresh();
+
+                $("#grid2-header").empty();
+                $("#grid2-body").empty();
+
                 let header = data[0];
                 $.each(header, function (key, value) {
-                    $("#grid2-header").append(`<td ${key == 'Keterangan' ? 'width="80%"' : ''}>${key}</td>`);
+                    $("#grid2-header").append(`<th ${key == 'Keterangan' ? 'width="80%"' : ''}>${key}</th>`);
                 })
                 data.forEach((items) => {
                     // Buat variabel untuk menyimpan baris tabel
