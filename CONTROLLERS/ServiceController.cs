@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 using Syncfusion.EJ2.Linq;
 using System.Collections;
 using System.Diagnostics;
@@ -131,7 +132,7 @@ namespace WebApps.Controllers
                             oListData.Add("Nama Perusahaan", result.GetValue(0));
                             oListData.Add("Negara", result.GetValue(1));
                             for (int i = 0; i < oLoop; i++){
-                                oListData.Add(" " + (tahun1+i).ToString() ,result.GetValue(i+2));
+                                oListData.Add(" " + (tahun1+i).ToString() , Convert.ToDouble(result.GetValue(i+2)).ToString("F2") );
                                 if(result.GetValue(i+2).ToString() == "0"){
                                     bInsert = false;
                                     continue;
@@ -189,8 +190,8 @@ namespace WebApps.Controllers
                             oListData.Add("Keterangan", "Minimum");
                             for (int i = 0; i < oLoop; i++)
                             {
-                                var oResData = oData.OrderBy(dict => dict[" " + (tahun1 + i).ToString()]).First();
-                                oListData.Add(" " + (tahun1 + i).ToString(), oResData[" " + (tahun1 + i).ToString()]);
+                                var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
+                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0).ToString("F2"));
                             }
                         }
                         if (j == 1)
@@ -199,7 +200,7 @@ namespace WebApps.Controllers
                             for (int i = 0; i < oLoop; i++)
                             {
                                 var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
-                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.25).ToString("F2").Replace(".00", ""));
+                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 25).ToString("F2"));
                             }
                         }
                         if (j == 2)
@@ -208,7 +209,7 @@ namespace WebApps.Controllers
                             for (int i = 0; i < oLoop; i++)
                             {
                                 var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
-                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.50).ToString("F2").Replace(".00", ""));
+                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 50).ToString("F2"));
                             }
                         }
                         if (j == 3)
@@ -217,7 +218,7 @@ namespace WebApps.Controllers
                             for (int i = 0; i < oLoop; i++)
                             {
                                 var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
-                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0.75).ToString("F2").Replace(".00", ""));
+                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 75).ToString("F2"));
                             }
                         }
                         if (j == 4)
@@ -225,8 +226,8 @@ namespace WebApps.Controllers
                             oListData.Add("Keterangan", "Maksimum");
                             for (int i = 0; i < oLoop; i++)
                             {
-                                var oResData = oData.OrderBy(dict => dict[" " + (tahun1 + i).ToString()]).Last();
-                                oListData.Add(" " + (tahun1 + i).ToString(), oResData[" " + (tahun1 + i).ToString()]);
+                                var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
+                                oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 100).ToString("F2"));
                             }
                         }
                         oListHeader.Add(oListData);
@@ -246,27 +247,33 @@ namespace WebApps.Controllers
             return Json(oResult);
         }
 
-        static double GetPercentile(List<object> dataNew, double percentile)
+        public static double GetPercentile(List<object> dataNew, double percentile)
         {
-            double result = 0;
-            var data = new List<double>();
-            foreach (object oData in dataNew){
-                data.Add(Convert.ToDouble(oData));
+            
+            var sortedValues = new List<double>();
+            foreach (object oData in dataNew)
+            {
+                sortedValues.Add(Convert.ToDouble(oData));
             }
-            int n = data.Count;
-            double rank = (percentile * (n - 1)) + 1;
-            int intPart = (int)rank;
-            double fracPart = rank - intPart;
 
-            if (intPart >= n)
-                return data[n - 1];
-            if (intPart == 0)
-                return data[0];
+            // Sort the list
+            sortedValues.Sort();
 
-            result = data[intPart - 1] + fracPart * (data[intPart] - data[intPart - 1]);
-                
-            return result;
+            // Calculate the index
+            int N = sortedValues.Count;
+            double rank = (percentile / 100) * (N - 1);
+            int lowerIndex = (int)Math.Floor(rank);
+            int upperIndex = (int)Math.Ceiling(rank);
+
+            // If exact index, return the value
+            if (lowerIndex == upperIndex)
+                return sortedValues[lowerIndex];
+
+            // Interpolate between the two surrounding values
+            double fraction = rank - lowerIndex;
+            return sortedValues[lowerIndex] + fraction * (sortedValues[upperIndex] - sortedValues[lowerIndex]);
         }
+
 
 
     }
