@@ -899,7 +899,7 @@ Laporan Keuangan */
 
 /*NEW CSS*/
 .custome-jumbotron {
-    background: linear-gradient(rgba(8, 68, 75, 0.5), rgba(8, 68, 75)), url('/image/service/main-top2.jpg');
+    background: linear-gradient(rgba(8, 68, 75, 0.5), rgba(8, 68, 75)), url('/image/service/main-top3.jpg');
 /*    background-image: url('/image/service/main-top.svg');*/
     background-size: cover; /* Stretch the background image */
     background-position: center; /* Center the background image */
