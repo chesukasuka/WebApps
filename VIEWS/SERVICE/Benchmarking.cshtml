@@ -122,6 +122,7 @@
                                 </p>
                                 @Html.EJS().Button("btnHitung").Content("Hitung").CssClass("btn btn-hitung rounded mt-3 w-100").Render()
                                 @Html.EJS().Button("btnReset").Content("Reset").CssClass("e-info btn btn-reset rounded mt-3 w-100").Render()
+                                <button type="button" onclick="generatePDF()" class="btn btn-hitung">Unduh Laporan</button>
                             </div>
                         </div>
                     </div>
@@ -213,7 +214,7 @@
                             </div>
                         </div>
                         <div class="col-12 mb-3 d-flex justify-content-end">
-                            <button type="button" class="btn btn-unduh">Unduh Laporan</button>
+                            <button type="button" onclick="generatePDF()" class="btn btn-unduh">Unduh Laporan</button>
                         </div>
                     </div>
                     <div class="row to-show mb-3">
@@ -261,4 +262,5 @@
     </div> *@
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script src="~/js/controllers/service.js"></script>

@@ -1,3 +1,6 @@
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
@@ -13,11 +16,13 @@ namespace WebApps.Controllers
     {
         private readonly ILogger<ServiceController> _logger;
         private readonly MasterDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public ServiceController(ILogger<ServiceController> logger, MasterDbContext context)
+        public ServiceController(ILogger<ServiceController> logger, MasterDbContext context, IWebHostEnvironment env)
         {
             _logger = logger;
             _context = context;
+            _env = env;
         }
 
         public IActionResult Benchmarking()
@@ -274,7 +279,169 @@ namespace WebApps.Controllers
             return sortedValues[lowerIndex] + fraction * (sortedValues[upperIndex] - sortedValues[lowerIndex]);
         }
 
+        public ActionResult GeneratePdf()
+        {
+            // Menyiapkan stream untuk menulis PDF
+            MemoryStream workStream = new MemoryStream();
+            Document doc = new Document(PageSize.A4, 25, 25, 30, 30);
+            PdfWriter writer = PdfWriter.GetInstance(doc, workStream);
+            writer.CloseStream = false;
 
+            doc.SetMargins(80f, 80f, 80f, 80f);  // Left, right, top, bottom
+
+            doc.Open();
+
+            //Logo
+            string imagePath = Path.Combine(_env.WebRootPath, "image/layout/logo.png"); // Sesuaikan dengan path gambar
+            Image logo = Image.GetInstance(imagePath);
+            logo.ScaleAbsolute(150, 30); // Ubah ukuran gambar (width x height)
+            logo.Alignment = Element.ALIGN_LEFT;
+            doc.Add(logo);
+
+            // Judul
+            Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8);
+            Font titleFontItalic = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8, Font.ITALIC);
+            Phrase titleText = new Phrase();
+            titleText.Add(new Chunk("Benchmarking ", titleFontItalic));
+            titleText.Add(new Chunk("Laporan Keuangan", titleFont));
+            Paragraph title = new Paragraph(titleText);
+            title.SpacingBefore = 25;
+            title.Leading = 8 * 1.5f;
+            title.Alignment = Element.ALIGN_CENTER;
+            doc.Add(title);
+
+            Paragraph subtitle = new Paragraph("Distributor Alat Kesehatan", titleFont);
+            subtitle.SpacingAfter = 20;
+            subtitle.Leading = 8 * 1.5f;
+            subtitle.Alignment = Element.ALIGN_CENTER;
+            doc.Add(subtitle);
+
+            // Informasi Data Pembanding
+            Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8);
+            Font textFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+
+            PdfPTable tableInfo = new PdfPTable(4);
+            tableInfo.WidthPercentage = 100;
+            tableInfo.SetWidths(new float[] { 20f, 10f, 20f, 10f });
+            tableInfo.DefaultCell.Border = PdfPCell.NO_BORDER;
+            tableInfo.DefaultCell.SetLeading(1.5f, 1.5f);
+
+            var headerinfo1 = new PdfPCell(new Phrase("Informasi Data Pembanding", headerFont));
+            headerinfo1.Colspan = 2;
+            headerinfo1.Border = PdfPCell.NO_BORDER;
+            tableInfo.AddCell(headerinfo1);
+            var headerinfo2 = new PdfPCell(new Phrase("Ringkasan Laporan Keuangan", headerFont));
+            headerinfo2.Colspan = 2;
+            headerinfo2.Border = PdfPCell.NO_BORDER;
+            tableInfo.AddCell(headerinfo2);
+            tableInfo.AddCell(new Phrase("Jenis Kegiatan Usaha", textFont));
+            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase("Nama Perusahaan", textFont));
+            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase("Klasifikasi Usaha", textFont));
+            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase("Penjualan", textFont));
+            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase("Subklasifikasi Usaha", textFont));
+            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase("Harga Pokok Pendapatan", textFont));
+            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase("Tahun Pajak", textFont));
+            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase("Beban Operasional", textFont));
+            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase("Rasio Keuangan", textFont));
+            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase("Laba Operasional", textFont));
+            tableInfo.AddCell(new Phrase(":", textFont));
+
+            doc.Add(tableInfo);
+
+            // Rasio Keuangan Perusahaan (Table)
+            Paragraph sectionTitle = new Paragraph("Rasio Keuangan Perusahaan", headerFont);
+            sectionTitle.SpacingBefore = 15;
+            sectionTitle.SpacingAfter = 5;
+            doc.Add(sectionTitle);
+
+            PdfPTable tableData = new PdfPTable(6);
+            tableData.WidthPercentage = 100;
+            tableData.SetWidths(new float[] { 0.5f, 2, 2, 2, 2, 2 });
+
+            string[] headers = { "No", "Perusahaan", "Negara", "NCPM (%)" };
+            foreach (var header in headers)
+            {
+                var headerCell = new PdfPCell(new Phrase(header, headerFont));
+                if (header != "NCPM (%)")
+                {
+                    headerCell.Rowspan = 2;
+                }
+                else
+                {
+                    headerCell.Rowspan = 1;
+                    headerCell.Colspan = 3;
+                }
+                tableData.AddCell(headerCell);
+            }
+            string[] tahuns = { "2019", "2020", "2021" };
+            foreach(var tahun in tahuns)
+            {
+                tableData.AddCell(new PdfPCell(new Phrase(tahun, headerFont)));
+            }
+
+            string[,] rows = {
+                { "1", "K.M.R Co.,Ltd", "Republic of Korea", "", "", "" },
+                { "2", "Grepcor, Inc.", "Philippines", "", "", "" },
+                { "3", "Veiva Scientific India Private Limited", "India", "", "", "" },
+                { "4", "Shin Ki Commercial Co.,Ltd", "Republic of Korea", "", "", "" },
+                { "5", "Wooree Technologies Co.,Ltd", "Republic of Korea", "", "", "" },
+                { "6", "Insol Co.,Ltd", "Republic of Korea", "", "", "" }
+            };
+
+            for (int i = 0; i < rows.GetLength(0); i++)
+            {
+                for (int j = 0; j < rows.GetLength(1); j++)
+                {
+                    tableData.AddCell(new Phrase(rows[i, j], textFont));
+                }
+            }
+
+            doc.Add(tableData);
+
+            // Summary Section
+            Paragraph summaryTitle = new Paragraph("Rasio Keuangan Perusahaan", headerFont);
+            summaryTitle.SpacingBefore = 15;
+            doc.Add(summaryTitle);
+
+            string[] metrics = { "Minimum", "Kuartil 1", "Kuartil 2", "Kuartil 3", "Maksimum" };
+            PdfPTable tableMetrics = new PdfPTable(1);
+            tableMetrics.WidthPercentage = 100;
+            foreach (var metric in metrics)
+            {
+                tableMetrics.AddCell(new PdfPCell(new Phrase(metric, textFont)));
+            }
+
+            doc.Add(tableMetrics);
+
+            // Footer
+            Paragraph footer = new Paragraph(
+                "Konsultasi Gratis bersama Tim Central Data Access untuk mendapatkan analisis data komprehensif terkait dengan Dokumen Penentuan Harga Transfer\n" +
+                "www.centraldataaccess.co.id | Telepon : (0251) 8574 375 | Handphone : 0822 1001 9696 / 0822 1001 9797 | cs@centraldataaccess.co.id",
+                textFont
+            );
+            footer.Alignment = Element.ALIGN_CENTER;
+            footer.SpacingBefore = 20;
+            doc.Add(footer);
+
+            // Close Document
+            doc.Close();
+
+            byte[] byteInfo = workStream.ToArray();
+            workStream.Write(byteInfo, 0, byteInfo.Length);
+            workStream.Position = 0;
+
+            // Return PDF as a file result
+            return File(workStream, "application/pdf", "Benchmarking_Laporan_Keuangan.pdf");
+        }
 
     }
 }

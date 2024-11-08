@@ -342,3 +342,26 @@ function dataBound2(args) {
     this.refreshColumns();
 }
 
+function generatePDF() {
+    fetch('/Service/GeneratePdf', {
+        method: 'GET'
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            // Buat objek URL untuk mengunduh PDF
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'Benchmarking_Laporan_Keuangan.pdf';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(error => console.error('Error:', error));
+}
