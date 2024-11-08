@@ -1363,3 +1363,27 @@ html {
     font-size: 0.8rem;
     text-decoration: none;
 }
+
+.btn-outline-tosca:hover .icon-outline-tosca {
+    fill: #ffff;
+}
+
+.btn-outline-tosca {
+    color: #00858D;
+    border-color: #00858D !important;
+}
+
+.btn-tosca {
+    color: #FFFF !important;
+    background-color: #00858D !important;
+}
+
+.btn-tosca:hover {
+    opacity: 0.8;
+}
+
+    .btn-outline-tosca:hover {
+        color: #ffff;
+        background-color: #00858D !important;
+        border-color: #00858D !important;
+    }
