@@ -82,36 +82,40 @@ namespace WebApps.Controllers
         private List<Dictionary<string, object>> Searchbenchmark(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2){
             var oResult = new List<Dictionary<string, object>>();
             try
-            {   
+            {
+                var dataTahun = "";
                 var oLoop = tahun2 - tahun1 + 1;
                 var oList = new List<Dictionary<string, object>>();
 
                 var sTahun = "[" + tahun1.ToString() + "]";
                 for (int i = tahun1; i < tahun2; i++){
                     sTahun = sTahun + ",[" + (i+1).ToString() + "]";
+
+                    dataTahun = dataTahun + "and [" + (i + 1).ToString() + "] is not null ";
                 }
                 var oListHeader = new List<Dictionary<string, object>>();
-                                                
+
 
                 var sql = "";
                 sql = ""
                     + " select a.NamaPerusahaan, a.Negara, " + sTahun + "              "
-                    + " from benchmarking a                                 "
-                    + " left join                                           "
-                    + " (                                                   "
-                    + " SELECT                                              "
-                    + " *                                                   "
-                    + " FROM                                                "
-                    + "     (SELECT BenchmarkingId, Tahun, Rasio            "
-                    + "     FROM BenchmarkingTahun) as SourceTable          "
-                    + " PIVOT                                               "
-                    + " (                                                   "
-                    + "     MAX(Rasio)                                      "
-                    + "     FOR Tahun IN (" + sTahun + ")                   "
-                    + " ) as PivotTable                                     "
-                    + " ) b                                                 "
-                    + " on a.BenchmarkingId=b.BenchmarkingId                "
-                    + " WHERE 1 = 1                                         ";
+                    + " from benchmarking a                                            "
+                    + " left join                                                      "
+                    + " (                                                              "
+                    + " SELECT                                                         "
+                    + " *                                                              "
+                    + " FROM                                                           "
+                    + "     (SELECT BenchmarkingId, Tahun, Rasio                       "
+                    + "     FROM BenchmarkingTahun) as SourceTable                     "
+                    + " PIVOT                                                          "
+                    + " (                                                              "
+                    + "     MAX(Rasio)                                                 "
+                    + "     FOR Tahun IN (" + sTahun + ")                              "
+                    + " ) as PivotTable                                                "
+                    + " ) b                                                            "
+                    + " on a.BenchmarkingId=b.BenchmarkingId                           "
+                    + " WHERE 1 = 1                                                    "
+                    + dataTahun;
 
                 if(rasio != null){
                     sql = sql + " AND Rasio = '" + rasio + "' ";

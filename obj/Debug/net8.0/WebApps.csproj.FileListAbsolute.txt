@@ -433,7 +433,9 @@ C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\WebApps.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\WebApps.pdb
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\Humanizer.dll
+C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\itextsharp.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -473,6 +475,7 @@ C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\System.Memory.Data.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\System.Runtime.Caching.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\System.Text.Json.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
