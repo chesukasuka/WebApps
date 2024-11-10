@@ -349,12 +349,11 @@ namespace WebApps.Controllers
             return sortedValues[lowerIndex] + fraction * (sortedValues[upperIndex] - sortedValues[lowerIndex]);
         }
 
-        public ActionResult GeneratePdf()
+        public ActionResult GeneratePdf(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2, float penjualan, float pokokPenjualan, float bebanOperasional, float labaKotor, float labaOperasional, float testedParty)
         {
-
-            var benchmarkingData = Searchbenchmark("Net Cost Plus Methode", "Manufaktur", "Industri Alas Kaki", 2018, 2020);
-            var matricData = Hitung2Function("Net Cost Plus Methode", "Manufaktur", "Industri Alas Kaki", 2018, 2020);
-
+            var benchmarkingData = Searchbenchmark(rasio, jenis, klasifikasi, tahun1, tahun2);
+            var matricData = Hitung2Function(rasio, jenis, klasifikasi, tahun1, tahun2);
+            
             // Menyiapkan stream untuk menulis PDF
             MemoryStream workStream = new MemoryStream();
             Document doc = new Document(PageSize.A4, 25, 25, 30, 30);
@@ -409,34 +408,40 @@ namespace WebApps.Controllers
             headerinfo2.Border = PdfPCell.NO_BORDER;
             tableInfo.AddCell(headerinfo2);
             tableInfo.AddCell(new Phrase("Jenis Kegiatan Usaha", textFont));
-            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase($": {jenis}", textFont));
             tableInfo.AddCell(new Phrase("Nama Perusahaan", textFont));
             tableInfo.AddCell(new Phrase(":", textFont));
             tableInfo.AddCell(new Phrase("Klasifikasi Usaha", textFont));
-            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase($": {klasifikasi}", textFont));
             tableInfo.AddCell(new Phrase("Penjualan", textFont));
-            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase($": {penjualan}", textFont));
             tableInfo.AddCell(new Phrase("Subklasifikasi Usaha", textFont));
             tableInfo.AddCell(new Phrase(":", textFont));
             tableInfo.AddCell(new Phrase("Harga Pokok Pendapatan", textFont));
-            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase($": {labaKotor}", textFont));
             tableInfo.AddCell(new Phrase("Tahun Pajak", textFont));
-            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase($": {tahun2}", textFont));
             tableInfo.AddCell(new Phrase("Beban Operasional", textFont));
-            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase($": {bebanOperasional}", textFont));
             tableInfo.AddCell(new Phrase("Rasio Keuangan", textFont));
-            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase($": {rasio}", textFont));
             tableInfo.AddCell(new Phrase("Laba Operasional", textFont));
-            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase($": {labaOperasional}", textFont));
 
             doc.Add(tableInfo);
 
             
-            PdfPTable tableData = new PdfPTable(6);
+            string[] tahuns = benchmarkingData.First().Keys.Skip(2).ToArray();
+            PdfPTable tableData = new PdfPTable(3 + tahuns.Length);
             tableData.WidthPercentage = 100;
             tableData.SpacingBefore = 30;
             tableData.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-            tableData.SetWidths(new float[] { 0.5f, 2, 2, 2, 2, 2 });
+            List<float> tableDataWidth = new List<float> { 0.5f, 2f, 2f };
+            foreach (var tahun in tahuns)
+            {
+                tableDataWidth.Add(2f);
+            }
+            tableData.SetWidths(tableDataWidth.ToArray());
 
             string[] headers = { "No", "Perusahaan", "Negara", "NCPM (%)" };
             foreach (var header in headers)
@@ -454,7 +459,11 @@ namespace WebApps.Controllers
                 }
                 tableData.AddCell(headerCell);
             }
-            string[] tahuns = { "2019", "2020", "2021" };
+
+            if(benchmarkingData.Count < 1)
+            {
+                throw new Exception("No Data!");
+            }
             foreach(var tahun in tahuns)
             {
                 var yearCell = new PdfPCell(new Phrase(tahun, textBold));
@@ -462,21 +471,17 @@ namespace WebApps.Controllers
                 tableData.AddCell(yearCell);
             }
 
-            string[,] rows = {
-                { "1", "K.M.R Co.,Ltd", "Republic of Korea", "", "", "" },
-                { "2", "Grepcor, Inc.", "Philippines", "", "", "" },
-                { "3", "Veiva Scientific India Private Limited", "India", "", "", "" },
-                { "4", "Shin Ki Commercial Co.,Ltd", "Republic of Korea", "", "", "" },
-                { "5", "Wooree Technologies Co.,Ltd", "Republic of Korea", "", "", "" },
-                { "6", "Insol Co.,Ltd", "Republic of Korea", "", "", "" }
-            };
-
-            for (int i = 0; i < rows.GetLength(0); i++)
+            int no = 1;
+            foreach(var benchmarking in benchmarkingData)
             {
-                for (int j = 0; j < rows.GetLength(1); j++)
+                tableData.AddCell(new Phrase(no.ToString(), textFont));
+                tableData.AddCell(new Phrase(benchmarking.Where(x => x.Key == "Nama Perusahaan").First().Value.ToString(), textFont));
+                tableData.AddCell(new Phrase(benchmarking.Where(x => x.Key == "Negara").First().Value.ToString(), textFont));
+                foreach(var tahun in tahuns)
                 {
-                    tableData.AddCell(new Phrase(rows[i, j], textFont));
+                    tableData.AddCell(new Phrase(benchmarking.Where(x => x.Key == tahun).First().Value.ToString(), textFont));
                 }
+                no++;
             }
 
             var tableBreak1 = new PdfPCell(new Phrase("Rasio Keungan Perusahaan", textFont));
@@ -489,7 +494,7 @@ namespace WebApps.Controllers
             tableData.AddCell(tableBreak2);
 
             string[] metrics = { "Minimum", "Kuartil 1", "Kuartil 2", "Kuartil 3", "Maksimum" };
-
+            int i = 0;
             foreach (var metric in metrics)
             {
                 var metricCell = new PdfPCell(new Phrase(metric, textBold));
@@ -498,10 +503,13 @@ namespace WebApps.Controllers
                 metricCell.VerticalAlignment = Element.ALIGN_MIDDLE;
                 tableData.AddCell(metricCell);
 
-                var metricCellValue = new PdfPCell(new Phrase(""));
-                metricCellValue.Colspan = 3;
-                metricCellValue.VerticalAlignment = Element.ALIGN_MIDDLE;
-                tableData.AddCell(metricCellValue);
+                foreach(var tahun in tahuns)
+                {
+                    var metricCellValue = new PdfPCell(new Phrase(matricData[i].Where(x => x.Key == tahun).First().Value.ToString(), textFont));
+                    metricCellValue.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    tableData.AddCell(metricCellValue);
+                }
+                i++;
             }
 
             doc.Add(tableData);

@@ -343,25 +343,87 @@ function dataBound2(args) {
 }
 
 function generatePDF() {
-    fetch('/Service/GeneratePdf', {
-        method: 'GET'
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.blob();
+    var rasio = document.getElementById("ratio").ej2_instances[0];
+    var klasifikasi = document.getElementById("klasifikasiusaha").ej2_instances[0];
+    var jenis = document.getElementById("jeniskegiatanusaha").ej2_instances[0];
+    // var tahunslider = document.getElementById("tahun").ej2_instances[0];
+    var tahunpajak = document.getElementById("tahunpajak").ej2_instances[0].value;
+    var tahun = document.getElementById("tahun").ej2_instances[0].value;
+
+    var tahun1 = 0;
+    var tahun2 = 0;
+
+    if (tahun == "1 Tahun") {
+        var tahun1 = tahunpajak - 1;
+        var tahun2 = tahunpajak - 1;
+    }
+    else if (tahun == "3 Tahun") {
+        var tahun1 = tahunpajak - 3;
+        var tahun2 = tahunpajak - 1;
+    }
+    else if (tahun == "5 Tahun") {
+        var tahun1 = tahunpajak - 5;
+        var tahun2 = tahunpajak - 1;
+    }
+    else {
+        var tahun1 = tahunpajak - 1;
+        var tahun2 = tahunpajak - 1;
+    }
+
+    if (tahun1 >= 2017) {
+        
+        var penjualan = document.getElementById("penjualan").ej2_instances[0];
+        var hargapokokpenjualan = document.getElementById("hargapokokpenjualan").ej2_instances[0];
+        var bebanoperasional = document.getElementById("bebanoperasional").ej2_instances[0];
+
+        var labakotor = 0;
+        var labaoperasional = 0;
+
+        labakotor = penjualan.value - hargapokokpenjualan.value;
+        labaoperasional = penjualan.value - hargapokokpenjualan.value - bebanoperasional.value;
+
+        var testedparty = 0;
+        if (rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method") {
+            testedparty = (penjualan.value - hargapokokpenjualan.value) / penjualan.value;
+            testedparty = Math.round(testedparty * 100) / 100
+        }
+        else if (rasio.value == "Cost Plus Methode" || rasio.value == "Cost Plus Method") {
+            testedparty = (penjualan.value - hargapokokpenjualan.value) / hargapokokpenjualan.value;
+            testedparty = Math.round(testedparty * 100) / 100
+        }
+        else if (rasio.value == "Net Cost Plus Methode" || rasio.value == "Net Cost Plus Method") {
+            testedparty = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / (hargapokokpenjualan.value + bebanoperasional.value);
+            testedparty = Math.round(testedparty * 100) / 100
+        }
+        else if (rasio.value == "Return On Sales") {
+            testedparty = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / penjualan.value;
+            testedparty = Math.round(testedparty * 100) / 100
+        }
+
+        fetch('/Service/GeneratePdf' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2 + '&penjualan=' + penjualan.value + '&pokokPenjualan=' + hargapokokpenjualan.value + '&bebanOperasional=' + bebanoperasional.value + '&labaKotor=' + labakotor + '&labaOperasional=' + labaoperasional + '&testedParty=' + testedparty, {
+            method: 'GET'
         })
-        .then(blob => {
-            // Buat objek URL untuk mengunduh PDF
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = 'Benchmarking_Laporan_Keuangan.pdf';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-        })
-        .catch(error => console.error('Error:', error));
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                // Buat objek URL untuk mengunduh PDF
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'Benchmarking_Laporan_Keuangan.pdf';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            })
+            .catch(error => console.error('Error:', error));
+
+    }
+    else {
+        toastObj.show();
+    }
 }
