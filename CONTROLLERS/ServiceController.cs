@@ -252,6 +252,72 @@ namespace WebApps.Controllers
             return Json(oResult);
         }
 
+        public List<Dictionary<string, object>> Hitung2Function(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2)
+        {
+            List<Dictionary<string, object>> oResult = new List<Dictionary<string, object>>();
+            var oData = Searchbenchmark(rasio, jenis, klasifikasi, tahun1, tahun2);
+            if (oData.Count != 0)
+            {
+                var oListHeader = new List<Dictionary<string, object>>();
+                var oListData = new Dictionary<string, object>();
+
+                for (int j = 0; j < 5; j++)
+                {
+                    var oLoop = tahun2 - tahun1 + 1;
+                    oListData = new Dictionary<string, object>();
+                    if (j == 0)
+                    {
+                        oListData.Add("Keterangan", "Minimum");
+                        for (int i = 0; i < oLoop; i++)
+                        {
+                            var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
+                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 0).ToString("F2"));
+                        }
+                    }
+                    if (j == 1)
+                    {
+                        oListData.Add("Keterangan", "Kuartil 1");
+                        for (int i = 0; i < oLoop; i++)
+                        {
+                            var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
+                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 25).ToString("F2"));
+                        }
+                    }
+                    if (j == 2)
+                    {
+                        oListData.Add("Keterangan", "Kuartil 2");
+                        for (int i = 0; i < oLoop; i++)
+                        {
+                            var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
+                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 50).ToString("F2"));
+                        }
+                    }
+                    if (j == 3)
+                    {
+                        oListData.Add("Keterangan", "Kuartil 3");
+                        for (int i = 0; i < oLoop; i++)
+                        {
+                            var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
+                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 75).ToString("F2"));
+                        }
+                    }
+                    if (j == 4)
+                    {
+                        oListData.Add("Keterangan", "Maksimum");
+                        for (int i = 0; i < oLoop; i++)
+                        {
+                            var oResData = oData.Select(z => z[" " + (tahun1 + i).ToString()]).ToList();
+                            oListData.Add(" " + (tahun1 + i).ToString(), GetPercentile(oResData, 100).ToString("F2"));
+                        }
+                    }
+                    oListHeader.Add(oListData);
+                }
+                oResult = oListHeader;
+            }
+
+            return oResult;
+        }
+
         public static double GetPercentile(List<object> dataNew, double percentile)
         {
             
@@ -281,6 +347,10 @@ namespace WebApps.Controllers
 
         public ActionResult GeneratePdf()
         {
+
+            var benchmarkingData = Searchbenchmark("Net Cost Plus Methode", "Manufaktur", "Industri Alas Kaki", 2018, 2020);
+            var matricData = Hitung2Function("Net Cost Plus Methode", "Manufaktur", "Industri Alas Kaki", 2018, 2020);
+
             // Menyiapkan stream untuk menulis PDF
             MemoryStream workStream = new MemoryStream();
             Document doc = new Document(PageSize.A4, 25, 25, 30, 30);
@@ -317,8 +387,8 @@ namespace WebApps.Controllers
             doc.Add(subtitle);
 
             // Informasi Data Pembanding
-            Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8);
-            Font textFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+            Font textBold = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8);
+            Font textFont = FontFactory.GetFont(FontFactory.HELVETICA, 8);
 
             PdfPTable tableInfo = new PdfPTable(4);
             tableInfo.WidthPercentage = 100;
@@ -326,11 +396,11 @@ namespace WebApps.Controllers
             tableInfo.DefaultCell.Border = PdfPCell.NO_BORDER;
             tableInfo.DefaultCell.SetLeading(1.5f, 1.5f);
 
-            var headerinfo1 = new PdfPCell(new Phrase("Informasi Data Pembanding", headerFont));
+            var headerinfo1 = new PdfPCell(new Phrase("Informasi Data Pembanding", textBold));
             headerinfo1.Colspan = 2;
             headerinfo1.Border = PdfPCell.NO_BORDER;
             tableInfo.AddCell(headerinfo1);
-            var headerinfo2 = new PdfPCell(new Phrase("Ringkasan Laporan Keuangan", headerFont));
+            var headerinfo2 = new PdfPCell(new Phrase("Ringkasan Laporan Keuangan", textBold));
             headerinfo2.Colspan = 2;
             headerinfo2.Border = PdfPCell.NO_BORDER;
             tableInfo.AddCell(headerinfo2);
@@ -357,20 +427,18 @@ namespace WebApps.Controllers
 
             doc.Add(tableInfo);
 
-            // Rasio Keuangan Perusahaan (Table)
-            Paragraph sectionTitle = new Paragraph("Rasio Keuangan Perusahaan", headerFont);
-            sectionTitle.SpacingBefore = 15;
-            sectionTitle.SpacingAfter = 5;
-            doc.Add(sectionTitle);
-
+            
             PdfPTable tableData = new PdfPTable(6);
             tableData.WidthPercentage = 100;
+            tableData.SpacingBefore = 30;
+            tableData.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             tableData.SetWidths(new float[] { 0.5f, 2, 2, 2, 2, 2 });
 
             string[] headers = { "No", "Perusahaan", "Negara", "NCPM (%)" };
             foreach (var header in headers)
             {
-                var headerCell = new PdfPCell(new Phrase(header, headerFont));
+                var headerCell = new PdfPCell(new Phrase(header, textBold));
+                headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 if (header != "NCPM (%)")
                 {
                     headerCell.Rowspan = 2;
@@ -385,7 +453,9 @@ namespace WebApps.Controllers
             string[] tahuns = { "2019", "2020", "2021" };
             foreach(var tahun in tahuns)
             {
-                tableData.AddCell(new PdfPCell(new Phrase(tahun, headerFont)));
+                var yearCell = new PdfPCell(new Phrase(tahun, textBold));
+                yearCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                tableData.AddCell(yearCell);
             }
 
             string[,] rows = {
@@ -405,32 +475,55 @@ namespace WebApps.Controllers
                 }
             }
 
-            doc.Add(tableData);
+            var tableBreak1 = new PdfPCell(new Phrase("Rasio Keungan Perusahaan", textFont));
+            tableBreak1.Colspan = 3;
+            tableBreak1.HorizontalAlignment = Element.ALIGN_RIGHT;
+            tableData.AddCell(tableBreak1);
 
-            // Summary Section
-            Paragraph summaryTitle = new Paragraph("Rasio Keuangan Perusahaan", headerFont);
-            summaryTitle.SpacingBefore = 15;
-            doc.Add(summaryTitle);
+            var tableBreak2 = new PdfPCell(new Phrase("", textFont));
+            tableBreak2.Colspan = 3;
+            tableData.AddCell(tableBreak2);
 
             string[] metrics = { "Minimum", "Kuartil 1", "Kuartil 2", "Kuartil 3", "Maksimum" };
-            PdfPTable tableMetrics = new PdfPTable(1);
-            tableMetrics.WidthPercentage = 100;
+
             foreach (var metric in metrics)
             {
-                tableMetrics.AddCell(new PdfPCell(new Phrase(metric, textFont)));
+                var metricCell = new PdfPCell(new Phrase(metric, textBold));
+                metricCell.Colspan = 3;
+                metricCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                metricCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                tableData.AddCell(metricCell);
+
+                var metricCellValue = new PdfPCell(new Phrase(""));
+                metricCellValue.Colspan = 3;
+                metricCellValue.VerticalAlignment = Element.ALIGN_MIDDLE;
+                tableData.AddCell(metricCellValue);
             }
 
-            doc.Add(tableMetrics);
+            doc.Add(tableData);
+
+            
 
             // Footer
             Paragraph footer = new Paragraph(
-                "Konsultasi Gratis bersama Tim Central Data Access untuk mendapatkan analisis data komprehensif terkait dengan Dokumen Penentuan Harga Transfer\n" +
-                "www.centraldataaccess.co.id | Telepon : (0251) 8574 375 | Handphone : 0822 1001 9696 / 0822 1001 9797 | cs@centraldataaccess.co.id",
+                "Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan Benchmarking Data Pembanding. Data Pembanding Eksternal yang tersedia diperoleh dari BvD TPCatalyst yang kemudian diolah menjadi Benchmarking Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha." +
+                "\n\n" +
+                "Berdasarkan data pembanding milik Central Data Access, batas kewajaran harga transfer sesuai dengan Prinsip Kewajaran dan Kelaziman Usaha, margin penentuan harga transfer yang ditetapkan sebaiknya berada dalam pertimbangan rentang kewajaran.",                
                 textFont
             );
-            footer.Alignment = Element.ALIGN_CENTER;
+            footer.Alignment = Element.ALIGN_JUSTIFIED;
             footer.SpacingBefore = 20;
             doc.Add(footer);
+            
+            Paragraph contact = new Paragraph(
+                "Konsultasi Gratis bersama Tim Central Data Access untuk mendapatkan analisis data komprehensif terkait dengan \r\nDokumen Penentuan Harga Transfer" +
+                "\n\n" +
+                "www.centraldataaccess.co.id | Telepon : (0251) 8574 375 | Handphone : 0822 1001 9696 / 0822 1001 9797 | \r\ncs@centraldataaccess.co.id",
+                textBold
+            );
+            contact.Alignment = Element.ALIGN_CENTER;
+            contact.SpacingBefore = 40;
+            doc.Add(contact);
 
             // Close Document
             doc.Close();
