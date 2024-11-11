@@ -194,7 +194,7 @@ namespace WebApps.Controllers
                 }
                 else
                 {
-                    HttpContext.Session.SetString("HitungCount", "1");
+                    HttpContext.Session.SetString("HitungCount", "2");
                 }
             }
 
