@@ -569,3 +569,4 @@ C:\Users\chesu\Documents\GitHub\WebApps\obj\Debug\net8.0\refint\WebApps.dll
 C:\Users\chesu\Documents\GitHub\WebApps\obj\Debug\net8.0\WebApps.pdb
 C:\Users\chesu\Documents\GitHub\WebApps\obj\Debug\net8.0\WebApps.genruntimeconfig.cache
 C:\Users\chesu\Documents\GitHub\WebApps\obj\Debug\net8.0\ref\WebApps.dll
+C:\Users\chesu\Documents\GitHub\WebApps\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
