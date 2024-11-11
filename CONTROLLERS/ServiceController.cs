@@ -84,7 +84,7 @@ namespace WebApps.Controllers
             var oResult = new List<Dictionary<string, object>>();
             try
             {
-                var dataTahun = "";
+                var dataTahun = " and [" + tahun1 + "] is not null ";
                 var oLoop = tahun2 - tahun1 + 1;
                 var oList = new List<Dictionary<string, object>>();
 
@@ -92,7 +92,7 @@ namespace WebApps.Controllers
                 for (int i = tahun1; i < tahun2; i++){
                     sTahun = sTahun + ",[" + (i+1).ToString() + "]";
 
-                    dataTahun = dataTahun + "and [" + (i + 1).ToString() + "] is not null ";
+                    dataTahun = dataTahun + " and [" + (i + 1).ToString() + "] is not null ";
                 }
                 var oListHeader = new List<Dictionary<string, object>>();
 
@@ -137,19 +137,25 @@ namespace WebApps.Controllers
                     {
                         while (result.Read())
                         {
-                            bool bInsert = true;
-                            var oListData = new Dictionary<string, object>();
-                            oListData.Add("Nama Perusahaan", result.GetValue(0));
-                            oListData.Add("Negara", result.GetValue(1));
-                            for (int i = 0; i < oLoop; i++){
-                                oListData.Add(" " + (tahun1+i).ToString() , Convert.ToDouble(result.GetValue(i+2)).ToString("F2") );
-                                if(result.GetValue(i+2).ToString() == "0"){
-                                    bInsert = false;
-                                    continue;
+                            if(result != null)
+                            {
+                                bool bInsert = true;
+                                var oListData = new Dictionary<string, object>();
+                                oListData.Add("Nama Perusahaan", result.GetValue(0));
+                                oListData.Add("Negara", result.GetValue(1));
+                                for (int i = 0; i < oLoop; i++)
+                                {
+                                    oListData.Add(" " + (tahun1 + i).ToString(), Convert.ToDouble(result.GetValue(i + 2)).ToString("F2"));
+                                    if (result.GetValue(i + 2).ToString() == "0")
+                                    {
+                                        bInsert = false;
+                                        continue;
+                                    }
                                 }
-                            }
-                            if(bInsert){
-                                oListHeader.Add(oListData);
+                                if (bInsert)
+                                {
+                                    oListHeader.Add(oListData);
+                                }
                             }
                         }
                     }
@@ -384,6 +390,9 @@ namespace WebApps.Controllers
             MemoryStream workStream = new MemoryStream();
             Document doc = new Document(PageSize.A4, 25, 25, 30, 30);
             PdfWriter writer = PdfWriter.GetInstance(doc, workStream);
+
+            writer.PageEvent = new PdfWatermarkHelper("Central Data Access");
+
             writer.CloseStream = false;
 
             doc.SetMargins(80f, 80f, 80f, 80f);  // Left, right, top, bottom
@@ -421,7 +430,7 @@ namespace WebApps.Controllers
 
             PdfPTable tableInfo = new PdfPTable(4);
             tableInfo.WidthPercentage = 100;
-            tableInfo.SetWidths(new float[] { 20f, 10f, 20f, 10f });
+            tableInfo.SetWidths(new float[] { 14f, 16f, 14f, 16f });
             tableInfo.DefaultCell.Border = PdfPCell.NO_BORDER;
             tableInfo.DefaultCell.SetLeading(1.5f, 1.5f);
 
@@ -462,10 +471,10 @@ namespace WebApps.Controllers
             tableData.WidthPercentage = 100;
             tableData.SpacingBefore = 30;
             tableData.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-            List<float> tableDataWidth = new List<float> { 0.5f, 2f, 2f };
+            List<float> tableDataWidth = new List<float> { 0.5f, 3f, 2f };
             foreach (var tahun in tahuns)
             {
-                tableDataWidth.Add(2f);
+                tableDataWidth.Add(1f);
             }
             tableData.SetWidths(tableDataWidth.ToArray());
 
@@ -474,6 +483,8 @@ namespace WebApps.Controllers
             {
                 var headerCell = new PdfPCell(new Phrase(header, textBold));
                 headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                headerCell.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
+
                 if (header != "NCPM (%)")
                 {
                     headerCell.Rowspan = 2;
@@ -494,29 +505,37 @@ namespace WebApps.Controllers
             {
                 var yearCell = new PdfPCell(new Phrase(tahun, textBold));
                 yearCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                yearCell.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
                 tableData.AddCell(yearCell);
             }
 
             int no = 1;
             foreach(var benchmarking in benchmarkingData)
-            {
-                tableData.AddCell(new Phrase(no.ToString(), textFont));
+            {                
+                var noCell = new PdfPCell(new Phrase(no.ToString(), textFont));
+                noCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                tableData.AddCell(noCell);
+
                 tableData.AddCell(new Phrase(benchmarking.Where(x => x.Key == "Nama Perusahaan").First().Value.ToString(), textFont));
                 tableData.AddCell(new Phrase(benchmarking.Where(x => x.Key == "Negara").First().Value.ToString(), textFont));
                 foreach(var tahun in tahuns)
                 {
-                    tableData.AddCell(new Phrase(benchmarking.Where(x => x.Key == tahun).First().Value.ToString(), textFont));
+                    var cell = new PdfPCell(new Phrase(benchmarking.Where(x => x.Key == tahun).First().Value.ToString(), textFont));
+                    cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                    tableData.AddCell(cell);
                 }
                 no++;
             }
 
-            var tableBreak1 = new PdfPCell(new Phrase("Rasio Keungan Perusahaan", textFont));
+            var tableBreak1 = new PdfPCell(new Phrase("Rasio Keuangan Perusahaan", textFont));
             tableBreak1.Colspan = 3;
             tableBreak1.HorizontalAlignment = Element.ALIGN_RIGHT;
+            tableBreak1.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
             tableData.AddCell(tableBreak1);
 
             var tableBreak2 = new PdfPCell(new Phrase("", textFont));
             tableBreak2.Colspan = 3;
+            tableBreak2.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
             tableData.AddCell(tableBreak2);
 
             string[] metrics = { "Minimum", "Kuartil 1", "Kuartil 2", "Kuartil 3", "Maksimum" };
@@ -532,6 +551,7 @@ namespace WebApps.Controllers
                 foreach(var tahun in tahuns)
                 {
                     var metricCellValue = new PdfPCell(new Phrase(matricData[i].Where(x => x.Key == tahun).First().Value.ToString(), textFont));
+                    metricCellValue.HorizontalAlignment = Element.ALIGN_RIGHT;
                     metricCellValue.VerticalAlignment = Element.ALIGN_MIDDLE;
                     tableData.AddCell(metricCellValue);
                 }
@@ -554,7 +574,7 @@ namespace WebApps.Controllers
             doc.Add(footer);
             
             Paragraph contact = new Paragraph(
-                "Konsultasi Gratis bersama Tim Central Data Access untuk mendapatkan analisis data komprehensif terkait dengan \r\nDokumen Penentuan Harga Transfer" +
+                "Konsultasi Gratis bersama Tim Central Data Access untuk mendapatkan analisis data komprehensif terkait dengan Dokumen Penentuan Harga Transfer" +
                 "\n\n" +
                 "www.centraldataaccess.co.id | Telepon : (0251) 8574 375 | Handphone : 0822 1001 9696 / 0822 1001 9797 | \r\ncs@centraldataaccess.co.id",
                 textBold
@@ -573,5 +593,32 @@ namespace WebApps.Controllers
             // Return PDF as a file result
             return File(workStream, "application/pdf", "Benchmarking_Laporan_Keuangan.pdf");
         }
+    }
+}
+
+public class PdfWatermarkHelper : PdfPageEventHelper
+{
+    private string _watermarkText;
+
+    public PdfWatermarkHelper(string watermarkText)
+    {
+        _watermarkText = watermarkText;
+    }
+
+    public override void OnEndPage(PdfWriter writer, Document document)
+    {
+        PdfContentByte canvas = writer.DirectContentUnder;
+        Font watermarkFont = new Font(Font.FontFamily.HELVETICA, 60, Font.BOLD, new BaseColor(200, 200, 200));
+        Phrase watermark = new Phrase(_watermarkText, watermarkFont);
+
+        // Center the watermark
+        ColumnText.ShowTextAligned(
+            canvas,
+            Element.ALIGN_CENTER,
+            watermark,
+            document.PageSize.Width / 2,
+            document.PageSize.Height / 2,
+            45 // Rotation angle in degrees
+        );
     }
 }
