@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using Syncfusion.EJ2.Linq;
 using System.Collections;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using WebApps.Models;
 using WebApps.Models.ServiceModel;
 
@@ -165,8 +166,33 @@ namespace WebApps.Controllers
         }
         public IActionResult Hitung(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2)
         {
-            var data = ViewBag.sliderValue;
             dynamic oResult;
+
+            //CEK Berapakali hit
+            string? hitungCount = HttpContext.Session.GetString("HitungCount");
+            string? token = HttpContext.Session.GetString("Token");
+            if (string.IsNullOrEmpty(token))
+            {
+                if (!string.IsNullOrEmpty(hitungCount))
+                {
+                    int counter = int.Parse(hitungCount);
+                    if (counter > 1)
+                    {
+                        oResult = new
+                        {
+                            need_login = 1
+                        };
+                        return Json(oResult);
+                    }
+                    HttpContext.Session.SetString("HitungCount", (counter+1).ToString());
+                }
+                else
+                {
+                    HttpContext.Session.SetString("HitungCount", "1");
+                }
+            }
+
+            var data = ViewBag.sliderValue;
             try
             {   
                 oResult = Searchbenchmark(rasio,jenis,klasifikasi,tahun1,tahun2);
@@ -547,6 +573,5 @@ namespace WebApps.Controllers
             // Return PDF as a file result
             return File(workStream, "application/pdf", "Benchmarking_Laporan_Keuangan.pdf");
         }
-
     }
 }

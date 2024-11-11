@@ -1,5 +1,7 @@
 using System.IO;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using WebApps.Controllers;
 
 //Register Syncfusion license
@@ -34,6 +36,8 @@ if (Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), @"node_module
 	}
 }
 
+builder.Services.AddSession();
+
 // Configure Kestrel and HTTPS
 builder.WebHost.ConfigureKestrel(options =>
 {
@@ -60,6 +64,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

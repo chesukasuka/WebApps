@@ -218,6 +218,12 @@ function loadCustomers() {
         fetch('/Service/Hitung' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2)
             .then(response => response.json())
             .then(data => {
+
+                if (data.need_login != null) {
+                    $("#loginModal").modal('show');
+                    return;
+                }
+
                 //grid.changeDataSource(data);
                 //grid.refresh
                 $("#grid-header").empty();

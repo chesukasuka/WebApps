@@ -18,6 +18,33 @@
 </head>
 <body>
     <div class="container-fluid">
+
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body" style="padding-left: 5rem; padding-right: 5rem">
+                        <div class="d-flex justify-content-center mt-3 mb-3">
+                            <img class="img-fluid" src="~/image/layout/logo.png" style="width: 13rem" alt="Alternate Text" />
+                        </div>
+                        <form asp-controller="Auth" asp-action="Login" method="POST">
+                            <div class="mb-3">
+                                <label for="login_username" class="form-label">Email or username</label>
+                                <input type="text" class="form-control" name="username" id="login_email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" id="password">
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" class="btn btn-tosca btn-primary w-100">
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
         @{
             Dictionary<string, object> ButtonAttribute = new Dictionary<string, object>();
             ButtonAttribute.Add("aria-label", "menu");
@@ -57,10 +84,23 @@
                             <a href="#" class="btn active" aria-current="page">ID</a>
                             <a href="#" class="btn">EN</a>
                         </div> *@
-                        <a href="https://centraldataaccess.co.id/register-login/" target="_blank" class="btn btn-outline-tosca ms-auto me-3 d-none d-lg-block">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="icon-outline-tosca"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" /></svg></span>
-                            Masuk
-                        </a>
+                        @if (Context.Session.GetString("Token") != null)
+                        {
+                            <div class="ms-auto me-3 d-none d-lg-block dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    @Context.Session.GetString("Name")
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Keluar</a></li>
+                                </ul>
+                            </div>
+                        }
+                        else{
+                            <button class="btn btn-outline-tosca ms-auto me-3 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="icon-outline-tosca"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" /></svg></span>
+                                Masuk
+                            </button>
+                        }
                         <ul class="navbar-nav me-auto my-3 mb-lg-0 d-lg-none d-flex align-items-end">
                             @* <li class="nav-item ms-auto">
                                 <div class="btn-group ms-auto mb-3">
@@ -69,12 +109,26 @@
                                 </div>
                             </li> *@
                             
-                            <li class="nav-item ms-auto">
-                                <a href="https://centraldataaccess.co.id/register-login/" target="_blank" type="button" onclick="document.open='https://centraldataaccess.co.id/register-login/'" class="btn btn-outline-tosca">
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="icon-outline-tosca"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" /></svg></span>
-                                    Masuk
+                            @if(Context.Session.GetString("Token") != null)
+                            {
+                            <li class="nav-item dropdown ms-auto">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        @Context.Session.GetString("Name")
                                 </a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Keluar</a></li>
+                                </ul>
                             </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item ms-auto">
+                                    <button type="button" class="btn btn-outline-tosca" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" class="icon-outline-tosca"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" /></svg></span>
+                                        Masuk
+                                    </button>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </nav>
