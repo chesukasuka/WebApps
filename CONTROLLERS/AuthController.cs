@@ -26,9 +26,7 @@ namespace WebApps.CONTROLLERS
                 HttpContext.Session.SetString("Name", result.user_display_name);
                 return RedirectToAction("Benchmarking", "Service");
             }
-
-            ViewBag.Error = "Incorect Username or Password";
-            return View();
+            return RedirectToAction("Benchmarking", "Service", new { errMsg = "Incorect Username or Password" });
         }
 
         [HttpGet]

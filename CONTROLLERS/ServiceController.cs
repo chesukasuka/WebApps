@@ -26,7 +26,7 @@ namespace WebApps.Controllers
             _env = env;
         }
 
-        public IActionResult Benchmarking()
+        public IActionResult Benchmarking(string? errMsg = null)
         {
             var msg = "";
             try
@@ -63,7 +63,7 @@ namespace WebApps.Controllers
             {
                 msg = e.Message;                
             }
-
+            ViewData["errMsg"] = errMsg;
             return View();
         }
 

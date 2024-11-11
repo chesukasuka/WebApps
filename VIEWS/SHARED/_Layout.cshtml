@@ -49,6 +49,20 @@
             Dictionary<string, object> ButtonAttribute = new Dictionary<string, object>();
             ButtonAttribute.Add("aria-label", "menu");
         }
+        @if (ViewData["errMsg"] != null)
+        {
+            <div class="toast-container position-fixed end-0 p-3" style="top: 15%;">
+                <div id="dangerToast" class="toast fade show bg-danger text-white" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header bg-danger text-white">
+                        <strong class="me-auto">Error</strong>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        @ViewData["errMsg"]
+                    </div>
+                </div>
+            </div>
+        }
 
         <div class="row align-items-center justify-content-between" style="background-color:#00858D">
             <div class="ms-3 col-5 d-flex justify-content-start">
