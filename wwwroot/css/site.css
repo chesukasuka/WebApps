@@ -1388,3 +1388,13 @@ html {
         background-color: #00858D !important;
         border-color: #00858D !important;
     }
+
+.modal-hyperlink {
+    color: #cc3366;
+    text-decoration: none;
+}
+
+.modal-hyperlink2 {
+    color: #046d76;
+    text-decoration: none;
+}

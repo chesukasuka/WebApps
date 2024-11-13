@@ -381,7 +381,7 @@ namespace WebApps.Controllers
             return sortedValues[lowerIndex] + fraction * (sortedValues[upperIndex] - sortedValues[lowerIndex]);
         }
 
-        public ActionResult GeneratePdf(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2, float penjualan, float pokokPenjualan, float bebanOperasional, float labaKotor, float labaOperasional, float testedParty)
+        public ActionResult GeneratePdf(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2, double penjualan, double pokokPenjualan, double bebanOperasional, double labaKotor, double labaOperasional, double testedParty, string namaperusahaan)
         {
             var benchmarkingData = Searchbenchmark(rasio, jenis, klasifikasi, tahun1, tahun2);
             var matricData = Hitung2Function(rasio, jenis, klasifikasi, tahun1, tahun2);
@@ -445,23 +445,28 @@ namespace WebApps.Controllers
             tableInfo.AddCell(new Phrase("Jenis Kegiatan Usaha", textFont));
             tableInfo.AddCell(new Phrase($": {jenis}", textFont));
             tableInfo.AddCell(new Phrase("Nama Perusahaan", textFont));
-            tableInfo.AddCell(new Phrase(":", textFont));
+            tableInfo.AddCell(new Phrase($": {namaperusahaan}", textFont));
+
             tableInfo.AddCell(new Phrase("Klasifikasi Usaha", textFont));
             tableInfo.AddCell(new Phrase($": {klasifikasi}", textFont));
             tableInfo.AddCell(new Phrase("Penjualan", textFont));
-            tableInfo.AddCell(new Phrase($": {penjualan}", textFont));
-            tableInfo.AddCell(new Phrase("Subklasifikasi Usaha", textFont));
-            tableInfo.AddCell(new Phrase(":", textFont));
-            tableInfo.AddCell(new Phrase("Harga Pokok Pendapatan", textFont));
-            tableInfo.AddCell(new Phrase($": {labaKotor}", textFont));
+            tableInfo.AddCell(new Phrase($": {penjualan.ToString("N0")}", textFont));
+            //tableInfo.AddCell(new Phrase("Subklasifikasi Usaha", textFont));
+            //tableInfo.AddCell(new Phrase(":", textFont));
             tableInfo.AddCell(new Phrase("Tahun Pajak", textFont));
             tableInfo.AddCell(new Phrase($": {tahun2}", textFont));
-            tableInfo.AddCell(new Phrase("Beban Operasional", textFont));
-            tableInfo.AddCell(new Phrase($": {bebanOperasional}", textFont));
+            tableInfo.AddCell(new Phrase("Harga Pokok Pendapatan", textFont));
+            tableInfo.AddCell(new Phrase($": {labaKotor.ToString("N0")}", textFont));
+
             tableInfo.AddCell(new Phrase("Rasio Keuangan", textFont));
             tableInfo.AddCell(new Phrase($": {rasio}", textFont));
+            tableInfo.AddCell(new Phrase("Beban Operasional", textFont));
+            tableInfo.AddCell(new Phrase($": {bebanOperasional.ToString("N0")}", textFont));
+
+            tableInfo.AddCell(new Phrase("", textFont));
+            tableInfo.AddCell(new Phrase("", textFont));
             tableInfo.AddCell(new Phrase("Laba Operasional", textFont));
-            tableInfo.AddCell(new Phrase($": {labaOperasional}", textFont));
+            tableInfo.AddCell(new Phrase($": {labaOperasional.ToString("N0")}", textFont));
 
             doc.Add(tableInfo);
 
