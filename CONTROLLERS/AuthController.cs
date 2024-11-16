@@ -26,7 +26,8 @@ namespace WebApps.CONTROLLERS
                 HttpContext.Session.SetString("Name", result.user_display_name);
                 return RedirectToAction("Benchmarking", "Service");
             }
-            return RedirectToAction("Benchmarking", "Service", new { errMsg = "Incorect Username or Password" });
+            var errresult = await response.Content.ReadFromJsonAsync<AuthErrResponseModel>();
+            return RedirectToAction("Benchmarking", "Service", new { errMsg = errresult.message });
         }
 
         [HttpGet]

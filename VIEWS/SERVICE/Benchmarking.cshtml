@@ -55,8 +55,8 @@
         </div>
     </div>
     <div class="col-md-6 px-3">
-        <p class="fs-4" style="color:#93C6CE; text-align: justify">
-            Kami menyediakan <span class="fst-italic">Benchmarking</span> Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya untuk menentukan harga transfer.
+        <p class="fs-4" style="color:white; text-align: justify">
+            Kami menyediakan <span class="fst-italic">Benchmarking</span> Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya untuk menentukan harga <i>transfer</i>.
         </p>
     </div>
     <div class="col-12 d-none d-lg-block mt-3">
@@ -78,7 +78,7 @@
                 </div>
                 <div class="card-footer collapse" id="news" style="background-color: transparent">
                     <p style="color: #08444B">
-                        Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan <span class="fst-italic">Benchmarking</span> Data Pembanding.
+                        Dokumen Penetapan Harga <i>transfer</i> menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan <span class="fst-italic">Benchmarking</span> Data Pembanding.
                         <br />
                         <br />
                         Data Pembanding Eksternal yang tersedia diperoleh dari <span class="fst-italic">BvD TPCatalyst</span> yang kemudian diolah menjadi <span class="fst-italic">Benchmarking</span> Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha.
@@ -99,7 +99,7 @@
                                 @Html.EJS().ComboBox("klasifikasiusaha").Placeholder("Klasifikasi Usaha").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").Change("klasifikasiChange").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.klasifikasi).Fields(new ComboBoxFieldSettings { Text = "KlasifikasiUsaha", Value = "KlasifikasiUsaha" }).Render()
                                 @Html.EJS().ComboBox("tahunpajak").CssClass("form-control").CssClass("form-control").Placeholder("Tahun Pajak").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahunpajak).Render()
                                 @Html.EJS().ComboBox("tahun").Placeholder("Rentang Tahun").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahun).Render()
-                                @Html.EJS().ComboBox("ratio").Placeholder("Ratio").CssClass("form-control tentang_rasio").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()
+                                @Html.EJS().ComboBox("ratio").Placeholder("Rasio").CssClass("form-control tentang_rasio").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()
                                 <div id="penjelasan" class="to-hide hidden">
                                     <p class="muted" style="margin-bottom: 0px">Tentang Rasio</p>
                                     <small id="tentang_rasio" style="font-size: 0.6rem"></small>
@@ -166,7 +166,7 @@
                                     <div class="row w-100">
                                         <div class="col-12 px-0">
                                             <h5 class="card-title" id="ratioresult" style="font-weight: bold;font-size: 0.9rem;color: #046D76;"></h5>
-                                            <div class="card-text" style="font-size: 0.6rem;">Ratio Method</div>
+                                            <div class="card-text" style="font-size: 0.6rem;">Rasio Method</div>
                                         </div>
                                     </div>
                                 </div>

@@ -2,8 +2,9 @@
 @using Syncfusion.EJ2.Navigations
 @{
     var youtbueLink = "https://www.youtube.com/@centraldataaccessofc";
-    var tiktokLink = "https://www.tiktok.com/@centraldataaccessofc?_t=8qKsy8jyT2r&_r=1";
-    var instagramLink = "https://www.instagram.com/centraldataaccess.id/";
+    var tiktokLink = "https://www.tiktok.com/@centraldataaccess.id";
+    var instagramLink = "https://www.instagram.com/centraldataaccess.id";
+    var linkedInLink = "https://id.linkedin.com/company/central-data-access";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -43,8 +44,8 @@
                             <div class="mb-3">
                                 <input type="submit" class="btn btn-tosca btn-primary w-100">
                             </div>
-                            <div class="mb-3">
-                                <a href="https://centraldataaccess.co.id/password-reset/" class="modal-hyperlink">
+                            <div class="mb-3" style="color: #046d76">
+                                <a href="https://centraldataaccess.co.id/password-reset/" class="modal-hyperlink2">
                                     Lupa Password?
                                 </a>
                             </div>
@@ -72,7 +73,7 @@
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>
                     <div class="toast-body">
-                        @ViewData["errMsg"]
+                        @Html.Raw(ViewData["errMsg"]);
                     </div>
                 </div>
             </div>
@@ -84,7 +85,7 @@
             </div>
             <div class="col-5 d-flex justify-content-end">
                 <div class="btn-group" role="group" aria-label="LinkedIn">
-                    <a href="https://id.linkedin.com/company/central-data-access" class="btn"><img style="width: 1.5rem" src="~/image/layout/linkedin.svg"></a>
+                    <a href="@linkedInLink" class="btn"><img style="width: 1.5rem" src="~/image/layout/linkedin.svg"></a>
                 </div>
                 <div class="btn-group" role="group" aria-label="TikTok">
                     <a href="@tiktokLink" class="btn"><img src="~/image/layout/tik-tok.svg"></a>
@@ -178,7 +179,7 @@
                     <p class="fs-6 mb-1 footer-sub-title">
                         Jakarta
                     </p>
-                    <a href="https://maps.app.goo.gl/HNoEPCVkuad6PPLo9" target="_blank" class="footer-description mb-3">
+                    <a href="https://maps.app.goo.gl/tnHWmEYYLu3A2UKb8?g_st=ic" target="_blank" class="footer-description mb-3">
                         Jl. DI. Panjaitan No.45, RT.17/RW.9, Rw. Bunga, Kecamatan Jatinegara, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13350
                     </a>
                     <p class="fs-6 mb-1 footer-sub-title">
@@ -192,7 +193,7 @@
                     <p class="fs-6 mb-1 footer-sub-title">
                         Telepon
                     </p>
-                    <a class="footer-description ">
+                    <a href="tel:02518574375" class="footer-description ">
                         0251 8574 375
                     </a>
                     <br />
@@ -220,44 +221,47 @@
                             <p class="fs-6 mb-1 footer-sub-title">
                                 Perusahaan
                             </p>
-                            <a href="https://centraldataaccess.co.id/tentang-kami/" class="footer-description ">
-                                Tentang Kami
+                            <a href="https://centraldataaccess.co.id/tentang-cda/" class="footer-description ">
+                                Tentang CDA
+                            </a>
+                            <br />
+                            <a href="https://centraldataaccess.co.id/solusi-cda/" class="footer-description ">
+                                Solusi CDA
                             </a>
                             <br />
                             <a href="https://benchmarking.centraldataaccess.co.id/" class="footer-description ">
-                                Data Pembanding
+                                <i>Benchmarking</i> Laporan Keuangan
                             </a>
                             <br />
                             <a href="https://centraldataaccess.co.id/category/pajak/" class="footer-description ">
                                 Info Perpajakan
                             </a>
                             <br />
-                            <a href="https://centraldataaccess.co.id/kontak-kami/" class="footer-description ">
-                                Kontak Kami
+                            <a href="https://centraldataaccess.co.id/kontak-cda/" class="footer-description ">
+                                Kontak CDA
                             </a>
                         </div>
                         <div class="col-6">
                             <p class="fs-6 mb-1 footer-sub-title">
                                 Jasa Kami
                             </p>
-                            <p class="footer-description mb-1">
-                                Transfer Pricing
-                            </p>
-                            <p class="footer-description mb-1">
-                                Software Perpajakan
-                            </p>
-                            <p class="footer-description mb-1">
+                            <a class="footer-description mb-1" href="https://centraldataaccess.co.id/solusi-cda/">
+                                <i>Transfer Pricing Service</i>
+                            </a>
+                            <br />
+                            <a href="https://benchmarking.centraldataaccess.co.id/" class="footer-description mb-1">
+                                <i>Benchmarking</i> Laporan Keuangan
+                            </a>
+                            <br />
+                            <a href="https://centraldataaccess.co.id/solusi-cda/" class="footer-description mb-1">
                                 Jasa Perpajakan Umum
-                            </p>
-                            <p class="footer-description mb-1">
-                                Jasa Audit Laporan Keuangan
-                            </p>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="btn-group" role="group" aria-label="LinkedIn">
-                        <a href="https://id.linkedin.com/company/central-data-access" class="btn"><img style="width: 1.5rem" src="~/image/layout/linkedin.svg"></a>
+                        <a href="@linkedInLink" class="btn"><img style="width: 1.5rem" src="~/image/layout/linkedin.svg"></a>
                     </div>
                     <div class="btn-group" role="group" aria-label="TikTok">
                         <a href="@tiktokLink" class="btn"><img src="~/image/layout/tik-tok.svg"></a>
