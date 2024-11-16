@@ -43,6 +43,15 @@
                             <div class="mb-3">
                                 <input type="submit" class="btn btn-tosca btn-primary w-100">
                             </div>
+                            <div class="mb-3">
+                                <a href="https://centraldataaccess.co.id/password-reset/" class="modal-hyperlink">
+                                    Lupa Password?
+                                </a>
+                            </div>
+                            <div class="mb-3" style="color: #046d76">
+                                Belum Memiliki akun? <a href="https://centraldataaccess.co.id/password-reset/" class="modal-hyperlink2"> Daftar Sekarang</a>
+                            </div>
+
                         </form>
                         
                     </div>
@@ -109,7 +118,7 @@
                         @if (Context.Session.GetString("Token") != null)
                         {
                             <div class="ms-auto me-3 d-none d-lg-block dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #046d76">
                                     @Context.Session.GetString("Name")
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -134,7 +143,7 @@
                             @if(Context.Session.GetString("Token") != null)
                             {
                             <li class="nav-item dropdown ms-auto">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #046d76">
                                         @Context.Session.GetString("Name")
                                 </a>
                                     <ul class="dropdown-menu dropdown-menu-end">

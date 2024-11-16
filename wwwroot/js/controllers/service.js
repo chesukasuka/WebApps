@@ -355,6 +355,8 @@ function generatePDF() {
     // var tahunslider = document.getElementById("tahun").ej2_instances[0];
     var tahunpajak = document.getElementById("tahunpajak").ej2_instances[0].value;
     var tahun = document.getElementById("tahun").ej2_instances[0].value;
+    var namaperusahaan = document.getElementById("namaperusahaan").ej2_instances[0].value;
+
 
     var tahun1 = 0;
     var tahun2 = 0;
@@ -406,7 +408,7 @@ function generatePDF() {
             testedparty = Math.round(testedparty * 100) / 100
         }
 
-        fetch('/Service/GeneratePdf' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2 + '&penjualan=' + penjualan.value + '&pokokPenjualan=' + hargapokokpenjualan.value + '&bebanOperasional=' + bebanoperasional.value + '&labaKotor=' + labakotor + '&labaOperasional=' + labaoperasional + '&testedParty=' + testedparty, {
+        fetch('/Service/GeneratePdf' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2 + '&penjualan=' + penjualan.value + '&pokokPenjualan=' + hargapokokpenjualan.value + '&bebanOperasional=' + bebanoperasional.value + '&labaKotor=' + labakotor + '&labaOperasional=' + labaoperasional + '&testedParty=' + testedparty + '&namaperusahaan=' + namaperusahaan, {
             method: 'GET'
         })
             .then(response => {
