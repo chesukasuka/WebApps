@@ -84,7 +84,7 @@ namespace WebApps.Controllers
             var oResult = new List<Dictionary<string, object>>();
             try
             {
-                var dataTahun = " and [" + tahun1 + "] is not null ";
+                var dataTahun = " and [" + tahun1 + "] != '0.00' ";
                 var oLoop = tahun2 - tahun1 + 1;
                 var oList = new List<Dictionary<string, object>>();
 
@@ -92,7 +92,8 @@ namespace WebApps.Controllers
                 for (int i = tahun1; i < tahun2; i++){
                     sTahun = sTahun + ",[" + (i+1).ToString() + "]";
 
-                    dataTahun = dataTahun + " and [" + (i + 1).ToString() + "] is not null ";
+                    dataTahun = dataTahun + " and [" + (i + 1).ToString() + "]  != '0.00'  ";
+
                 }
                 var oListHeader = new List<Dictionary<string, object>>();
 

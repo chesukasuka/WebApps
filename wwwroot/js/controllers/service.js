@@ -94,7 +94,7 @@ function ratioChange() {
         text.innerHTML = "Cost Plus Methode (CPM) : Gross Profit / Cost Plus Methode"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
-    else if (games.value == 'Net Cost Plus Methode') {
+    else if (games.value == 'Net Cost Plus Methode' || games.value == 'Net Cost Plus Method') {
         text.innerHTML = "Net Cost Plus Methode (NCPM) : Operating Profit / (Cost Plus Methode + Operating Expense)"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
@@ -102,7 +102,7 @@ function ratioChange() {
         text.innerHTML = "Resale Price Methode (RPM) : Gross Profit / Operating Revenue"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
-    else if (games.value == 'Return On Sales') {
+    else if (games.value == 'Return On Sales' || games.value == 'Return on Sales') {
         text.innerHTML = "Return On Sales (ROS) : Operating Profit / Operating Revenue"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
