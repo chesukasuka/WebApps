@@ -381,6 +381,34 @@ namespace WebApps.Controllers
             return sortedValues[lowerIndex] + fraction * (sortedValues[upperIndex] - sortedValues[lowerIndex]);
         }
 
+        static string RemoveFirstWord(string text)
+        {
+            var words = text.Split(' '); // Pisahkan string menjadi array kata-kata
+            if (words.Length > 1)
+            {
+                return string.Join(" ", words, 1, words.Length - 1); // Gabungkan mulai dari kata kedua
+            }
+            return string.Empty; // Jika hanya satu kata, kembalikan string kosong
+        }
+
+        static string maskName(string name)
+        {
+            var parts = name.Split(' '); // Pisahkan nama berdasarkan spasi
+            return string.Join(" ", parts.Select((part, index) =>
+            {
+                if (index == 0)
+                {
+                    // Huruf pertama dibuat kecil, sisanya di-*.
+                    return char.ToLower(part[0]) + new string('*', part.Length - 1);
+                }
+                else
+                {
+                    // Semua kata lainnya diganti dengan tanda * sepanjang panjang katanya
+                    return new string('*', part.Length);
+                }
+            }));
+        }
+
         public ActionResult GeneratePdf(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2, double penjualan, double pokokPenjualan, double bebanOperasional, double labaKotor, double labaOperasional, double testedParty, string namaperusahaan)
         {
             var benchmarkingData = Searchbenchmark(rasio, jenis, klasifikasi, tahun1, tahun2);
@@ -418,7 +446,7 @@ namespace WebApps.Controllers
             title.Alignment = Element.ALIGN_CENTER;
             doc.Add(title);
 
-            Paragraph subtitle = new Paragraph("Distributor Alat Kesehatan", titleFont);
+            Paragraph subtitle = new Paragraph($"{jenis} {RemoveFirstWord(klasifikasi)}\n{DateTime.Now.ToString("dd MMMM yyyy")}", titleFont);
             subtitle.SpacingAfter = 20;
             subtitle.Leading = 8 * 1.5f;
             subtitle.Alignment = Element.ALIGN_CENTER;
@@ -438,7 +466,7 @@ namespace WebApps.Controllers
             headerinfo1.Colspan = 2;
             headerinfo1.Border = PdfPCell.NO_BORDER;
             tableInfo.AddCell(headerinfo1);
-            var headerinfo2 = new PdfPCell(new Phrase("Ringkasan Laporan Keuangan", textBold));
+            var headerinfo2 = new PdfPCell(new Phrase("Informasi Perusahaan", textBold));
             headerinfo2.Colspan = 2;
             headerinfo2.Border = PdfPCell.NO_BORDER;
             tableInfo.AddCell(headerinfo2);
@@ -483,22 +511,23 @@ namespace WebApps.Controllers
             }
             tableData.SetWidths(tableDataWidth.ToArray());
 
-            string[] headers = { "No", "Perusahaan", "Negara", "NCPM (%)" };
+            string[] headers = { "No", "Perusahaan", "Negara" };
             foreach (var header in headers)
             {
                 var headerCell = new PdfPCell(new Phrase(header, textBold));
                 headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 headerCell.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
 
-                if (header != "NCPM (%)")
-                {
-                    headerCell.Rowspan = 2;
-                }
-                else
-                {
-                    headerCell.Rowspan = 1;
-                    headerCell.Colspan = 3;
-                }
+                //if (header != "NCPM (%)")
+                //{
+                //    headerCell.Rowspan = 2;
+                //}
+                //else
+                //{
+                //    headerCell.Rowspan = 1;
+                //    headerCell.Colspan = 3;
+                //}
+                headerCell.Rowspan = 2;
                 tableData.AddCell(headerCell);
             }
 
@@ -511,6 +540,7 @@ namespace WebApps.Controllers
                 var yearCell = new PdfPCell(new Phrase(tahun, textBold));
                 yearCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 yearCell.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
+                yearCell.Rowspan = 2;
                 tableData.AddCell(yearCell);
             }
 
@@ -521,7 +551,15 @@ namespace WebApps.Controllers
                 noCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 tableData.AddCell(noCell);
 
-                tableData.AddCell(new Phrase(benchmarking.Where(x => x.Key == "Nama Perusahaan").First().Value.ToString(), textFont));
+                var namaPerusahaan = "";
+                if (HttpContext.Session.GetString("Token") != null)
+                {
+                    namaperusahaan = benchmarking.Where(x => x.Key == "Nama Perusahaan").First().Value.ToString();
+                }
+                else {
+                    namaperusahaan = maskName(benchmarking.Where(x => x.Key == "Nama Perusahaan").First().Value.ToString());
+                }
+                tableData.AddCell(new Phrase(namaperusahaan, textFont));
                 tableData.AddCell(new Phrase(benchmarking.Where(x => x.Key == "Negara").First().Value.ToString(), textFont));
                 foreach(var tahun in tahuns)
                 {
@@ -539,7 +577,7 @@ namespace WebApps.Controllers
             tableData.AddCell(tableBreak1);
 
             var tableBreak2 = new PdfPCell(new Phrase("", textFont));
-            tableBreak2.Colspan = 3;
+            tableBreak2.Colspan = tahuns.Length;
             tableBreak2.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
             tableData.AddCell(tableBreak2);
 

@@ -18,6 +18,21 @@ function toastbefore(e) {
     }
 }
 
+function maskName(name) {
+    const parts = name.split(' '); // Pisahkan nama berdasarkan spasi
+    return parts
+        .map((part, index) => {
+            if (index === 0) {
+                // Huruf pertama dibuat kecil, sisanya di-*.
+                return part[0] + '***';
+            } else {
+                // Semua kata lainnya diganti dengan tanda * sepanjang panjang katanya
+                return '*'.repeat(part.length);
+            }
+        })
+        .join(' '); // Gabungkan kembali menjadi string
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     // Ambil semua elemen dengan kelas 'numeric-textbox'
     var numericTextBoxes = document.getElementsByClassName('numeric-textbox');
@@ -239,9 +254,16 @@ function loadCustomers() {
                         let row = "<tr>";
 
                         // Iterasi melalui item
+                        let i = 0;
                         $.each(items, function (key, value) {
                             // Tambahkan setiap nilai sebagai kolom tabel (td) ke dalam baris
-                            row += `<td>${value}</td>`;
+                            if (i == 0 && !$("#isLogin").length) {
+                                row += `<td>${maskName(value)}</td>`
+                            }
+                            else {
+                                row += `<td>${value}</td>`
+                            }
+                            i++;
                         });
 
                         // Tutup tag <tr>
