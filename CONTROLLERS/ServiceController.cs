@@ -447,7 +447,7 @@ namespace WebApps.Controllers
             Font titleFontItalic = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8, Font.ITALIC);
 
             PdfPTable tableInfoDownload = new PdfPTable(2);
-            tableInfoDownload.WidthPercentage = 30;
+            tableInfoDownload.WidthPercentage = 40;
             tableInfoDownload.SetWidths(new float[] { 14f, 16f });
             tableInfoDownload.DefaultCell.Border = PdfPCell.NO_BORDER;
             tableInfoDownload.DefaultCell.SetLeading(1.5f, 1.5f);
