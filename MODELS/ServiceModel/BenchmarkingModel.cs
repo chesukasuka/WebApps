@@ -17,6 +17,10 @@ namespace WebApps.Models.ServiceModel
         public string? Negara { get; set; }
         [MaxLength(100)]
         public string? Rasio { get; set; }
+        [MaxLength(100)]
+        public string? SubKlasifikasiUsaha { get; set; }
+        [MaxLength(100)]
+        public string? Metode { get; set; }
     }
 
     public class BenchmarkingTahunModel

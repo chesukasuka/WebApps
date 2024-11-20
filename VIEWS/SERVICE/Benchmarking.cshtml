@@ -80,10 +80,10 @@
                 </div>
                 <div class="card-footer collapse" id="news" style="background-color: transparent">
                     <p style="color: #08444B">
-                        Dokumen Penetapan Harga <i>transfer</i> menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan <span class="fst-italic">Benchmarking</span> Data Pembanding.
-                        <br />
-                        <br />
-                        Data Pembanding Eksternal yang tersedia diperoleh dari <span class="fst-italic">BvD TPCatalyst</span> yang kemudian diolah menjadi <span class="fst-italic">Benchmarking</span> Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha.
+                        Berdasarkan data pembanding milik Central Data Access yang telah diolah berdasarkan
+                        klasifikasi usaha, batas kewajaran harga transfer sesuai dengan Prinsip Kewajaran dan
+                        Kelaziman Usaha, margin penentuan harga transfer yang ditetapkan sebaiknya berada dalam
+                        pertimbangan rentang kewajaran (Pasal 12 ayat (1) PMK No. 172 Tahun 2023).
                     </p>
                 </div>
             </div>
@@ -101,6 +101,7 @@
                                 @Html.EJS().ComboBox("klasifikasiusaha").Placeholder("Klasifikasi Usaha").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").Change("klasifikasiChange").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.klasifikasi).Fields(new ComboBoxFieldSettings { Text = "KlasifikasiUsaha", Value = "KlasifikasiUsaha" }).Render()
                                 @Html.EJS().ComboBox("tahunpajak").CssClass("form-control").CssClass("form-control").Placeholder("Tahun Pajak").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahunpajak).Render()
                                 @Html.EJS().ComboBox("tahun").Placeholder("Rentang Tahun").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahun).Render()
+                                @Html.EJS().ComboBox("metode").Placeholder("Metode").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.metode).Change("metodeChange").Fields(new ComboBoxFieldSettings { Text = "Metode", Value = "Metode" }).Render()
                                 @Html.EJS().ComboBox("ratio").Placeholder("Rasio").CssClass("form-control tentang_rasio").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()
                                 <div id="penjelasan" class="to-hide hidden">
                                     <p class="muted" style="margin-bottom: 0px">Tentang Rasio</p>
@@ -109,7 +110,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <h6 class="card-title">Laporan Keuangan Perusahaan</h6>
+                            <h6 class="card-title">Informasi Perusahaan</h6>
                             <div class="card-body" style="padding: unset">
                                 @Html.EJS().TextBox("namaperusahaan").Placeholder("Nama Perusahaan").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).Render()
                                 @Html.EJS().NumericTextBox("penjualan").Format("N0").Placeholder("Penjualan").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).Render()

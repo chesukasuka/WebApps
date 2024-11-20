@@ -48,11 +48,18 @@ namespace WebApps.Controllers
                 .Distinct()
                 .ToList();
 
+                ViewBag.metode = _context.Benchmarking
+                .Select(z => new BenchmarkingModel { Metode = z.Metode, KlasifikasiUsaha = z.KlasifikasiUsaha })
+                .Where(z => z.Metode != null)
+                .Distinct()
+                .ToList();
+
                 ViewBag.ratio = _context.Benchmarking
-                .Select(z => new BenchmarkingModel{ Rasio = z.Rasio , KlasifikasiUsaha = z.KlasifikasiUsaha})
+                .Select(z => new BenchmarkingModel { Rasio = z.Rasio, Metode = z.Metode})
                 .Where(z => z.Rasio != null)
                 .Distinct()
-                .ToList();                
+                .ToList();
+
 
                 // ViewBag.dataSource = _context.Benchmarking
                 // .ToList();

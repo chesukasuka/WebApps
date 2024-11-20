@@ -72,14 +72,23 @@ function jenisChange() {
 
 function klasifikasiChange() {
     var klasifikasiusaha = document.getElementById('klasifikasiusaha').ej2_instances[0];
-    var ratio = document.getElementById('ratio').ej2_instances[0];
+    var metode = document.getElementById('metode').ej2_instances[0];
 
     var tempQuery = new ej.data.Query().where('KlasifikasiUsaha', 'equal', klasifikasiusaha.value);
+    metode.query = tempQuery;
+    metode.text = null;
+    metode.dataBind();
+};
+
+function metodeChange() {
+    var metode = document.getElementById('metode').ej2_instances[0];
+    var ratio = document.getElementById('ratio').ej2_instances[0];
+
+    var tempQuery = new ej.data.Query().where('Metode', 'equal', metode.value);
     ratio.query = tempQuery;
     ratio.text = null;
     ratio.dataBind();
 };
-
 
 function ratioChange() {
     var games = document.getElementById('ratio').ej2_instances[0];
@@ -212,20 +221,20 @@ function loadCustomers() {
     var tahun2 = 0;
 
     if (tahun == "1 Tahun") {
-        var tahun1 = tahunpajak - 1;
-        var tahun2 = tahunpajak - 1;
+        var tahun1 = tahunpajak;
+        var tahun2 = tahunpajak;
     }
     else if (tahun == "3 Tahun") {
-        var tahun1 = tahunpajak - 3;
-        var tahun2 = tahunpajak - 1;
+        var tahun1 = tahunpajak - 2;
+        var tahun2 = tahunpajak;
     }
     else if (tahun == "5 Tahun") {
-        var tahun1 = tahunpajak - 5;
-        var tahun2 = tahunpajak - 1;
+        var tahun1 = tahunpajak - 4;
+        var tahun2 = tahunpajak;
     }
     else {
-        var tahun1 = tahunpajak - 1;
-        var tahun2 = tahunpajak - 1;
+        var tahun1 = tahunpajak;
+        var tahun2 = tahunpajak;
     }
 
     if (tahun1 >= 2017) {
@@ -384,20 +393,20 @@ function generatePDF() {
     var tahun2 = 0;
 
     if (tahun == "1 Tahun") {
-        var tahun1 = tahunpajak - 1;
-        var tahun2 = tahunpajak - 1;
+        var tahun1 = tahunpajak;
+        var tahun2 = tahunpajak;
     }
     else if (tahun == "3 Tahun") {
-        var tahun1 = tahunpajak - 3;
-        var tahun2 = tahunpajak - 1;
+        var tahun1 = tahunpajak - 2;
+        var tahun2 = tahunpajak;
     }
     else if (tahun == "5 Tahun") {
-        var tahun1 = tahunpajak - 5;
-        var tahun2 = tahunpajak - 1;
+        var tahun1 = tahunpajak - 4;
+        var tahun2 = tahunpajak;
     }
     else {
-        var tahun1 = tahunpajak - 1;
-        var tahun2 = tahunpajak - 1;
+        var tahun1 = tahunpajak;
+        var tahun2 = tahunpajak;
     }
 
     if (tahun1 >= 2017) {
