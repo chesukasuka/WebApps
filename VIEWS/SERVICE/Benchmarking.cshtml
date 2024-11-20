@@ -217,8 +217,16 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-12 mb-3 d-flex justify-content-end">
-                            <button type="button" onclick="generatePDF()" class="btn btn-tosca btn-unduh">Unduh Laporan</button>
+                        <div class="col-md-8 mb-3 d-flex justify-content-start">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="term">
+                                <label class="form-check-label" for="term">
+                                    Dengan ini saya menyetujui sesuai dengan <a href="https://centraldataaccess.co.id/wp-content/uploads/2024/11/TC-FOOTER-WEB.pdf">Syarat & Ketentuan</a> serta <a href="https://centraldataaccess.co.id/wp-content/uploads/2024/11/TC-FOOTER-WEB.pdf">Kebijakan Privasi</a> dari Central Data Access.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3 d-flex justify-content-end">
+                            <button type="button" disabled="true" id="btnDownload" onclick="generatePDF()" class="btn btn-tosca btn-unduh btn-disabled">Unduh Laporan</button>
                         </div>
                     </div>
                     <div class="row to-show mb-3">

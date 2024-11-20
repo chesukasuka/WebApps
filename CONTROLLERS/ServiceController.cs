@@ -417,7 +417,7 @@ namespace WebApps.Controllers
             }));
         }
 
-        public ActionResult GeneratePdf(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2, double penjualan, double pokokPenjualan, double bebanOperasional, double labaKotor, double labaOperasional, double testedParty, string namaperusahaan)
+        public ActionResult GeneratePdf(string rasio, string jenis, string klasifikasi, string metode, int tahun1, int tahun2, double penjualan, double pokokPenjualan, double bebanOperasional, double labaKotor, double labaOperasional, double testedParty, string namaperusahaan)
         {
             var benchmarkingData = Searchbenchmark(rasio, jenis, klasifikasi, tahun1, tahun2);
             var matricData = Hitung2Function(rasio, jenis, klasifikasi, tahun1, tahun2);
@@ -445,6 +445,34 @@ namespace WebApps.Controllers
             // Judul
             Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8);
             Font titleFontItalic = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8, Font.ITALIC);
+
+            PdfPTable tableInfoDownload = new PdfPTable(2);
+            tableInfoDownload.WidthPercentage = 30;
+            tableInfoDownload.SetWidths(new float[] { 14f, 16f });
+            tableInfoDownload.DefaultCell.Border = PdfPCell.NO_BORDER;
+            tableInfoDownload.DefaultCell.SetLeading(1.5f, 1.5f);
+            tableInfoDownload.HorizontalAlignment = Element.ALIGN_RIGHT;
+
+            // Informasi Data Pembanding
+            Font textBold = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8);
+            Font textBoldWhite = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8, BaseColor.WHITE);
+            Font textFont = FontFactory.GetFont(FontFactory.HELVETICA, 8);
+            Font textFontWhite = FontFactory.GetFont(FontFactory.HELVETICA, 8, BaseColor.WHITE);
+            Font textFontItalic = FontFactory.GetFont(FontFactory.HELVETICA, 8, Font.ITALIC);
+
+            tableInfoDownload.AddCell(new Phrase("Nama Pengguna", textFont));
+            if (HttpContext.Session.GetString("Token") != null)
+            {
+                tableInfoDownload.AddCell(new Phrase($": {HttpContext.Session.GetString("Name")}", textFont));
+            }
+            else
+            {
+                tableInfoDownload.AddCell(new Phrase($": Guest", textFont));
+            }
+            tableInfoDownload.AddCell(new Phrase("Waktu Pengunduhan", textFont));
+            tableInfoDownload.AddCell(new Phrase($": {DateTime.Now.ToString("f")}", textFont));
+            doc.Add(tableInfoDownload);
+
             Phrase titleText = new Phrase();
             titleText.Add(new Chunk("Benchmarking ", titleFontItalic));
             titleText.Add(new Chunk("Laporan Keuangan", titleFont));
@@ -454,15 +482,12 @@ namespace WebApps.Controllers
             title.Alignment = Element.ALIGN_CENTER;
             doc.Add(title);
 
-            Paragraph subtitle = new Paragraph($"{jenis} {RemoveFirstWord(klasifikasi)}\n{DateTime.Now.ToString("dd MMMM yyyy")}", titleFont);
+            Paragraph subtitle = new Paragraph($"{jenis} {RemoveFirstWord(klasifikasi)}", titleFont);
             subtitle.SpacingAfter = 20;
             subtitle.Leading = 8 * 1.5f;
             subtitle.Alignment = Element.ALIGN_CENTER;
             doc.Add(subtitle);
 
-            // Informasi Data Pembanding
-            Font textBold = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8);
-            Font textFont = FontFactory.GetFont(FontFactory.HELVETICA, 8);
 
             PdfPTable tableInfo = new PdfPTable(4);
             tableInfo.WidthPercentage = 100;
@@ -491,18 +516,28 @@ namespace WebApps.Controllers
             //tableInfo.AddCell(new Phrase(":", textFont));
             tableInfo.AddCell(new Phrase("Tahun Pajak", textFont));
             tableInfo.AddCell(new Phrase($": {tahun2}", textFont));
-            tableInfo.AddCell(new Phrase("Harga Pokok Pendapatan", textFont));
+            tableInfo.AddCell(new Phrase("Harga Pokok Penjualan", textFont));
+            tableInfo.AddCell(new Phrase($": {pokokPenjualan.ToString("N0")}", textFont));
+
+            tableInfo.AddCell(new Phrase("Rentang", textFont));
+            tableInfo.AddCell(new Phrase($": {tahun2-tahun1+1} / Tahun", textFont));
+            tableInfo.AddCell(new Phrase("Laba Kotor", textFont));
             tableInfo.AddCell(new Phrase($": {labaKotor.ToString("N0")}", textFont));
 
-            tableInfo.AddCell(new Phrase("Rasio Keuangan", textFont));
-            tableInfo.AddCell(new Phrase($": {rasio}", textFont));
+            tableInfo.AddCell(new Phrase("Metode", textFont));
+            tableInfo.AddCell(new Phrase($": {metode}", textFont));
             tableInfo.AddCell(new Phrase("Beban Operasional", textFont));
             tableInfo.AddCell(new Phrase($": {bebanOperasional.ToString("N0")}", textFont));
 
-            tableInfo.AddCell(new Phrase("", textFont));
-            tableInfo.AddCell(new Phrase("", textFont));
+            tableInfo.AddCell(new Phrase("Rasio", textFont));
+            tableInfo.AddCell(new Phrase($": {rasio}", textFont));
             tableInfo.AddCell(new Phrase("Laba Operasional", textFont));
             tableInfo.AddCell(new Phrase($": {labaOperasional.ToString("N0")}", textFont));
+
+            tableInfo.AddCell(new Phrase("", textFont));
+            tableInfo.AddCell(new Phrase("", textFont));
+            tableInfo.AddCell(new Phrase("Tested Party/\nPihak yang diuji (%)", textFont));
+            tableInfo.AddCell(new Phrase($": {testedParty.ToString("N0")} %", textFont));
 
             doc.Add(tableInfo);
 
@@ -519,12 +554,12 @@ namespace WebApps.Controllers
             }
             tableData.SetWidths(tableDataWidth.ToArray());
 
-            string[] headers = { "No", "Perusahaan", "Negara" };
+            string[] headers = { "No", "Nama Perusahaan Pembanding", "Negara" };
             foreach (var header in headers)
             {
-                var headerCell = new PdfPCell(new Phrase(header, textBold));
+                var headerCell = new PdfPCell(new Phrase(header, textBoldWhite));
                 headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                headerCell.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
+                headerCell.BackgroundColor = new BaseColor(System.Drawing.Color.MidnightBlue);
 
                 //if (header != "NCPM (%)")
                 //{
@@ -545,9 +580,9 @@ namespace WebApps.Controllers
             }
             foreach(var tahun in tahuns)
             {
-                var yearCell = new PdfPCell(new Phrase(tahun, textBold));
+                var yearCell = new PdfPCell(new Phrase($"Tahun {tahun} (%)", textBoldWhite));
                 yearCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                yearCell.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
+                yearCell.BackgroundColor = new BaseColor(System.Drawing.Color.MidnightBlue);
                 yearCell.Rowspan = 2;
                 tableData.AddCell(yearCell);
             }
@@ -578,16 +613,16 @@ namespace WebApps.Controllers
                 no++;
             }
 
-            var tableBreak1 = new PdfPCell(new Phrase("Rasio Keuangan Perusahaan", textFont));
-            tableBreak1.Colspan = 3;
+            var tableBreak1 = new PdfPCell(new Paragraph(new Phrase(" ", textFont)));
+            tableBreak1.Colspan = 3 + tahuns.Length;
             tableBreak1.HorizontalAlignment = Element.ALIGN_RIGHT;
-            tableBreak1.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
+            tableBreak1.BackgroundColor = new BaseColor(System.Drawing.Color.MidnightBlue);
             tableData.AddCell(tableBreak1);
 
-            var tableBreak2 = new PdfPCell(new Phrase("", textFont));
-            tableBreak2.Colspan = tahuns.Length;
-            tableBreak2.BackgroundColor = new BaseColor(System.Drawing.Color.LightBlue);
-            tableData.AddCell(tableBreak2);
+            //var tableBreak2 = new PdfPCell(new Phrase("", textFont));
+            //tableBreak2.Colspan = tahuns.Length;
+            //tableBreak2.BackgroundColor = new BaseColor(System.Drawing.Color.MidnightBlue);
+            //tableData.AddCell(tableBreak2);
 
             string[] metrics = { "Minimum", "Kuartil 1", "Kuartil 2", "Kuartil 3", "Maksimum" };
             int i = 0;
@@ -614,25 +649,29 @@ namespace WebApps.Controllers
             
 
             // Footer
-            Paragraph footer = new Paragraph(
-                "Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan Benchmarking Data Pembanding. Data Pembanding Eksternal yang tersedia diperoleh dari BvD TPCatalyst yang kemudian diolah menjadi Benchmarking Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha." +
-                "\n\n" +
-                "Berdasarkan data pembanding milik Central Data Access, batas kewajaran harga transfer sesuai dengan Prinsip Kewajaran dan Kelaziman Usaha, margin penentuan harga transfer yang ditetapkan sebaiknya berada dalam pertimbangan rentang kewajaran.",                
-                textFont
-            );
+            Paragraph footer = new Paragraph();
+            footer.Add(new Chunk("Data ", textFont));
+            footer.Add(new Chunk("benchmarking ", textFontItalic));
+            footer.Add(new Chunk("ini ditujukan sebagai informasi umum dan tidak dimaksudkan sebagai rekomendasi spesik. \nUntuk penjelasan lebih lanjut mengenai hasil analisis atau perusahaan pembanding, silakan langsung melalui kontak \nresmi PT Central Data Access(“CDA”).", textFont));
             footer.Alignment = Element.ALIGN_JUSTIFIED;
             footer.SpacingBefore = 20;
             doc.Add(footer);
             
-            Paragraph contact = new Paragraph(
-                "Konsultasi Gratis bersama Tim Central Data Access untuk mendapatkan analisis data komprehensif terkait dengan Dokumen Penentuan Harga Transfer" +
-                "\n\n" +
-                "www.centraldataaccess.co.id | Telepon : (0251) 8574 375 | Handphone : 0822 1001 9696 / 0822 1001 9797 | \r\ncs@centraldataaccess.co.id",
-                textBold
-            );
-            contact.Alignment = Element.ALIGN_CENTER;
-            contact.SpacingBefore = 40;
+            Paragraph contact = new Paragraph();
+            contact.Add(new Chunk("CDA tidak bertanggung jawab atas penggunaan data dan ketidaksesuaian data untuk kebutuhan eksternal kecuali\ntelah melalui tahapan konsultasi resmi melalui ", textFont));
+            contact.Add(new Chunk("Hotline ", textFontItalic));
+            contact.Add(new Chunk("CDA: 0822-1001-9696.", textFont));
+            contact.Alignment = Element.ALIGN_JUSTIFIED;
+            contact.SpacingBefore = 20;
+            contact.SpacingAfter = 30;
             doc.Add(contact);
+
+            //Logo
+            string barcodePath = Path.Combine(_env.WebRootPath, "image/service/barcode.png"); // Sesuaikan dengan path gambar
+            Image barcode = Image.GetInstance(barcodePath);
+            barcode.ScaleAbsolute(100, 120); // Ubah ukuran gambar (width x height)
+            barcode.Alignment = Element.ALIGN_RIGHT;
+            doc.Add(barcode);
 
             // Close Document
             doc.Close();

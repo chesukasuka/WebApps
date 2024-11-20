@@ -148,6 +148,17 @@ document.getElementById('btnReset').onclick = () => {
     resetAll()
 };
 
+document.getElementById('term').addEventListener('change', function () {
+    let checkbox = document.getElementById('term');
+    let download = document.getElementById('btnDownload')
+    if (checkbox.checked) {
+        download.disabled = false; // Enable the button
+    } else {
+        download.disabled = true; // Disable the button
+    }
+});
+
+
 function resetAll() {
     
     // Reset elements with class 'to-hide' and 'to-show'
@@ -386,6 +397,7 @@ function generatePDF() {
     // var tahunslider = document.getElementById("tahun").ej2_instances[0];
     var tahunpajak = document.getElementById("tahunpajak").ej2_instances[0].value;
     var tahun = document.getElementById("tahun").ej2_instances[0].value;
+    var metode = document.getElementById("metode").ej2_instances[0].value;
     var namaperusahaan = document.getElementById("namaperusahaan").ej2_instances[0].value;
 
 
@@ -439,7 +451,7 @@ function generatePDF() {
             testedparty = Math.round(testedparty * 100) / 100
         }
 
-        fetch('/Service/GeneratePdf' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2 + '&penjualan=' + penjualan.value + '&pokokPenjualan=' + hargapokokpenjualan.value + '&bebanOperasional=' + bebanoperasional.value + '&labaKotor=' + labakotor + '&labaOperasional=' + labaoperasional + '&testedParty=' + testedparty + '&namaperusahaan=' + namaperusahaan, {
+        fetch('/Service/GeneratePdf' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&metode=' + metode + '&tahun1=' + tahun1 + '&tahun2=' + tahun2 + '&penjualan=' + penjualan.value + '&pokokPenjualan=' + hargapokokpenjualan.value + '&bebanOperasional=' + bebanoperasional.value + '&labaKotor=' + labakotor + '&labaOperasional=' + labaoperasional + '&testedParty=' + testedparty + '&namaperusahaan=' + namaperusahaan, {
             method: 'GET'
         })
             .then(response => {
