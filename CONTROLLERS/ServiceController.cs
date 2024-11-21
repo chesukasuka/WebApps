@@ -8,6 +8,7 @@ using Syncfusion.EJ2.Linq;
 using System.Collections;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
+using System.IO;
 using WebApps.Models;
 using WebApps.Models.ServiceModel;
 
@@ -419,6 +420,7 @@ namespace WebApps.Controllers
 
         public ActionResult GeneratePdf(string rasio, string jenis, string klasifikasi, string metode, int tahun1, int tahun2, double penjualan, double pokokPenjualan, double bebanOperasional, double labaKotor, double labaOperasional, double testedParty, string namaperusahaan)
         {
+
             var benchmarkingData = Searchbenchmark(rasio, jenis, klasifikasi, tahun1, tahun2);
             var matricData = Hitung2Function(rasio, jenis, klasifikasi, tahun1, tahun2);
             
@@ -686,6 +688,7 @@ namespace WebApps.Controllers
             workStream.Write(byteInfo, 0, byteInfo.Length);
             workStream.Position = 0;
 
+            Response.Headers.Append("Referrer-Policy", "strict-origin-when-cross-origin");
             // Return PDF as a file result
             return File(workStream, "application/pdf", "Benchmarking_Laporan_Keuangan.pdf");
         }
