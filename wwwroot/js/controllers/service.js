@@ -365,7 +365,7 @@ function loadCustomers() {
         }
         else if (rasio.value == "Return On Sales") {
             testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / penjualan.value;
-            testedparty.value = Math.round(testedparty.value * 100) / 100
+            testedparty.value = testedparty.value.toFixed(2)                            
         }
         document.getElementById("jeniskegiatanusaharesult").innerHTML = jenis.value;
         document.getElementById("klasifikasiusaharesult").innerHTML = klasifikasi.value;

@@ -443,12 +443,12 @@ namespace WebApps.Controllers
             doc.Add(logo);
 
             // Judul
-            Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8);
-            Font titleFontItalic = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8, Font.ITALIC);
+            Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+            Font titleFontItalic = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, Font.ITALIC);
 
             PdfPTable tableInfoDownload = new PdfPTable(2);
-            tableInfoDownload.WidthPercentage = 40;
-            tableInfoDownload.SetWidths(new float[] { 14f, 16f });
+            tableInfoDownload.WidthPercentage = 50;
+            tableInfoDownload.SetWidths(new float[] { 11f, 16f });
             tableInfoDownload.DefaultCell.Border = PdfPCell.NO_BORDER;
             tableInfoDownload.DefaultCell.SetLeading(1.5f, 1.5f);
             tableInfoDownload.HorizontalAlignment = Element.ALIGN_RIGHT;
@@ -477,13 +477,14 @@ namespace WebApps.Controllers
             titleText.Add(new Chunk("Benchmarking ", titleFontItalic));
             titleText.Add(new Chunk("Laporan Keuangan", titleFont));
             Paragraph title = new Paragraph(titleText);
-            title.SpacingBefore = 25;
+            title.SpacingBefore = 20;
             title.Leading = 8 * 1.5f;
             title.Alignment = Element.ALIGN_CENTER;
             doc.Add(title);
 
             Paragraph subtitle = new Paragraph($"{jenis} {RemoveFirstWord(klasifikasi)}", titleFont);
-            subtitle.SpacingAfter = 20;
+            subtitle.SpacingBefore = 5;
+            subtitle.SpacingAfter = 15;
             subtitle.Leading = 8 * 1.5f;
             subtitle.Alignment = Element.ALIGN_CENTER;
             doc.Add(subtitle);
@@ -537,7 +538,7 @@ namespace WebApps.Controllers
             tableInfo.AddCell(new Phrase("", textFont));
             tableInfo.AddCell(new Phrase("", textFont));
             tableInfo.AddCell(new Phrase("Tested Party/\nPihak yang diuji (%)", textFont));
-            tableInfo.AddCell(new Phrase($": {testedParty.ToString("N0")} %", textFont));
+            tableInfo.AddCell(new Phrase($": {testedParty.ToString("N2")} %", textFont));
 
             doc.Add(tableInfo);
 
@@ -545,7 +546,7 @@ namespace WebApps.Controllers
             string[] tahuns = benchmarkingData.First().Keys.Skip(2).ToArray();
             PdfPTable tableData = new PdfPTable(3 + tahuns.Length);
             tableData.WidthPercentage = 100;
-            tableData.SpacingBefore = 30;
+            tableData.SpacingBefore = 10;
             tableData.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             List<float> tableDataWidth = new List<float> { 0.5f, 3f, 2f };
             foreach (var tahun in tahuns)
@@ -559,7 +560,7 @@ namespace WebApps.Controllers
             {
                 var headerCell = new PdfPCell(new Phrase(header, textBoldWhite));
                 headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                headerCell.BackgroundColor = new BaseColor(System.Drawing.Color.MidnightBlue);
+                headerCell.BackgroundColor = new BaseColor(System.Drawing.Color.FromArgb(255, 8, 68, 75));
 
                 //if (header != "NCPM (%)")
                 //{
@@ -570,6 +571,7 @@ namespace WebApps.Controllers
                 //    headerCell.Rowspan = 1;
                 //    headerCell.Colspan = 3;
                 //}
+
                 headerCell.Rowspan = 2;
                 tableData.AddCell(headerCell);
             }
@@ -580,9 +582,9 @@ namespace WebApps.Controllers
             }
             foreach(var tahun in tahuns)
             {
-                var yearCell = new PdfPCell(new Phrase($"Tahun {tahun} (%)", textBoldWhite));
+                var yearCell = new PdfPCell(new Phrase($"{tahun}", textBoldWhite));
                 yearCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                yearCell.BackgroundColor = new BaseColor(System.Drawing.Color.MidnightBlue);
+                yearCell.BackgroundColor = new BaseColor(System.Drawing.Color.FromArgb(255, 8, 68, 75));
                 yearCell.Rowspan = 2;
                 tableData.AddCell(yearCell);
             }
@@ -603,7 +605,11 @@ namespace WebApps.Controllers
                     namaperusahaan = maskName(benchmarking.Where(x => x.Key == "Nama Perusahaan").First().Value.ToString());
                 }
                 tableData.AddCell(new Phrase(namaperusahaan, textFont));
-                tableData.AddCell(new Phrase(benchmarking.Where(x => x.Key == "Negara").First().Value.ToString(), textFont));
+
+                var cellNegara = new PdfPCell(new Phrase(benchmarking.Where(x => x.Key == "Negara").First().Value.ToString(), textFont));
+                cellNegara.HorizontalAlignment = Element.ALIGN_CENTER;
+                tableData.AddCell(cellNegara);
+
                 foreach(var tahun in tahuns)
                 {
                     var cell = new PdfPCell(new Phrase(benchmarking.Where(x => x.Key == tahun).First().Value.ToString(), textFont));
@@ -616,12 +622,12 @@ namespace WebApps.Controllers
             var tableBreak1 = new PdfPCell(new Paragraph(new Phrase(" ", textFont)));
             tableBreak1.Colspan = 3 + tahuns.Length;
             tableBreak1.HorizontalAlignment = Element.ALIGN_RIGHT;
-            tableBreak1.BackgroundColor = new BaseColor(System.Drawing.Color.MidnightBlue);
+            tableBreak1.BackgroundColor = new BaseColor(System.Drawing.Color.FromArgb(255, 8, 68, 75));
             tableData.AddCell(tableBreak1);
 
             //var tableBreak2 = new PdfPCell(new Phrase("", textFont));
             //tableBreak2.Colspan = tahuns.Length;
-            //tableBreak2.BackgroundColor = new BaseColor(System.Drawing.Color.MidnightBlue);
+            //tableBreak2.BackgroundColor = new BaseColor(System.Drawing.Color.FromArgb(1000, 8, 68, 75));
             //tableData.AddCell(tableBreak2);
 
             string[] metrics = { "Minimum", "Kuartil 1", "Kuartil 2", "Kuartil 3", "Maksimum" };
@@ -654,7 +660,7 @@ namespace WebApps.Controllers
             footer.Add(new Chunk("benchmarking ", textFontItalic));
             footer.Add(new Chunk("ini ditujukan sebagai informasi umum dan tidak dimaksudkan sebagai rekomendasi spesik. \nUntuk penjelasan lebih lanjut mengenai hasil analisis atau perusahaan pembanding, silakan langsung melalui kontak \nresmi PT Central Data Access(“CDA”).", textFont));
             footer.Alignment = Element.ALIGN_JUSTIFIED;
-            footer.SpacingBefore = 20;
+            footer.SpacingBefore = 5;
             doc.Add(footer);
             
             Paragraph contact = new Paragraph();
@@ -662,14 +668,14 @@ namespace WebApps.Controllers
             contact.Add(new Chunk("Hotline ", textFontItalic));
             contact.Add(new Chunk("CDA: 0822-1001-9696.", textFont));
             contact.Alignment = Element.ALIGN_JUSTIFIED;
-            contact.SpacingBefore = 20;
-            contact.SpacingAfter = 30;
+            contact.SpacingBefore = 5;
+            contact.SpacingAfter = 5;
             doc.Add(contact);
 
             //Logo
             string barcodePath = Path.Combine(_env.WebRootPath, "image/service/barcode.png"); // Sesuaikan dengan path gambar
             Image barcode = Image.GetInstance(barcodePath);
-            barcode.ScaleAbsolute(100, 120); // Ubah ukuran gambar (width x height)
+            barcode.ScaleAbsolute(120, 120); // Ubah ukuran gambar (width x height)
             barcode.Alignment = Element.ALIGN_RIGHT;
             doc.Add(barcode);
 
