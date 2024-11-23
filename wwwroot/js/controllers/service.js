@@ -351,7 +351,11 @@ function loadCustomers() {
         labaoperasional.value = penjualan.value - hargapokokpenjualan.value - bebanoperasional.value;
 
         var testedparty = document.getElementById("testedparty").ej2_instances[0];
-        if (rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method") {
+
+        if (!penjualan.value || !hargapokokpenjualan.value || !bebanoperasional.value) {
+            testedparty.value = 0
+        }
+        else if (rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method") {
             testedparty.value = (penjualan.value - hargapokokpenjualan.value) / penjualan.value;
             testedparty.value = Math.round(testedparty.value * 100) /100
         }
