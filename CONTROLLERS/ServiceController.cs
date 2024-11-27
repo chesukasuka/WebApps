@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
+using Syncfusion.EJ2.FileManager.Base;
 using Syncfusion.EJ2.Linq;
 using System.Collections;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
+using System.Globalization;
 using System.IO;
 using WebApps.Models;
 using WebApps.Models.ServiceModel;
@@ -49,8 +51,15 @@ namespace WebApps.Controllers
                 .Distinct()
                 .ToList();
 
+                ViewBag.subklasifikasi = _context.Benchmarking
+                .Select(z => new BenchmarkingModel { SubKlasifikasiUsaha = z.SubKlasifikasiUsaha, KlasifikasiUsaha = z.KlasifikasiUsaha })
+                .Where(z => z.SubKlasifikasiUsaha != null)
+                .Distinct()
+                .ToList();
+
+
                 ViewBag.metode = _context.Benchmarking
-                .Select(z => new BenchmarkingModel { Metode = z.Metode, KlasifikasiUsaha = z.KlasifikasiUsaha })
+                .Select(z => new BenchmarkingModel { Metode = z.Metode, SubKlasifikasiUsaha = z.SubKlasifikasiUsaha })
                 .Where(z => z.Metode != null)
                 .Distinct()
                 .ToList();
@@ -419,7 +428,7 @@ namespace WebApps.Controllers
             }));
         }
 
-        public ActionResult GeneratePdf(string rasio, string jenis, string klasifikasi, string metode, int tahun1, int tahun2, double penjualan, double pokokPenjualan, double bebanOperasional, double labaKotor, double labaOperasional, double testedParty, string namaperusahaan)
+        public ActionResult GeneratePdf(string rasio, string jenis, string klasifikasi, string subklasifikasi, string metode, int tahun1, int tahun2, double penjualan, double pokokPenjualan, double bebanOperasional, double labaKotor, double labaOperasional, double testedParty, string namaperusahaan)
         {
 
             var benchmarkingData = Searchbenchmark(rasio, jenis, klasifikasi, tahun1, tahun2);
@@ -430,7 +439,9 @@ namespace WebApps.Controllers
             Document doc = new Document(PageSize.A4, 25, 25, 30, 30);
             PdfWriter writer = PdfWriter.GetInstance(doc, workStream);
 
-            writer.PageEvent = new PdfWatermarkHelper("Central Data Access");
+            string sHeader = Path.Combine(_env.WebRootPath, "image/layout/header.png");
+            string sFooter = Path.Combine(_env.WebRootPath, "image/layout/footer.png");
+            writer.PageEvent = new PdfWatermarkHelper("Central Data Access", sHeader, sFooter);
 
             writer.CloseStream = false;
 
@@ -438,12 +449,12 @@ namespace WebApps.Controllers
 
             doc.Open();
 
-            //Logo
-            string imagePath = Path.Combine(_env.WebRootPath, "image/layout/logo.png"); // Sesuaikan dengan path gambar
-            Image logo = Image.GetInstance(imagePath);
-            logo.ScaleAbsolute(150, 30); // Ubah ukuran gambar (width x height)
-            logo.Alignment = Element.ALIGN_LEFT;
-            doc.Add(logo);
+            ////Logo
+            //string imagePath = Path.Combine(_env.WebRootPath, "image/layout/logo.png"); // Sesuaikan dengan path gambar
+            //Image logo = Image.GetInstance(imagePath);
+            //logo.ScaleAbsolute(150, 30); // Ubah ukuran gambar (width x height)
+            //logo.Alignment = Element.ALIGN_LEFT;
+            //doc.Add(logo);
 
             // Judul
             Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
@@ -500,7 +511,7 @@ namespace WebApps.Controllers
 
             PdfPTable tableInfo = new PdfPTable(4);
             tableInfo.WidthPercentage = 100;
-            tableInfo.SetWidths(new float[] { 14f, 16f, 14f, 16f });
+            tableInfo.SetWidths(new float[] { 14f, 20f, 14f, 12f });
             tableInfo.DefaultCell.Border = PdfPCell.NO_BORDER;
             tableInfo.DefaultCell.SetLeading(1.5f, 1.5f);
 
@@ -515,38 +526,47 @@ namespace WebApps.Controllers
             tableInfo.AddCell(new Phrase("Jenis Kegiatan Usaha", textFont));
             tableInfo.AddCell(new Phrase($": {jenis}", textFont));
             tableInfo.AddCell(new Phrase("Nama Perusahaan", textFont));
-            tableInfo.AddCell(new Phrase($": {namaperusahaan}", textFont));
+            tableInfo.AddCell(new Phrase($": {CapitalizeEachWord(namaperusahaan)}", textFont));
 
             tableInfo.AddCell(new Phrase("Klasifikasi Usaha", textFont));
             tableInfo.AddCell(new Phrase($": {klasifikasi}", textFont));
+
             tableInfo.AddCell(new Phrase("Penjualan", textFont));
             tableInfo.AddCell(new Phrase($": {penjualan.ToString("N0")}", textFont));
-            //tableInfo.AddCell(new Phrase("Subklasifikasi Usaha", textFont));
-            //tableInfo.AddCell(new Phrase(":", textFont));
-            tableInfo.AddCell(new Phrase("Tahun Pajak", textFont));
-            tableInfo.AddCell(new Phrase($": {tahun2}", textFont));
+
+            tableInfo.AddCell(new Phrase("Subklasifikasi Usaha", textFont));
+            tableInfo.AddCell(new Phrase($": {subklasifikasi}", textFont));
+
             tableInfo.AddCell(new Phrase("Harga Pokok Penjualan", textFont));
             tableInfo.AddCell(new Phrase($": {pokokPenjualan.ToString("N0")}", textFont));
 
-            tableInfo.AddCell(new Phrase("Rentang", textFont));
-            tableInfo.AddCell(new Phrase($": {tahun2-tahun1+1} / Tahun", textFont));
+            tableInfo.AddCell(new Phrase("Tahun Pajak", textFont));
+            tableInfo.AddCell(new Phrase($": {tahun2}", textFont));
+
             tableInfo.AddCell(new Phrase("Laba Kotor", textFont));
             tableInfo.AddCell(new Phrase($": {labaKotor.ToString("N0")}", textFont));
 
-            tableInfo.AddCell(new Phrase("Metode", textFont));
-            tableInfo.AddCell(new Phrase($": {metode}", textFont));
+            tableInfo.AddCell(new Phrase("Rentang", textFont));
+            tableInfo.AddCell(new Phrase($": {tahun2-tahun1+1} / Tahun", textFont));
+
             tableInfo.AddCell(new Phrase("Beban Operasional", textFont));
             tableInfo.AddCell(new Phrase($": {bebanOperasional.ToString("N0")}", textFont));
 
-            tableInfo.AddCell(new Phrase("Rasio", textFont));
-            tableInfo.AddCell(new Phrase($": {rasio}", textFont));
+            tableInfo.AddCell(new Phrase("Metode", textFont));
+            tableInfo.AddCell(new Phrase($": {metode}", textFont));
+
             tableInfo.AddCell(new Phrase("Laba Operasional", textFont));
             tableInfo.AddCell(new Phrase($": {labaOperasional.ToString("N0")}", textFont));
 
-            tableInfo.AddCell(new Phrase("", textFont));
-            tableInfo.AddCell(new Phrase("", textFont));
+            tableInfo.AddCell(new Phrase("Rasio", textFont));
+            tableInfo.AddCell(new Phrase($": {rasio}", textFont));
+
             tableInfo.AddCell(new Phrase("Tested Party/\nPihak yang diuji (%)", textFont));
             tableInfo.AddCell(new Phrase($": {testedParty.ToString("N2")} %", textFont));
+
+            tableInfo.AddCell(new Phrase("", textFont));
+            tableInfo.AddCell(new Phrase("", textFont));
+
             tableInfo.SpacingAfter = 10;
             doc.Add(tableInfo);
 
@@ -707,17 +727,34 @@ namespace WebApps.Controllers
             // Return PDF as a file result
             return File(workStream, "application/pdf", "Benchmarking_Laporan_Keuangan.pdf");
         }
+
+
+        private static string CapitalizeEachWord(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return input;
+
+            TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+
+            string Result = textInfo.ToTitleCase(input.ToLower());
+            return Result.Replace("Pt ","PT ");
+        }
     }
 }
 
 public class PdfWatermarkHelper : PdfPageEventHelper
 {
     private string _watermarkText;
+    private Image _headerImage;
+    private Image _footerImage;
 
-    public PdfWatermarkHelper(string watermarkText)
+    public PdfWatermarkHelper(string watermarkText, string headerImagePath, string footerImagePath)
     {
         _watermarkText = watermarkText;
+        _headerImage = Image.GetInstance(headerImagePath);
+        _footerImage = Image.GetInstance(footerImagePath);
     }
+
 
     public override void OnEndPage(PdfWriter writer, Document document)
     {
@@ -725,14 +762,65 @@ public class PdfWatermarkHelper : PdfPageEventHelper
         Font watermarkFont = new Font(Font.FontFamily.HELVETICA, 40, Font.BOLD, new BaseColor(245, 245, 245));
         Phrase watermark = new Phrase(_watermarkText, watermarkFont);
 
-        // Center the watermark
-        ColumnText.ShowTextAligned(
-            canvas,
-            Element.ALIGN_CENTER,
-            watermark,
-            document.PageSize.Width / 2,
-            document.PageSize.Height / 2,
-            45 // Rotation angle in degrees
+        //// Center the watermark
+        //ColumnText.ShowTextAligned(
+        //    canvas,
+        //    Element.ALIGN_CENTER,
+        //    watermark,
+        //    document.PageSize.Width / 2,
+        //    document.PageSize.Height / 2,
+        //    45 // Rotation angle in degrees
+        //);
+
+
+        float fontSize = 50f;
+        float opacity = 0.2f;
+
+        // Set the font and opacity
+        BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.EMBEDDED);
+        canvas.SaveState();
+        PdfGState gState = new PdfGState { FillOpacity = opacity };
+        canvas.SetGState(gState);
+        canvas.SetColorFill(BaseColor.GRAY);
+
+        // Calculate the number of repetitions
+        float startX = 0;
+        float startY = 0;
+        float stepX = 250; // Horizontal spacing
+        float stepY = 180; // Vertical spacing
+
+        // Loop to create repeated watermarks
+        for (float x = startX; x < PageSize.A4.Width; x += stepX)
+        {
+            for (float y = startY; y < PageSize.A4.Height; y += stepY)
+            {
+                // Apply rotation for diagonal text
+                canvas.BeginText();
+                canvas.SetFontAndSize(baseFont, fontSize);
+                canvas.ShowTextAligned(Element.ALIGN_CENTER, _watermarkText, x, y, 45); // Rotate by 45 degrees
+                canvas.EndText();
+            }
+        }
+
+        canvas.RestoreState();
+
+        // Add header image
+        float headerWidth = document.PageSize.Width;
+        _headerImage.ScaleToFit(headerWidth, _headerImage.Height); // Scale width and preserve aspect ratio
+        _headerImage.SetAbsolutePosition(
+            0,                                  // Start from the left margin
+            document.PageSize.Height - _headerImage.ScaledHeight // Position 10 units from top
         );
+        canvas.AddImage(_headerImage);
+
+        // Add footer image
+        float footerWidth = document.PageSize.Width;
+        _footerImage.ScaleToFit(footerWidth, _footerImage.Height); // Scale width and preserve aspect ratio
+        _footerImage.SetAbsolutePosition(
+            0, // Start from the left margin
+            0                   // Position 10 units from bottom
+        );
+        canvas.AddImage(_footerImage);
     }
+
 }

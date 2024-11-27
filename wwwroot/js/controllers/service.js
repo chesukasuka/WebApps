@@ -72,9 +72,19 @@ function jenisChange() {
 
 function klasifikasiChange() {
     var klasifikasiusaha = document.getElementById('klasifikasiusaha').ej2_instances[0];
-    var metode = document.getElementById('metode').ej2_instances[0];
+    var metode = document.getElementById('subklasifikasiusaha').ej2_instances[0];
 
     var tempQuery = new ej.data.Query().where('KlasifikasiUsaha', 'equal', klasifikasiusaha.value);
+    metode.query = tempQuery;
+    metode.text = null;
+    metode.dataBind();
+};
+
+function subklasifikasiChange() {
+    var subklasifikasiusaha = document.getElementById('subklasifikasiusaha').ej2_instances[0];
+    var metode = document.getElementById('metode').ej2_instances[0];
+
+    var tempQuery = new ej.data.Query().where('SubKlasifikasiUsaha', 'equal', subklasifikasiusaha.value);
     metode.query = tempQuery;
     metode.text = null;
     metode.dataBind();
@@ -88,6 +98,24 @@ function metodeChange() {
     ratio.query = tempQuery;
     ratio.text = null;
     ratio.dataBind();
+
+    let text = document.getElementById('tentang_metode');
+    console.log(metode.value)
+    if (metode.value == 'Cost Plus Methode') {
+        text.innerHTML = "Cost Plus Method dapat diterapkan kepada perusahaan pabrikan atau penyedia jasa yang tidak menanggung risiko bisnis yang signifikan."
+        document.getElementById('penjelasanMetode').classList.remove('hidden');
+    }
+    else if (metode.value == 'Transactional Net Margin Method') {
+        text.innerHTML = "Transactiona Net Margin Method diterapkan pada perusahaan yang memiliki risiko bisnis tinggi."
+        document.getElementById('penjelasanMetode').classList.remove('hidden');
+    }
+    else if (metode.value == 'Resale Price Methode') {
+        text.innerHTML = "Resale Price Method dapat diterapkan kepada perusahaan distributor yang melakukan penjualan kembali dan tidak memberikan nilai tambah yang signifikan terhadap produk yang dijual."
+        document.getElementById('penjelasanMetode').classList.remove('hidden');
+    }
+    else {
+        document.getElementById('penjelasanMetode').classList.add('hidden');
+    }
 };
 
 function ratioChange() {
@@ -223,6 +251,7 @@ function loadCustomers() {
     //var grid = document.getElementById("Grid").ej2_instances[0];
     var rasio = document.getElementById("ratio").ej2_instances[0];
     var klasifikasi = document.getElementById("klasifikasiusaha").ej2_instances[0];
+    var subklasifikasi = document.getElementById("subklasifikasiusaha").ej2_instances[0];
     var jenis = document.getElementById("jeniskegiatanusaha").ej2_instances[0];
     // var tahunslider = document.getElementById("tahun").ej2_instances[0];
     var tahunpajak = document.getElementById("tahunpajak").ej2_instances[0].value;
@@ -248,7 +277,16 @@ function loadCustomers() {
         var tahun2 = tahunpajak;
     }
 
-    if (tahun1 >= 2017) {
+    var penjualan = document.getElementById("penjualan").ej2_instances[0];
+    var hargapokokpenjualan = document.getElementById("hargapokokpenjualan").ej2_instances[0];
+    var bebanoperasional = document.getElementById("bebanoperasional").ej2_instances[0];
+    var namaperusahaan = document.getElementById("namaperusahaan").ej2_instances[0].value;
+
+    if (penjualan.value == null || hargapokokpenjualan.value == null || bebanoperasional.value == null || namaperusahaan == null)
+    {
+        toastObj.show();
+    }
+    else if (tahun1 >= 2017) {
         // fetch('@Url.Action("Hitung", "Service")' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahunslider.value[0] + '&tahun2=' + tahunslider.value[1])
         fetch('/Service/Hitung' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&tahun1=' + tahun1 + '&tahun2=' + tahun2)
             .then(response => response.json())
@@ -340,10 +378,6 @@ function loadCustomers() {
                 })
             });
 
-        var penjualan = document.getElementById("penjualan").ej2_instances[0];
-        var hargapokokpenjualan = document.getElementById("hargapokokpenjualan").ej2_instances[0];
-        var bebanoperasional = document.getElementById("bebanoperasional").ej2_instances[0];
-
         var labakotor = document.getElementById("labakotor").ej2_instances[0];
         var labaoperasional = document.getElementById("labaoperasional").ej2_instances[0];
 
@@ -373,6 +407,7 @@ function loadCustomers() {
         }
         document.getElementById("jeniskegiatanusaharesult").innerHTML = jenis.value;
         document.getElementById("klasifikasiusaharesult").innerHTML = klasifikasi.value;
+        document.getElementById("subklasifikasiusaharesult").innerHTML = subklasifikasi.value;
         document.getElementById("ratioresult").innerHTML = rasio.value;
         document.getElementById("testedpartyresult").innerHTML = testedparty.value + ' %';
         document.getElementById("tahunpajakresult").innerHTML = tahunpajak;
@@ -397,6 +432,7 @@ function dataBound2(args) {
 function generatePDF() {
     var rasio = document.getElementById("ratio").ej2_instances[0];
     var klasifikasi = document.getElementById("klasifikasiusaha").ej2_instances[0];
+    var subklasifikasi = document.getElementById("subklasifikasiusaha").ej2_instances[0];
     var jenis = document.getElementById("jeniskegiatanusaha").ej2_instances[0];
     // var tahunslider = document.getElementById("tahun").ej2_instances[0];
     var tahunpajak = document.getElementById("tahunpajak").ej2_instances[0].value;
@@ -455,7 +491,7 @@ function generatePDF() {
             testedparty = Math.round(testedparty * 100) / 100
         }
 
-        fetch('/Service/GeneratePdf' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&metode=' + metode + '&tahun1=' + tahun1 + '&tahun2=' + tahun2 + '&penjualan=' + penjualan.value + '&pokokPenjualan=' + hargapokokpenjualan.value + '&bebanOperasional=' + bebanoperasional.value + '&labaKotor=' + labakotor + '&labaOperasional=' + labaoperasional + '&testedParty=' + testedparty + '&namaperusahaan=' + namaperusahaan, {
+        fetch('/Service/GeneratePdf' + '?rasio=' + rasio.value + '&jenis=' + jenis.value + '&klasifikasi=' + klasifikasi.value + '&subklasifikasi=' + subklasifikasi.value + '&metode=' + metode + '&tahun1=' + tahun1 + '&tahun2=' + tahun2 + '&penjualan=' + penjualan.value + '&pokokPenjualan=' + hargapokokpenjualan.value + '&bebanOperasional=' + bebanoperasional.value + '&labaKotor=' + labakotor + '&labaOperasional=' + labaoperasional + '&testedParty=' + testedparty + '&namaperusahaan=' + namaperusahaan, {
             method: 'GET'
         })
             .then(response => {
