@@ -105,7 +105,7 @@ function metodeChange() {
         text.innerHTML = "Cost Plus Method dapat diterapkan kepada perusahaan pabrikan atau penyedia jasa yang tidak menanggung risiko bisnis yang signifikan."
         document.getElementById('penjelasanMetode').classList.remove('hidden');
     }
-    else if (metode.value == 'Transactional Net Margin Method') {
+    else if (metode.value == 'Transactional Net Margin Methode') {
         text.innerHTML = "Transactiona Net Margin Method diterapkan pada perusahaan yang memiliki risiko bisnis tinggi."
         document.getElementById('penjelasanMetode').classList.remove('hidden');
     }
