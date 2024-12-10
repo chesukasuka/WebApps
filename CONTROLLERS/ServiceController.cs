@@ -439,8 +439,8 @@ namespace WebApps.Controllers
             Document doc = new Document(PageSize.A4, 25, 25, 30, 30);
             PdfWriter writer = PdfWriter.GetInstance(doc, workStream);
 
-            string sHeader = Path.Combine(_env.WebRootPath, "image/layout/header.png");
-            string sFooter = Path.Combine(_env.WebRootPath, "image/layout/footer.png");
+            string sHeader = Path.Combine(_env.WebRootPath, "image/layout/1.png");
+            string sFooter = Path.Combine(_env.WebRootPath, "image/layout/2.png");
             writer.PageEvent = new PdfWatermarkHelper("Central Data Access", sHeader, sFooter);
 
             writer.CloseStream = false;
@@ -725,7 +725,7 @@ namespace WebApps.Controllers
 
             Response.Headers.Append("Referrer-Policy", "strict-origin-when-cross-origin");
             // Return PDF as a file result
-            return File(workStream, "application/pdf", "Benchmarking_Laporan_Keuangan.pdf");
+            return File(workStream, "application/pdf", "CDA_Benchmarking_Laporan_Keuangan.pdf");
         }
 
 
@@ -774,7 +774,7 @@ public class PdfWatermarkHelper : PdfPageEventHelper
 
 
         float fontSize = 50f;
-        float opacity = 0.2f;
+        float opacity = 0.1f;
 
         // Set the font and opacity
         BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.EMBEDDED);
@@ -786,8 +786,8 @@ public class PdfWatermarkHelper : PdfPageEventHelper
         // Calculate the number of repetitions
         float startX = 0;
         float startY = 0;
-        float stepX = 250; // Horizontal spacing
-        float stepY = 180; // Vertical spacing
+        float stepX = 180; // Horizontal spacing
+        float stepY = 350; // Vertical spacing
 
         // Loop to create repeated watermarks
         for (float x = startX; x < PageSize.A4.Width; x += stepX)
