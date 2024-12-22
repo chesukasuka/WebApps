@@ -6,33 +6,15 @@
 
 <link rel="stylesheet" href="~/css/controller/benchmarking.css" asp-append-version="true" />
 <style>
-    .custom-card {
-        min-height: 5rem;
-    }
-
-    .bg-disabled {
-        background-color: #0000000f !important
-    }
-
-    .btn-unduh {
-        background-color: #075860;
-        border-color: #075860;
-        color: white;
-    }
-
-    .e-spin-down {
-        display: none !important;
-    }
-
-    .e-spin-up {
-        display: none !important;
-    }
-
     .table thead th {
         position: sticky;
         top: 0;
         background-color: #fff; /* Warna latar belakang agar header terlihat saat scroll */
         z-index: 1;
+    }
+
+    .selected-row-data {
+        cursor: pointer;
     }
 </style>
 
@@ -71,12 +53,12 @@
 </div>
 <div class="row py-5" style="padding-left: 2%; padding-right: 2%; background-color:#F5F9FA">
     <div class="col-md-4">
-        <button type="button" class="btn btn-tosca btn-unduh">Import Excel</button>
+        <button type="button" class="btn btn-tosca btn-unduh need-login">Import Excel</button>
         <div class="card mt-3" style="max-height:30rem; ">
             <div class="table-responsive">
-                <table class="table table-striped table-bordered" style=" font-size: 0.9rem">
+                <table class="table table-hover table-bordered" style=" font-size: 0.9rem">
                     <thead style="color: #046D76;">
-                        <tr id="grid-header">
+                        <tr id="grid-header-data">
                             <th>No</th>
                             <th>Nama File</th>
                             <th>Masa</th>
@@ -84,8 +66,8 @@
                             <th>Jumlah Row</th>
                         </tr>
                     </thead>
-                    <tbody id="grid-body">
-                        @if(ViewBag.Data != null)
+                    <tbody id="grid-body-data">
+                        @* @if(ViewBag.Data != null)
                         {
                             var i = 1;
                             @foreach(var row in ViewBag.Data)
@@ -99,54 +81,222 @@
                                 </tr>
                                 i++;
                             }
-                        }
+                        } *@
                     </tbody>
                 </table>
             </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
     <div class="col-md-8">
-        <button type="button" class="btn btn-tosca btn-unduh">Export XML</button>
-        <div class="card mt-3" style="max-height:30rem; ">
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered" style=" font-size: 0.9rem">
-                    <thead style="color: #046D76;">
-                        <tr id="grid-header">
-                            <th>TaxInvoiceDate</th>
-                            <th>TrxCode</th>
-                            <th>AddInfo</th>
-                            <th>CustomDoc</th>
-                            <th>RefDesc</th>
-                            <th>FacilityStamp</th>
-                            <th>SellerIDTKU</th>
-                            <th>BuyerTin</th>
-                            <th>BuyerDocument</th>
-                            <th>BuyerCountry</th>
-                            <th>BuyerDocumentNumber</th>
-                            <th>BuyerName</th>
-                            <th>BuyerAdress</th>
-                            <th>BuyerEmail</th>
-                            <th>BuyerIDTKU</th>
-                            <th>Opt</th>
-                            <th>Code</th>
-                            <th>Name</th>
-                            <th>Unit</th>
-                            <th>Price</th>
-                            <th>Qty</th>
-                            <th>TotalDiscount</th>
-                            <th>TaxBase</th>
-                            <th>OtherTaxBase</th>
-                            <th>VATRate</th>
-                            <th>VAT</th>
-                            <th>STLGRate</th>
-                            <th>STLG</th>
-                        </tr>
-                    </thead>
-                    <tbody id="grid-body">
-                        @{
+        <div class="card mt-3 h-100" id="loading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div class="card mt-3 h-100" id="empty-detail">
+            <p class="text-center m-auto">No Data Selected</p>
+        </div>
+        <div id="exist-detail">
+            <button type="button" class="btn btn-tosca btn-unduh need-login">Export XML</button>
+            <div class="card mt-3" style="max-height:30rem; ">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered" style=" font-size: 0.9rem">
+                        <thead style="color: #046D76;">
+                            <tr id="grid-header-detail">
+                                <th>TaxInvoiceDate</th>
+                                <th>TrxCode</th>
+                                <th>AddInfo</th>
+                                <th>CustomDoc</th>
+                                <th>RefDesc</th>
+                                <th>FacilityStamp</th>
+                                <th>SellerIDTKU</th>
+                                <th>BuyerTin</th>
+                                <th>BuyerDocument</th>
+                                <th>BuyerCountry</th>
+                                <th>BuyerDocumentNumber</th>
+                                <th>BuyerName</th>
+                                <th>BuyerAdress</th>
+                                <th>BuyerEmail</th>
+                                <th>BuyerIDTKU</th>
+                                <th>Opt</th>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th>Unit</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th>TotalDiscount</th>
+                                <th>TaxBase</th>
+                                <th>OtherTaxBase</th>
+                                <th>VATRate</th>
+                                <th>VAT</th>
+                                <th>STLGRate</th>
+                                <th>STLG</th>
+                            </tr>
+                        </thead>
+                        <tbody id="grid-body-detail">
+                            @* @{
                             var rand = new Random();
-                        }
-                        @for(var i=0; i < rand.Next(1, 30); i++){
+                            }
+                            @for(var i=0; i < rand.Next(1, 30); i++){
+                            <tr>
+                            <td>2025-01-15</td>
+                            <td>01</td>
+                            <td>TD.00501</td>
+                            <td>-</td>
+                            <td>INV-0101</td>
+                            <td>-</td>
+                            <td>01234567890123456000000</td>
+                            <td>01234567890123456</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>PT SUKA MAJU MENANTI</td>
+                            <td>JAKARTA</td>
+                            <td>-</td>
+                            <td>01234567890123456000000</td>
+                            <td>A</td>
+                            <td>000000</td>
+                            <td>Buku</td>
+                            <td>UM.0003</td>
+                            <td>100000</td>
+                            <td>10</td>
+                            <td>0</td>
+                            <td>1000000</td>
+                            <td>0</td>
+                            <td>12</td>
+                            <td>120000</td>
+                            <td>0</td>
+                            <td>0</td>
+                            </tr>
+                            } *@
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row p-3 contact-section">
+    <div class="col-md-12 text-center py-5">
+        @* <p class="fs-5" style="color: #3199A3">Konsultasi</p> *@
+        <p class="fs-3" style="color: white">Request Data Pembanding</p>
+        <p class="fs-5" style="color: #C4DFE4">Ingin mengajukan data pembanding yang relevan sesuai kebutuhan perusahaan Anda?</p>
+        <button onclick="document.location='https://centraldataaccess.co.id/kontak-cda/'" class="btn btn-primary">
+            Hubungi Kami
+        </button>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        reloadTableData();
+        $("#empty-detail").show();
+        $("#exist-detail").hide();
+        $("#loading").hide();
+
+        $(".selected-row-data").on("click", function () {
+            let id = $(this).data("id")
+            reloadTableDetail(id)
+        });
+
+        $(".need-login").on("click", function () {
+            let isLogin = "@(Context.Session.GetString("Token"))"
+            if(isLogin == ""){
+                $("#loginModal").modal('show');
+            }
+        });
+    });
+
+    function reloadTableData(){
+        let data = [
+            {
+                "namaFile": "File 1",
+                "masa": "1",
+                "tahun": "2024",
+                "jumlahRow": 20
+            },
+            {
+                "namaFile": "File 2",
+                "masa": "2",
+                "tahun": "2024",
+                "jumlahRow": 8
+            },
+            {
+                "namaFile": "File 3",
+                "masa": "3",
+                "tahun": "2024",
+                "jumlahRow": 29
+            },
+            {
+                "namaFile": "File 4",
+                "masa": "4",
+                "tahun": "2024",
+                "jumlahRow": 40
+            },
+            {
+                "namaFile": "File 5",
+                "masa": "5",
+                "tahun": "2024",
+                "jumlahRow": 38
+            }
+        ]
+        let tableData = $("#grid-body-data");
+        let i = 1;
+        tableData.empty();
+        
+        data.forEach(function (row) {
+            tableData.append(`
+                    <tr class="selected-row-data" data-id="${row.jumlahRow}">
+                        <td>${i}</td>
+                        <td>${row.namaFile}</td>
+                        <td>${row.masa}</td>
+                        <td>${row.tahun}</td>
+                        <td>${row.jumlahRow}</td>
+                    </tr>
+            `)
+            i++;
+        })
+    }
+
+    function reloadTableDetail(id) {
+
+
+        $("#empty-detail").hide();
+
+        $("#exist-detail").hide();
+        $("#loading").show();
+
+        let tableData = $("#grid-body-detail");
+        tableData.empty();
+        for(let i=1; i<=id; i++){
+            tableData.append(`
                             <tr>
                                 <td>2025-01-15</td>
                                 <td>01</td>
@@ -177,44 +327,11 @@
                                 <td>0</td>
                                 <td>0</td>
                             </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row p-3 contact-section">
-    <div class="col-md-12 text-center py-5">
-        @* <p class="fs-5" style="color: #3199A3">Konsultasi</p> *@
-        <p class="fs-3" style="color: white">Request Data Pembanding</p>
-        <p class="fs-5" style="color: #C4DFE4">Ingin mengajukan data pembanding yang relevan sesuai kebutuhan perusahaan Anda?</p>
-        <button onclick="document.location='https://centraldataaccess.co.id/kontak-cda/'" class="btn btn-primary">
-            Hubungi Kami
-        </button>
-    </div>
-    @* <div class="col-md-6 d-flex align-items-center justify-content-center">
-        <div class="card w-100">
-            <div class="card-body" style="padding: 0.5rem">
-                <div class="row d-flex mx-auto">
-                    <div class="col-4 col-lg-3 px-1 d-flex">
-                        <p class="fw-bold my-auto">Hubungi kami di</p>
-                    </div>
-                    <div class="col-8 col-lg-5 px-1 d-flex">
-                        <a href="https://api.whatsapp.com/send/?phone=6282210019696&text&type=phone_number&app_absent=0" target="_blank" class="fw-bold my-auto fs-3" style="color: #075860">0822-1001-9797</a>
-                    </div>
-                    <div class="col-md-1 px-1 d-none d-lg-flex">
-                        <p class="my-auto" style="color:#3199A3">atau</p>
-                    </div>
-                    <div class="col-md-12 px-1 py-auto">
-                        <p class="fs-4 fw-bold">Hubungi kami di 
-                            <span>
-                                
-                            </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> *@
-</div>
+                    `)
+        }
+
+        $("#loading").hide();
+        $("#exist-detail").show();
+    }
+</script>
+
