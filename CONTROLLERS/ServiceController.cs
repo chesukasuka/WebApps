@@ -695,7 +695,7 @@ namespace WebApps.Controllers
             Paragraph footer = new Paragraph();
             footer.Add(new Chunk("Data ", textFont));
             footer.Add(new Chunk("benchmarking ", textFontItalic));
-            footer.Add(new Chunk("ini ditujukan sebagai informasi umum dan tidak dimaksudkan sebagai rekomendasi spesik. Untuk penjelasan lebih lanjut mengenai hasil analisis atau perusahaan pembanding, silakan langsung melalui kontak resmi PT Central Data Access(“CDA”).", textFont));
+            footer.Add(new Chunk("ini ditujukan sebagai informasi umum dan tidak dimaksudkan sebagai rekomendasi spesifik. Untuk penjelasan lebih lanjut mengenai hasil analisis atau perusahaan pembanding, silakan langsung melalui kontak resmi PT Central Data Access (“CDA”).", textFont));
             footer.Alignment = Element.ALIGN_JUSTIFIED;
             footer.SpacingBefore = 5;
             doc.Add(footer);

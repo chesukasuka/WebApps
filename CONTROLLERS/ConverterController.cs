@@ -37,14 +37,14 @@ namespace WebApps.Controllers
                 new Dictionary<string, string>()
                 {
                     { "NamaFile", "File1.xlsx" },
-                    { "Masa", "9" },
+                    { "Masa", "12" },
                     { "Tahun", "2024" },
                     { "JumlahRow", "9" }
                 },
                 new Dictionary<string, string>()
                 {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "10" },
+                    { "NamaFile", "File2.xlsx" },
+                    { "Masa", "12" },
                     { "Tahun", "2024" },
                     { "JumlahRow", "90" }
                 },
@@ -57,8 +57,57 @@ namespace WebApps.Controllers
                 },
                 new Dictionary<string, string>()
                 {
+                    { "NamaFile", "Excel Terbaru.xlsx" },
+                    { "Masa", "10" },
+                    { "Tahun", "2024" },
+                    { "JumlahRow", "10" }
+                },
+                new Dictionary<string, string>()
+                {
+                    { "NamaFile", "Excel 2.xlsx" },
+                    { "Masa", "9" },
+                    { "Tahun", "2024" },
+                    { "JumlahRow", "10" }
+                },
+                new Dictionary<string, string>()
+                {
                     { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
+                    { "Masa", "9" },
+                    { "Tahun", "2024" },
+                    { "JumlahRow", "10" }
+                },
+                new Dictionary<string, string>()
+                {
+                    { "NamaFile", "File1.xlsx" },
+                    { "Masa", "8" },
+                    { "Tahun", "2024" },
+                    { "JumlahRow", "10" }
+                },
+                new Dictionary<string, string>()
+                {
+                    { "NamaFile", "File1.xlsx" },
+                    { "Masa", "8" },
+                    { "Tahun", "2024" },
+                    { "JumlahRow", "10" }
+                },
+                new Dictionary<string, string>()
+                {
+                    { "NamaFile", "File1.xlsx" },
+                    { "Masa", "8" },
+                    { "Tahun", "2024" },
+                    { "JumlahRow", "10" }
+                },
+                new Dictionary<string, string>()
+                {
+                    { "NamaFile", "File1.xlsx" },
+                    { "Masa", "7" },
+                    { "Tahun", "2024" },
+                    { "JumlahRow", "10" }
+                },
+                new Dictionary<string, string>()
+                {
+                    { "NamaFile", "File1.xlsx" },
+                    { "Masa", "8" },
                     { "Tahun", "2024" },
                     { "JumlahRow", "10" }
                 },
@@ -72,56 +121,7 @@ namespace WebApps.Controllers
                 new Dictionary<string, string>()
                 {
                     { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
+                    { "Masa", "8" },
                     { "Tahun", "2024" },
                     { "JumlahRow", "10" }
                 }
