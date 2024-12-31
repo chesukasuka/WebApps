@@ -32,103 +32,133 @@ namespace WebApps.Controllers
         [HttpGet("/Converter")]
         public IActionResult Index()
         {
-            Dictionary<string, string>[] data = new Dictionary<string, string>[]
-            {
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "9" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File2.xlsx" },
-                    { "Masa", "12" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "90" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File2.xlsx" },
-                    { "Masa", "11" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "50" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "Excel Terbaru.xlsx" },
-                    { "Masa", "10" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "Excel 2.xlsx" },
-                    { "Masa", "9" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "9" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "8" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "8" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "8" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "7" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "8" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "12" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                },
-                new Dictionary<string, string>()
-                {
-                    { "NamaFile", "File1.xlsx" },
-                    { "Masa", "8" },
-                    { "Tahun", "2024" },
-                    { "JumlahRow", "10" }
-                }
-            };
+            //Dictionary<string, string>[] data = new Dictionary<string, string>[]
+            //{
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File1.xlsx" },
+            //        { "Masa", "12" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "9" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File2.xlsx" },
+            //        { "Masa", "12" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "90" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File2.xlsx" },
+            //        { "Masa", "11" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "50" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "Excel Terbaru.xlsx" },
+            //        { "Masa", "10" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "10" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "Excel 2.xlsx" },
+            //        { "Masa", "9" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "10" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File1.xlsx" },
+            //        { "Masa", "9" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "10" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File1.xlsx" },
+            //        { "Masa", "8" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "10" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File1.xlsx" },
+            //        { "Masa", "8" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "10" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File1.xlsx" },
+            //        { "Masa", "8" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "10" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File1.xlsx" },
+            //        { "Masa", "7" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "10" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File1.xlsx" },
+            //        { "Masa", "8" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "10" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File1.xlsx" },
+            //        { "Masa", "12" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "10" }
+            //    },
+            //    new Dictionary<string, string>()
+            //    {
+            //        { "NamaFile", "File1.xlsx" },
+            //        { "Masa", "8" },
+            //        { "Tahun", "2024" },
+            //        { "JumlahRow", "10" }
+            //    }
+            //};
 
-            ViewBag.Data = data;
+            ViewBag.Daftar = _context.FakturKeluaranDaftar
+                .Select(z => new FakturKeluaranDaftarModel {
+                    FakturKeluaranDaftarId = z.FakturKeluaranDaftarId,
+                    Jumlah = z.Jumlah,
+                    Masa = z.Masa,
+                    NamaFile = z.NamaFile,
+                    Tahun = z.Tahun
+                })
+                .OrderByDescending(z => z.Tahun)
+                .ThenByDescending(z => z.Masa)
+                .ToList();
+
             return View("Converter");
         }
+
+        public IActionResult Import()
+        {
+            ViewBag.Daftar = _context.FakturKeluaranDaftar
+                .Select(z => new FakturKeluaranDaftarModel
+                {
+                    FakturKeluaranDaftarId = z.FakturKeluaranDaftarId,
+                    Jumlah = z.Jumlah,
+                    Masa = z.Masa,
+                    NamaFile = z.NamaFile,
+                    Tahun = z.Tahun
+                })
+                .OrderByDescending(z => z.Tahun)
+                .ThenByDescending(z => z.Masa)
+                .ToList();
+
+            return View("Converter");
+        }
+
     }
 }

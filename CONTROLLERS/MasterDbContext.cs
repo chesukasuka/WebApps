@@ -12,5 +12,10 @@ namespace WebApps.Controllers
 
         public DbSet<BenchmarkingModel> Benchmarking { get; set; }
         public DbSet<BenchmarkingTahunModel> BenchmarkingTahun { get; set; }
+
+        public DbSet<FakturKeluaranDaftarModel> FakturKeluaranDaftar { get; set; }
+        public DbSet<FakturKeluaranHeaderModel> FakturKeluaranHeader { get; set; }
+        public DbSet<FakturKeluaranItemModel> FakturKeluaranItem { get; set; }
+
     }
 }
