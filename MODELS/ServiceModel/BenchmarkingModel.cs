@@ -54,8 +54,6 @@ namespace WebApps.Models.ServiceModel
         [Key]
         public long? FakturKeluaranDaftarId { get; set; }
         public string? NamaFile { get; set; }
-        public string? Masa { get; set; }
-        public string? Tahun { get; set; }
         public int? Jumlah { get; set; }
     }
 
@@ -66,6 +64,7 @@ namespace WebApps.Models.ServiceModel
         public long? FakturKeluaranDaftarId { get; set; }
         public string? Tin { get; set; }
         public string? TaxInvoiceDate { get; set; }
+        public string? TaxInvoiceOpt { get; set; }
         public string? TrxCode { get; set; }
         public string? AddInfo { get; set; }
         public string? CustomDoc { get; set; }

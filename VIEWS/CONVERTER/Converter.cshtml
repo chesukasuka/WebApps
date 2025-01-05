@@ -53,6 +53,12 @@
 </div>
 <div class="row py-5" style="padding-left: 2%; padding-right: 2%; background-color:#F5F9FA">
     <div class="col-md-4">
+
+        <form action="https://localhost:44330/Converter/Upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <button type="submit">Upload</button>
+        </form>
+
         <button type="button" class="btn btn-tosca btn-unduh need-login">Import Excel</button>
         <div class="card mt-3" style="max-height:30rem; ">
             <div class="table-responsive">
