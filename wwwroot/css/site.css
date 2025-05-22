@@ -184,9 +184,6 @@ html {
   content: "\a700";
 }
 
-.e-instagram:before {
-  content: "\a703";
-}
 
 .e-linkedin:before {
   content: "\a704";
@@ -949,25 +946,7 @@ html {
     order: 1;
     flex-grow: 0;
 }
-.footer-frame-2-4-2-3 {
-    /* Tentang Kami */
 
-    /*width*/: 197px;
-    height: 20px;
-    /* Body - R/Body - S */
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    /* identical to box height, or 143% */
-    display: flex;
-    align-items: center;
-    color: #F5F9FA;
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-}
 .footer-frame-2-4-2-4 {
     /* Tentang Kami */
 
@@ -1003,7 +982,7 @@ html {
     flex-grow: 1;
 }
 .footer-frame-3-1-1 {
-    /* © Copyright. All Rights Reserved 2024 */
+    /* ï¿½ Copyright. All Rights Reserved 2024 */
 
     height: 20px;
     /* Body/Regular/Body-S-Regular */
