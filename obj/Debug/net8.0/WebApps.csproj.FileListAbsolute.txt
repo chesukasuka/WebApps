@@ -627,7 +627,6 @@ C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\bin\Debug\ne
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\bin\Debug\net8.0\System.Runtime.Caching.dll
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\bin\Debug\net8.0\System.Text.Json.dll
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
@@ -705,11 +704,6 @@ C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\ne
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\WebApps.sourcelink.json
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\staticwebassets.build.json
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\staticwebassets.development.json
-C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\staticwebassets\msbuild.WebApps.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\staticwebassets\msbuild.build.WebApps.props
-C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.WebApps.props
-C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.WebApps.props
-C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\scopedcss\VIEWS\SHARED\_Layout.cshtml.rz.scp.css
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\scopedcss\bundle\WebApps.styles.css
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\scopedcss\projectbundle\WebApps.bundle.scp.css
@@ -719,6 +713,15 @@ C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\ne
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\WebApps.pdb
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\WebApps.genruntimeconfig.cache
 C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\ref\WebApps.dll
+<<<<<<< HEAD
+C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\bin\Debug\net8.0\WebApps.staticwebassets.endpoints.json
+C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Central Data Acces\Project web\WebApps Progress.worktrees\catur2\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+=======
 D:\work\WebApps\bin\Debug\net8.0\appsettings.Development.json
 D:\work\WebApps\bin\Debug\net8.0\appsettings.json
 D:\work\WebApps\bin\Debug\net8.0\WebApps.staticwebassets.runtime.json
@@ -866,3 +869,4 @@ D:\work\WebApps\obj\Debug\net8.0\refint\WebApps.dll
 D:\work\WebApps\obj\Debug\net8.0\WebApps.pdb
 D:\work\WebApps\obj\Debug\net8.0\WebApps.genruntimeconfig.cache
 D:\work\WebApps\obj\Debug\net8.0\ref\WebApps.dll
+>>>>>>> e0402b6dbfb896da8d23ade97b05ed44443a8506

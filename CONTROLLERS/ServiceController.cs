@@ -759,7 +759,7 @@ public class PdfWatermarkHelper : PdfPageEventHelper
     public override void OnEndPage(PdfWriter writer, Document document)
     {
         PdfContentByte canvas = writer.DirectContentUnder;
-        Font watermarkFont = new Font(Font.FontFamily.HELVETICA, 40, Font.BOLD, new BaseColor(245, 245, 245));
+        Font watermarkFont = new Font(Font.FontFamily.TIMES_ROMAN, 40, Font.BOLD, new BaseColor(245, 245, 245));
         Phrase watermark = new Phrase(_watermarkText, watermarkFont);
 
         //// Center the watermark
@@ -774,10 +774,10 @@ public class PdfWatermarkHelper : PdfPageEventHelper
 
 
         float fontSize = 50f;
-        float opacity = 0.1f;
+        float opacity = 0.13f;
 
         // Set the font and opacity
-        BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.EMBEDDED);
+        BaseFont baseFont = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.WINANSI, BaseFont.EMBEDDED);
         canvas.SaveState();
         PdfGState gState = new PdfGState { FillOpacity = opacity };
         canvas.SetGState(gState);
