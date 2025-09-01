@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Central Data Acces\\Project web\\WebApps Progress.worktrees\\catur2\\WebApps.csproj": {}
+    "c:\\Central Data Acces\\Project web\\WebApps Progress.worktrees\\catur2\\WebApps.csproj": {}
   },
   "projects": {
-    "C:\\Central Data Acces\\Project web\\WebApps Progress.worktrees\\catur2\\WebApps.csproj": {
+    "c:\\Central Data Acces\\Project web\\WebApps Progress.worktrees\\catur2\\WebApps.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Central Data Acces\\Project web\\WebApps Progress.worktrees\\catur2\\WebApps.csproj",
+        "projectUniqueName": "c:\\Central Data Acces\\Project web\\WebApps Progress.worktrees\\catur2\\WebApps.csproj",
         "projectName": "WebApps",
-        "projectPath": "C:\\Central Data Acces\\Project web\\WebApps Progress.worktrees\\catur2\\WebApps.csproj",
+        "projectPath": "c:\\Central Data Acces\\Project web\\WebApps Progress.worktrees\\catur2\\WebApps.csproj",
         "packagesPath": "C:\\Users\\RYZEN 5\\.nuget\\packages\\",
-        "outputPath": "C:\\Central Data Acces\\Project web\\WebApps Progress.worktrees\\catur2\\obj\\",
+        "outputPath": "c:\\Central Data Acces\\Project web\\WebApps Progress.worktrees\\catur2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\RYZEN 5\\AppData\\Roaming\\NuGet\\NuGet.Config"
