@@ -34,6 +34,7 @@ function maskName(name) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    resetAll(); 
     // Ambil semua elemen dengan kelas 'numeric-textbox'
     var numericTextBoxes = document.getElementsByClassName('numeric-textbox');
 
