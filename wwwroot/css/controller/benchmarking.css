@@ -1,683 +1,676 @@
-
 .hidden {
-    display: none;
+  display: none;
 }
 
 .main-top {
-    /* home-hero-section */
+  /* home-hero-section */
 
-    
-    width: 1440px;
-    height: 560px;
-    left: 0px;
-    top: 0px;
-    background: #00858D;
+  width: 1440px;
+  height: 560px;
+  left: 0px;
+  top: 0px;
+  background: #00858d;
 }
 
 .main-top-frame {
-    /* hero-content */
-    /* Auto layout */
-    background-image: url('/image/service/main-top.svg');
-    /*margin-left: calc(-50vw + 50%);*/ /* Center align */
-    background-size: cover; /* Stretch the background image */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Do not repeat the background image */
-    /*width: 100vw;*/ /* Full viewport width */
-    padding: 40px 80px;
-/*    height: 432px;*/
+  /* hero-content */
+  /* Auto layout */
+  background-image: url("/image/service/main-top.svg");
+  /*margin-left: calc(-50vw + 50%);*/ /* Center align */
+  background-size: cover; /* Stretch the background image */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+  /*width: 100vw;*/ /* Full viewport width */
+  padding: 40px 80px;
+  /*    height: 432px;*/
 }
 
 .main-top-frame-breadcrumb {
-    /* breadcrumb */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px 16px 12px;
-    gap: 8px;
-    width: 215px;
-    height: 34px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 4px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  /* breadcrumb */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 16px 12px;
+  gap: 8px;
+  width: 215px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 .main-top-frame-breadcrumb {
-    /* breadcrumb */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px 16px 12px;
-    gap: 8px;
-    width: 215px;
-    height: 34px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 4px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  /* breadcrumb */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 16px 12px;
+  gap: 8px;
+  width: 215px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 .main-top-frame-breadcrumb-home {
-    /* home (5) 1 */
-    background-image: url('/image/service/home.svg');
-    width: 8px;
-    height: 8px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  /* home (5) 1 */
+  background-image: url("/image/service/home.svg");
+  width: 8px;
+  height: 8px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 .main-top-frame-breadcrumb-text {
-    /* Benchmarking Laporan Keuangan */
+  /* Benchmarking Laporan Keuangan */
 
-    width: 159px;
-    height: 12px;
-    /* Body - R/Body - XXS */
-    font-style: italic;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 12px;
-    color: #F5F9FA;
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    flex-grow: 0;
+  width: 159px;
+  height: 12px;
+  /* Body - R/Body - XXS */
+  font-style: italic;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #f5f9fa;
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
 }
 .main-top-frame-content {
-    /* hero-primary-content */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    padding: 0px;
-    gap: 24px;
-    height: 318px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 1;
+  /* hero-primary-content */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 24px;
+  height: 318px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
 }
 
 .main-top-frame-content-1 {
-    /* heading-content */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px 0px 20px;
-    gap: 12px;
-    height: 318px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 1;
+  /* heading-content */
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px 0px 20px;
+  gap: 12px;
+  height: 318px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
 }
 
 .main-top-frame-content-1-text {
-    /* Simulasi Benchmarking 
+  /* Simulasi Benchmarking 
 Laporan Keuangan */
 
-    /* Display/Display - 5 */
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 58px;
-    /* or 121% */
+  /* Display/Display - 5 */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  /* or 121% */
 
-    color: #F7F9F9;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
+  color: #f7f9f9;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .main-top-frame-content-1-helper {
-    /* helper-text */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 14px;
-    /*width: 587px;*/
-    height: 26px;
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    flex-grow: 0;
+  /* helper-text */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 14px;
+  /*width: 587px;*/
+  height: 26px;
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
 }
 .main-top-frame-content-1-helper-mouse {
-    /* mouse 1 */
-    background-image: url('/image/service/mouse.svg');
-    width: 24px;
-    height: 24px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  /* mouse 1 */
+  background-image: url("/image/service/mouse.svg");
+  width: 24px;
+  height: 24px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 .main-top-frame-content-1-helper-text {
-    /* Gulir kebawah dan gunakan demo fitur kami. */
+  /* Gulir kebawah dan gunakan demo fitur kami. */
 
-    /*width: 549px;*/
-    height: 26px;
-    /* Body/Regular/Body-L-Regular */
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 26px;
-    /* identical to box height, or 144% */
+  /*width: 549px;*/
+  height: 26px;
+  /* Body/Regular/Body-L-Regular */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  /* identical to box height, or 144% */
 
-    color: #F5F9FA;
-    opacity: 0.72;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 1;
+  color: #f5f9fa;
+  opacity: 0.72;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
 }
 
 .main-top-frame-content-2 {
-    /* heading-content */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 80px 0px 20px;
-    gap: 12px;
-    height: 318px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 1;
+  /* heading-content */
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 0px 20px;
+  gap: 12px;
+  height: 318px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
 }
 
 .main-top-frame-content-2-text {
-    /* Kami menyediakan Benchmarking Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya untuk menentukan harga transfer. */
+  /* Kami menyediakan Benchmarking Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya untuk menentukan harga transfer. */
 
-    height: 136px;
-    /* Body - M/Body - XL Medium */
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 28px;
-    /* or 140% */
-    display: flex;
-    align-items: flex-start;
-    color: #93C6CE;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 1;
+  height: 136px;
+  /* Body - M/Body - XL Medium */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  /* or 140% */
+  display: flex;
+  align-items: flex-start;
+  color: #93c6ce;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
 }
-
 
 .main-left-frame {
-    /* Frame 40 */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px 12px 12px;
-    gap: 12px;
-    left: 81px;
-    background: rgba(0, 133, 141, 0.08);
-    border-radius: 4px;
+  /* Frame 40 */
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 12px 12px;
+  gap: 12px;
+  left: 81px;
+  background: rgba(0, 133, 141, 0.08);
+  border-radius: 4px;
 }
 .main-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 12px;
-    gap: 12px;
-    background: #FFFBFB;
-    border-radius: 4px;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+  background: #fffbfb;
+  border-radius: 4px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .main-left-image {
-    background: linear-gradient(219.21deg, #F2F2F7 11.61%, #00858D 99.64%), url('/image/service/main-left.svg');
-    background-blend-mode: color-burn, normal;
-    border-radius: 4px;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
-    height: 260px;
+  background: linear-gradient(219.21deg, #f2f2f7 11.61%, #00858d 99.64%),
+    url("/image/service/main-left.svg");
+  background-blend-mode: color-burn, normal;
+  border-radius: 4px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  height: 260px;
 }
 
 .main-left-accordian {
-    /* accordion */
+  /* accordion */
 
-    box-sizing: border-box;
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 0px 12px;
-    gap: 10px;
-    border-bottom: 1px solid #C4DFE4;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+  box-sizing: border-box;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0px 12px;
+  gap: 10px;
+  border-bottom: 1px solid #c4dfe4;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
 .main-left-accordian-text {
-    /* Tentang Data Pembanding Laporan Keuangan */
+  /* Tentang Data Pembanding Laporan Keuangan */
 
-    /* Heading/Med/H6 - M */
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 28px;
-    /* or 127% */
+  /* Heading/Med/H6 - M */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  /* or 127% */
 
-    color: #075860;
-    /* Inside auto layout */
-    flex: revert;
-    order: 0;
-    flex-grow: 1;
+  color: #075860;
+  /* Inside auto layout */
+  flex: revert;
+  order: 0;
+  flex-grow: 1;
 }
 .main-left-content {
-    /* Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan Benchmarking Data Pembanding. Data Pembanding Eksternal yang tersedia diperoleh dari BvD TPCatalyst yang kemudian diolah menjadi Benchmarking Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha. */
+  /* Dokumen Penetapan Harga Transfer menguji kewajaran transaksi afiliasi yang dilakukan dengan mencari perusahaan pembanding yang sering disebut dengan Benchmarking Data Pembanding. Data Pembanding Eksternal yang tersedia diperoleh dari BvD TPCatalyst yang kemudian diolah menjadi Benchmarking Data Pembanding yang di klasifikasikan berdasarkan klasifikasi usaha. */
 
-    /* Body - R/Body - M */
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
-    /* or 138% */
+  /* Body - R/Body - M */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  /* or 138% */
 
-    color: #08444B;
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    align-self: stretch;
-    flex-grow: 0;
+  color: #08444b;
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .main-right-frame {
-    /* container_content */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px;
-    gap: 12px;
-    
-    left: 515px;
-    top: 602px;
-    background: rgba(0, 133, 141, 0.08);
-    border-radius: 8px;
+  /* container_content */
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px;
+  gap: 12px;
+
+  left: 515px;
+  top: 602px;
+  background: rgba(0, 133, 141, 0.08);
+  border-radius: 8px;
 }
 
 .main-right-frame-input {
-    /* input_container */
-    /* Auto layout */
-    /*display: flex;*/
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 12px;
-    background: #FFFBFB;
-    border-radius: 8px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
+  /* input_container */
+  /* Auto layout */
+  /*display: flex;*/
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 12px;
+  background: #fffbfb;
+  border-radius: 8px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .main-right-frame-input-1 {
-    /* Frame 1000002829 */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-right: 10px;
-    gap: 8px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 1;
+  /* Frame 1000002829 */
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 10px;
+  gap: 8px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }
 
 .main-right-frame-input-1-1 {
-    /* Helper-text */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    /*width: 386.5px;*/
-    height: 18px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+  /* Helper-text */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  /*width: 386.5px;*/
+  height: 18px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
 .main-right-frame-input-1-1-1 {
-    /* .helper-text-base */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 8px;
-    /*width: 386.5px;*/
-    height: 18px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 1;
+  /* .helper-text-base */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+  /*width: 386.5px;*/
+  height: 18px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }
 .main-right-frame-input-1-1-1-1 {
-    /* Tentang Rasio */
+  /* Tentang Rasio */
 
-    /*width: 81px;*/
-    height: 18px;
-    /* Body/Regular/Body-R-XS */
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-    /* identical to box height, or 150% */
+  /*width: 81px;*/
+  height: 18px;
+  /* Body/Regular/Body-R-XS */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height, or 150% */
 
-    color: #4A4D4A;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  color: #4a4d4a;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 .main-right-frame-input-1-1-1-2 {
-    /* Icon */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 10px;
-    width: 16px;
-    height: 18px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-    background-image: url('/image/service/info.svg');
-    cursor: pointer;
+  /* Icon */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  width: 16px;
+  height: 18px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  background-image: url("/image/service/info.svg");
+  cursor: pointer;
 }
 
 .main-right-frame-input-2 {
-    /* Frame 1000002829 */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding-left: 10px;
-    gap: 8px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 1;
+  /* Frame 1000002829 */
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-left: 10px;
+  gap: 8px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
 }
 
 .main-right-frame-input-header {
-    /* text */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    gap: 2px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 1;
+  /* text */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 2px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }
 
-
 .main-right-frame-input-text {
-    /* input_2 */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px 0px 4px;
-    gap: 8px;
-    width: 386.5px;
-    height: 235px;
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    align-self: stretch;
-    flex-grow: 1;
+  /* input_2 */
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px;
+  gap: 8px;
+  width: 386.5px;
+  height: 235px;
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 1;
 }
 
 .main-right-frame-input-button {
-    /* Primary */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    height: 44px;
-    /* Inside auto layout */
-    flex: none;
-    order: 3;
-    align-self: stretch;
-    flex-grow: 0;
-    background: #075860;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    /* identical to box height, or 143% */
-    color: #FFFFFF;
-    /* .primary-base */
-    border-radius: 4px;
+  /* Primary */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  height: 44px;
+  /* Inside auto layout */
+  flex: none;
+  order: 3;
+  align-self: stretch;
+  flex-grow: 0;
+  background: #075860;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+  color: #ffffff;
+  /* .primary-base */
+  border-radius: 4px;
 }
 
-
 .main-right-frame-output {
-    /* result_container */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px;
-    gap: 8px;
-    background: #F7F9F9;
-    border-radius: 8px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+  /* result_container */
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px;
+  gap: 8px;
+  background: #f7f9f9;
+  border-radius: 8px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .main-right-frame-output-section {
-    /* section-label */
+  /* section-label */
 
-    box-sizing: border-box;
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px 0px 8px;
-    gap: 12px;
-    height: 28px;
-    border-bottom: 1px solid #DFE0E1;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
+  box-sizing: border-box;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 8px;
+  gap: 12px;
+  height: 28px;
+  border-bottom: 1px solid #dfe0e1;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
 }
 .main-right-frame-output-section-text {
-    /* text */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    gap: 2px;
-    height: 20px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 1;
+  /* text */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 2px;
+  height: 20px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }
 
 .main-right-frame-output-result {
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
 .main-right-frame-output-result-frame {
-    /* Frame 1000002832 */
-    /* Auto layout */
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 4px;
-    /*position: absolute;*/
-    height: 82px;
-    left: 0px;
-    top: 9px;
+  /* Frame 1000002832 */
+  /* Auto layout */
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+  /*position: absolute;*/
+  height: 82px;
+  left: 0px;
+  top: 9px;
 }
 .main-right-frame-output-result-frame-box {
-    /* Frame 1000002829 */
+  /* Frame 1000002829 */
 
-    box-sizing: border-box;
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 12px;
-    gap: 4px;
-    height: 82px;
-    background: #FFFFFF;
-    border: 1px solid #DFE0E1;
-    border-radius: 4px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 1;
+  box-sizing: border-box;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 12px;
+  gap: 4px;
+  height: 82px;
+  background: #ffffff;
+  border: 1px solid #dfe0e1;
+  border-radius: 4px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
 }
-
 
 .main-right-frame-output-result-frame-box-headertext {
-    /* Manufaktur */
+  /* Manufaktur */
 
-    height: 44px;
-    /* Body - M/Body - M Medium */
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    /* or 138% */
-    display: flex;
-    align-items: center;
-    color: #046D76;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 1;
+  height: 44px;
+  /* Body - M/Body - M Medium */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  /* or 138% */
+  display: flex;
+  align-items: center;
+  color: #046d76;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }
 .main-right-frame-output-result-frame-box-detailtext {
-    /* Jenis Kegiatan Usaha */
+  /* Jenis Kegiatan Usaha */
 
-    height: 18px;
-    /* Body - R/Body - XS */
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-    /* identical to box height, or 150% */
+  height: 18px;
+  /* Body - R/Body - XS */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height, or 150% */
 
-    color: #4A4D4A;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+  color: #4a4d4a;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 }
 
-
-
 .main-right-frame-output-button {
-    /* button_group */
+  /* button_group */
 
-    box-sizing: border-box;
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 8px 0px 0px;
-    gap: 8px;
-    height: 52px;
-    border-top: 1px solid #DFE0E1;
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    align-self: stretch;
-    flex-grow: 0;
+  box-sizing: border-box;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 0px 0px;
+  gap: 8px;
+  height: 52px;
+  border-top: 1px solid #dfe0e1;
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .main-right-frame-output-picture {
-    height: 554px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+  height: 554px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .main-right-frame-output-picture-background {
-    background-image: url('/image/service/empty.svg');
-    width: 100%; /* Full width */
-    height: 500px; /* Set a height for the container */
-    background-position: center center; /* Center horizontally and vertically */
-    background-size: cover; /* Scale image to cover the container */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: 379px 229px;
+  background-image: url("/image/service/empty.svg");
+  width: 100%; /* Full width */
+  height: 500px; /* Set a height for the container */
+  background-position: center center; /* Center horizontally and vertically */
+  background-size: cover; /* Scale image to cover the container */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: 379px 229px;
 }
 
 .main-bottom {
-    /*width: 100vw;*/ /* Full viewport width */
-    background: #08444B;
-    /*width: 100vw;*/ /* Full viewport width */
-    /*margin-left: calc(-50vw + 50%);*/ /* Center align */
-    padding: 40px 80px;
-    align-items: flex-start;
-    gap: 24px;
-    isolation: isolate;
-    /*height: 440px;*/
+  /*width: 100vw;*/ /* Full viewport width */
+  background: #08444b;
+  /*width: 100vw;*/ /* Full viewport width */
+  /*margin-left: calc(-50vw + 50%);*/ /* Center align */
+  padding: 40px 80px;
+  align-items: flex-start;
+  gap: 24px;
+  isolation: isolate;
+  /*height: 440px;*/
 
-    /* section_CTA */
-    /* Auto layout */
-    /*    display: flex;
+  /* section_CTA */
+  /* Auto layout */
+  /*    display: flex;
     flex-direction: row;
     padding: 0px 80px;
     position: absolute;
@@ -688,245 +681,243 @@ Laporan Keuangan */
 }
 
 .main-bottom-content {
-    /* content_a */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 24px;
-    /*height: 440px;*/
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 1;
-    z-index: 1;
+  /* content_a */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 24px;
+  /*height: 440px;*/
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
+  z-index: 1;
 }
 
 .main-bottom-content-text {
-    /* text */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    /*height: 256px;*/
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 1;
+  /* text */
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  /*height: 256px;*/
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }
 
 .main-bottom-content-text-1 {
-    /* Konsultasi */
+  /* Konsultasi */
 
-    /*height: 32px;*/
-    /* Heading/Bold/H6 - SB */
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 32px;
-    /* identical to box height, or 145% */
+  /*height: 32px;*/
+  /* Heading/Bold/H6 - SB */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 32px;
+  /* identical to box height, or 145% */
 
-    color: #3199A3;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  color: #3199a3;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 .main-bottom-content-text-2 {
-    /* Konsultasi Gratis bersama Tim Central Data Access */
+  /* Konsultasi Gratis bersama Tim Central Data Access */
 
-    /*height: 116px;*/
-    /* Display/Display - 5 */
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 58px;
-    /* or 121% */
+  /*height: 116px;*/
+  /* Display/Display - 5 */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  /* or 121% */
 
-    color: #F5F9FA;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+  color: #f5f9fa;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 .main-bottom-content-text-3 {
-    /* Dapatkan analisis komprehensif untuk solusi terbaik bisnis Anda. */
+  /* Dapatkan analisis komprehensif untuk solusi terbaik bisnis Anda. */
 
-    /*height: 84px;*/
-    /* Heading/Med/H3 - M */
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 42px;
-    /* or 131% */
+  /*height: 84px;*/
+  /* Heading/Med/H3 - M */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 42px;
+  /* or 131% */
 
-    color: #C4DFE4;
-    /* Inside auto layout */
-    flex: none;
-    order: 3;
-    align-self: stretch;
-    flex-grow: 0;
+  color: #c4dfe4;
+  /* Inside auto layout */
+  flex: none;
+  order: 3;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .main-bottom-content-contact {
-    /* Frame 1000002820 */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 12px 16px;
-    gap: 12px;
-    width: 628.5px;
-    height: 80px;
-    background: #F5F9FA;
-    border-radius: 8px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 1;
+  /* Frame 1000002820 */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
+  width: 628.5px;
+  height: 80px;
+  background: #f5f9fa;
+  border-radius: 8px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
 }
 .main-bottom-content-contact-1 {
-    /* Hubungi Kami di */
+  /* Hubungi Kami di */
 
-    width: 125px;
-    height: 22px;
-    /* Body - M/Body - M Medium */
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    /* identical to box height, or 138% */
+  width: 125px;
+  height: 22px;
+  /* Body - M/Body - M Medium */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height, or 138% */
 
-    color: #072125;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  color: #072125;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 .main-bottom-content-contact-2 {
-    /* 0822-1001-9797 */
+  /* 0822-1001-9797 */
 
-    height: 42px;
-    /* Heading/Med/H3 - M */
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 42px;
-    /* identical to box height, or 131% */
+  height: 42px;
+  /* Heading/Med/H3 - M */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 42px;
+  /* identical to box height, or 131% */
 
-    color: #075860;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 1;
+  color: #075860;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
 }
 .main-bottom-content-contact-3 {
-    /* atau */
+  /* atau */
 
-    height: 22px;
-    /* Body - R/Body - M */
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
-    /* identical to box height, or 138% */
+  height: 22px;
+  /* Body - R/Body - M */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height, or 138% */
 
-    color: #3199A3;
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    flex-grow: 0;
+  color: #3199a3;
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
 }
 .main-bottom-content-contact-4 {
-    /* Secondary */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    height: 56px;
-    /* Inside auto layout */
-    flex: none;
-    order: 3;
-    flex-grow: 0;
+  /* Secondary */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  height: 56px;
+  /* Inside auto layout */
+  flex: none;
+  order: 3;
+  flex-grow: 0;
 }
 .main-bottom-content-contact-4-base {
-    /* .secondary-base */
+  /* .secondary-base */
 
-    box-sizing: border-box;
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 16px 12px;
-    gap: 8px;
-    height: 56px;
-    border: 1px solid #046D76;
-    border-radius: 4px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  box-sizing: border-box;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 12px;
+  gap: 8px;
+  height: 56px;
+  border: 1px solid #046d76;
+  border-radius: 4px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 .main-bottom-content-contact-4-base-text {
-    /* Secondary */
+  /* Secondary */
 
-    height: 24px;
-    /* Body/Medium/Body-M-M */
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    /* identical to box height, or 150% */
-    text-align: center;
-    color: #046D76;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+  height: 24px;
+  /* Body/Medium/Body-M-M */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+  text-align: center;
+  color: #046d76;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 }
-
-
 
 /*NEW CSS*/
 .custome-jumbotron {
-    background: linear-gradient(rgba(8, 68, 75, 0.5), rgba(8, 68, 75)), url('/image/service/main-top3.jpg');
-/*    background-image: url('/image/service/main-top.svg');*/
-    background-size: cover; /* Stretch the background image */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Do not repeat the background image */
+  background: linear-gradient(rgba(8, 68, 75, 0.5), rgba(8, 68, 75)),
+    url("/image/service/main-top3.jpg");
+  /*    background-image: url('/image/service/main-top.svg');*/
+  background-size: cover; /* Stretch the background image */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the background image */
 
-    padding: 5rem 3rem;
+  padding: 5rem 3rem;
 }
 
-.e-outline .e-filled{
-    margin-bottom: 1rem;
+.e-outline .e-filled {
+  margin-bottom: 1rem;
 }
 
 .btn-hitung {
-/*    background-color: #075860;
+  /*    background-color: #075860;
     color: white;*/
 }
 .btn-reset {
-/*    background-color: #075860;
+  /*    background-color: #075860;
     color: white;*/
 }
 
 .contact-section {
-    /*background-image: url('/image/service/main-left.svg');
+  /*background-image: url('/image/service/main-left.svg');
     background-size: cover;*/ /* Stretch the background image */
-    /*background-position: center;*/ /* Center the background image */
-    /*background-repeat: no-repeat;*/ /* Do not repeat the background image */
-    /*padding: 5rem 3rem;*/
-    background-color: #08444B;
+  /*background-position: center;*/ /* Center the background image */
+  /*background-repeat: no-repeat;*/ /* Do not repeat the background image */
+  /*padding: 5rem 3rem;*/
+  background-color: #08444b;
 }
-
