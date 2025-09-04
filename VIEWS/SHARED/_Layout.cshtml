@@ -76,37 +76,40 @@
             </div>
         }
 
-        <div class="row align-items-center justify-content-between" style="background-color:#00858D; height:30px">
-            <div class="ms-3 col-5 d-flex justify-content-start">
-                <p class="fs-6 my-auto" style="color:white">cs@centraldataaccess.co.id | 0251 8574 375</p>
-            </div>
-            <div class="col-5 d-flex justify-content-end">
-                <div class="btn-group" role="group" aria-label="LinkedIn" style="padding-left:20px">
-                    <a href="@linkedInLink"><img style="height: 17px" src="~/image/layout/linkedin.svg"></a>
+        <div class="container-fluid d-none d-lg-block" style="background-color:#00858D; padding: 10px 0 10px 0;">
+            <div class="row g-0 align-items-center justify-content-between">
+                <div class="ms-3 col-5 d-flex justify-content-start d-none d-lg-block">
+                    <p class="fs-6 my-auto" style="color:white">cs@centraldataaccess.co.id | 0251 8574 375</p>
                 </div>
-                <div class="btn-group" role="group" aria-label="TikTok" style="padding-left:20px">
-                    <a href="@tiktokLink"><img style="height: 17px" src="~/image/layout/tik-tok.svg"></a>
-                </div>
-                <div class="btn-group" role="group" aria-label="Youtube" style="padding-left:20px">
-                    <a href="@youtbueLink"><img style="height: 17px" src="~/image/layout/youtube.svg"></a>
+                <div class="col-auto d-flex justify-content-end d-none d-lg-block">
+                    <div class="btn-group" role="group" aria-label="LinkedIn" style="padding-left:20px">
+                        <a href="@linkedInLink"><img style="height: 17px" src="~/image/layout/linkedin.svg"></a>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="TikTok" style="padding-left:20px">
+                        <a href="@tiktokLink"><img style="height: 17px" src="~/image/layout/tik-tok.svg"></a>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Youtube" style="padding-left:20px">
+                        <a href="@youtbueLink"><img style="height: 17px" src="~/image/layout/youtube.svg"></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row sticky-top">
+        <div class="row sticky-top align-items-center justify-content-between">
             <div class="col-12 bg-light">
-                <nav class="navbar navbar-expand-lg bg-light" style="padding: 10px">
+                <nav class="navbar navbar-expand-lg bg-light" style="padding: 10px; width: 100%; dislay: flex; flex-wrap: wrap;">
                     <a class="navbar-brand" href="https://centraldataaccess.co.id/">
                         <img class="img-fluid" src="~/image/layout/logo.png" style="height: 35px" alt="Alternate Text" />
                     </a>
-                    <a class="btn d-none d-md-block ms-auto" href="https://centraldataaccess.co.id">
+                    <a class="justify-content-start d-none d-md-block" href="https://centraldataaccess.co.id">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00858D"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" /></svg>
                     </a>
-                    <a class="my-auto d-none d-md-block" style="color:#08444B; text-decoration: none;" href="https://benchmarking.centraldataaccess.co.id"> | <i>Benchmarking</i> Laporan Keuangan  | </a>
+                    <a class="justify-content-start d-none d-md-block" style="color:#08444B; text-decoration: none;" href="https://benchmarking.centraldataaccess.co.id"> | <i>Benchmarking</i> Laporan Keuangan  | </a>
+                    <a class="btn d-none d-md-block ms-auto"></a>
                     @*<a class="my-auto d-none d-md-block" style="color:#08444B; text-decoration: none;" href="https://benchmarking.centraldataaccess.co.id/converter"> &nbsp; <i>Converter</i> Coretax</a>
                     @* <button class="navbar-toggler d-none d-md-block" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#046D76"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" /></svg></span>
                     </button> *@
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="d-flex" id="navbarSupportedContent">
                         @* <div class="btn-group ms-auto me-3 d-none d-lg-block">
                             <a href="#" class="btn active" aria-current="page">ID</a>
                             <a href="#" class="btn">EN</a>
@@ -128,7 +131,7 @@
                                 Masuk
                             </button>
                         }
-                        <ul class="navbar-nav me-auto my-3 mb-lg-0 d-lg-none d-flex align-items-end">
+                        <ul class="navbar-nav me-auto my-3 mb-lg-0 d-lg-none d-flex justify-content-end ">
                             @* <li class="nav-item ms-auto">
                                 <div class="btn-group ms-auto mb-3">
                                     <a href="#" class="btn active" aria-current="page">ID</a>
@@ -170,7 +173,7 @@
              <div class="col-12">
                     <p class="fs-6" style="color:white">PT Central Data Access</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <p class="fs-6 mb-1 footer-sub-title">
                         Jakarta
                     </p>
@@ -183,8 +186,19 @@
                     <a href="https://maps.app.goo.gl/Rx1dqQvG7x4WXYMp8" target="_blank" class="footer-description mb-3">
                         Jalan Baugenville Z7 No. 10,Kedung Waringin, Tanah Sareal, Kota Bogor, Jawa Barat
                     </a>
+                    <div class="col-12" style="margin: 40px 0 20PX 0;">
+                        <div class="btn-group" role="group" aria-label="LinkedIn">
+                            <a href="@linkedInLink" class="btn"><img style="width: 1.5rem" src="~/image/layout/linkedin.svg"></a>
+                        </div>
+                        <div class="btn-group" role="group" aria-label="TikTok">
+                            <a href="@tiktokLink" class="btn"><img src="~/image/layout/tik-tok.svg"></a>
+                        </div>
+                        <div class="btn-group" role="group" aria-label="Youtube">
+                            <a href="@youtbueLink" class="btn"><img src="~/image/layout/youtube.svg"></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <p class="fs-6 mb-1 footer-sub-title">
                         Telepon
                     </p>
@@ -210,60 +224,45 @@
                         cs@centraldataaccess.co.id
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="fs-6 mb-1 footer-sub-title">
-                                Perusahaan
-                            </p>
-                            <a href="https://centraldataaccess.co.id/tentang-cda/" class="footer-description ">
-                                Tentang CDA
-                            </a>
-                            <br />
-                            <a href="https://centraldataaccess.co.id/solusi-cda/" class="footer-description ">
-                                Solusi CDA
-                            </a>
-                            <br />
-                            <a href="https://benchmarking.centraldataaccess.co.id/" class="footer-description ">
-                                <i>Benchmarking</i> Laporan Keuangan
-                            </a>
-                            <br />
-                            <a href="https://centraldataaccess.co.id/category/pajak/" class="footer-description ">
-                                Info Perpajakan
-                            </a>
-                            <br />
-                            <a href="https://centraldataaccess.co.id/kontak-cda/" class="footer-description ">
-                                Kontak CDA
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <p class="fs-6 mb-1 footer-sub-title">
-                                Jasa Kami
-                            </p>
-                            <a class="footer-description mb-1" href="https://centraldataaccess.co.id/solusi-cda/">
-                                <i>Transfer Pricing Service</i>
-                            </a>
-                            <br />
-                            <a href="https://benchmarking.centraldataaccess.co.id/" class="footer-description mb-1">
-                                <i>Benchmarking</i> Laporan Keuangan
-                            </a>
-                            <br />
-                            <a href="https://centraldataaccess.co.id/solusi-cda/" class="footer-description mb-1">
-                                Jasa Perpajakan Umum
-                            </a>
-                        </div>
-                    </div>
+                <div class="col-md-3">
+                    <p class="fs-6 mb-1 footer-sub-title">
+                        Perusahaan
+                    </p>
+                    <a href="https://centraldataaccess.co.id/tentang-cda/" class="footer-description ">
+                        Tentang CDA
+                    </a>
+                    <br />
+                    <a href="https://centraldataaccess.co.id/solusi-cda/" class="footer-description ">
+                        Solusi CDA
+                    </a>
+                    <br />
+                    <a href="https://benchmarking.centraldataaccess.co.id/" class="footer-description ">
+                        <i>Benchmarking</i> Laporan Keuangan
+                    </a>
+                    <br />
+                    <a href="https://centraldataaccess.co.id/category/pajak/" class="footer-description ">
+                        Info Perpajakan
+                    </a>
+                    <br />
+                    <a href="https://centraldataaccess.co.id/kontak-cda/" class="footer-description ">
+                        Kontak CDA
+                    </a>
                 </div>
-                <div class="col-12">
-                    <div class="btn-group" role="group" aria-label="LinkedIn">
-                        <a href="@linkedInLink" class="btn"><img style="width: 1.5rem" src="~/image/layout/linkedin.svg"></a>
-                    </div>
-                    <div class="btn-group" role="group" aria-label="TikTok">
-                        <a href="@tiktokLink" class="btn"><img src="~/image/layout/tik-tok.svg"></a>
-                    </div>
-                    <div class="btn-group" role="group" aria-label="Youtube">
-                        <a href="@youtbueLink" class="btn"><img src="~/image/layout/youtube.svg"></a>
-                    </div>
+                <div class="col-md-3">
+                    <p class="fs-6 mb-1 footer-sub-title">
+                        Jasa Kami
+                    </p>
+                    <a class="footer-description mb-1" href="https://centraldataaccess.co.id/solusi-cda/">
+                        <i>Transfer Pricing Service</i>
+                    </a>
+                    <br />
+                    <a href="https://benchmarking.centraldataaccess.co.id/" class="footer-description mb-1">
+                        <i>Benchmarking</i> Laporan Keuangan
+                    </a>
+                    <br />
+                    <a href="https://centraldataaccess.co.id/solusi-cda/" class="footer-description mb-1">
+                        Jasa Perpajakan Umum
+                    </a>
                 </div>
                 <div class="col-12 mt-5 pt-3 d-flex justify-content-between border-top" style="opacity: 50%">
                     <p class="footer-description">Copyright. All Rights Reserved 2024</p>
