@@ -73,12 +73,12 @@ function jenisChange() {
 
 function klasifikasiChange() {
     var klasifikasiusaha = document.getElementById('klasifikasiusaha').ej2_instances[0];
-    var subklasifikasiusaha = document.getElementById('subklasifikasiusaha').ej2_instances[0];
+    var metode = document.getElementById('subklasifikasiusaha').ej2_instances[0];
 
     var tempQuery = new ej.data.Query().where('KlasifikasiUsaha', 'equal', klasifikasiusaha.value);
-    subklasifikasiusaha.query = tempQuery;
-    subklasifikasiusaha.text = null;
-    subklasifikasiusaha.dataBind();
+    metode.query = tempQuery;
+    metode.text = null;
+    metode.dataBind();
 };
 
 function subklasifikasiChange() {
