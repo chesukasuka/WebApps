@@ -59,7 +59,7 @@
     </div>
     <div class="col-md-6 px-3">
         <p class="fs-4" style="color:white; text-align: justify">
-            Kami menyediakan <span class="fst-italic">Benchmarking</span> Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya) untuk menentukan harga <i>transfer</i>.
+            Kami menyediakan <span class="fst-italic">Benchmarking</span> Data Pembanding Eksternal menurut klasifikasi industri usaha (Industri Garmen, Industri Furnitur, dan Industri lainnya) untuk kebutuhan penyusunan <i>Transfer Pricing Documents</i>.
         </p>
     </div>
     <div class="col-12 d-none d-lg-block mt-3">
@@ -84,7 +84,7 @@
                         Berdasarkan data pembanding milik Central Data Access yang telah diolah berdasarkan
                         klasifikasi usaha, batas kewajaran harga transfer sesuai dengan Prinsip Kewajaran dan
                         Kelaziman Usaha, margin penentuan harga transfer yang ditetapkan sebaiknya berada dalam
-                        pertimbangan rentang kewajaran (Pasal 12 ayat (1) PMK No. 172 Tahun 2023).
+                        pertimbangan rentang kewajaran (Pasal 12 ayat (6) PMK No. 172 Tahun 2023).
                     </p>
                 </div>
             </div>
@@ -105,10 +105,10 @@
                                 @Html.EJS().ComboBox("tahun").Placeholder("Rentang Tahun").Value("1 Tahun").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahun).Render()
                                 @Html.EJS().ComboBox("metode").Placeholder("Metode").Value("Resale Price Methode").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.metode).Change("metodeChange").Fields(new ComboBoxFieldSettings { Text = "Metode", Value = "Metode" }).Render()
                                 @Html.EJS().ComboBox("ratio").Placeholder("Rasio").Value("Resale Price Methode").CssClass("form-control tentang_rasio").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()
-                                <div id="penjelasanMetode" class="to-hide hidden">
+                                @* <div id="penjelasanMetode" class="to-hide hidden">
                                     <p class="muted" style="margin-bottom: 0px">Metode</p>
                                     <small id="tentang_metode" style="font-size: 0.7rem"></small>
-                                </div>
+                                </div> *@
                                 <div id="penjelasan" class="to-hide hidden">
                                     <p class="muted" style="margin-bottom: 0px">Rumus Rasio Keuangan</p>
                                     <small id="tentang_rasio" style="font-size: 0.7rem"></small>
@@ -238,11 +238,21 @@
                                 </table>
                             </div>
                         </div>
+                        <div class="col-md-12 mb-3 d-flex justify-content-start">
+                            <div class="form-check">
+                                <label class="form-check-label" for="term">
+                                    Data <span class="fst-italic">Benchmarking</span> ini ditujukan sebagai informasi umum dan tidak dimaksudkan sebagai rekomendasi spesifik. Untuk penjelasan lebih lanjut mengenai hasil analisis atau perusahaan pembanding, silahkan konsultasi lebih lanjut melalui kontak resmi PT Central Data Access. (CDA)
+                                </label>
+                                <label class="form-check-label" for="term">
+                                    CDA tidak bertanggung jawab atas penggunaan data dan ketidaksesuaian data untuk kebutuhan eksternal kecuali telah melalui tahapan konsultasi resmi melalui Hotline CDA: 0822-1001-9696.
+                                </label>
+                            </div>
+                        </div>
                         <div class="col-md-8 mb-3 d-flex justify-content-start">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="term">
                                 <label class="form-check-label" for="term">
-                                    Dengan ini saya menyetujui sesuai dengan <a href="https://centraldataaccess.co.id/wp-content/uploads/2024/11/TC-FOOTER-WEB.pdf">Syarat & Ketentuan</a> dari Central Data Access.
+                                    Dengan ini saya menyetujui sesuai dengan Syarat & Ketentuan dari Central Data Access.
                                 </label>
                             </div>
                         </div>
