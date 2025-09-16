@@ -100,23 +100,23 @@ function metodeChange() {
     ratio.text = null;
     ratio.dataBind();
 
-    let text = document.getElementById('tentang_metode');
-    console.log(metode.value)
-    if (metode.value == 'Cost Plus Methode') {
-        text.innerHTML = "Cost Plus Method dapat diterapkan kepada perusahaan pabrikan atau penyedia jasa yang tidak menanggung risiko bisnis yang signifikan."
-        document.getElementById('penjelasanMetode').classList.remove('hidden');
-    }
-    else if (metode.value == 'Transactional Net Margin Methode') {
-        text.innerHTML = "Transactiona Net Margin Method diterapkan pada perusahaan yang memiliki risiko bisnis tinggi."
-        document.getElementById('penjelasanMetode').classList.remove('hidden');
-    }
-    else if (metode.value == 'Resale Price Methode') {
-        text.innerHTML = "Resale Price Method dapat diterapkan kepada perusahaan distributor yang melakukan penjualan kembali dan tidak memberikan nilai tambah yang signifikan terhadap produk yang dijual."
-        document.getElementById('penjelasanMetode').classList.remove('hidden');
-    }
-    else {
-        document.getElementById('penjelasanMetode').classList.add('hidden');
-    }
+    // let text = document.getElementById('tentang_metode');
+    // console.log(metode.value)
+    // if (metode.value == 'Cost Plus Methode') {
+    //     text.innerHTML = "Cost Plus Method dapat diterapkan kepada perusahaan pabrikan atau penyedia jasa yang tidak menanggung risiko bisnis yang signifikan."
+    //     document.getElementById('penjelasanMetode').classList.remove('hidden');
+    // }
+    // else if (metode.value == 'Transactional Net Margin Methode') {
+    //     text.innerHTML = "Transactiona Net Margin Method diterapkan pada perusahaan yang memiliki risiko bisnis tinggi."
+    //     document.getElementById('penjelasanMetode').classList.remove('hidden');
+    // }
+    // else if (metode.value == 'Resale Price Methode') {
+    //     text.innerHTML = "Resale Price Method dapat diterapkan kepada perusahaan distributor yang melakukan penjualan kembali dan tidak memberikan nilai tambah yang signifikan terhadap produk yang dijual."
+    //     document.getElementById('penjelasanMetode').classList.remove('hidden');
+    // }
+    // else {
+    //     document.getElementById('penjelasanMetode').classList.add('hidden');
+    // }
 };
 
 function ratioChange() {
@@ -129,7 +129,7 @@ function ratioChange() {
     let text = document.getElementById('tentang_rasio');
     console.log(games.value)
     if (games.value == 'Cost Plus Methode') {
-        text.innerHTML = "Cost Plus Methode (CPM) : Gross Profit / Cost Plus Methode"
+        text.innerHTML = "Cost Plus Methode (CPM) : Gross Profit / COGS"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
     else if (games.value == 'Net Cost Plus Methode' || games.value == 'Net Cost Plus Method') {
