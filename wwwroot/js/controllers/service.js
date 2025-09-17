@@ -128,16 +128,16 @@ function ratioChange() {
 
     let text = document.getElementById('tentang_rasio');
     console.log(games.value)
-    if (games.value == 'Cost Plus Methode') {
-        text.innerHTML = "Cost Plus Methode (CPM) : Gross Profit / COGS"
+    if (games.value == 'Gross Profit Mark Up') {
+        text.innerHTML = "Gross Profit Mark Up (GPM) : Gross Profit / COGS"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
-    else if (games.value == 'Net Cost Plus Methode' || games.value == 'Net Cost Plus Method') {
+    else if (games.value == 'Net Cost Plus Method' || games.value == 'Net Cost Plus Method') {
         text.innerHTML = "Net Cost Plus Methode (NCPM) : Operating Profit / (Cost Plus Methode + Operating Expense)"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
-    else if (games.value == 'Resale Price Methode') {
-        text.innerHTML = "Resale Price Methode (RPM) : Gross Profit / Operating Revenue"
+    else if (games.value == 'Gross Profit') {
+        text.innerHTML = "Gross Profit (GP) : Gross Profit / Operating Revenue"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
     else if (games.value == 'Return On Sales' || games.value == 'Return on Sales') {
@@ -262,16 +262,16 @@ function loadCustomers() {
     var tahun2 = 0;
 
     if (tahun == "1 Tahun") {
-        var tahun1 = tahunpajak;
-        var tahun2 = tahunpajak;
+        var tahun1 = tahunpajak - 1;
+        var tahun2 = tahunpajak - 1;
     }
     else if (tahun == "3 Tahun") {
-        var tahun1 = tahunpajak - 2;
-        var tahun2 = tahunpajak;
+        var tahun1 = tahunpajak - 3;
+        var tahun2 = tahunpajak - 1;
     }
     else if (tahun == "5 Tahun") {
-        var tahun1 = tahunpajak - 4;
-        var tahun2 = tahunpajak;
+        var tahun1 = tahunpajak - 5;
+        var tahun2 = tahunpajak - 1;
     }
     else {
         var tahun1 = tahunpajak;
@@ -390,15 +390,15 @@ function loadCustomers() {
         if (!penjualan.value || !hargapokokpenjualan.value || !bebanoperasional.value) {
             testedparty.value = 0
         }
-        else if (rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method") {
+        else if (rasio.value == "Gross Profit" || rasio.value == "Resale Price Method") {
             testedparty.value = (penjualan.value - hargapokokpenjualan.value) / penjualan.value;
             testedparty.value = Math.round(testedparty.value * 100) /100
         }
-        else if (rasio.value == "Cost Plus Methode" || rasio.value == "Cost Plus Method") {
+        else if (rasio.value == "Gross Profit Mark Up" || rasio.value == "Cost Plus Method") {
             testedparty.value = (penjualan.value - hargapokokpenjualan.value) / hargapokokpenjualan.value;
             testedparty.value = Math.round(testedparty.value * 100) / 100
         }
-        else if (rasio.value == "Net Cost Plus Methode" || rasio.value == "Net Cost Plus Method") {
+        else if (rasio.value == "Net Cost Plus Method" || rasio.value == "Net Cost Plus Method") {
             testedparty.value = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / (hargapokokpenjualan.value + bebanoperasional.value);
             testedparty.value = Math.round(testedparty.value * 100) / 100
         }
@@ -446,16 +446,16 @@ function generatePDF() {
     var tahun2 = 0;
 
     if (tahun == "1 Tahun") {
-        var tahun1 = tahunpajak;
-        var tahun2 = tahunpajak;
+        var tahun1 = tahunpajak - 1;
+        var tahun2 = tahunpajak - 1;
     }
     else if (tahun == "3 Tahun") {
-        var tahun1 = tahunpajak - 2;
-        var tahun2 = tahunpajak;
+        var tahun1 = tahunpajak - 3;
+        var tahun2 = tahunpajak - 1;
     }
     else if (tahun == "5 Tahun") {
-        var tahun1 = tahunpajak - 4;
-        var tahun2 = tahunpajak;
+        var tahun1 = tahunpajak - 5;
+        var tahun2 = tahunpajak - 1;
     }
     else {
         var tahun1 = tahunpajak;
@@ -475,15 +475,15 @@ function generatePDF() {
         labaoperasional = penjualan.value - hargapokokpenjualan.value - bebanoperasional.value;
 
         var testedparty = 0;
-        if (rasio.value == "Resale Price Methode" || rasio.value == "Resale Price Method") {
+        if (rasio.value == "Gross Profit" || rasio.value == "Resale Price Method") {
             testedparty = (penjualan.value - hargapokokpenjualan.value) / penjualan.value;
             testedparty = Math.round(testedparty * 100) / 100
         }
-        else if (rasio.value == "Cost Plus Methode" || rasio.value == "Cost Plus Method") {
+        else if (rasio.value == "Gross Profit Mark Up" || rasio.value == "Cost Plus Method") {
             testedparty = (penjualan.value - hargapokokpenjualan.value) / hargapokokpenjualan.value;
             testedparty = Math.round(testedparty * 100) / 100
         }
-        else if (rasio.value == "Net Cost Plus Methode" || rasio.value == "Net Cost Plus Method") {
+        else if (rasio.value == "Net Cost Plus Method" || rasio.value == "Net Cost Plus Method") {
             testedparty = (penjualan.value - hargapokokpenjualan.value - bebanoperasional.value) / (hargapokokpenjualan.value + bebanoperasional.value);
             testedparty = Math.round(testedparty * 100) / 100
         }
