@@ -129,7 +129,7 @@ function ratioChange() {
     let text = document.getElementById('tentang_rasio');
     console.log(games.value)
     if (games.value == 'Gross Profit Mark Up') {
-        text.innerHTML = "Gross Profit Mark Up (GPM) : Gross Profit / COGS"
+        text.innerHTML = "Gross Profit Mark Up : Gross Profit / COGS"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
     else if (games.value == 'Net Cost Plus Method' || games.value == 'Net Cost Plus Method') {
@@ -137,7 +137,7 @@ function ratioChange() {
         document.getElementById('penjelasan').classList.remove('hidden');
     }
     else if (games.value == 'Gross Profit') {
-        text.innerHTML = "Gross Profit (GP) : Gross Profit / Operating Revenue"
+        text.innerHTML = "Gross Profit : Gross Profit / Operating Revenue"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
     else if (games.value == 'Return On Sales' || games.value == 'Return on Sales') {
