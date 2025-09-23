@@ -133,7 +133,7 @@ function ratioChange() {
         document.getElementById('penjelasan').classList.remove('hidden');
     }
     else if (games.value == 'Net Cost Plus Method' || games.value == 'Net Cost Plus Method') {
-        text.innerHTML = "Net Cost Plus Methode (NCPM) : Operating Profit / (Cost Plus Methode + Operating Expense)"
+        text.innerHTML = "Net Cost Plus Methode (NCPM) : Operating Profit / (COGS + Operating Expense)"
         document.getElementById('penjelasan').classList.remove('hidden');
     }
     else if (games.value == 'Gross Profit') {
