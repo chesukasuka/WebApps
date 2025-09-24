@@ -9,57 +9,57 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApps
 build_property.RootNamespace = WebApps
-build_property.ProjectDir = C:\Central Data Acces\Project web\Web Benchmark\Webapps 2\WebApps\
+build_property.ProjectDir = c:\Central Data Acces\Project web\Web Benchmark\Webapps 2\WebApps\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Central Data Acces\Project web\Web Benchmark\Webapps 2\WebApps
+build_property.MSBuildProjectDirectory = c:\Central Data Acces\Project web\Web Benchmark\Webapps 2\WebApps
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/CONVERTER/Converter.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/CONVERTER/Converter.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcQ09OVkVSVEVSXENvbnZlcnRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/HOME/Index.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/HOME/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcSE9NRVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/HOME/Privacy.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/HOME/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcSE9NRVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SERVICE/Benchmarking.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SERVICE/Benchmarking.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcU0VSVklDRVxCZW5jaG1hcmtpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SERVICE/BenchmarkingV2.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SERVICE/BenchmarkingV2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcU0VSVklDRVxCZW5jaG1hcmtpbmdWMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SHARED/Error.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SHARED/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcU0hBUkVEXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SHARED/_LayuotV2.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SHARED/_LayuotV2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcU0hBUkVEXF9MYXl1b3RWMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SHARED/_ValidationScriptsPartial.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SHARED/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcU0hBUkVEXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/_ViewImports.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/_ViewStart.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SHARED/_Layout.cshtml]
+[c:/Central Data Acces/Project web/Web Benchmark/Webapps 2/WebApps/VIEWS/SHARED/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VklFV1NcU0hBUkVEXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-xvn0g8uika

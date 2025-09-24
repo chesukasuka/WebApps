@@ -282,6 +282,12 @@ function loadCustomers() {
     var hargapokokpenjualan = document.getElementById("hargapokokpenjualan").ej2_instances[0];
     var bebanoperasional = document.getElementById("bebanoperasional").ej2_instances[0];
     var namaperusahaan = document.getElementById("namaperusahaan").ej2_instances[0].value;
+    
+    // var labakotor = document.getElementById("labakotor").ej2_instances[0];
+    // var labaoperasional = document.getElementById("labaoperasional").ej2_instances[0];
+
+    // labakotor.value = penjualan.value - hargapokokpenjualan.value;
+    // labaoperasional.value = penjualan.value - hargapokokpenjualan.value - bebanoperasional.value;
 
     if (penjualan.value == null || hargapokokpenjualan.value == null || bebanoperasional.value == null || namaperusahaan == null)
     {
