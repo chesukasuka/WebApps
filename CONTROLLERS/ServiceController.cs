@@ -36,8 +36,27 @@ namespace WebApps.Controllers
             {
                 //ViewBag.sliderValue = new int[] { UtilityController.dtYear-1, UtilityController.dtYear-1 };
 
-                ViewBag.tahun = new string[] { "1 Tahun", "3 Tahun", "5 Tahun"};
+                // ViewBag.tahun = new string[] { "1 Tahun", "3 Tahun", "5 Tahun"};
+                // ViewBag.tahunpajak = new string[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024" };
+
                 ViewBag.tahunpajak = new string[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024" };
+
+                // ambil query
+                // string selectedYear = "2021";
+                // ViewBag.selectedYear = selectedYear;
+
+                // // isi ViewBag.tahun sesuai pilihan
+                // if (int.Parse(selectedYear) <= 2019)
+                // {
+                //     ViewBag.tahun = new string[] { "1 Tahun" };
+                // } else if (int.Parse(selectedYear) <= 2020)
+                // {
+                //     ViewBag.tahun = new string[] { "1 Tahun", "3 Tahun" };
+                // }
+                // else
+                // {
+                //     ViewBag.tahun = new string[] { "1 Tahun","3 Tahun", "5 Tahun" };
+                // }
 
                 ViewBag.jenis = _context.Benchmarking
                 .Select(z => new BenchmarkingModel { JenisKegiatanUsaha = z.JenisKegiatanUsaha })

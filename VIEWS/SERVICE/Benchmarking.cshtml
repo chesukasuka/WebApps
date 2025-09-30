@@ -95,14 +95,15 @@
             <div class="card p-2 mb-3 rounded">
                 <div class="card-body" style="color:#046D76">
                     <div class="row mb-3">
+                        <p style="text-decoration: none; font-weight: 700; color:#046D76; margin-bottom: 20px;">Video Tutorial Web <i>Benchmarking</i> CDA : <a href="https://youtu.be/vMx2JaXJUX4"><u style="text-decoration: none; font-weight: 400; color:#046D76; margin-bottom: 20px;">Klik Disini</u></a></p>
                         <div class="col-md-6 mb-3">
-                            <h6 class="card-title">Industri Pembanding</h6>
+                            <h6 class="card-title">Industri Pembandingan</h6>
                             <div class="card-body" style="padding: unset">
                                 @Html.EJS().ComboBox("jeniskegiatanusaha").Placeholder("Jenis Kegiatan Usaha").Value("Manufaktur").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.jenis).Change("jenisChange").Fields(new ComboBoxFieldSettings { Text = "JenisKegiatanUsaha", Value = "JenisKegiatanUsaha" }).Render()
                                 @Html.EJS().ComboBox("klasifikasiusaha").Placeholder("Klasifikasi Usaha").Value("Industri Agrikultur").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").Change("klasifikasiChange").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.klasifikasi).Fields(new ComboBoxFieldSettings { Text = "KlasifikasiUsaha", Value = "KlasifikasiUsaha" }).Render()
                                 @Html.EJS().ComboBox("subklasifikasiusaha").Placeholder("Subklasifikasi Usaha").Value("Produk Pupuk Secara Umum").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").Change("subklasifikasiChange").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.subklasifikasi).Fields(new ComboBoxFieldSettings { Text = "SubKlasifikasiUsaha", Value = "SubKlasifikasiUsaha" }).Render()
-                                @Html.EJS().ComboBox("tahunpajak").Value("2017").CssClass("form-control").CssClass("form-control").Placeholder("Tahun Pajak").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahunpajak).Render()
-                                @Html.EJS().ComboBox("tahun").Placeholder("Rentang Tahun").Value("1 Tahun").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahun).Render()
+                                @Html.EJS().ComboBox("tahunpajak").Value("2017").CssClass("form-control").CssClass("form-control").Placeholder("Tahun Pajak").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<object>)ViewBag.tahunpajak).Change("onTahunChange").Render()
+                                @Html.EJS().ComboBox("tahun").Placeholder("Rentang Tahun").Value("1 Tahun").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").Render()
                                 @Html.EJS().ComboBox("metode").Placeholder("Metode").Value("Resale Price Methode").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.metode).Change("metodeChange").Fields(new ComboBoxFieldSettings { Text = "Metode", Value = "Metode" }).Render()
                                 @Html.EJS().ComboBox("ratio").Placeholder("Rasio").Value("Resale Price Methode").CssClass("form-control tentang_rasio").FloatLabelType(FloatLabelType.Auto).PopupHeight("220px").DataSource((IEnumerable<BenchmarkingModel>)ViewBag.ratio).Change("ratioChange").Fields(new ComboBoxFieldSettings { Text = "Rasio", Value = "Rasio" }).Render()
                                 @* <div id="penjelasanMetode" class="to-hide hidden">
@@ -112,6 +113,9 @@
                                 <div id="penjelasan" class="to-hide hidden">
                                     <p class="muted" style="margin-bottom: 0px">Rumus Rasio Keuangan</p>
                                     <small id="tentang_rasio" style="font-size: 0.7rem"></small>
+                                </div>
+                                <div style="margin-top: 15px">
+                                    <p style="margin-bottom: 0px; font-size: 15px">*) Apabila hasil perhitungan tidak muncul disebabkan belum tersedianya data pembanding untuk beberapa industri.</p>
                                 </div>
                             </div>
                         </div>
@@ -131,6 +135,7 @@
                                     </a>
                                 </p>
                                 @Html.EJS().Button("btnHitung").Content("Hitung").CssClass("btn btn-tosca btn-hitung rounded mt-3 w-100 h-25").Render()
+                                @* <button id="myBtn">Open Modal</button> *@
                                 @Html.EJS().Button("btnReset").Content("Reset").CssClass("btn btn-tosca btn-reset rounded mt-3 w-100 h-25").Render()
                                 @* <button type="button" onclick="generatePDF()" class="btn btn-tosca rounded mt-3 w-100 h-25">Unduh Laporan</button> *@
                             </div>
@@ -308,7 +313,89 @@
             </div>
         </div>
     </div> *@
+    @* JS TAHUN *@
+    <script>
+        function onTahunChange(args) {
+            var selectedYear = args.value; // tahun yang dipilih user
+            var tahun = document.getElementById("tahun").ej2_instances[0];
+            console.log("Tahun Pajak dipilih =", selectedYear);
+
+            var hasilFilter = [];
+            if (parseInt(selectedYear) <= 2019) {
+                hasilFilter = ["1 Tahun"];
+            } else if (parseInt(selectedYear) <= 2021) {
+                hasilFilter = ["1 Tahun", "3 Tahun"];
+            } else {
+                hasilFilter = ["1 Tahun", "3 Tahun", "5 Tahun"];
+            }
+
+            console.log("Hasil filter =", hasilFilter);
+
+            // contoh: update dropdown lain (tahun)
+            var tahunDropdown = document.getElementById("tahun").ej2_instances[0];
+            tahunDropdown.dataSource = hasilFilter;
+            tahunDropdown.dataBind();
+            tahun.value = null;
+            tahun.dataBind();
+        }
+    </script>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modalan">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Mohon Maaf Data Belum Tersedia di Website Kami. Silahkan Hubungi Call Center Kami Untuk Mendapatkan Pengalaman yang Lebih Baik</p>
+        </div>
+
+    </div>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+        /* The Modal (background) */
+        .modalan {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        padding-top: 100px; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+        }
+
+        /* Modal Content */
+        .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%;
+        top: 20%;
+        }
+
+        /* The Close Button */
+        .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        }
+    </style>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script src="~/js/controllers/service.js"></script>
+
+
