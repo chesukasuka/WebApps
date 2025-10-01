@@ -4089,11 +4089,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\users\\lenovo\\WebApps\\WebApps.csproj",
+      "projectUniqueName": "C:\\Users\\lenovo\\WebApps\\WebApps.csproj",
       "projectName": "WebApps",
-      "projectPath": "C:\\users\\lenovo\\WebApps\\WebApps.csproj",
+      "projectPath": "C:\\Users\\lenovo\\WebApps\\WebApps.csproj",
       "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\users\\lenovo\\WebApps\\obj\\",
+      "outputPath": "C:\\Users\\lenovo\\WebApps\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"

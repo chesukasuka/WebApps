@@ -434,7 +434,7 @@ function loadCustomers() {
           let modal = document.getElementById("myModal");
           modal.style.display = "block";
           setTimeout(function () {
-            modal.style.display = "none";
+            modal.style.display = "block";
           }, 5000);
 
           // Tombol close
