@@ -114,9 +114,6 @@
                                     <p class="muted" style="margin-bottom: 0px">Rumus Rasio Keuangan</p>
                                     <small id="tentang_rasio" style="font-size: 0.7rem"></small>
                                 </div>
-                                <div style="margin-top: 15px">
-                                    <p style="margin-bottom: 0px; font-size: 15px">*) Apabila hasil perhitungan tidak muncul disebabkan belum tersedianya data pembanding untuk beberapa industri.</p>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
@@ -128,12 +125,15 @@
                                 @Html.EJS().NumericTextBox("labakotor").Format("N0").Placeholder("Laba Kotor").CssClass("form-control bg-disabled").Readonly(true).FloatLabelType(FloatLabelType.Auto).Render()
                                 @Html.EJS().NumericTextBox("bebanoperasional").Format("N0").Placeholder("Beban Operasional").CssClass("form-control").FloatLabelType(FloatLabelType.Auto).Render()
                                 @Html.EJS().NumericTextBox("labaoperasional").Format("N0").Placeholder("Laba Operasional").CssClass("form-control bg-disabled").Readonly(true).FloatLabelType(FloatLabelType.Auto).Render()
-                                @Html.EJS().TextBox("testedparty").Placeholder("Tested Party (%)").CssClass("form-control bg-disabled").Readonly(true).FloatLabelType(FloatLabelType.Auto).Render()
-                                <p class="muted">
+                                <p class="muted" style="font-size: 13px; margin-bottom: 0px; margin-top: 10px">
                                     Tested Party <a href="#" data-bs-toggle="tooltip" data-bs-title="Tested Party adalah Rasio Pihak yang Diuji.">
                                         <span><img src="~/image/service/info.svg" /></span>
                                     </a>
                                 </p>
+                                @Html.EJS().TextBox("testedparty").Placeholder("Tested Party (%)").CssClass("form-control bg-disabled").Readonly(true).FloatLabelType(FloatLabelType.Auto).Render()
+                                <div style="margin-top: 10px">
+                                    <p style="margin-bottom: 0px; font-size: 13px">*) Apabila hasil perhitungan tidak muncul disebabkan belum tersedianya data pembanding untuk beberapa industri.</p>
+                                </div>
                                 @Html.EJS().Button("btnHitung").Content("Hitung").CssClass("btn btn-tosca btn-hitung rounded mt-3 w-100 h-25").Render()
                                 @* <button id="myBtn">Open Modal</button> *@
                                 @Html.EJS().Button("btnReset").Content("Reset").CssClass("btn btn-tosca btn-reset rounded mt-3 w-100 h-25").Render()
