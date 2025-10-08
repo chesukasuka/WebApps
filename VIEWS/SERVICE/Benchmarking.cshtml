@@ -260,7 +260,7 @@
                         </div>
                         <div class="col-md-8 mb-3 d-flex justify-content-start">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="term">
+                                <input class="form-check-input" type="checkbox" value="" id="term" onchange="check()">
                                 <label class="form-check-label" for="term" style="font-size: 11px">
                                     Dengan ini saya menyetujui sesuai dengan <b style="font-weight: 900;">Syarat & Ketentuan</b> dari Central Data Access.
                                 </label>
@@ -366,6 +366,122 @@
 
         /* The Modal (background) */
         .modalan {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        padding-top: 100px; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+        font-size: 18px;
+        font-weight: 500;
+        }
+
+        /* Modal Content */
+        .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px 30px;
+        border: 1px solid #888;
+        width: 50%;
+        top: 20%;
+        }
+
+        /* The Close Button */
+        .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+
+        .Image{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .cs{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .Image img{
+            width: 50%;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function check() {
+            let checkbox = document.getElementById("term");
+            let download = document.getElementById("btnDownload");
+
+            fetch("/Service/CheckLogin") // pastikan URL benar, bukan /Sevice
+                .then(response => response.json())
+                .then(data => {
+                if (data.isLoggedIn) {
+                    // console.log("✅ User sudah login");
+
+                    // Jika sudah login dan mencentang checkbox
+                    if (checkbox.checked) {
+                    download.disabled = false; // aktifkan tombol download
+                    } else {
+                    download.disabled = true; // nonaktifkan kalau belum dicentang
+                    }
+
+                } else {
+                    // console.log("❌ User belum login");
+                    checkbox.checked = false; // batalkan centang
+                    download.disabled = true; // pastikan tombol tetap tidak aktif
+                    const modal = document.getElementById("loginCheck");
+                    modal.style.display = "block";
+
+                    // Tutup otomatis setelah 5 detik
+                    setTimeout(() => {
+                    modal.style.display = "none";
+                    }, 5000);
+                }
+                })
+                .catch(error => {
+                console.error("Error saat memeriksa login:", error);
+                download.disabled = true; // jika error, tetap nonaktif
+            });
+        }
+    </script>
+    <div id="loginCheck" class="modalanLogin">
+
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="Image">
+                <img src="~/image/layout/logo.png"/>
+            </div>
+            <p>Silahkan Login Terlebih Dahulu Untuk Mengunduh Data</p>
+        </div>
+
+    </div>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+        /* The Modal (background) */
+        .modalanLogin {
         display: none; 
         position: fixed; 
         z-index: 1; 

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/$safeprojectname$.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/26.1.42/material.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.syncfusion.com/ej2/26.1.42/dist/ej2.min.js"></script>
 </head>
 <body>
@@ -34,9 +35,11 @@
                                 <label for="login_username" class="form-label">Email or username</label>
                                 <input type="text" class="form-control" name="username" id="login_email">
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3" style="position: relative;">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="password" id="password">
+                                 <input class="form-control" name="password" id="password">
+                                <i class="far fa-eye" id="eye" 
+                                    style="position: absolute; right: 15px; top: 45px; cursor: pointer;"></i>
                             </div>
                             <div class="mb-3">
                                 <input type="submit" class="btn btn-tosca btn-primary w-100">
@@ -275,6 +278,20 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <ejs-scripts></ejs-scripts>
+    <script>
+     const password = document.querySelector('#password');
+     const eye = document.querySelector('#eye');
+
+     eye.addEventListener('click',function(){
+        if(password.type == "password"){
+            password.setAttribute('type', 'text');
+            this.classList.replace('fa-eye-slash', 'fa-eye');
+        } else {
+            password.setAttribute('type', 'password');
+            this.classList.replace('fa-eye', 'fa-eye-slash');
+        }
+     })
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 
     <!-- Syncfusion ASP.NET MVC Script Manager -->

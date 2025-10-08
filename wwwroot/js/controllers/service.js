@@ -191,15 +191,48 @@ document.getElementById("btnReset").onclick = () => {
   resetAll();
 };
 
-document.getElementById("term").addEventListener("change", function () {
-  let checkbox = document.getElementById("term");
-  let download = document.getElementById("btnDownload");
-  if (checkbox.checked) {
-    download.disabled = false; // Enable the button
-  } else {
-    download.disabled = true; // Disable the button
-  }
-});
+// document.getElementById("term").addEventListener("change", function () {
+//   let checkbox = document.getElementById("term");
+//   let download = document.getElementById("btnDownload");
+//   if (checkbox.checked) {
+//     download.disabled = false; // Enable the button
+//   } else {
+//     download.disabled = true; // Disable the button
+//   }
+// });
+
+
+// function check() {
+//   let checkbox = document.getElementById("term");
+//   let download = document.getElementById("btnDownload");
+
+//   fetch("/Service/CheckLogin") // pastikan URL benar, bukan /Sevice
+//     .then(response => response.json())
+//     .then(data => {
+//       if (data.isLoggedIn) {
+//         console.log("✅ User sudah login");
+
+//         // Jika sudah login dan mencentang checkbox
+//         if (checkbox.checked) {
+//           download.disabled = false; // aktifkan tombol download
+//         } else {
+//           download.disabled = true; // nonaktifkan kalau belum dicentang
+//         }
+
+//       } else {
+//         console.log("❌ User belum login");
+//         checkbox.checked = false; // batalkan centang
+//         download.disabled = true; // pastikan tombol tetap tidak aktif
+//         alert("Silakan login terlebih dahulu sebelum mengunduh.");
+//       }
+//     })
+//     .catch(error => {
+//       console.error("Error saat memeriksa login:", error);
+//       download.disabled = true; // jika error, tetap nonaktif
+//     });
+// }
+
+
 
 function resetAll() {
   // Reset elements with class 'to-hide' and 'to-show'

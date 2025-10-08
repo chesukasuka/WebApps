@@ -326,6 +326,18 @@ namespace WebApps.Controllers
             return Json(oResult);
         }
 
+        public IActionResult CheckLogin()
+        {
+            var token = HttpContext.Session.GetString("Token");
+            
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new { isLoggedIn = false });
+            }
+            return Json(new { isLoggedIn = true });
+        }
+
+
         public List<Dictionary<string, object>> Hitung2Function(string rasio, string jenis, string klasifikasi, int tahun1, int tahun2)
         {
             List<Dictionary<string, object>> oResult = new List<Dictionary<string, object>>();
