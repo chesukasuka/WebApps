@@ -191,15 +191,15 @@ document.getElementById("btnReset").onclick = () => {
   resetAll();
 };
 
-// document.getElementById("term").addEventListener("change", function () {
-//   let checkbox = document.getElementById("term");
-//   let download = document.getElementById("btnDownload");
-//   if (checkbox.checked) {
-//     download.disabled = false; // Enable the button
-//   } else {
-//     download.disabled = true; // Disable the button
-//   }
-// });
+document.getElementById("term").addEventListener("change", function () {
+  let checkbox = document.getElementById("term");
+  let download = document.getElementById("btnDownload");
+  if (checkbox.checked) {
+    download.disabled = false; // Enable the button
+  } else {
+    download.disabled = true; // Disable the button
+  }
+});
 
 
 // function check() {

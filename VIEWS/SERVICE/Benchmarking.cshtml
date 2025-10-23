@@ -132,7 +132,7 @@
                                 </p>
                                 @Html.EJS().TextBox("testedparty").Placeholder("Tested Party (%)").CssClass("form-control bg-disabled").Readonly(true).FloatLabelType(FloatLabelType.Auto).Render()
                                 <div style="margin-top: 10px">
-                                    <p style="margin-bottom: 0px; font-size: 13px">*) Apabila hasilnya perhitungan Tested Party tidak muncul disebabkan belum tersedianya data pembanding untuk beberapa industri.</p>
+                                    <p style="margin-bottom: 0px; font-size: 13px">*) Apabila hasil perhitungan Tested Party tidak muncul disebabkan belum tersedianya data pembanding untuk beberapa industri.</p>
                                 </div>
                                 @Html.EJS().Button("btnHitung").Content("Hitung").CssClass("btn btn-tosca btn-hitung rounded mt-3 w-100 h-25").Render()
                                 @* <button id="myBtn">Open Modal</button> *@
@@ -428,41 +428,41 @@
     </style>
 
     <script>
-        function check() {
-            let checkbox = document.getElementById("term");
-            let download = document.getElementById("btnDownload");
+        // function check() {
+        //     let checkbox = document.getElementById("term");
+        //     let download = document.getElementById("btnDownload");
 
-            fetch("/Service/CheckLogin") // pastikan URL benar, bukan /Sevice
-                .then(response => response.json())
-                .then(data => {
-                if (data.isLoggedIn) {
-                    // console.log("✅ User sudah login");
+        //     fetch("/Service/CheckLogin") // pastikan URL benar, bukan /Sevice
+        //         .then(response => response.json())
+        //         .then(data => {
+        //         if (data.isLoggedIn) {
+        //             // console.log("✅ User sudah login");
 
-                    // Jika sudah login dan mencentang checkbox
-                    if (checkbox.checked) {
-                    download.disabled = false; // aktifkan tombol download
-                    } else {
-                    download.disabled = true; // nonaktifkan kalau belum dicentang
-                    }
+        //             // Jika sudah login dan mencentang checkbox
+        //             if (checkbox.checked) {
+        //             download.disabled = false; // aktifkan tombol download
+        //             } else {
+        //             download.disabled = true; // nonaktifkan kalau belum dicentang
+        //             }
 
-                } else {
-                    // console.log("❌ User belum login");
-                    checkbox.checked = false; // batalkan centang
-                    download.disabled = true; // pastikan tombol tetap tidak aktif
-                    const modal = document.getElementById("loginCheck");
-                    modal.style.display = "block";
+        //         } else {
+        //             // console.log("❌ User belum login");
+        //             checkbox.checked = false; // batalkan centang
+        //             download.disabled = true; // pastikan tombol tetap tidak aktif
+        //             const modal = document.getElementById("loginCheck");
+        //             modal.style.display = "block";
 
-                    // Tutup otomatis setelah 5 detik
-                    setTimeout(() => {
-                    modal.style.display = "none";
-                    }, 5000);
-                }
-                })
-                .catch(error => {
-                console.error("Error saat memeriksa login:", error);
-                download.disabled = true; // jika error, tetap nonaktif
-            });
-        }
+        //             // Tutup otomatis setelah 5 detik
+        //             setTimeout(() => {
+        //             modal.style.display = "none";
+        //             }, 5000);
+        //         }
+        //         })
+        //         .catch(error => {
+        //         console.error("Error saat memeriksa login:", error);
+        //         download.disabled = true; // jika error, tetap nonaktif
+        //     });
+        // }
     </script>
     <div id="loginCheck" class="modalanLogin">
 
