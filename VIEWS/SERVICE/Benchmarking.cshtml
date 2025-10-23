@@ -260,7 +260,7 @@
                         </div>
                         <div class="col-md-8 mb-3 d-flex justify-content-start">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="term">
+                                <input class="form-check-input" type="checkbox" value="" id="term" onchange="check()">
                                 <label class="form-check-label" for="term" style="font-size: 11px">
                                     Dengan ini saya menyetujui sesuai dengan <b style="font-weight: 900;">Syarat & Ketentuan</b> dari Central Data Access.
                                 </label>
@@ -463,6 +463,17 @@
         //         download.disabled = true; // jika error, tetap nonaktif
         //     });
         // }
+        function check() {
+  let checkbox = document.getElementById("term");
+  let download = document.getElementById("btnDownload");
+
+  // Jika checkbox dicentang → aktifkan tombol
+  if (checkbox.checked) {
+    download.disabled = false;
+  } else {
+    download.disabled = true;
+  }
+}
     </script>
     <div id="loginCheck" class="modalanLogin">
 
